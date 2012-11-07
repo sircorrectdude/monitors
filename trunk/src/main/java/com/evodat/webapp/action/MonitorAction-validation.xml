@@ -1,0 +1,14 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0//EN" 
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd">
+<validators>
+    <field name="monitor.ipAddress">
+        <field-validator type="required">
+            <message>IP Address is a required field.</message>
+        </field-validator>
+    </field>
+    <field name="monitor.alias">
+        <field-validator type="required">
+            <message>Alias is a required field.</message>
+        </field-validator>
+    </field>	
+</validators>
