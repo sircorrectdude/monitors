@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+       default-lazy-init="true">
+
+    <bean id="adminInterceptor" class="com.evodat.webapp.interceptor.UserRoleAuthorizationInterceptor">
+        <property name="authorizedRoles" value="ROLE_ADMIN"/>
+    </bean>
+    
+    <bean id="signupAction" class="com.evodat.webapp.action.SignupAction" scope="prototype">
+        <property name="userManager" ref="userManager"/>
+        <property name="roleManager" ref="roleManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="mailMessage" ref="mailMessage"/>
+        <property name="templateName" value="accountCreated.vm"/>
+    </bean>
+    
+    <bean id="userAction" class="com.evodat.webapp.action.UserAction" scope="prototype">
+        <property name="userManager" ref="userManager"/>
+        <property name="roleManager" ref="roleManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="mailMessage" ref="mailMessage"/>
+        <property name="templateName" value="accountCreated.vm"/>
+    </bean>
+    
+    <bean id="passwordHintAction" class="com.evodat.webapp.action.PasswordHintAction" scope="prototype">
+        <property name="userManager" ref="userManager"/>
+        <property name="mailEngine" ref="mailEngine"/>
+        <property name="mailMessage" ref="mailMessage"/>
+    </bean>
+
+    <bean id="monitorAction" class="com.evodat.webapp.action.MonitorAction" scope="prototype">
+		<property name="monitorManager" ref="monitorManager"/>
+		<property name="courseManager" ref="courseManager"/>
+    </bean>
+
+    <bean id="templateAction" class="com.evodat.webapp.action.TemplateAction" scope="prototype">
+		<property name="templateManager" ref="templateManager"/>
+    </bean>
+
+    <bean id="courseAction" class="com.evodat.webapp.action.CourseAction" scope="prototype">
+		<property name="courseManager" ref="courseManager"/>
+    </bean>
+
+    <bean id="jCalendarAction" class="com.evodat.webapp.action.JCalendarAction" scope="prototype">
+		<property name="jCalendarManager" ref="jCalendarManager"/>
+    </bean>
+    <bean id="roomAction" class="com.evodat.webapp.action.RoomAction" scope="prototype">
+    	<property name="monitorManager" ref="monitorManager"/>
+		<property name="jCalendarManager" ref="jCalendarManager"/>
+    </bean>
+    	
+	<bean id="screenAction" class="com.evodat.webapp.action.ScreenAction" scope="prototype">
+		<property name="screenManager" ref="screenManager"/>
+		<property name="templateManager" ref="templateManager"/>
+		<property name="courseManager" ref="courseManager"/>
+    </bean>
+	
+</beans>

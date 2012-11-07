@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MenuConfig>
+    <Displayers>
+        <Displayer name="Velocity" type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+    </Displayers>
+    <Menus>
+        <Menu name="MainMenu" title="mainMenu.title" page="/mainMenu.html" roles="ROLE_ADMIN,ROLE_USER"/>
+			<Menu name="MonitorMenu" title="monitorMenu.title" page="/monitors.html" roles="ROLE_ADMIN,ROLE_USER">
+			<Item name="Courses" title="menu.courses" page="/courses.html"/>
+			<Item name="Templates" title="menu.templates" page="/templates.html"/>
+			<Item name="AddMonitor" title="menu.addmonitor" page="/editMonitor.html"/>
+			<Item name="AddCourse" title="menu.addcourse" page="/editCourse.html"/>
+			<Item name="AddTemplate" title="menu.addtemplate" page="/editTemplate.html"/>
+			<Item name="Calendar" title="menu.calendar" page="/calendar.html"/>
+			</Menu>
+        <Menu name="UserMenu" title="menu.user" description="User Menu" page="/editProfile.html" roles="ROLE_ADMIN,ROLE_USER"/>
+        <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="ROLE_ADMIN" width="120" page="/admin/users.html">
+            <Item name="ViewUsers" title="menu.admin.users" page="/admin/users.html"/>
+            <Item name="ActiveUsers" title="mainMenu.activeUsers" page="/admin/activeUsers.html"/>
+            <Item name="ReloadContext" title="menu.admin.reload" page="/admin/reload.html"/>
+        </Menu>
+        <Menu name="Logout" title="user.logout" page="/logout.jsp" roles="ROLE_ADMIN,ROLE_USER"/>
+    </Menus>
+</MenuConfig>

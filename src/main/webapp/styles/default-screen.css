@@ -1,0 +1,38 @@
+#mainTable, .report{
+	font:18px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	width:100%;
+}
+#header{
+	font:30px Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	width:100%;
+}
+.og7{
+	 background-image: url(7og.jpg);
+	 background-repeat:no-repeat;
+	 background-color:transparent;
+	 background-position:150px 8px;
+	 padding-left:60px;
+}
+.og1{
+	 background-image: url(7og.jpg);
+	 background-repeat:no-repeat;
+	 background-color:transparent;
+	 background-position:150px 8px;
+	 padding-left:60px;	
+}
+.dolomit{
+	 background-image: url(dolomit.png);
+	 background-repeat:no-repeat;
+	 background-color:transparent;
+	 background-position:100px 12px;
+	 padding-left:0px;	
+}
+.ug{
+	 background-image: url(ug.jpg);
+	 background-repeat:no-repeat;
+	 background-color:transparent;
+	 background-position:150px 14px;
+	 padding-left:60px;
+}
