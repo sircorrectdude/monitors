@@ -38,6 +38,6 @@ $(document).ready(function() {
 	});
 });
 	
-    Form.focusFirstElement($('uploadForm'));
+   // Form.focusFirstElement($('uploadForm'));
 </script>
 
