@@ -20,8 +20,12 @@ jQuery(document).ready(function () {
 	            		if($.cookie('switchAdToggle') == 0){
 	            			$('body').css("color", "#043A80").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
 	            			$.cookie('switchAdToggle', 1);
-	            		}else{
+	            		}else if($.cookie('switchAdToggle') == 1){
 	            			$('body').css("color", "#043A80").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
+	            			$.cookie('switchAdToggle', 2);
+	            		}
+	            		else{
+	            			$('body').css("color", "#043A80").css("background","url('images/Monitor-Lobby_Eisstockbahn.jpg')").css("height", "1920px").css("width", "1080px");
 	            			$.cookie('switchAdToggle', 0);
 	            		}
 	            	}else{
