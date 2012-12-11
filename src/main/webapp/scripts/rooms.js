@@ -15,7 +15,7 @@ jQuery(document).ready(function () {
 	            			$('<table>').attr("id", "mainTable")
 	            	);
 	            	
-	            	if(data.calendars.length === 0){
+	            	if(data.calendars == null || data.calendars.length === 0){
 	            		//alert($.cookie('switchToggle'))
 	            		if($.cookie('switchAdToggle') == 0){
 	            			$('body').css("color", "#043A80").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
