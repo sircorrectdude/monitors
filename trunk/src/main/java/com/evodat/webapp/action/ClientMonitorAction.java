@@ -24,7 +24,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 	private static final long serialVersionUID = 2591031598410000233L;
 
-	public static final int DEFAULT_REFRESH = 30;
+	public static final int DEFAULT_REFRESH = 60;
 	// Screen Options
 	public final String backgroundColor = "#b3d2de";
 
@@ -72,12 +72,15 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 		lastPageUpdateCookie.setPath("/");
 		Cookie lastScreenIdCookie = new Cookie("lastScreenIdCookie", "");
 		lastScreenIdCookie.setPath("/");
-		for (Cookie c : servletRequest.getCookies()) {
-			if (c.getName().equals("lastPageUpdateCookie")) {
-				lastPageUpdateCookie = c;
-			}
-			if (c.getName().equals("lastScreenIdCookie")) {
-				lastScreenIdCookie = c;
+		Cookie[] cookies = servletRequest.getCookies();
+		if (cookies != null) {
+			for (Cookie c : cookies) {
+				if (c.getName().equals("lastPageUpdateCookie")) {
+					lastPageUpdateCookie = c;
+				}
+				if (c.getName().equals("lastScreenIdCookie")) {
+					lastScreenIdCookie = c;
+				}
 			}
 		}
 		Monitor monitor = null;
