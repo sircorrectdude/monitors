@@ -20,7 +20,7 @@ $(document).ready(function() {
 			  $("#counter").flipCounter("startAnimation",{
 				number:$recent_likes, 
 				end_number: $start_likes, 
-				duration: 2000, 
+				duration: 500, 
 				imagePath:"images/templates/likescreen/flipCounter-medium.png",
 				digitHeight:80,
 				digitWidth:60, 
