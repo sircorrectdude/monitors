@@ -5,9 +5,9 @@ $(document).ready(function() {
 	$(document).everyTime('600s', 'reloadPage', reloadPage, 0, true);
 	
 	//$('body').css("background-color", "transparent")
-	$('body').css("background-image", "url(images/templates/likescreen/Monitor-Lobby_Likescreen-301112.png)")
+	$('body').css("background-image", "url(images/templates/likescreen/Monitor-Lobby_Likescreen-131212.png)")
 	$("<div/>", {"id": "counter"}).appendTo('body');
-	$("#counter").css("padding", "350px 0px 0px 1350px")
+	$("#counter").css("padding", "250px 0px 0px 1050px")
 /*	$recent_likes=1;
 	$start_likes=0;
 	var getLikes = function() {
@@ -44,9 +44,9 @@ $(document).ready(function() {
 			  //$('#likesCountWrapper').attr("value",json.likes);
 			  $("#counter").flipCounter({
 				number:$start_likes, 
-				imagePath:"images/templates/likescreen/flipCounter-medium.png",
-				digitHeight:80,
-				digitWidth:60, 
+				imagePath:"images/templates/likescreen/Like-Zahlen.png",
+				digitHeight:160,
+				digitWidth:114, 
 				formatNumberOptions:{
 					format:"###,###,###",
 					locale:"de"
