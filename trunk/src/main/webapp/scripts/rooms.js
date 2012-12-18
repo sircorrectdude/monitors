@@ -18,26 +18,28 @@ jQuery(document).ready(function () {
 	            	if(data.calendars == null || data.calendars.length === 0){
 	            		//alert($.cookie('switchToggle'))
 	            		if($.cookie('switchAdToggle') == 0){
-	            			$('body').css("color", "#043A80").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
+	            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
 	            			$.cookie('switchAdToggle', 1);
 	            		}else if($.cookie('switchAdToggle') == 1){
-	            			$('body').css("color", "#043A80").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
+	            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
 	            			$.cookie('switchAdToggle', 2);
 	            		}
 	            		else{
-	            			$('body').css("color", "#043A80").css("background","url('images/Monitor-Lobby_Eisstockbahn.jpg')").css("height", "1920px").css("width", "1080px");
+	            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Eisstockbahn.jpg')").css("height", "1920px").css("width", "1080px");
 	            			$.cookie('switchAdToggle', 0);
 	            		}
 	            	}else{
 	            		//if($.cookie('switchDirectionsToggle') == 0){
-		            		$('#header').css("color", "#fff").css("height","315px").css("width", "1080px");
+		            		$('#header').css("color", "#fff").css("height","322px").css("width", "1080px");
 		            		$('#header').append(
-		            				$('<div>').css("font-size", "45px").css("padding-top", "100px").css("text-align", "center").append(data.today)
+		            				$('<div>').css("font-size", "45px").css("padding-top", "60px").css("text-align", "center").append(data.today)
 		            		)
 		            		$('#header').append(
 		            				$('<div>').css("font-size", "40px").css("padding-top", "30px").css("text-align", "center").append(data.today_en)
 		            		)	            				
-		            		$('body').css("color", "#043A80").css("background","url('images/templates/rooms/Cristal-Monitor.jpg')").css("height", "1920px").css("width", "1080px")
+		            		$('body').css("color", "#707173")
+		            		//.css("text-shadow", "1px 1px #333333")
+		            		.css("background","url('images/templates/rooms/Cristal-Monitor.jpg')").css("height", "1920px").css("width", "1080px")
 		            	
 		            	
 		            	$.each(data.calendars, function(i, element){
@@ -46,32 +48,35 @@ jQuery(document).ready(function () {
 		            		if(element.roomLocation === "DOLOMIT") text=""
 		            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed")
 							.append(
-								$('<tr>').css("height", "140px")
+								$('<tr>').css("height", "136px")
 									.append(
-										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").append(
+										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "210px").append(
 												element.roomName
 										)	
 									)
 									.append(
-										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent")
+										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "300px")
 										.append(
-											$('<div>').css("max-height", "110px").css("padding-top", "10px").css("max-width", "360px").css("text-overflow", "ellipsis").css("overflow", "hidden")
+											$('<div>').css("max-height", "110px").css("padding-top", "10px").css("text-overflow", "ellipsis").css("overflow", "hidden")
 												.append(
 														element.company
 												)
 											)
 									)								
 									.append(
-										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("min-width", "250px").append(
-												element.dateString
-										).append("<br>").append(
-												element.startString
-										).append(" - ").append(
-												element.endString
+										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "120px")
+										//.append(element.dateString)
+										//.append("<br>")
+										.append($('<div>')
+											.append(
+													element.startString
+											).append(" - ").append(
+													element.endString
+											)
 										)
 									)
 									.append(
-										$('<td>').css("width", "270px").attr("class", getRoomLocationCssName(element.roomLocation)).append(
+										$('<td>').css("width", "170px").attr("class", getRoomLocationCssName(element.roomLocation)).append(
 												text
 										)	
 									)								
@@ -81,7 +86,7 @@ jQuery(document).ready(function () {
 		            		$('#mainTable').append(
 								$('<tr>').css("border-bottom", "20px solid #transparent")
 									.append(
-										$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "140px").css("text-align","center").css("width", "230px").append(
+										$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "136px").css("text-align","center").css("width", "230px").append(
 												element.name
 										)	
 									)
@@ -92,6 +97,7 @@ jQuery(document).ready(function () {
 							);
 		            	});
 		            	$.cookie('switchDirectionsToggle', 1);
+		            	weather();
             		//}else{
             		//	$('body').css("color", "#043A80").css("background","url('images/Monitor-Lobby_Wegbeschreibung-Tagungsraeume.jpg')").css("height", "1920px").css("width", "1080px");
             		//	$.cookie('switchDirectionsToggle', 0);
@@ -107,6 +113,58 @@ jQuery(document).ready(function () {
 		if(str == "UG") return "ug";
 		return "";
 	}
+	
+	
+	function weather(){
+	    $.getJSON(
+	            'openweather?days=3',
+	            function( data )
+	            {
+	
+	        		$('body').append(
+		        				$('<table>').attr("id", "weatherTable").css("position", "absolute").css("top", "1560px").css("width", "1020px").css("font", "bold 22px Helvetica,sans-serif")
+	        		);
+	        		$('#weatherTable').append(
+							$('<tr>').attr("id", "weatherTableLine").css("height", "136px")
+					);
+	        		$.each(data.days, function(i, element){
+						/*$.table
+						.append(
+								$('<tr>').css("background", "none repeat scroll 0 0 transparent")
+								.append(
+										$('<td>').css("background", "none repeat scroll 0 0 transparent").css('text-align','left').attr("colspan","6").append(element.name+ " "+element.dateString)
+								)
+		            	);
+		            	*/
+
+	        			$('#weatherTableLine').append(
+									$('<td>').css("height", "136px").css("width", "360px").css("padding-left", "60px").css("background", "none repeat scroll 0 0 transparent")
+										.append($('<div>').css("padding-bottom", "10px").append(element.name+ " "+element.dateString))
+										.append($('<div>').css("float", "left").append($('<img>').attr('src', "images/Wetter-Icons_181212/"+element.midayImg+".jpg")))
+										.append($('<div>').css("padding-left", "120px").append(element.miday+" °C / ").append(element.midayF+" °F "))
+										.append($('<div>').css("padding-left", "120px").append(element.midayPc+"%"))
+									/*	.append(
+												$('<td>').css("background", "none repeat scroll 0 0 transparent").append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/"+element.midayImg+".jpg"))
+										)						
+										.append(
+												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.miday+" °C / ").append(element.midayF+" °F ")
+										)
+										.append(
+												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.midayPc+"%")
+										)
+										.append(
+												$('<td>').css("background", "none repeat scroll 0 0 transparent").append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/Windpfeil-"+element.midayWd_txt+".png"))
+										)
+										.append(
+												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.midayWs).append(' km/h')
+										)
+										
+										*/
+			            	);
+	        		});
+					
+	            })
+		}	
 	
 	rooms();	
 	
