@@ -46,9 +46,9 @@ jQuery(document).ready(function () {
 		            		var text = element.roomLocation;
 		            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
 		            		if(element.roomLocation === "DOLOMIT") text=""
-		            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed")
+		            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
 							.append(
-								$('<tr>').css("height", "136px")
+								$('<tr>').css("height", "136px").attr("height", "136")
 									.append(
 										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "210px").append(
 												element.roomName
@@ -84,7 +84,7 @@ jQuery(document).ready(function () {
 		            	});
 		            	$.each(data.emptyRooms, function(i, element){
 		            		$('#mainTable').append(
-								$('<tr>').css("border-bottom", "20px solid #transparent")
+								$('<tr>').css("border-bottom", "20px solid #transparent").css("height", "136px").attr("height", "136px")
 									.append(
 										$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "136px").css("text-align","center").css("width", "230px").append(
 												element.name
