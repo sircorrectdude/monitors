@@ -24,9 +24,9 @@ public class RoomAction extends BaseAction implements ServletRequestAware, Prepa
 	private String roomName;
 	
 	public void prepare() throws Exception {
-//		remoteAddr = getRequest().getRemoteAddr();
-//		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
-//				+ getRequest().getMethod());
+		remoteAddr = getRequest().getRemoteAddr();
+		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
+				+ getRequest().getMethod());
 
 	}
 	@Override
