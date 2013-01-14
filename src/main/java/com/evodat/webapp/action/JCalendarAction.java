@@ -92,7 +92,24 @@ public class JCalendarAction extends BaseAction {
 					jCalendar.setColor(room);
 					addEvent(events, jCalendar);
 
-				} else {
+				}
+				else if (jCalendar.getColor().getId().equals(Room.CARAT_JUWEL)) {
+
+					Room room = new Room();
+					room.setName("CARAT");
+					room.setId(Room.CARAT);
+					room.setLocation("7. OG");
+					jCalendar.setColor(room);
+					addEvent(events, jCalendar);
+
+					room.setName("JUWEL");
+					room.setId(Room.JUWEL);
+					jCalendar.setColor(room);
+					addEvent(events, jCalendar);
+
+				}				
+				
+				else {
 					// RoomParameter for Dolomit
 					if (!getRooms().equals(Room.RUBIN_1_2)) {
 						addEvent(events, jCalendar);

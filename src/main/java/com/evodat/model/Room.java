@@ -17,6 +17,8 @@ public class Room {
 	public static final String RUBIN_2 = "6";
 //	public static final String DIAMANT_1_2 = "10";
 	public static final String CARAT_JUWEL = "7";
+	public static final String JUWEL = "8";
+	public static final String CARAT = "9";
 	private String id;
 	private String name;
 	private String location;
