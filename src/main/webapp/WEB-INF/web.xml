@@ -209,6 +209,12 @@
     </servlet>
 
     <servlet>
+        <servlet-name>AccuWeatherProxy</servlet-name>
+        <servlet-class>com.evodat.webapp.util.AccuWeatherProxy</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
         <servlet-name>Openweather</servlet-name>
         <servlet-class>com.evodat.webapp.util.OpenWeatherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -233,6 +239,11 @@
     <servlet-mapping>
         <servlet-name>Openweather</servlet-name>
         <url-pattern>/openweather/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AccuWeatherProxy</servlet-name>
+        <url-pattern>/accuweatherproxy/*</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
