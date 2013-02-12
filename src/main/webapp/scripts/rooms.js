@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
 	            	if(data.calendars == null || data.calendars.length === 0){
 	            		//alert($.cookie('switchToggle'))
 	            		if($.cookie('switchAdToggle') == 0){
-	            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
+	            			$('body').css("color", "#707173").css("background","url('images/1912-Valentinstag-Menue_060213.gif')").css("height", "1920px").css("width", "1080px");
 	            			$.cookie('switchAdToggle', 1);
 	            		}else if($.cookie('switchAdToggle') == 1){
 	            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
