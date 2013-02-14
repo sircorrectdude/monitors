@@ -483,7 +483,7 @@ public class TrafficServlet extends HttpServlet {
 		trafficInfoDTO.setTime(new SimpleDateFormat("HH:mm", Locale.GERMAN)
 				.format(new Date().getTime()
 				//Somerzeit Bug?
-				+ 1000 * 60 * 60
+				//+ 1000 * 60 * 60
 				));
 
 		XStream xstreamOut = new XStream(new JsonHierarchicalStreamDriver() {
