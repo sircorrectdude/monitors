@@ -1,5 +1,6 @@
 package com.evodat.webapp.action;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,7 +10,6 @@ import java.util.Locale;
 import com.evodat.model.JCalendar;
 import com.evodat.model.Room;
 import com.evodat.webapp.model.Event;
-import com.ibm.icu.text.SimpleDateFormat;
 
 public class JCalendarAction extends BaseAction {
 
