@@ -193,7 +193,7 @@ public class TrafficServlet extends HttpServlet {
 							if ("100".equals(mvg.getTrain())) {
 								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/S-100.gif");
 							} else if ("58".equals(mvg.getTrain())) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif");
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/B-58.gif");
 							} else {
 								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ "T-" + mvg.getTrain() + ".gif");
@@ -447,7 +447,7 @@ public class TrafficServlet extends HttpServlet {
 
 		for (Object object : allObjects) {
 			TrafficInfo trafficInfo = (TrafficInfo) object;
-			logger.info(trafficInfo);
+			logger.debug(trafficInfo);
 		}
 		//		List<Object> obj = new ArrayList<Object>(allObjects);
 		//		//Format time for view
