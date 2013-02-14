@@ -330,14 +330,14 @@
         </testResources>
     </build>
 
-    <repositories>
+<!--     <repositories>
        <repository>
         <id>remus</id>
         <name>remus-releases</name>
         <url>http://remus.evodat.net:8081/artifactory/libs-release-local</url>
     </repository>   
     </repositories>
-
+ -->
     <pluginRepositories>
         <pluginRepository>
             <id>appfuse-snapshots</id>
