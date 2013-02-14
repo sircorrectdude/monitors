@@ -272,7 +272,7 @@ public class TrafficServlet extends HttpServlet {
 			Calendar calendar = Calendar.getInstance();
 
 			//Sommerzeit Bug??
-			calendar.add(Calendar.MINUTE, 60);
+			//calendar.add(Calendar.MINUTE, 60);
 
 			int hour = calendar.get(Calendar.HOUR_OF_DAY);
 			//			logger.info(hour);
@@ -470,7 +470,7 @@ public class TrafficServlet extends HttpServlet {
 						Locale.GERMAN).format(new Date(trafficInfo.getTime()
 						.getTime()
 				//Somerzeit Bug?
-				+ 1000 * 60 * 60
+				//+ 1000 * 60 * 60
 						)));
 				//						obj.add(trafficInfo);
 			}
