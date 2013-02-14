@@ -352,13 +352,17 @@
     </pluginRepositories>
 
     <!-- Dependencies calculated by AppFuse when running full-source plugin -->
-    <!-- Dependencies calculated by AppFuse when running full-source plugin -->
     <dependencies>
 		<dependency>
 			<groupId>com.picotel</groupId>
 			<artifactId>spider</artifactId>
 			<version>0.0.1</version>
-		</dependency>    
+		</dependency>
+		<dependency>
+		    <groupId>net.sf.jtidy</groupId>
+		    <artifactId>jtidy</artifactId>
+		    <version>r938</version>
+		</dependency>			    
         <dependency>
             <groupId>${jdbc.groupId}</groupId>
             <artifactId>${jdbc.artifactId}</artifactId>
