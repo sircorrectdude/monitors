@@ -24,7 +24,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 	private static final long serialVersionUID = 2591031598410000233L;
 
-	public static final int DEFAULT_REFRESH = 60;
+	public static final int DEFAULT_REFRESH = 360;
 	// Screen Options
 	public final String backgroundColor = "#b3d2de";
 
