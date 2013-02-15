@@ -93,6 +93,6 @@ jQuery(document).ready(function () {
 	            });		
 	}
 	trafficdb();
-	$.refreshId = setInterval(trafficdb, 30000);
+	$.refreshId = setInterval(trafficdb, 120000);
             
 });

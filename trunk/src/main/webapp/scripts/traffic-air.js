@@ -141,6 +141,6 @@ jQuery(document).ready(function () {
 	            });		
 	}
 	trafficair();
-	$.refreshId = setInterval(trafficair, 10000);
+	//$.refreshId = setInterval(trafficair, 10000);
             
 });
