@@ -4,7 +4,7 @@ var all_script = document.createElement('script');
   document.body.appendChild(all_script);
 jQuery(document).ready(function () {
 	
-	function traffic(){
+	function trafficdb(){
 	    $.getJSON(
 	            'traffic?db=true',
 	            function( data )
@@ -92,7 +92,7 @@ jQuery(document).ready(function () {
 					 tablecloth();
 	            });		
 	}
-	traffic();
-	$.refreshId = setInterval(traffic, 10000);
+	trafficdb();
+	$.refreshId = setInterval(trafficdb, 30000);
             
 });

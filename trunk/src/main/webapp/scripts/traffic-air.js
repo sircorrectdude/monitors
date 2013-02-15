@@ -42,7 +42,7 @@ var all_script = document.createElement('script');
 	}
 jQuery(document).ready(function () {
 	
-	function traffic(){
+	function trafficair(){
 	    $.getJSON(
 	            'traffic?air=true',
 	            function( data )
@@ -140,7 +140,7 @@ jQuery(document).ready(function () {
 					 });
 	            });		
 	}
-	traffic();
-	//$.refreshId = setInterval(traffic, 10000);
+	trafficair();
+	$.refreshId = setInterval(trafficair, 10000);
             
 });
