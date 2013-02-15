@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.evodat.util.TimeoutMap;
 import com.picotel.spider.SpiderProcessor;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
@@ -30,6 +31,16 @@ public class TrafficServlet extends HttpServlet {
 	private static final long serialVersionUID = -1932551800499400790L;
 	private static Logger logger = Logger.getLogger(TrafficServlet.class);
 
+	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_AIR = new TimeoutMap<String, List<Object>>(
+			1000 * 5); // 5 min
+
+	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_DB = new TimeoutMap<String, List<Object>>(
+			1000 * 3); // 3 min
+
+
+	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_MVG = new TimeoutMap<String, List<Object>>(
+			1000 * 1); // 1 min
+	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -39,6 +50,7 @@ public class TrafficServlet extends HttpServlet {
 		Date date = new Date();
 		//DBahn
 		if (req.getParameter("db") != null) {
+			if (TRAFFIC_CACHE_DB.get("TRAFFIC_CACHE_DB") == null) {
 			Map<String, String> params = new HashMap<String, String>();
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
 					"EE, dd.MM.yy", Locale.GERMAN);
@@ -87,12 +99,18 @@ public class TrafficServlet extends HttpServlet {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			TRAFFIC_CACHE_DB.put("TRAFFIC_CACHE_DB", allObjects);
+			
+			} else {
+				allObjects = TRAFFIC_CACHE_DB.get("TRAFFIC_CACHE_DB");
+			}
+			
 		}
 		//
 
 		//Mvg
 		if (req.getParameter("mvg") != null) {
-
+			if (TRAFFIC_CACHE_MVG.get("TRAFFIC_CACHE_MVG") == null) {
 			// 1. HBF
 			Map<String, String> params = new HashMap<String, String>();
 			params = new HashMap<String, String>();
@@ -263,11 +281,18 @@ public class TrafficServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
+			TRAFFIC_CACHE_MVG.put("TRAFFIC_CACHE_MVG", allObjects);
+			
+			} else {
+				allObjects = TRAFFIC_CACHE_MVG.get("TRAFFIC_CACHE_MVG");
+			}
+			
 		}
 		//
 
 		//Airport
 		if (req.getParameter("air") != null) {
+			if (TRAFFIC_CACHE_AIR.get("TRAFFIC_CACHE_AIR") == null) {
 			String timeStr = "";
 			Calendar calendar = Calendar.getInstance();
 
@@ -355,7 +380,8 @@ public class TrafficServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			/* next page*/
+			/*
+			
 
 			spiderProcessor = new SpiderProcessor();
 			calendar.add(Calendar.MINUTE, 120);
@@ -397,7 +423,7 @@ public class TrafficServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			/* next page
+			 next page
 
 			spiderProcessor = new SpiderProcessor();
 			calendar.add(Calendar.MINUTE, 120);
@@ -439,12 +465,18 @@ public class TrafficServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			*/
-		}
 		//
+			
+			TRAFFIC_CACHE_AIR.put("TRAFFIC_CACHE_AIR", allObjects);
+			
+			} else {
+				allObjects = TRAFFIC_CACHE_AIR.get("TRAFFIC_CACHE_AIR");
+			}
+		}
 
+		
 		Collections.sort(allObjects);
 		Collections.reverse(allObjects);
-
 		for (Object object : allObjects) {
 			TrafficInfo trafficInfo = (TrafficInfo) object;
 			logger.debug(trafficInfo);
