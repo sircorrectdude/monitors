@@ -5,7 +5,7 @@ var all_script = document.createElement('script');
 					  
 jQuery(document).ready(function () {
 	
-	function traffic(){
+	function trafficmvg(){
 	    $.getJSON(
 	            'traffic?mvg=true',
 	            function( data )
@@ -85,7 +85,7 @@ jQuery(document).ready(function () {
 					  tablecloth();
 	            });
 	}
-	traffic();
-	$.refreshId = setInterval(traffic, 10000);
+	trafficmvg();
+	$.refreshId = setInterval(trafficmvg, 10000);
             
 });
