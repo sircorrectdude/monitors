@@ -1,0 +1,74 @@
+body {
+	font-family: sans-serif;
+	overflow: hidden;
+	margin: 0
+}
+
+#footer {
+	background-color: #ecedee;
+	height: 155px;
+	color:#868789;
+}
+
+#slideshow {
+	overflow: hidden;
+}
+
+#main {
+	width: 1920px;
+}
+
+.pics {
+	height: 925px;
+	width: 1920px;
+	padding: 0;
+	margin: 0;
+	overflow: hidden
+}
+
+.pics img {
+	height: 925px;
+	width: 1920px;
+	top: 0;
+	left: 0
+}
+
+.we {
+	width: 290px;
+	height: 155px;
+	background: url('/images/templates/welcome_slideshow/we_logo.png');
+	float: left;
+}
+
+.jahre_100 {
+	width: 346px;
+	height: 155px;
+	background: url('/images/templates/welcome_slideshow/jahre_100.png');
+	float: right;
+}
+
+.clock {
+	width: 80px;
+	height: 155px;
+	float: left;
+	margin-left: 20px;
+	padding-top: 30px;
+	padding-right: 150px;
+}
+
+.weather_today {
+	width: 370px;
+	height: 155px;
+	float: left;
+	margin-left: 230px;
+}
+
+.weather_tomorrow {
+	width: 370px;
+	height: 155px;
+	float: left;
+}
+
+#fb_counter{
+	position:absolute;
+}
