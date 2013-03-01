@@ -55,5 +55,8 @@
 		<property name="templateManager" ref="templateManager"/>
 		<property name="courseManager" ref="courseManager"/>
     </bean>
+
+    <bean id="cBookingAction" class="com.evodat.webapp.action.CBookingAction" scope="prototype">
+    </bean>
 	
 </beans>
