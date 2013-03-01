@@ -27,7 +27,7 @@ public class CBookingAction extends BaseAction {
 
 		String xmlString = Util.convertStreamToString(Util
 				.getPage(CBOOKING_API_URL));
-		logger.info(xmlString);
+		// logger.info(xmlString);
 
 		xstream.processAnnotations(CBooking.class);
 		cBooking = (CBooking) xstream.fromXML(xmlString);
