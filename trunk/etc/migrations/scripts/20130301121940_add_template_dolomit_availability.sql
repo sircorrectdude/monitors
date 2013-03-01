@@ -30,11 +30,11 @@ insert into template values(30,0,"Availability Dolomit","<html>\n
 insert into screen values(66,"",600,30);
 insert into course values(30,0,"Availability Dolomit");
 insert into course_screen values(30,66);
-insert into monitor values(1,"localhost", "192.168.1.13", 30);
+--insert into monitor values(1,"localhost", "192.168.1.13", 30);
 --//@UNDO
 -- SQL to undo the change goes here.
 delete from course_screen where screen_id=66;
-delete from monitor where id=1;
+--delete from monitor where id=1;
 delete from course where id=30;
 delete from screen where id=66;
 delete from template where id=30;
