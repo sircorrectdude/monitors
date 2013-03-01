@@ -170,7 +170,7 @@
          <action name="calendar" class="com.evodat.webapp.action.CalendarAction">
              <result name="success">/WEB-INF/pages/calendar.jsp</result>
         </action>
-        
+ 
         <!-- Add additional actions here -->
 
     </package>
@@ -182,7 +182,12 @@
         </action>
         <action name="runningEvent" class="roomAction">
         	<result type="json" />
+        </action> 
+        <action name="cBooking" class="cBookingAction">
+             <result type="json" />
         </action>        
+        
+               
 	 </package>
 
 	 <package name="ajax" extends="default" namespace="/ajax">
