@@ -11,7 +11,7 @@ jQuery(document).ready(function () {
 	            {
 	            	var limit=100;
 	            	$('body > *').remove();
-	        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background-color","#a1b6d1").append(
+	        	    $('body').css("font-family","arial,sans-serif").css("color","#707173").css("background-color","#ddf3f7").append(
 	        		    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","175px")
 	        		    	.append(
 	        		    			$('<span>').append(
@@ -27,7 +27,7 @@ jQuery(document).ready(function () {
 	        	    );		            	
 	        		$('body').append(
 	        				$('<div>').attr("id", "mainDiv").append(
-	        				$('<table>').attr("id", "mainTable").attr("style", "padding:10px;")
+	        				$('<table>').attr("id", "mainTable").attr("style", "padding:10px;").addClass("dolomit_table")
 	        				.append(
         						$('<tr>').css('text-align','left').css('padding-bottom','10px').append(
         								$('<th>').css("width","50px").append("&nbsp;")
@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
 	        		);
 	        	    $('body').append(
 	        		    	$('<div>').attr("id", "banner").css("position","absolute").css("bottom","0").addClass("bannerDiv").append(
-	        		    			$('<img>').css("border", "0px").attr("src", "images/templates/traffic/Dolomit-Monitor-Airport-Banner-1080x328.png")
+	        		    			$('<img>').css("border", "0px").attr("src", "images/templates/traffic/Dolomit-Monitor-Banner-1080x328.png")
 	        		    			)
 	        	    );		        		
 	        		var max=0;
