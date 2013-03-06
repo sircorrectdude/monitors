@@ -32,15 +32,14 @@ public class TrafficServlet extends HttpServlet {
 	private static Logger logger = Logger.getLogger(TrafficServlet.class);
 
 	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_AIR = new TimeoutMap<String, List<Object>>(
-			1000 * 5); // 5 min
+			1000 * 60 * 10); // 5 min
 
 	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_DB = new TimeoutMap<String, List<Object>>(
-			1000 * 3); // 3 min
-
+			1000 * 60 * 5); // 3 min
 
 	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_MVG = new TimeoutMap<String, List<Object>>(
-			1000 * 1); // 1 min
-	
+			1000 * 60 * 1); // 1 min
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -48,170 +47,205 @@ public class TrafficServlet extends HttpServlet {
 		List allObjects = new ArrayList();
 
 		Date date = new Date();
-		//DBahn
+		// DBahn
 		if (req.getParameter("db") != null) {
 			if (TRAFFIC_CACHE_DB.get("TRAFFIC_CACHE_DB") == null) {
-			Map<String, String> params = new HashMap<String, String>();
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
-					"EE, dd.MM.yy", Locale.GERMAN);
+				logger.info("Request DB");
+				Map<String, String> params = new HashMap<String, String>();
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+						"EE, dd.MM.yy", Locale.GERMAN);
 
-			SimpleDateFormat simpleDateFormatTime = new SimpleDateFormat(
-					"HH:mm", Locale.GERMAN);
+				SimpleDateFormat simpleDateFormatTime = new SimpleDateFormat(
+						"HH:mm", Locale.GERMAN);
 
-			params.put("GUIREQProduct_0", "on");
-			params.put("GUIREQProduct_1", "on");
-			params.put("GUIREQProduct_2", "on");
-			params.put("GUIREQProduct_3", "on");
-			//		toggle SBahn
-			//			params.put("GUIREQProduct_4", "on");
-			params.put("REQTrain_name", "");
-			params.put("advancedProductMode", "");
-			params.put("boardType", "dep");
-			String format = simpleDateFormat.format(date);
-			//			logger.info(format);
-			params.put("date", format);
-			params.put("input", "München Hbf");
-			params.put("start", "Suchen");
-			params.put("time", simpleDateFormatTime.format(date));
-			//			logger.info(simpleDateFormatTime.format(date));
-			SpiderProcessor spiderProcessor = new SpiderProcessor();
-			spiderProcessor.setParams(params);
-			spiderProcessor.setClassName(DBahn.class.getName());
-			try {
-				List<Object> objects = spiderProcessor.getObjects();
-				for (Object object : objects) {
-					DBahn dbahn = (DBahn) object;
-					if (dbahn.getImage() != null) {
-						dbahn.image = "" + dbahn.getImage();
-					}
-					if (dbahn.getTrain() != null) {
-						if (dbahn.getTrain().substring(0, 1).equals("S")) {
-							dbahn.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ dbahn.getTrain().replaceAll(" ", "") + ".gif");
+				params.put("GUIREQProduct_0", "on");
+				params.put("GUIREQProduct_1", "on");
+				params.put("GUIREQProduct_2", "on");
+				params.put("GUIREQProduct_3", "on");
+				// toggle SBahn
+				// params.put("GUIREQProduct_4", "on");
+				params.put("REQTrain_name", "");
+				params.put("advancedProductMode", "");
+				params.put("boardType", "dep");
+				String format = simpleDateFormat.format(date);
+				// logger.info(format);
+				params.put("date", format);
+				params.put("input", "München Hbf");
+				params.put("start", "Suchen");
+				params.put("time", simpleDateFormatTime.format(date));
+				// logger.info(simpleDateFormatTime.format(date));
+				SpiderProcessor spiderProcessor = new SpiderProcessor();
+				spiderProcessor.setParams(params);
+				spiderProcessor.setClassName(DBahn.class.getName());
+				try {
+					List<Object> objects = spiderProcessor.getObjects();
+					for (Object object : objects) {
+						DBahn dbahn = (DBahn) object;
+						if (dbahn.getImage() != null) {
+							dbahn.image = "" + dbahn.getImage();
+						}
+						if (dbahn.getTrain() != null) {
+							if (dbahn.getTrain().substring(0, 1).equals("S")) {
+								dbahn.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ dbahn.getTrain().replaceAll(" ", "") + ".gif");
+							}
 						}
 					}
+					allObjects.addAll(objects);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-				allObjects.addAll(objects);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			TRAFFIC_CACHE_DB.put("TRAFFIC_CACHE_DB", allObjects);
-			
+
+				// second time for next side
+				date = new Date(new Date().getTime() + 1000 * 60 * 60);
+				params = new HashMap<String, String>();
+
+				params.put("GUIREQProduct_0", "on");
+				params.put("GUIREQProduct_1", "on");
+				params.put("GUIREQProduct_2", "on");
+				params.put("GUIREQProduct_3", "on");
+				// toggle SBahn
+				// params.put("GUIREQProduct_4", "on");
+				params.put("REQTrain_name", "");
+				params.put("advancedProductMode", "");
+				params.put("boardType", "dep");
+				format = simpleDateFormat.format(date);
+				// logger.info(format);
+				params.put("date", format);
+				params.put("input", "München Hbf");
+				params.put("start", "Suchen");
+				params.put("time", simpleDateFormatTime.format(date));
+				// logger.info(simpleDateFormatTime.format(date));
+				spiderProcessor = new SpiderProcessor();
+				spiderProcessor.setParams(params);
+				spiderProcessor.setClassName(DBahn.class.getName());
+				try {
+					List<Object> objects = spiderProcessor.getObjects();
+					for (Object object : objects) {
+						DBahn dbahn = (DBahn) object;
+						if (dbahn.getImage() != null) {
+							dbahn.image = "" + dbahn.getImage();
+						}
+						if (dbahn.getTrain() != null) {
+							if (dbahn.getTrain().substring(0, 1).equals("S")) {
+								dbahn.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ dbahn.getTrain().replaceAll(" ", "") + ".gif");
+							}
+						}
+					}
+					allObjects.addAll(objects);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				// third time for next side
+				date = new Date(new Date().getTime() + 1000 * 60 * 120);
+				params = new HashMap<String, String>();
+
+				params.put("GUIREQProduct_0", "on");
+				params.put("GUIREQProduct_1", "on");
+				params.put("GUIREQProduct_2", "on");
+				params.put("GUIREQProduct_3", "on");
+				// toggle SBahn
+				// params.put("GUIREQProduct_4", "on");
+				params.put("REQTrain_name", "");
+				params.put("advancedProductMode", "");
+				params.put("boardType", "dep");
+				format = simpleDateFormat.format(date);
+				// logger.info(format);
+				params.put("date", format);
+				params.put("input", "München Hbf");
+				params.put("start", "Suchen");
+				params.put("time", simpleDateFormatTime.format(date));
+				// logger.info(simpleDateFormatTime.format(date));
+				spiderProcessor = new SpiderProcessor();
+				spiderProcessor.setParams(params);
+				spiderProcessor.setClassName(DBahn.class.getName());
+				try {
+					List<Object> objects = spiderProcessor.getObjects();
+					for (Object object : objects) {
+						DBahn dbahn = (DBahn) object;
+						if (dbahn.getImage() != null) {
+							dbahn.image = "" + dbahn.getImage();
+						}
+						if (dbahn.getTrain() != null) {
+							if (dbahn.getTrain().substring(0, 1).equals("S")) {
+								dbahn.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ dbahn.getTrain().replaceAll(" ", "") + ".gif");
+							}
+						}
+					}
+					allObjects.addAll(objects);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				TRAFFIC_CACHE_DB.put("TRAFFIC_CACHE_DB", allObjects);
+
 			} else {
+				logger.info("Getting DB from cache");
 				allObjects = TRAFFIC_CACHE_DB.get("TRAFFIC_CACHE_DB");
 			}
-			
+
 		}
 		//
 
-		//Mvg
+		// Mvg
 		if (req.getParameter("mvg") != null) {
 			if (TRAFFIC_CACHE_MVG.get("TRAFFIC_CACHE_MVG") == null) {
-			// 1. HBF
-			Map<String, String> params = new HashMap<String, String>();
-			params = new HashMap<String, String>();
-			String STATION = "hauptbahnhof";
-			params.put("haltestelle", STATION);
-			params.put("ubahn", "checked");
-			params.put("tram", "checked");
-			params.put("bus", "checked");
-			params.put("sbahn", "checked");
+				// 1. HBF
+				Map<String, String> params = new HashMap<String, String>();
+				params = new HashMap<String, String>();
+				String STATION = "hauptbahnhof";
+				params.put("haltestelle", STATION);
+				params.put("ubahn", "checked");
+				params.put("tram", "checked");
+				params.put("bus", "checked");
+				params.put("sbahn", "checked");
 
-			SpiderProcessor spiderProcessor = new SpiderProcessor();
-			spiderProcessor.setParams(params);
-			spiderProcessor.setClassName(Mvg.class.getName());
-			try {
-				List<Object> objects = spiderProcessor.getObjects();
-				for (Object object : objects) {
-					Mvg mvg = (Mvg) object;
-					mvg.setStation("Hauptbahnhof");
-					if (mvg.getTrain() != null) {
-						String firstLetter = mvg.getTrain().substring(0, 1);
-						if (firstLetter.equals("N")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ "-"
-									+ mvg.getTrain().substring(1) + ".gif");
-						} else if (firstLetter.equals("U")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ "-"
-									+ mvg.getTrain().substring(1) + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
-						} else if (firstLetter.equals("S")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ mvg.getTrain().substring(1,
-											mvg.getTrain().length()) + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
-						} else if (firstLetter.equals("M")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ "M-"
-									+ mvg.getTrain() + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
-						}
-						else {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ "T-" + mvg.getTrain() + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
-						}
-					}
-				}
-				allObjects.addAll(objects);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-			// HBF SÜD
-			params = new HashMap<String, String>();
-			STATION = "hauptbahnhof+nord";
-			params.put("haltestelle", STATION);
-			params.put("ubahn", "checked");
-			params.put("tram", "checked");
-			params.put("bus", "checked");
-			params.put("sbahn", "checked");
-
-			spiderProcessor = new SpiderProcessor();
-			spiderProcessor.setParams(params);
-			spiderProcessor.setClassName(Mvg.class.getName());
-			try {
-				List<Object> objects = spiderProcessor.getObjects();
-				for (Object object : objects) {
-					Mvg mvg = (Mvg) object;
-					mvg.setStation("Hauptbahnhof Nord");
-					if (mvg.getTrain() != null) {
-						String firstLetter = mvg.getTrain().substring(0, 1);
-						if (firstLetter.equals("N")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ "-"
-									+ mvg.getTrain().substring(1) + ".gif");
-						} else if (firstLetter.equals("U")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ "-"
-									+ mvg.getTrain().substring(1) + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
-						} else if (firstLetter.equals("S")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ mvg.getTrain().substring(1,
-											mvg.getTrain().length()) + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
-						} else {
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
-							if ("100".equals(mvg.getTrain())) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/S-100.gif");
-							} else if ("58".equals(mvg.getTrain())) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/B-58.gif");
+				SpiderProcessor spiderProcessor = new SpiderProcessor();
+				spiderProcessor.setParams(params);
+				spiderProcessor.setClassName(Mvg.class.getName());
+				try {
+					List<Object> objects = spiderProcessor.getObjects();
+					for (Object object : objects) {
+						Mvg mvg = (Mvg) object;
+						mvg.setStation("Hauptbahnhof");
+						if (mvg.getTrain() != null) {
+							String firstLetter = mvg.getTrain().substring(0, 1);
+							if (firstLetter.equals("N")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ "-"
+										+ mvg.getTrain().substring(1) + ".gif");
+							} else if (firstLetter.equals("U")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ "-"
+										+ mvg.getTrain().substring(1) + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+							} else if (firstLetter.equals("S")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ mvg.getTrain().substring(1,
+												mvg.getTrain().length()) + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							} else if (firstLetter.equals("M")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ "M-" + mvg.getTrain() + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
 							} else {
 								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ "T-" + mvg.getTrain() + ".gif");
@@ -219,292 +253,307 @@ public class TrafficServlet extends HttpServlet {
 							}
 						}
 					}
+					allObjects.addAll(objects);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-				allObjects.addAll(objects);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
-			// HBF NORD
-			params = new HashMap<String, String>();
-			STATION = "hauptbahnhof+s%FCd";
-			params.put("haltestelle", STATION);
-			params.put("ubahn", "checked");
-			params.put("tram", "checked");
-			params.put("bus", "checked");
-			params.put("sbahn", "checked");
+				// HBF SÜD
+				params = new HashMap<String, String>();
+				STATION = "hauptbahnhof+nord";
+				params.put("haltestelle", STATION);
+				params.put("ubahn", "checked");
+				params.put("tram", "checked");
+				params.put("bus", "checked");
+				params.put("sbahn", "checked");
 
-			spiderProcessor = new SpiderProcessor();
-			spiderProcessor.setParams(params);
-			spiderProcessor.setClassName(Mvg.class.getName());
-			try {
-				List<Object> objects = spiderProcessor.getObjects();
-				for (Object object : objects) {
-					Mvg mvg = (Mvg) object;
-					mvg.setStation("Hauptbahnhof Süd");
-					if (mvg.getTrain() != null) {
-						String firstLetter = mvg.getTrain().substring(0, 1);
-						if (firstLetter.equals("N")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ "-"
-									+ mvg.getTrain().substring(1) + ".gif");
-						} else if (firstLetter.equals("U")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ "-"
-									+ mvg.getTrain().substring(1) + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
-						} else if (firstLetter.equals("S")) {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ firstLetter
-									+ mvg.getTrain().substring(1,
-											mvg.getTrain().length()) + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
-						} else {
-							mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-									+ "T-" + mvg.getTrain() + ".gif");
-							mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+				spiderProcessor = new SpiderProcessor();
+				spiderProcessor.setParams(params);
+				spiderProcessor.setClassName(Mvg.class.getName());
+				try {
+					List<Object> objects = spiderProcessor.getObjects();
+					for (Object object : objects) {
+						Mvg mvg = (Mvg) object;
+						mvg.setStation("Hauptbahnhof Nord");
+						if (mvg.getTrain() != null) {
+							String firstLetter = mvg.getTrain().substring(0, 1);
+							if (firstLetter.equals("N")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ "-"
+										+ mvg.getTrain().substring(1) + ".gif");
+							} else if (firstLetter.equals("U")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ "-"
+										+ mvg.getTrain().substring(1) + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+							} else if (firstLetter.equals("S")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ mvg.getTrain().substring(1,
+												mvg.getTrain().length()) + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							} else {
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+								if ("100".equals(mvg.getTrain())) {
+									mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/S-100.gif");
+								} else if ("58".equals(mvg.getTrain())) {
+									mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/B-58.gif");
+								} else {
+									mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+											+ "T-" + mvg.getTrain() + ".gif");
+									mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+								}
+							}
 						}
 					}
+					allObjects.addAll(objects);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-				allObjects.addAll(objects);
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
-			TRAFFIC_CACHE_MVG.put("TRAFFIC_CACHE_MVG", allObjects);
-			
+				// HBF NORD
+				params = new HashMap<String, String>();
+				STATION = "hauptbahnhof+s%FCd";
+				params.put("haltestelle", STATION);
+				params.put("ubahn", "checked");
+				params.put("tram", "checked");
+				params.put("bus", "checked");
+				params.put("sbahn", "checked");
+
+				spiderProcessor = new SpiderProcessor();
+				spiderProcessor.setParams(params);
+				spiderProcessor.setClassName(Mvg.class.getName());
+				try {
+					List<Object> objects = spiderProcessor.getObjects();
+					for (Object object : objects) {
+						Mvg mvg = (Mvg) object;
+						mvg.setStation("Hauptbahnhof Süd");
+						if (mvg.getTrain() != null) {
+							String firstLetter = mvg.getTrain().substring(0, 1);
+							if (firstLetter.equals("N")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ "-"
+										+ mvg.getTrain().substring(1) + ".gif");
+							} else if (firstLetter.equals("U")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ "-"
+										+ mvg.getTrain().substring(1) + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+							} else if (firstLetter.equals("S")) {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ firstLetter
+										+ mvg.getTrain().substring(1,
+												mvg.getTrain().length()) + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							} else {
+								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+										+ "T-" + mvg.getTrain() + ".gif");
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+							}
+						}
+					}
+					allObjects.addAll(objects);
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				TRAFFIC_CACHE_MVG.put("TRAFFIC_CACHE_MVG", allObjects);
+
 			} else {
 				allObjects = TRAFFIC_CACHE_MVG.get("TRAFFIC_CACHE_MVG");
 			}
-			
+
 		}
 		//
 
-		//Airport
+		// Airport
 		if (req.getParameter("air") != null) {
 			if (TRAFFIC_CACHE_AIR.get("TRAFFIC_CACHE_AIR") == null) {
-			String timeStr = "";
-			Calendar calendar = Calendar.getInstance();
+				String timeStr = "";
+				Calendar calendar = Calendar.getInstance();
 
-			//Sommerzeit Bug??
-			//calendar.add(Calendar.MINUTE, 60);
+				// Sommerzeit Bug??
+				// calendar.add(Calendar.MINUTE, 60);
 
-			int hour = calendar.get(Calendar.HOUR_OF_DAY);
-			//			logger.info(hour);
-			if (hour < 6) {
-				timeStr = "00";
-			} else if (hour < 8) {
-				timeStr = "06";
-			} else if (hour < 10) {
-				timeStr = "08";
-			} else if (hour < 12) {
-				timeStr = "10";
-			} else if (hour < 14) {
-				timeStr = "12";
-			} else if (hour < 16) {
-				timeStr = "14";
-			} else if (hour < 18) {
-				timeStr = "16";
-			} else if (hour < 20) {
-				timeStr = "18";
-			} else if (hour < 22) {
-				timeStr = "20";
-			} else if (hour > 22) {
-				timeStr = "22";
-			}
-			logger.info(timeStr);
-			SpiderProcessor spiderProcessor = new SpiderProcessor();
-			spiderProcessor
-					.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-							+ timeStr + "00_de_S.jsp");
-			spiderProcessor.setClassName(MunichAirport.class.getName());
-			try {
-				allObjects.addAll(spiderProcessor.getObjects());
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+				int hour = calendar.get(Calendar.HOUR_OF_DAY);
+				// logger.info(hour);
+				if (hour < 6) {
+					timeStr = "00";
+				} else if (hour < 8) {
+					timeStr = "06";
+				} else if (hour < 10) {
+					timeStr = "08";
+				} else if (hour < 12) {
+					timeStr = "10";
+				} else if (hour < 14) {
+					timeStr = "12";
+				} else if (hour < 16) {
+					timeStr = "14";
+				} else if (hour < 18) {
+					timeStr = "16";
+				} else if (hour < 20) {
+					timeStr = "18";
+				} else if (hour < 22) {
+					timeStr = "20";
+				} else if (hour > 22) {
+					timeStr = "22";
+				}
+				logger.info(timeStr);
+				SpiderProcessor spiderProcessor = new SpiderProcessor();
+				spiderProcessor
+						.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
+								+ timeStr + "00_de_S.jsp");
+				spiderProcessor.setClassName(MunichAirport.class.getName());
+				try {
+					allObjects.addAll(spiderProcessor.getObjects());
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 
-			/* next page*/
+				/* next page */
 
-			spiderProcessor = new SpiderProcessor();
-			calendar.add(Calendar.MINUTE, 120);
-			hour = calendar.get(Calendar.HOUR_OF_DAY);
-			if (hour < 6) {
-				timeStr = "00";
-			} else if (hour < 8) {
-				timeStr = "06";
-			} else if (hour < 10) {
-				timeStr = "08";
-			} else if (hour < 12) {
-				timeStr = "10";
-			} else if (hour < 14) {
-				timeStr = "12";
-			} else if (hour < 16) {
-				timeStr = "14";
-			} else if (hour < 18) {
-				timeStr = "16";
-			} else if (hour < 20) {
-				timeStr = "18";
-			} else if (hour < 22) {
-				timeStr = "20";
-			} else if (hour > 22) {
-				timeStr = "22";
-			}
-			logger.info(timeStr);
-			spiderProcessor = new SpiderProcessor();
-			spiderProcessor
-					.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-							+ timeStr + "00_de_S.jsp");
-			spiderProcessor.setClassName(MunichAirport.class.getName());
-			try {
-				allObjects.addAll(spiderProcessor.getObjects());
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+				spiderProcessor = new SpiderProcessor();
+				calendar.add(Calendar.MINUTE, 120);
+				hour = calendar.get(Calendar.HOUR_OF_DAY);
+				if (hour < 6) {
+					timeStr = "00";
+				} else if (hour < 8) {
+					timeStr = "06";
+				} else if (hour < 10) {
+					timeStr = "08";
+				} else if (hour < 12) {
+					timeStr = "10";
+				} else if (hour < 14) {
+					timeStr = "12";
+				} else if (hour < 16) {
+					timeStr = "14";
+				} else if (hour < 18) {
+					timeStr = "16";
+				} else if (hour < 20) {
+					timeStr = "18";
+				} else if (hour < 22) {
+					timeStr = "20";
+				} else if (hour > 22) {
+					timeStr = "22";
+				}
+				logger.info(timeStr);
+				spiderProcessor = new SpiderProcessor();
+				spiderProcessor
+						.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
+								+ timeStr + "00_de_S.jsp");
+				spiderProcessor.setClassName(MunichAirport.class.getName());
+				try {
+					allObjects.addAll(spiderProcessor.getObjects());
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 
-			/*
-			
+				/*
+				 * 
+				 * 
+				 * spiderProcessor = new SpiderProcessor();
+				 * calendar.add(Calendar.MINUTE, 120); hour =
+				 * calendar.get(Calendar.HOUR_OF_DAY); if (hour < 6) { timeStr =
+				 * "00"; } else if (hour < 8) { timeStr = "06"; } else if (hour
+				 * < 10) { timeStr = "08"; } else if (hour < 12) { timeStr =
+				 * "10"; } else if (hour < 14) { timeStr = "12"; } else if (hour
+				 * < 16) { timeStr = "14"; } else if (hour < 18) { timeStr =
+				 * "16"; } else if (hour < 20) { timeStr = "18"; } else if (hour
+				 * < 22) { timeStr = "20"; } else if (hour > 22) { timeStr =
+				 * "22"; } logger.info(timeStr); spiderProcessor = new
+				 * SpiderProcessor(); spiderProcessor .setUrl(
+				 * "http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
+				 * + timeStr + "00_de_S.jsp");
+				 * spiderProcessor.setClassName(MunichAirport.class.getName());
+				 * try { allObjects.addAll(spiderProcessor.getObjects()); }
+				 * catch (IllegalStateException e) { e.printStackTrace(); }
+				 * catch (ClassNotFoundException e) { e.printStackTrace(); }
+				 * catch (IOException e) { e.printStackTrace(); }
+				 * 
+				 * next page
+				 * 
+				 * spiderProcessor = new SpiderProcessor();
+				 * calendar.add(Calendar.MINUTE, 120); hour =
+				 * calendar.get(Calendar.HOUR_OF_DAY); if (hour < 6) { timeStr =
+				 * "00"; } else if (hour < 8) { timeStr = "06"; } else if (hour
+				 * < 10) { timeStr = "08"; } else if (hour < 12) { timeStr =
+				 * "10"; } else if (hour < 14) { timeStr = "12"; } else if (hour
+				 * < 16) { timeStr = "14"; } else if (hour < 18) { timeStr =
+				 * "16"; } else if (hour < 20) { timeStr = "18"; } else if (hour
+				 * < 22) { timeStr = "20"; } else if (hour > 22) { timeStr =
+				 * "22"; } logger.info(timeStr); spiderProcessor = new
+				 * SpiderProcessor(); spiderProcessor .setUrl(
+				 * "http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
+				 * + timeStr + "00_de_S.jsp");
+				 * spiderProcessor.setClassName(MunichAirport.class.getName());
+				 * try { allObjects.addAll(spiderProcessor.getObjects()); }
+				 * catch (IllegalStateException e) { e.printStackTrace(); }
+				 * catch (ClassNotFoundException e) { e.printStackTrace(); }
+				 * catch (IOException e) { e.printStackTrace(); }
+				 */
+				//
 
-			spiderProcessor = new SpiderProcessor();
-			calendar.add(Calendar.MINUTE, 120);
-			hour = calendar.get(Calendar.HOUR_OF_DAY);
-			if (hour < 6) {
-				timeStr = "00";
-			} else if (hour < 8) {
-				timeStr = "06";
-			} else if (hour < 10) {
-				timeStr = "08";
-			} else if (hour < 12) {
-				timeStr = "10";
-			} else if (hour < 14) {
-				timeStr = "12";
-			} else if (hour < 16) {
-				timeStr = "14";
-			} else if (hour < 18) {
-				timeStr = "16";
-			} else if (hour < 20) {
-				timeStr = "18";
-			} else if (hour < 22) {
-				timeStr = "20";
-			} else if (hour > 22) {
-				timeStr = "22";
-			}
-			logger.info(timeStr);
-			spiderProcessor = new SpiderProcessor();
-			spiderProcessor
-					.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-							+ timeStr + "00_de_S.jsp");
-			spiderProcessor.setClassName(MunichAirport.class.getName());
-			try {
-				allObjects.addAll(spiderProcessor.getObjects());
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+				TRAFFIC_CACHE_AIR.put("TRAFFIC_CACHE_AIR", allObjects);
 
-			 next page
-
-			spiderProcessor = new SpiderProcessor();
-			calendar.add(Calendar.MINUTE, 120);
-			hour = calendar.get(Calendar.HOUR_OF_DAY);
-			if (hour < 6) {
-				timeStr = "00";
-			} else if (hour < 8) {
-				timeStr = "06";
-			} else if (hour < 10) {
-				timeStr = "08";
-			} else if (hour < 12) {
-				timeStr = "10";
-			} else if (hour < 14) {
-				timeStr = "12";
-			} else if (hour < 16) {
-				timeStr = "14";
-			} else if (hour < 18) {
-				timeStr = "16";
-			} else if (hour < 20) {
-				timeStr = "18";
-			} else if (hour < 22) {
-				timeStr = "20";
-			} else if (hour > 22) {
-				timeStr = "22";
-			}
-			logger.info(timeStr);
-			spiderProcessor = new SpiderProcessor();
-			spiderProcessor
-					.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-							+ timeStr + "00_de_S.jsp");
-			spiderProcessor.setClassName(MunichAirport.class.getName());
-			try {
-				allObjects.addAll(spiderProcessor.getObjects());
-			} catch (IllegalStateException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			*/
-		//
-			
-			TRAFFIC_CACHE_AIR.put("TRAFFIC_CACHE_AIR", allObjects);
-			
 			} else {
 				allObjects = TRAFFIC_CACHE_AIR.get("TRAFFIC_CACHE_AIR");
 			}
 		}
 
-		
 		Collections.sort(allObjects);
 		Collections.reverse(allObjects);
+		// for (Object object : allObjects) {
+		// TrafficInfo trafficInfo = (TrafficInfo) object;
+		// logger.debug(trafficInfo);
+		// }
+		// List<Object> obj = new ArrayList<Object>(allObjects);
+		// //Format time for view
 		for (Object object : allObjects) {
 			TrafficInfo trafficInfo = (TrafficInfo) object;
-			logger.debug(trafficInfo);
-		}
-		//		List<Object> obj = new ArrayList<Object>(allObjects);
-		//		//Format time for view
-		for (Object object : allObjects) {
-			TrafficInfo trafficInfo = (TrafficInfo) object;
-			//					if (trafficInfo.getTrain() == null
-			//							|| trafficInfo.getTrain().trim().equals("")) {
-			//						continue;
-			//					}
+			// if (trafficInfo.getTrain() == null
+			// || trafficInfo.getTrain().trim().equals("")) {
+			// continue;
+			// }
 			if (trafficInfo.getTime() != null) {
-				//				trafficInfo.timeShift = new SimpleDateFormat("m")
-				//						.format(new Date(trafficInfo.getTime().getTime() + 1000
-				//								* 60 * 60 - date.getTime()));
+				// trafficInfo.timeShift = new SimpleDateFormat("m")
+				// .format(new Date(trafficInfo.getTime().getTime() + 1000
+				// * 60 * 60 - date.getTime()));
 
 				trafficInfo.timeShift = String.valueOf(((trafficInfo.getTime()
 						.getTime()) - date.getTime()) / (1000 * 60));
 
-				//				logger.info(trafficInfo.timeShift);
+				// logger.info(trafficInfo.timeShift);
 				trafficInfo.setTimeString(new SimpleDateFormat("HH:mm",
 						Locale.GERMAN).format(new Date(trafficInfo.getTime()
 						.getTime()
-				//Somerzeit Bug?
-				//+ 1000 * 60 * 60
+				// Somerzeit Bug?
+				// + 1000 * 60 * 60
 						)));
-				//						obj.add(trafficInfo);
+				// obj.add(trafficInfo);
 			}
 
 		}
@@ -514,8 +563,8 @@ public class TrafficServlet extends HttpServlet {
 		trafficInfoDTO.setAllObjects(allObjects);
 		trafficInfoDTO.setTime(new SimpleDateFormat("HH:mm", Locale.GERMAN)
 				.format(new Date().getTime()
-				//Somerzeit Bug?
-				//+ 1000 * 60 * 60
+				// Somerzeit Bug?
+				// + 1000 * 60 * 60
 				));
 
 		XStream xstreamOut = new XStream(new JsonHierarchicalStreamDriver() {
