@@ -27,7 +27,7 @@ import com.thoughtworks.xstream.io.json.JsonWriter;
 
 /**
  * @author joris
- *
+ * 
  */
 public class OpenWeatherServlet extends HttpServlet {
 
@@ -42,8 +42,12 @@ public class OpenWeatherServlet extends HttpServlet {
 
 	private String days;
 
-	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#service(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * javax.servlet.http.HttpServlet#service(javax.servlet.http.HttpServletRequest
+	 * , javax.servlet.http.HttpServletResponse)
 	 */
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
@@ -91,8 +95,8 @@ public class OpenWeatherServlet extends HttpServlet {
 						day.setMorningPc(time.getPc());
 						day.setMorningWd_txt(time.getWd_txt());
 						day.setMorningWs(time.getWs());
-						day.setMorningF(String.valueOf(((Integer.parseInt(time
-								.getTn()) * 9) / 5) + 32));
+						day.setMorningF(String.valueOf(((Double
+								.parseDouble(time.getTn()) * 9) / 5) + 32));
 					}
 					if (time.getValue().equals("11:00")) {
 						day.setMiday(time.getTn());
@@ -101,7 +105,7 @@ public class OpenWeatherServlet extends HttpServlet {
 						day.setMidayPc(time.getPc());
 						day.setMidayWd_txt(time.getWd_txt());
 						day.setMidayWs(time.getWs());
-						day.setMidayF(String.valueOf(((Integer.parseInt(time
+						day.setMidayF(String.valueOf(((Double.parseDouble(time
 								.getTn()) * 9) / 5) + 32));
 					}
 					if (time.getValue().equals("17:00")) {
@@ -111,8 +115,8 @@ public class OpenWeatherServlet extends HttpServlet {
 						day.setEveningPc(time.getPc());
 						day.setEveningWd_txt(time.getWd_txt());
 						day.setEveningWs(time.getWs());
-						day.setEveningF(String.valueOf(((Integer.parseInt(time
-								.getTn()) * 9) / 5) + 32));
+						day.setEveningF(String.valueOf(((Double
+								.parseDouble(time.getTn()) * 9) / 5) + 32));
 					}
 					if (time.getValue().equals("23:00")) {
 						day.setNight(time.getTn());
@@ -121,7 +125,7 @@ public class OpenWeatherServlet extends HttpServlet {
 						day.setNightPc(time.getPc());
 						day.setNightWd_txt(time.getWd_txt());
 						day.setNightWs(time.getWs());
-						day.setNightF(String.valueOf(((Integer.parseInt(time
+						day.setNightF(String.valueOf(((Double.parseDouble(time
 								.getTn()) * 9) / 5) + 32));
 					}
 				}
