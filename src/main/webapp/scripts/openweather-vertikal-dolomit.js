@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
         		$('body').append(
         				$('<div>')
         				.attr("id", "mainDiv").append(
-	        				$('<table>').attr("id", "mainTable").attr("style", "padding:10px;").addClass("dolomit_table")
+	        				$('<table>').css("font-size","30px").attr("id", "mainTable").attr("style", "padding:10px;").addClass("dolomit_table")
 	        				.append(
 	    						$('<tr>').css('padding-bottom','10px')
 			    						.append(
@@ -53,7 +53,7 @@ jQuery(document).ready(function () {
 										$('<td>').css('text-align','center').append("morgens /<br/> in the morning")
 								)
 								.append(
-										$('<td>').css('text-align','center').append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/"+element.morningImg+".jpg"))
+										$('<td>').css('text-align','center').append($('<img>').attr("width","136").attr("height","136").attr('src', "images/icons/"+element.morningImg+".jpg"))
 								)						
 								.append(
 										$('<td>').css('text-align','center').append(element.morning+" °C / ").append(element.morningF+" °F ")
@@ -62,7 +62,7 @@ jQuery(document).ready(function () {
 										$('<td>').css('text-align','center').append(element.morningPc+"%")
 								)
 								.append(
-										$('<td>').css('text-align','center').append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/Windpfeil-"+element.morningWd_txt+".png"))
+										$('<td>').css('text-align','center').append($('<img>').attr("width","136").attr("height","136").attr('src', "images/icons/Windpfeil-"+element.morningWd_txt+".png"))
 										
 								)
 								.append(
@@ -75,7 +75,7 @@ jQuery(document).ready(function () {
 										$('<td>').css('text-align','center').append("mittags /<br/> at noon")
 								)
 								.append(
-										$('<td>').css('text-align','center').append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/"+element.midayImg+".jpg"))
+										$('<td>').css('text-align','center').append($('<img>').attr("width","136").attr("height","136").attr('src', "images/icons/"+element.midayImg+".jpg"))
 								)						
 								.append(
 										$('<td>').css('text-align','center').append(element.miday+" °C / ").append(element.midayF+" °F ")
@@ -84,7 +84,7 @@ jQuery(document).ready(function () {
 										$('<td>').css('text-align','center').append(element.midayPc+"%")
 								)
 								.append(
-										$('<td>').css('text-align','center').append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/Windpfeil-"+element.midayWd_txt+".png"))
+										$('<td>').css('text-align','center').append($('<img>').attr("width","136").attr("height","136").attr('src', "images/icons/Windpfeil-"+element.midayWd_txt+".png"))
 								)
 								.append(
 										$('<td>').css('text-align','center').append(element.midayWs).append(' km/h')
@@ -96,7 +96,7 @@ jQuery(document).ready(function () {
 										$('<td>').css('text-align','center').append("abends /<br/> in the evening")
 								)
 								.append(
-										$('<td>').css('text-align','center').append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/"+element.eveningImg+".jpg"))
+										$('<td>').css('text-align','center').append($('<img>').attr("width","136").attr("height","136").attr('src', "images/icons/"+element.eveningImg+".jpg"))
 								)						
 								.append(
 										$('<td>').css('text-align','center').append(element.evening+" °C / ").append(element.eveningF+" °F ")
@@ -105,7 +105,7 @@ jQuery(document).ready(function () {
 										$('<td>').css('text-align','center').append(element.eveningPc+"%")
 								)
 								.append(
-										$('<td>').css('text-align','center').append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/Windpfeil-"+element.eveningWd_txt+".png"))
+										$('<td>').css('text-align','center').append($('<img>').attr("width","136").attr("height","136").attr('src', "images/icons/Windpfeil-"+element.eveningWd_txt+".png"))
 								)
 								.append(
 										$('<td>').css('text-align','center').append(element.eveningWs).append(' km/h')
