@@ -49,7 +49,7 @@ jQuery(document).ready(function () {
 	            {
 	            	var limit=500;
 	            	$('body > *').remove();
-	        	    $('body').css("font-family","arial,sans-serif").css("color","#707173").css("background-color","#ddf3f7").append(
+	        	    $('body').css("font-weight","bold").css("font-family","arial,sans-serif").css("color","#707173").css("background-color","#ddf3f7").append(
 	        		    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","125px")
 	        		    	.append(
 	        		    			$('<span>').append(
@@ -65,7 +65,7 @@ jQuery(document).ready(function () {
 	        	    );		            	
 	        		$('body').append(
 	        				$('<div>').attr("id", "mainDiv").append(
-	        				$('<table>').addClass("dolomit_table")
+	        				$('<table>').attr("id", "mainTable_air").addClass("dolomit_table")
 	        						.append( 
 	        								$('<thead>').append(
 				        						$('<tr>').css('text-align','left').css('padding-bottom','10px')
@@ -99,7 +99,7 @@ jQuery(document).ready(function () {
 	        		var max=0;
 					$.each(data.allObjects, function(i, element){
 						if(max<limit && element.timeShift>40){
-							$('.report tbody')
+							$('.dolomit_table tbody')
 								.append(
 										$('<tr>').addClass("line")
 																		
@@ -132,11 +132,11 @@ jQuery(document).ready(function () {
 						);		
 				*/			
 					 tablecloth();
-					 splitTable($(".report"), 1300);
-					 $(".report").css("display", "none");
+					 splitTable($("#mainTable_air"), 1620);
+					 $("#mainTable_air").css("display", "none");
 					 $('#table_0').css('display', 'table')
-					 $.each($(".report"), function(i, element){
-						 setTimeout("$('.report').css('display', 'none');$('#table_'+"+(i+1)+").css('display', 'table')", 15000*(i+1)); 
+					 $.each($("#mainTable_air"), function(i, element){
+						 setTimeout("$('#mainTable_air').css('display', 'none');$('#table_'+"+(i+1)+").css('display', 'table')", 15000*(i+1)); 
 					 });
 	            });		
 	}

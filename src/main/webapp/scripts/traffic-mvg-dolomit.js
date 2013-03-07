@@ -10,7 +10,7 @@ jQuery(document).ready(function () {
 	            'traffic?mvg=true',
 	            function( data )
 	            {
-	            	var limit=62;
+	            	var limit=73;
 	            	$('body > *').remove();
 	            	
 	        	    $('body').css("font-family","arial,sans-serif").css("color","#707173").css("background-color","#ddf3f7").append(
@@ -55,7 +55,7 @@ jQuery(document).ready(function () {
 	        	    );	        		
 	        		var max=0;
 					$.each(data.allObjects, function(i, element){
-						if(max<limit && element.timeShift>1){
+						if(max<limit && element.timeShift>0){
 							$('#mainTable')
 								.append(
 										$('<tr>').addClass("line")

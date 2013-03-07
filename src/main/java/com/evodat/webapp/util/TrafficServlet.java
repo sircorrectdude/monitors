@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.evodat.util.TimeoutMap;
+import com.evodat.webapp.util.airport.Airport;
 import com.picotel.spider.SpiderProcessor;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
@@ -31,11 +31,11 @@ public class TrafficServlet extends HttpServlet {
 	private static final long serialVersionUID = -1932551800499400790L;
 	private static Logger logger = Logger.getLogger(TrafficServlet.class);
 
-	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_AIR = new TimeoutMap<String, List<Object>>(
-			1000 * 60 * 10); // 5 min
+	private static final TimeoutMap<String, List<TrafficInfo>> TRAFFIC_CACHE_AIR = new TimeoutMap<String, List<TrafficInfo>>(
+			1000 * 60 * 60); // 1 hour
 
 	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_DB = new TimeoutMap<String, List<Object>>(
-			1000 * 60 * 5); // 3 min
+			1000 * 60 * 5); // 5 min
 
 	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_MVG = new TimeoutMap<String, List<Object>>(
 			1000 * 60 * 1); // 1 min
@@ -225,7 +225,10 @@ public class TrafficServlet extends HttpServlet {
 						mvg.setStation("Hauptbahnhof");
 						if (mvg.getTrain() != null) {
 							String firstLetter = mvg.getTrain().substring(0, 1);
-							if (firstLetter.equals("N")) {
+							if (mvg.getTrain().equals("58")) {
+								mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							} else if (firstLetter.equals("N")) {
 								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ firstLetter
 										+ "-"
@@ -281,7 +284,10 @@ public class TrafficServlet extends HttpServlet {
 						mvg.setStation("Hauptbahnhof Nord");
 						if (mvg.getTrain() != null) {
 							String firstLetter = mvg.getTrain().substring(0, 1);
-							if (firstLetter.equals("N")) {
+							if (mvg.getTrain().equals("58")) {
+								mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							} else if (firstLetter.equals("N")) {
 								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ firstLetter
 										+ "-"
@@ -340,7 +346,10 @@ public class TrafficServlet extends HttpServlet {
 						mvg.setStation("Hauptbahnhof Süd");
 						if (mvg.getTrain() != null) {
 							String firstLetter = mvg.getTrain().substring(0, 1);
-							if (firstLetter.equals("N")) {
+							if (mvg.getTrain().equals("58")) {
+								mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
+								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							} else if (firstLetter.equals("N")) {
 								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ firstLetter
 										+ "-"
@@ -357,7 +366,9 @@ public class TrafficServlet extends HttpServlet {
 										+ mvg.getTrain().substring(1,
 												mvg.getTrain().length()) + ".gif");
 								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
-							} else {
+							}
+
+							else {
 								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ "T-" + mvg.getTrain() + ".gif");
 								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
@@ -385,137 +396,12 @@ public class TrafficServlet extends HttpServlet {
 		// Airport
 		if (req.getParameter("air") != null) {
 			if (TRAFFIC_CACHE_AIR.get("TRAFFIC_CACHE_AIR") == null) {
-				String timeStr = "";
-				Calendar calendar = Calendar.getInstance();
+				Airport airport = new Airport();
+				allObjects = airport.pull();
 
-				// Sommerzeit Bug??
-				// calendar.add(Calendar.MINUTE, 60);
-
-				int hour = calendar.get(Calendar.HOUR_OF_DAY);
-				// logger.info(hour);
-				if (hour < 6) {
-					timeStr = "00";
-				} else if (hour < 8) {
-					timeStr = "06";
-				} else if (hour < 10) {
-					timeStr = "08";
-				} else if (hour < 12) {
-					timeStr = "10";
-				} else if (hour < 14) {
-					timeStr = "12";
-				} else if (hour < 16) {
-					timeStr = "14";
-				} else if (hour < 18) {
-					timeStr = "16";
-				} else if (hour < 20) {
-					timeStr = "18";
-				} else if (hour < 22) {
-					timeStr = "20";
-				} else if (hour > 22) {
-					timeStr = "22";
+				for (Object munichAirport : allObjects) {
+					logger.info(munichAirport);
 				}
-				logger.info(timeStr);
-				SpiderProcessor spiderProcessor = new SpiderProcessor();
-				spiderProcessor
-						.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-								+ timeStr + "00_de_S.jsp");
-				spiderProcessor.setClassName(MunichAirport.class.getName());
-				try {
-					allObjects.addAll(spiderProcessor.getObjects());
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				/* next page */
-
-				spiderProcessor = new SpiderProcessor();
-				calendar.add(Calendar.MINUTE, 120);
-				hour = calendar.get(Calendar.HOUR_OF_DAY);
-				if (hour < 6) {
-					timeStr = "00";
-				} else if (hour < 8) {
-					timeStr = "06";
-				} else if (hour < 10) {
-					timeStr = "08";
-				} else if (hour < 12) {
-					timeStr = "10";
-				} else if (hour < 14) {
-					timeStr = "12";
-				} else if (hour < 16) {
-					timeStr = "14";
-				} else if (hour < 18) {
-					timeStr = "16";
-				} else if (hour < 20) {
-					timeStr = "18";
-				} else if (hour < 22) {
-					timeStr = "20";
-				} else if (hour > 22) {
-					timeStr = "22";
-				}
-				logger.info(timeStr);
-				spiderProcessor = new SpiderProcessor();
-				spiderProcessor
-						.setUrl("http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-								+ timeStr + "00_de_S.jsp");
-				spiderProcessor.setClassName(MunichAirport.class.getName());
-				try {
-					allObjects.addAll(spiderProcessor.getObjects());
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-				/*
-				 * 
-				 * 
-				 * spiderProcessor = new SpiderProcessor();
-				 * calendar.add(Calendar.MINUTE, 120); hour =
-				 * calendar.get(Calendar.HOUR_OF_DAY); if (hour < 6) { timeStr =
-				 * "00"; } else if (hour < 8) { timeStr = "06"; } else if (hour
-				 * < 10) { timeStr = "08"; } else if (hour < 12) { timeStr =
-				 * "10"; } else if (hour < 14) { timeStr = "12"; } else if (hour
-				 * < 16) { timeStr = "14"; } else if (hour < 18) { timeStr =
-				 * "16"; } else if (hour < 20) { timeStr = "18"; } else if (hour
-				 * < 22) { timeStr = "20"; } else if (hour > 22) { timeStr =
-				 * "22"; } logger.info(timeStr); spiderProcessor = new
-				 * SpiderProcessor(); spiderProcessor .setUrl(
-				 * "http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-				 * + timeStr + "00_de_S.jsp");
-				 * spiderProcessor.setClassName(MunichAirport.class.getName());
-				 * try { allObjects.addAll(spiderProcessor.getObjects()); }
-				 * catch (IllegalStateException e) { e.printStackTrace(); }
-				 * catch (ClassNotFoundException e) { e.printStackTrace(); }
-				 * catch (IOException e) { e.printStackTrace(); }
-				 * 
-				 * next page
-				 * 
-				 * spiderProcessor = new SpiderProcessor();
-				 * calendar.add(Calendar.MINUTE, 120); hour =
-				 * calendar.get(Calendar.HOUR_OF_DAY); if (hour < 6) { timeStr =
-				 * "00"; } else if (hour < 8) { timeStr = "06"; } else if (hour
-				 * < 10) { timeStr = "08"; } else if (hour < 12) { timeStr =
-				 * "10"; } else if (hour < 14) { timeStr = "12"; } else if (hour
-				 * < 16) { timeStr = "14"; } else if (hour < 18) { timeStr =
-				 * "16"; } else if (hour < 20) { timeStr = "18"; } else if (hour
-				 * < 22) { timeStr = "20"; } else if (hour > 22) { timeStr =
-				 * "22"; } logger.info(timeStr); spiderProcessor = new
-				 * SpiderProcessor(); spiderProcessor .setUrl(
-				 * "http://www.munich-airport.de/de/consumer/fluginfo/abflug/h"
-				 * + timeStr + "00_de_S.jsp");
-				 * spiderProcessor.setClassName(MunichAirport.class.getName());
-				 * try { allObjects.addAll(spiderProcessor.getObjects()); }
-				 * catch (IllegalStateException e) { e.printStackTrace(); }
-				 * catch (ClassNotFoundException e) { e.printStackTrace(); }
-				 * catch (IOException e) { e.printStackTrace(); }
-				 */
-				//
 
 				TRAFFIC_CACHE_AIR.put("TRAFFIC_CACHE_AIR", allObjects);
 
