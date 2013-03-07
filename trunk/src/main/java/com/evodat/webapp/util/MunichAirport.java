@@ -2,6 +2,8 @@ package com.evodat.webapp.util;
 
 import java.util.Date;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import com.picotel.spider.HttpMethod;
 import com.picotel.spider.annotation.DateConverter;
 import com.picotel.spider.annotation.Spider;
@@ -42,4 +44,10 @@ public class MunichAirport extends TrafficInfo {
 	public String getImage() {
 		return "";
 	}
+
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+
 }

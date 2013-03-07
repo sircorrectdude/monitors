@@ -61,7 +61,7 @@ jQuery(document).ready(function () {
 						if(element.ris ){
 							ris=element.ris;
 						}
-						if(max<limit){
+						if(max<limit && element.timeShift>0){
 							$('#mainTable')
 								.append(
 										$('<tr>').addClass("line")
