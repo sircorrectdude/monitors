@@ -77,7 +77,8 @@ jQuery(document).ready(function () {
 												$('<td>').append(element.target)
 										)
 											.append(
-													$('<td>').append(element.timeString).append(" (in "+element.timeShift+" Minuten)")
+													$('<td>').append(element.timeString)
+														//.append(" (in "+element.timeShift+" Minuten)")
 										)
 											.append(
 												$('<td>').append(element.platform)

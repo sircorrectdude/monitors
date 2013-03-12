@@ -35,7 +35,7 @@ public class TrafficServlet extends HttpServlet {
 			1000 * 60 * 60); // 1 hour
 
 	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_DB = new TimeoutMap<String, List<Object>>(
-			1000 * 60 * 5); // 5 min
+			1000 * 60 * 15); // 15 min
 
 	private static final TimeoutMap<String, List<Object>> TRAFFIC_CACHE_MVG = new TimeoutMap<String, List<Object>>(
 			1000 * 60 * 1); // 1 min
