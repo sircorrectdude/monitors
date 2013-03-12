@@ -136,7 +136,7 @@ jQuery(document).ready(function () {
 					 $(".report").css("display", "none");
 					 $('#table_0').css('display', 'table')
 					 $.each($(".report"), function(i, element){
-						 setTimeout("$('.report').css('display', 'none');$('#table_'+"+(i+1)+").css('display', 'table')", 15000*(i+1)); 
+						 setTimeout("$('.report').css('display', 'none');$('#table_'+"+(i+1)+").css('display', 'table')", 7500*(i+1)); 
 					 });
 	            });		
 	}
