@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
 	        		);
 	        	    $('body').append(
 	        		    	$('<div>').attr("id", "banner").css("position","absolute").css("bottom","0").addClass("bannerDiv").append(
-	        		    			$('<img>').css("border", "0px").attr("src", "images/templates/traffic/Dolomit-Monitor-Banner-1080x328.png")
+	        		    			$('<img>').css("border", "0px").attr("src", "images/templates/traffic/Leiste-Dolomit-Monitor-HBF-Abfahrtszeiten.jpg")
 	        		    			)
 	        	    );		        		
 	        		var max=0;
