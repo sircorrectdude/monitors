@@ -1,0 +1,11 @@
+#digiclock { 
+	position:relative; 
+	width:230px; height:70px; top:40px; background: url(black.png); border:solid 1px #000; text-align:left; overflow:hidden;
+	float:left;
+	}
+
+#digiclock img.time { float:left; }
+
+#digiclock #cover { position:absolute; top:0; left:0; width:230px; height:70px; background:url(fade.png) repeat-x; }
+
+*html body #digiclock #cover { width:0px; height:0px; }
