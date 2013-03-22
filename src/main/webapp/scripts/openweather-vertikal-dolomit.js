@@ -115,7 +115,7 @@ jQuery(document).ready(function () {
         		});
         	    $('body').append(
         		    	$('<div>').attr("id", "banner").addClass("bannerDiv").css("position","absolute").css("bottom","0").append(
-        		    			$('<img>').attr("width","1080").css("border", "0px").attr("src", "images/templates/openweather/Dolomit-Monitor-Wetter-Leiste.jpg")
+        		    			$('<img>').attr("width","1080").css("border", "0px").attr("src", "images/templates/openweather/Dolomit-Monitor-Wetter-Footer.jpg")
         		    			)
         	    );	        		
 				
