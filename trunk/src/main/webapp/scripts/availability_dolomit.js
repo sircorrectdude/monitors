@@ -1,4 +1,6 @@
 jQuery(document).ready(function () {
+
+	$("head").append($("<link rel='stylesheet' href='styles/availability_dolomit.css' type='text/css' media='screen' />"));
 	
 	$.getJSON('/json/cBooking.html',function(data){
 		if(!data.cBooking.roomsAvailable){
