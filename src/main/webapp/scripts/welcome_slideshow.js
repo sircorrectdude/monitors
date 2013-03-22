@@ -1,4 +1,7 @@
 jQuery(document).ready(function () {
+	
+	$("head").append($("<link rel='stylesheet' href='styles/welcome_slideshow.css' type='text/css' media='screen' />"));
+	
 	$('#slideshow').cycle({
 	    fx:     'all',
 	    timeout: 10000,

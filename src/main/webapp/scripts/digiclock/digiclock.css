@@ -1,6 +1,6 @@
 #digiclock { 
 	position:relative; 
-	width:230px; height:70px; top:40px; background: url(black.png); 
+	width:230px; height:70px; top:40px;
 	border:none; 
 	border-radius: 5px;text-align:left; overflow:hidden;
 	float:left;

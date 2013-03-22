@@ -1,5 +1,7 @@
  $(document).ready(function(){
 
+	 $("head").append($("<link rel='stylesheet' href='/scripts/digiclock/digiclock.css' type='text/css' media='screen' />"));
+	 
 	$('#digiclock').append($('<img/>').addClass('time').attr('src','/scripts/digiclock/nums2_small.png').attr('id','hourl'))
 	$('#digiclock').append($('<img/>').addClass('time').attr('src','/scripts/digiclock/nums10_small.png').attr('id','hourr'))
 	$('#digiclock').append($('<img/>').addClass('time').attr('src','/scripts/digiclock/colon_small.png'))
