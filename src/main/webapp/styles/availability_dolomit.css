@@ -6,8 +6,9 @@ body {
 
 #footer {
 	background-color: #ecedee;
-	height: 155px;
+	height: 180px;
 	color:#868789;
+	padding-top: 20px;
 	z-index:10000;
 }
 
@@ -35,7 +36,7 @@ body {
 }
 
 .we {
-	width: 290px;
+	width: 240px;
 	height: 155px;
 	background: url('/images/templates/welcome_slideshow/we_logo.png');
 	float: left;
@@ -52,22 +53,23 @@ body {
 	width: 80px;
 	height: 155px;
 	float: left;
-	margin-left: 20px;
+	margin-left: 120px;
 	padding-top: 30px;
-	padding-right: 150px;
+	padding-right: 50px;
 }
 
 .weather_today {
-	width: 370px;
+	width: 250px;
 	height: 155px;
 	float: left;
-	margin-left: 230px;
+	margin-left: 130px;
 }
 
 .weather_tomorrow {
-	width: 370px;
+	width: 270px;
 	height: 155px;
 	float: left;
+	margin-left: 120px;
 }
 
 #fb_counter{
