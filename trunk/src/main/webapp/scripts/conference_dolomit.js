@@ -53,6 +53,7 @@ jQuery(document).ready(function () {
 		            		}	            		
 		            	});
 	            	}
+	            	$('body').css('display','block');
 	            });		
 	}
 	
@@ -75,7 +76,7 @@ jQuery(document).ready(function () {
 	        		$.each(data.days, function(i, element){
 	        			if($.oddeven==0){
 	        				if (i>0){
-	        					return false;
+	        					//return false;
 	        				}
 	        			}else{
 	        	            if($.welcome==0){
@@ -87,16 +88,14 @@ jQuery(document).ready(function () {
 	        					return;
 	        				}
         				}
-	        			$.table = $('#mainTable')
-						$.table
-						.append(
-								$('<tr>').css("background", "none repeat scroll 0 0 transparent")
+	        			$('#mainTable').append(
+								$('<tr/>').css("background", "none repeat scroll 0 0 transparent")
 								.append(
 										$('<td>').css("background", "none repeat scroll 0 0 transparent").css('text-align','left').attr("colspan","6").append(element.name+ " "+element.dateString)
 								)
 		            	);
-							$.table.append(
-									$('<tr>').css("height", "127px")
+	        			$('#mainTable').append(
+									$('<tr/>').css("height", "127px")
 										.append(
 												$('<td>').css("background", "none repeat scroll 0 0 transparent").append("morgens /<br/> in the morning")
 										)
@@ -117,8 +116,8 @@ jQuery(document).ready(function () {
 												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.morningWs).append(' km/h')
 										)								
 			            	);
-							$.table.append(
-									$('<tr>').css("height", "127px")
+	        			$('#mainTable').append(
+									$('<tr/>').css("height", "127px")
 										.append(
 												$('<td>').css("background", "none repeat scroll 0 0 transparent").append("mittags /<br/> at noon")
 										)
@@ -138,8 +137,8 @@ jQuery(document).ready(function () {
 												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.midayWs).append(' km/h')
 										)								
 			            	);
-							$.table.append(
-									$('<tr>').css("height", "127px")
+	        			$('#mainTable').append(
+									$('<tr/>').css("height", "127px")
 										.append(
 												$('<td>').css("background", "none repeat scroll 0 0 transparent").append("abends /<br/> in the evening")
 										)
