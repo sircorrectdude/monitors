@@ -17,13 +17,18 @@ jQuery(document).ready(function () {
 	            	
 	            	if(data.calendars == null || data.calendars.length === 0){
 	            		//alert($.cookie('switchToggle'))
+	            		
 	            		if($.cookie('switchAdToggle') == 0){
 	            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
 	            			$.cookie('switchAdToggle', 1);
-	            		}else{
+	            		}else if($.cookie('switchAdToggle') == 1){
 	            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
-	            			$.cookie('switchAdToggle', 0);
+	            			$.cookie('switchAdToggle', 2);
 	            		}
+	            		else{
+	            			$('body').css("color", "#707173").css("background","url('images/Osterspecial-Tagungsraumscreen-Cristal.jpg')").css("height", "1920px").css("width", "1080px");
+	            			$.cookie('switchAdToggle', 0);
+	            		}	            		
 	            	}else{
 	            		//if($.cookie('switchDirectionsToggle') == 0){
 		            		$('#header').css("color", "#fff").css("height","322px").css("width", "1080px");
