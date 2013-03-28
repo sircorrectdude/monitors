@@ -75,8 +75,8 @@ jQuery(document).ready(function () {
 	        		);
 	        		$.each(data.days, function(i, element){
 	        			if($.oddeven==0){
-	        				if (i>0){
-	        					//return false;
+	        				if (i>1){
+	        					return false;
 	        				}
 	        			}else{
 	        	            if($.welcome==0){
