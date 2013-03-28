@@ -18,17 +18,31 @@ jQuery(document).ready(function () {
 	            	if(data.calendars == null || data.calendars.length === 0){
 	            		//alert($.cookie('switchToggle'))
 	            		
-	            		if($.cookie('switchAdToggle') == 0){
-	            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
-	            			$.cookie('switchAdToggle', 1);
-	            		}else if($.cookie('switchAdToggle') == 1){
-	            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
-	            			$.cookie('switchAdToggle', 2);
-	            		}
-	            		else{
-	            			$('body').css("color", "#707173").css("background","url('images/Osterspecial-Tagungsraumscreen-Cristal.jpg')").css("height", "1920px").css("width", "1080px");
-	            			$.cookie('switchAdToggle', 0);
-	            		}	            		
+	            		$.getScript('scripts/date/date-de-DE.js', function() {
+		            		var easterAdEndTime = {month: 3, day: 1, hour: 23, minute: 00};
+		            		var easterAdEnd = Date.today().set(easterAdEndTime);
+		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
+		            			if($.cookie('switchAdToggle') == 0){
+		            				$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
+		            				$.cookie('switchAdToggle', 1);
+		            			}else if($.cookie('switchAdToggle') == 1){
+		            				$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
+		            				$.cookie('switchAdToggle', 2);
+		            			}
+		            			else{
+		            				$('body').css("color", "#707173").css("background","url('images/Osterspecial-Tagungsraumscreen-Cristal.jpg')").css("height", "1920px").css("width", "1080px");
+		            				$.cookie('switchAdToggle', 0);
+		            			}	            		
+		            		}else{
+			            		if($.cookie('switchAdToggle') == 0){
+			            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 1);
+			            		}else{
+			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 0);
+			            		}
+		            		}
+	            		});
 	            	}else{
 	            		//if($.cookie('switchDirectionsToggle') == 0){
 		            		$('#header').css("color", "#fff").css("height","322px").css("width", "1080px");

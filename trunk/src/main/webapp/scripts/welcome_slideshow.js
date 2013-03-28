@@ -1,6 +1,23 @@
 jQuery(document).ready(function () {
 	
 	$("head").append($("<link rel='stylesheet' href='styles/welcome_slideshow.css' type='text/css' media='screen' />"));
+
+	var changeClockStartTime = {month: 2, day: 30, hour: 8, minute: 00};
+	var changeClockStart = Date.today().set(changeClockStartTime);
+	
+	var changeClockEndTime = {month: 2, day: 31, hour: 16, minute: 00};
+	var changeClockEnd = Date.today().set(changeClockEndTime);
+	
+	if(! new Date().between(changeClockStart, changeClockEnd)){
+		$('#clockchange').remove();
+	}
+	
+	var easterAdEndTime = {month: 3, day: 1, hour: 23, minute: 00};
+	var easterAdEnd = Date.today().set(easterAdEndTime);
+
+	if(new Date().compareTo(easterAdEnd) ==1 ){// greater
+		$('#easterAd').remove();
+	}
 	
 	$('#slideshow').cycle({
 	    fx:     'all',
