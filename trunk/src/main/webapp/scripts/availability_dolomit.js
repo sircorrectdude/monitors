@@ -17,7 +17,7 @@ jQuery(document).ready(function () {
 		
 			if(!data.cBooking.roomsAvailable){
 				$('#slideshow').empty().append(
-						$("<img />",  {"src": "images/templates/availability_dolomit/welcome_dolomit.png", "width":"1920", "height":"925"})	
+						$("<img />",  {"src": "images/templates/availability_dolomit/Dolomit_Monitor-Fenster_Zimmerbelegt-925px.jpg", "width":"1920", "height":"925"})	
 				);
 			}else{
 				$('#slideshow').empty()
