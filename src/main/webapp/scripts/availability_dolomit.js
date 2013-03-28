@@ -2,16 +2,29 @@ jQuery(document).ready(function () {
 
 	$("head").append($("<link rel='stylesheet' href='styles/availability_dolomit.css' type='text/css' media='screen' />"));
 	
+	var changeClockStartTime = {month: 2, day: 30, hour: 8, minute: 00};
+	var changeClockStart = Date.today().set(changeClockStartTime);
+	
+	var changeClockEndTime = {month: 2, day: 31, hour: 16, minute: 000};
+	var changeClockEnd = Date.today().set(changeClockEndTime);
+	
 	$.getJSON('/json/cBooking.html',function(data){
-		if(!data.cBooking.roomsAvailable){
-			$('#slideshow').empty().append(
-					$("<img />",  {"src": "images/templates/availability_dolomit/welcome_dolomit.png", "width":"1920", "height":"925"})	
-			);
-		}else{
+		
+		if(new Date().between(changeClockStart, changeClockEnd)){
 			$('#slideshow').empty()
-			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.png", "width":"1920", "height":"925"})	)	
-			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.png", "width":"1920", "height":"925"})	)	
-			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.png", "width":"1920", "height":"925"})	)	
+			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide4.png", "width":"1920", "height":"925"})	)	
+		}else{
+		
+			if(!data.cBooking.roomsAvailable){
+				$('#slideshow').empty().append(
+						$("<img />",  {"src": "images/templates/availability_dolomit/welcome_dolomit.png", "width":"1920", "height":"925"})	
+				);
+			}else{
+				$('#slideshow').empty()
+				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.png", "width":"1920", "height":"925"})	)	
+				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.png", "width":"1920", "height":"925"})	)	
+				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.png", "width":"1920", "height":"925"})	)	
+			}
 		}
 		$('#slideshow').cycle({
 			fx:     'all',
