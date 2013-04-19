@@ -56,60 +56,67 @@ jQuery(document).ready(function () {
 		            		//.css("text-shadow", "1px 1px #333333")
 		            		.css("background","url('images/templates/rooms/Cristal-Monitor.jpg')").css("height", "1920px").css("width", "1080px")
 		            	
-		            	
+		            	var maxlines = 9;
+		            	var linecounter = 0;
 		            	$.each(data.calendars, function(i, element){
-		            		var text = element.roomLocation;
-		            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
-		            		if(element.roomLocation === "DOLOMIT") text=""
-		            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
-							.append(
-								$('<tr>').css("height", "136px").attr("height", "136px").attr("max-height", "136px")
-									.append(
-										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "210px").append(
-												element.roomName
-										)	
-									)
-									.append(
-										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "300px")
+		            		if(linecounter < maxlines){
+			            		var text = element.roomLocation;
+			            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
+			            		if(element.roomLocation === "DOLOMIT") text=""
+			            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
+								.append(
+									$('<tr>').css("height", "136px").attr("height", "136px").attr("max-height", "136px")
 										.append(
-											$('<div>').css("max-height", "110px").css("padding-top", "10px").css("text-overflow", "ellipsis").css("overflow", "hidden")
+											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "210px").append(
+													element.roomName
+											)	
+										)
+										.append(
+											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "300px")
+											.append(
+												$('<div>').css("max-height", "110px").css("padding-top", "10px").css("text-overflow", "ellipsis").css("overflow", "hidden")
+													.append(
+															element.company
+													)
+												)
+										)								
+										.append(
+											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "120px")
+											//.append(element.dateString)
+											//.append("<br>")
+											.append($('<div>')
 												.append(
-														element.company
+														element.startString
+												).append(" - ").append(
+														element.endString
 												)
 											)
-									)								
-									.append(
-										$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "120px")
-										//.append(element.dateString)
-										//.append("<br>")
-										.append($('<div>')
-											.append(
-													element.startString
-											).append(" - ").append(
-													element.endString
-											)
 										)
-									)
-									.append(
-										$('<td>').css("width", "170px").attr("class", getRoomLocationCssName(element.roomLocation)).append(
-												text
-										)	
-									)								
-							);
+										.append(
+											$('<td>').css("width", "170px").attr("class", getRoomLocationCssName(element.roomLocation)).append(
+													text
+											)	
+										)								
+								);
+		            		}
+		            		linecounter = linecounter+1;
 		            	});
 		            	$.each(data.emptyRooms, function(i, element){
-		            		$('#mainTable').append(
-								$('<tr>').css("height", "136px").attr("height", "136px").attr("max-height", "136px")
-									.append(
-										$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "136px").css("text-align","center").css("width", "230px").append(
-												element.name
-										)	
-									)
-									.append(
-										$('<td>').attr('colspan','3').css("background", "none repeat scroll 0 0 transparent").css("text-align","center").append("Herzlich Willkommen"
+		            		if(linecounter < maxlines){
+			            		$('#mainTable').append(
+									$('<tr>').css("height", "136px").attr("height", "136px").attr("max-height", "136px")
+										.append(
+											$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "136px").css("text-align","center").css("width", "230px").append(
+													element.name
+											)	
 										)
-									)								
-							);
+										.append(
+											$('<td>').attr('colspan','3').css("background", "none repeat scroll 0 0 transparent").css("text-align","center").append("Herzlich Willkommen"
+											)
+										)								
+								);
+		            		}
+		            		linecounter = linecounter+1;
 		            	});
 		            	$.cookie('switchDirectionsToggle', 1);
 		            	weather();
