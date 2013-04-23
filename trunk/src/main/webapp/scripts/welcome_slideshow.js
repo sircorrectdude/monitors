@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
 		$('#clockchange').remove();
 	}
 	
-	var easterAdEndTime = {month: 3, day: 1, hour: 23, minute: 00};
+	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};
 	var easterAdEnd = Date.today().set(easterAdEndTime);
 
 	if(new Date().compareTo(easterAdEnd) ==1 ){// greater
