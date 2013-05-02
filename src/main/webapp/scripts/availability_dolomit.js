@@ -21,9 +21,9 @@ jQuery(document).ready(function () {
 				);
 			}else{
 				$('#slideshow').empty()
-				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.png", "width":"1920", "height":"925"})	)	
-				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.png", "width":"1920", "height":"925"})	)	
-				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.png", "width":"1920", "height":"925"})	)	
+				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.jpg", "width":"1920", "height":"925"})	)	
+				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.jpg", "width":"1920", "height":"925"})	)	
+				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.jpg", "width":"1920", "height":"925"})	)	
 			}
 		}
 		$('#slideshow').cycle({
