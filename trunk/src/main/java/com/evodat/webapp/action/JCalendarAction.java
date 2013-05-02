@@ -18,7 +18,6 @@ public class JCalendarAction extends BaseAction {
 	List<JCalendar> calendars;
 	private String rooms = "";
 	private List<Room> emptyRooms = new ArrayList<Room>();
-	private String today, today_en = "";
 
 	@Override
 	public String execute() throws Exception {
@@ -53,7 +52,7 @@ public class JCalendarAction extends BaseAction {
 			if ((startTime.get(Calendar.YEAR) == nowC.get(Calendar.YEAR)
 					&& startTime.get(Calendar.MONTH) == nowC
 							.get(Calendar.MONTH) && startTime
-					.get(Calendar.DAY_OF_MONTH) == nowC
+						.get(Calendar.DAY_OF_MONTH) == nowC
 					.get(Calendar.DAY_OF_MONTH))) {
 				if (jCalendar.getStartTime().getTime() < firstEventTime)
 					firstEventTime = jCalendar.getStartTime().getTime();
@@ -92,8 +91,9 @@ public class JCalendarAction extends BaseAction {
 					jCalendar.setColor(room);
 					addEvent(events, jCalendar);
 
-				}
-				else if (jCalendar.getColor().getId().equals(Room.CARAT_JUWEL)) {
+				} else if (jCalendar.getColor().getId()
+						.equals(Room.CARAT_JUWEL)
+						&& !getRooms().equals(Room.RUBIN_1_2)) {
 
 					Room room = new Room();
 					room.setName("CARAT");
@@ -107,8 +107,8 @@ public class JCalendarAction extends BaseAction {
 					jCalendar.setColor(room);
 					addEvent(events, jCalendar);
 
-				}				
-				
+				}
+
 				else {
 					// RoomParameter for Dolomit
 					if (!getRooms().equals(Room.RUBIN_1_2)) {
