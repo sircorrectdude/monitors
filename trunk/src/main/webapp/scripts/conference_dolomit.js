@@ -10,46 +10,76 @@ jQuery(document).ready(function () {
 	            		$('body > *').remove();
 	            		$.oddeven=0;
 	            		$.welcome=0;
-	            		 weather();
-	            		 $.refreshId = setInterval(weather, 5000);
+		        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/openweather/Dolomit-Monitor-Wetter.jpg')").css("height", "1280px");	            	
+
+	            		weather();
+	            		$.refreshId = setInterval(weather, 5000);
 	            	}else{
-		            	$('#banner').remove();
-		            	$('#topbanner').remove();
-		            	$('#mainTable').remove();
-            			$('#company_1').text("")
-            			$('#company_2').text("")
-            			$('#date_1').text("")
-            			$('#date_1_en').text("")
-            			$('#startTime_1').text("")
-            			$('#startTime_1_en').text("")
-            			$('#location_1').text("")
-            			$('#location_1_en').text("")
-		            			$('#company_2').text("")
-		            			$('#date_2').text("")
-		            			$('#date_2_en').text("")
-		            			$('#startTime_2').text("")
-		            			$('#startTime_2_en').text("")
-		            			$('#location_2').text("")
-		            			$('#location_2_en').text("")	            			
+	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-020513.jpg')");	            	
+	            		
+	            		$('body').append(
+	            				$('<div>').attr("id", "conference_info_wrapper").css("width","1920px").css("height", "1080px").css("font-size","36px").css("font-weight","bold")
+	            		);
 		            	$.each(data.calendars, function(i, element){
 		            		if(element.roomName === ("RUBIN I")){
-		            			$('#company_1').text(element.company)
-		            			$('#date_1').text(element.dateString)
-		            			$('#date_1_en').text(element.dateStringEn)
-		            			$('#startTime_1').text(element.startString)
-		            			$('#startTime_1_en').text(element.startStringEn)
-		            			$('#location_1').text(element.roomLocation)
-		            			$('#location_1_en').text(element.roomLocation)
-	//	            			$('.text3').remove()
+		    	        		$('#conference_info_wrapper').append(
+				        				$('<div>').attr("id", "company_1").css("position", "absolute").css("left","580px").css("top","380px").css("width","600px").text(element.company)
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime").css("position", "absolute").css("left","580px").css("top","550px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_1").text(element.dateString)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_1").text(element.startString)
+				        				)				        				
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime_en").css("position", "absolute").css("left","580px").css("top","600px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_1_en").text(element.dateStringEn)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_1_en").text(element.startStringEn)
+				        				)				        				
+		    	        		);
 		            		}
 		            		if(element.roomName === ("RUBIN II")){
-		            			$('#company_2').text(element.company)
-		            			$('#date_2').text(element.dateString)
-		            			$('#date_2_en').text(element.dateStringEn)
-		            			$('#startTime_2').text(element.startString)
-		            			$('#startTime_2_en').text(element.startStringEn)
-		            			$('#location_2').text(element.roomLocation)
-		            			$('#location_2_en').text(element.roomLocation)	            			
+		            			
+		    	        		$('#conference_info_wrapper').append(
+				        				$('<div>').attr("id", "company_2").css("position", "absolute").css("left","1280px").css("top","380px").css("width","600px").text(element.company)
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime_2").css("position", "absolute").css("left","1280px").css("top","550px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_2").text(element.dateString)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_2").text(element.startString)
+				        				)				        				
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime_2_en").css("position", "absolute").css("left","1280px").css("top","600px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_2_en").text(element.dateStringEn)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_2_en").text(element.startStringEn)
+				        				)				        				
+		    	        		);		            			
+		            			
 		            		}	            		
 		            	});
 	            	}
@@ -63,13 +93,10 @@ jQuery(document).ready(function () {
 	            function( data )
 	            {
 	
-	            	$('#banner').remove();
-	            	$('#topbanner').remove();
-	            	$('#mainTable').remove();
         			$('body > *').remove();
-        			$('body').attr("style", "");	            	
+        			$('body').attr("style", "");
 	        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/openweather/Dolomit-Monitor-Wetter.jpg')").css("height", "1280px");	            	
-	            	
+
 	        		$('body').append(
 		        				$('<table>').attr("id", "mainTable").css("width","1460px").css("margin-top", "205px").css("margin-left", "470px").css("font-size","30px")
 	        		);
@@ -82,7 +109,7 @@ jQuery(document).ready(function () {
 	        	            if($.welcome==0){
 	        	            	$.welcome=1;
 	        	            	$('body > *').remove();
-	        	            	$('body').css("color", "#043A80").css("background","url('images/startbildschirm115.png')").css("height", "1080px").css("width", "1920px")	        	            	
+	        	            	$('body').css("color", "#043A80").css("background","url('images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg')").css("height", "1080px").css("width", "1920px")	        	            	
 	        	            }	        				
 	        				if (i==0){
 	        					return;
