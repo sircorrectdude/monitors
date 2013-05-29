@@ -2,7 +2,17 @@ jQuery(document).ready(function () {
 	
 	$("head").append($("<link rel='stylesheet' href='styles/welcome_slideshow.css' type='text/css' media='screen' />"));
 
-	var changeClockStartTime = {month: 2, day: 30, hour: 8, minute: 00};
+	
+	$('#slideshow').empty()
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide1.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide2.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide3.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide4.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide5.png", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
+	
+	/*var changeClockStartTime = {month: 2, day: 30, hour: 8, minute: 00};
 	var changeClockStart = Date.today().set(changeClockStartTime);
 	
 	var changeClockEndTime = {month: 2, day: 31, hour: 16, minute: 00};
@@ -18,6 +28,7 @@ jQuery(document).ready(function () {
 	if(new Date().compareTo(easterAdEnd) ==1 ){// greater
 		$('#easterAd').remove();
 	}
+	*/
 	
 	$('#slideshow').cycle({
 	    fx:     'all',
@@ -43,7 +54,7 @@ jQuery(document).ready(function () {
 			//.append($('<img>').attr('src', "images/Wetter-Icons_181212/"+data.days[1].midayImg+".jpg"))
 		});
 
-    $("<div/>", {"id": "fb_counter"}).prependTo('#main').css('position','absolute').css('top','420px').css('left','1410px').show();
+    $("<div/>", {"id": "fb_counter"}).prependTo('#main').css('position','absolute').css('top','619px').css('left','903px').show();
 	//$("#fb_counter").css("padding", "250px 0px 0px 1050px")
     
 	var getLikes = function() {
