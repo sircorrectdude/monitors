@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide3.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide4.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide5_fb.png", "width":"1920", "height":"925"})	)
-	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6_neu.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
 	
 	/*var changeClockStartTime = {month: 2, day: 30, hour: 8, minute: 00};
