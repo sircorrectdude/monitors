@@ -110,5 +110,5 @@ jQuery(document).ready(function () {
 	            }
 		}
 	weather();
-	$.refreshId = setInterval(weather, 5000);
+	//$.refreshId = setInterval(weather, 5000);
 });
