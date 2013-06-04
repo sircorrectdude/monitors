@@ -50,7 +50,7 @@ jQuery(document).ready(function () {
 	        		);
 	        	    $('body').append(
 	        		    	$('<div>').attr("id", "banner").css("position","absolute").css("bottom","0").addClass("bannerDiv").append(
-	        		    			$('<img>').attr("width","720").css("border", "0px").attr("src", "images/templates/traffic/Cristal-Monitor-HBF-Abfahrtszeiten-Banner-1080x328.jpg")
+	        		    			$('<img>').attr("width","720").css("border", "0px").attr("src", "images/templates/traffic/Cristal-Monitor-HBF-Abfahrtszeiten-Banner-1080x328_neu.jpg")
 	        		    			)
 	        	    );	        		
 	        		var max=0;
