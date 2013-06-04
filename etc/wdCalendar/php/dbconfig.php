@@ -1,8 +1,8 @@
 <?php
 class DBConnection{
 	function getConnection(){
-	  //change to your database server/user name/password
-		mysql_connect("localhost","root","") or
+
+mysql_set_charset('utf8', mysql_connect("localhost","root","chemo") ) or
          die("Could not connect: " . mysql_error());
     //change to your database name
 		mysql_select_db("monitors") or 
