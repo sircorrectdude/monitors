@@ -26,7 +26,7 @@ jQuery(document).ready(function () {
 		            				$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
 		            				$.cookie('switchAdToggle', 1);
 		            			}else if($.cookie('switchAdToggle') == 1){
-		            				$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
+		            				$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 		            				$.cookie('switchAdToggle', 2);
 		            			}
 		            			else{
@@ -38,7 +38,7 @@ jQuery(document).ready(function () {
 			            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 1);
 			            		}else{
-			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Werbung1912-100Jahre-Logo.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 			            		}
 		            		}
