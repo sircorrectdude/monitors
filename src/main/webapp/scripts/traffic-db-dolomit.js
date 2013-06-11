@@ -94,6 +94,6 @@ jQuery(document).ready(function () {
 	            });		
 	}
 	traffic();
-	$.refreshId = setInterval(traffic, 10000);
+	//$.refreshId = setInterval(traffic, 10000);
             
 });

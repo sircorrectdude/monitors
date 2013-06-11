@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
         	$('body').append(sub_logo);			
 			$.switchToggle =0;
 		}else{
-    		$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_empty.jpg')").css("height", "768px").css("width", "1366px")
+    		$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_empty_neu.jpg')").css("height", "768px").css("width", "1366px")
         	$('body').append(
         			$('<div>')
         				.css("font","90px Arial, sans-serif")
@@ -46,7 +46,7 @@ jQuery(document).ready(function () {
 	            		switchEmptyPage();
 	            	}
 	            	else{
-		            	$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready.jpg')").css("height", "768px").css("width", "1366px")
+		            	$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
 		            	$('body').append(
 		            			$('<div>')
 		            				.css("text-align","center")		            			
