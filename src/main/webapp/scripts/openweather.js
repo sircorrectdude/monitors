@@ -115,7 +115,7 @@ jQuery(document).ready(function () {
         		});
         	    $('body').append(
         		    	$('<div>').attr("id", "banner").addClass("bannerDiv").css("position","absolute").css("bottom","0").append(
-        		    			$('<img>').attr("width","720").css("border", "0px").attr("src", "images/templates/openweather/Cristal-Monitor-Wetter_Banner-1080x328.jpg")
+        		    			$('<img>').attr("width","720").css("border", "0px").attr("src", "images/templates/openweather/Cristal-Monitor-Wetter_Banner.jpg")
         		    			)
         	    );	        		
 				
