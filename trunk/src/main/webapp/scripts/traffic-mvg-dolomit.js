@@ -86,6 +86,6 @@ jQuery(document).ready(function () {
 	            });
 	}
 	trafficmvg();
-	$.refreshId = setInterval(trafficmvg, 10000);
+	//$.refreshId = setInterval(trafficmvg, 10000);
             
 });
