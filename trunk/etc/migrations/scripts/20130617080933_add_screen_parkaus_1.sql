@@ -10,8 +10,8 @@ update monitor set course_id = 31 where id=20;
 --//@UNDO
 -- SQL to undo the change goes here.
 
-delete from monitor where id=19;
+update monitor set course_id = 29 where id=20;
 delete from course_screen where screen_id=68;
 delete from course where id=31;
 delete from screen where id=68;
-update monitor set course_id = 29 where id=20;
+delete from template where id=32;
