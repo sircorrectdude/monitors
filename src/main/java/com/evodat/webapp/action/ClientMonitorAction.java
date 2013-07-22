@@ -52,7 +52,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 		// log.info(getRequest().getHeader(nextElement.toString()));
 		// }
 		remoteAddr = getRequest().getRemoteAddr();
-		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
+		log.info("Request from: " + getRequest().getRemoteAddr() + " Method: "
 				+ getRequest().getMethod());
 		// Enumeration parameterNames = getRequest().getParameterNames();
 		// if (parameterNames.hasMoreElements()) {
@@ -103,7 +103,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 			if (courseMode == CourseMode.SINGLE) {
 				if (screens.size() != 0) {
-					screenToSet = screens.get(0);
+					screenToSet = screens.get(screens.size() - 1);
 					if (screenToSet.getDuration() == null
 							|| screenToSet.getDuration() <= 0) {
 						screenToSet.setDuration(DEFAULT_REFRESH);
@@ -186,7 +186,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 			// log.debug("Monitor: " + monitor.getTemplate().getText());
 		} catch (MonitorNotFoundException e) {
-			//			e.printStackTrace();
+			// e.printStackTrace();
 			return INPUT;
 		}
 		return SUCCESS;
