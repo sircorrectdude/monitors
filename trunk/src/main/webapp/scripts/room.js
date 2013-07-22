@@ -4,7 +4,7 @@ jQuery(document).ready(function () {
 		   var timerStartTime = {month: 6, day: 22, hour: 22, minute: 50};
 		   var timerStart = Date.today().set(timerStartTime);
 		   
-		   var timerEndTime = {month: 6, day: 25, hour: 11, minute: 00};
+		   var timerEndTime = {month: 6, day: 25, hour: 6, minute: 00};
 		   var timerEnd = Date.today().set(timerEndTime);		
 	
 	
