@@ -1,5 +1,13 @@
 jQuery(document).ready(function () {
 
+	$.getScript("scripts/date/date-de-DE.js", function(data, textStatus, jqxhr) {
+		   var timerStartTime = {month: 6, day: 22, hour: 22, minute: 50};
+		   var timerStart = Date.today().set(timerStartTime);
+		   
+		   var timerEndTime = {month: 6, day: 25, hour: 11, minute: 00};
+		   var timerEnd = Date.today().set(timerEndTime);		
+	
+	
 	function switchEmptyPage() {
 		$('body > div').remove();
 		if($.switchToggle ==1){
@@ -14,12 +22,21 @@ jQuery(document).ready(function () {
 	    				.css("text-decoration", "none")
 	    				.attr("id", "roomName").append($.roomName)
 	    	);
-        	var sub_logo=$('<div>').attr("id", "sub_logo").css("margin-top", "250px").css("height", "226px").css("width", "1366px").css("background-repeat", "no-repeat").css("background","url('images/templates/rooms/single_room_hd_ready_logo.jpg')");
+			if(new Date().between(timerStart, timerEnd)){
+				var sub_logo=$('<div>').attr("id", "sub_logo").css("margin-top", "250px").css("height", "226px").css("width", "1366px").css("background-repeat", "no-repeat").css("background","url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-belegt-Neu-BW.jpg')");
+			}else{
+				var sub_logo=$('<div>').attr("id", "sub_logo").css("margin-top", "250px").css("height", "226px").css("width", "1366px").css("background-repeat", "no-repeat").css("background","url('images/templates/rooms/single_room_hd_ready_logo.jpg')");
+			}
         	$('body').append(sub_logo);			
 			$.switchToggle =0;
 		}else{
-    		$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_empty_neu.jpg')").css("height", "768px").css("width", "1366px")
-        	$('body').append(
+			if(new Date().between(timerStart, timerEnd)){
+	    		$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_bwalt.jpg')").css("height", "768px").css("width", "1366px")
+				
+			}else{
+				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
+			}
+    		$('body').append(
         			$('<div>')
         				.css("font","90px Arial, sans-serif")
         				.css("padding-top", "15px")
@@ -46,8 +63,12 @@ jQuery(document).ready(function () {
 	            		switchEmptyPage();
 	            	}
 	            	else{
-		            	$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
-		            	$('body').append(
+	        			if(new Date().between(timerStart, timerEnd)){
+	        	    		$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_bwalt.jpg')").css("height", "768px").css("width", "1366px")
+	        				
+	        			}else{
+	        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
+	        			}		            	$('body').append(
 		            			$('<div>')
 		            				.css("text-align","center")		            			
 		            				.css("font","175px Arial, sans-serif")
@@ -104,5 +125,7 @@ jQuery(document).ready(function () {
 	            });		
 	}
 	rooms();	
+
+	});
 	
 });
