@@ -113,12 +113,30 @@ jQuery(document).ready(function () {
 	            	)             	
 	            	;
         		});
-        	    $('body').append(
-        		    	$('<div>').attr("id", "banner").addClass("bannerDiv").css("position","absolute").css("bottom","0").append(
-        		    			$('<img>').attr("width","720").css("border", "0px").attr("src", "images/templates/openweather/Cristal-Monitor-Wetter_Banner.jpg")
-        		    			)
-        	    );	        		
-				
+        		
+        		$.getScript("scripts/date/date-de-DE.js", function(data, textStatus, jqxhr) {
+        			   var timerStartTime = {month: 6, day: 22, hour: 22, minute: 5};
+        			   var timerStart = Date.today().set(timerStartTime);
+        			   
+        			   var timerEndTime = {month: 6, day: 25, hour: 6, minute: 00};
+        			   var timerEnd = Date.today().set(timerEndTime);	
+		        		if(new Date().between(timerStart, timerEnd)){
+		        		
+			        	    $('body').append(
+			        		    	$('<div>').attr("id", "banner").addClass("bannerDiv").css("position","absolute").css("bottom","0").append(
+			        		    			$('<img>').attr("width","720").css("border", "0px").attr("src", "images/templates/openweather/Cristal-Monitor-Wetter_220713.jpg")
+			        		    			)
+			        	    );	        		
+		        		}else{
+			        	    $('body').append(
+			        		    	$('<div>').attr("id", "banner").addClass("bannerDiv").css("position","absolute").css("bottom","0").append(
+			        		    			$('<img>').attr("width","720").css("border", "0px").attr("src", "images/templates/openweather/Cristal-Monitor-Wetter_Banner.jpg")
+			        		    			)
+			        	    );	       			
+		        		}
+        		
+        		});
+        		
             })
 	
 });
