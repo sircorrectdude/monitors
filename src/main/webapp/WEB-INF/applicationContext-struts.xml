@@ -58,5 +58,15 @@
 
     <bean id="cBookingAction" class="com.evodat.webapp.action.CBookingAction" scope="prototype">
     </bean>
+
+    <bean id="floorAction" class="com.evodat.webapp.action.FloorAction" scope="prototype">
+		<property name="floorManager" ref="floorManager"/>
+		<property name="carparkManager" ref="carparkManager"/>
+    </bean>
+
+    <bean id="carparkAction" class="com.evodat.webapp.action.CarparkAction" scope="prototype">
+    	<property name="monitorManager" ref="monitorManager"/>
+    	<property name="carparkManager" ref="carparkManager"/>
+    </bean>
 	
 </beans>

@@ -3,6 +3,7 @@
 
 <hibernate-configuration>
     <session-factory>
+		<property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="com.evodat.model.User"/>
         <mapping class="com.evodat.model.Role"/>
 		<mapping class="com.evodat.model.Monitor"/>
@@ -11,5 +12,7 @@
 		<mapping class="com.evodat.model.Screen"/>
 		<mapping class="com.evodat.model.JCalendar"/>
 		<mapping class="com.evodat.model.Room"/>
+		<mapping class="com.evodat.model.Carpark"/>
+		<mapping class="com.evodat.model.Floor"/>
     </session-factory>
 </hibernate-configuration>

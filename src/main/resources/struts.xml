@@ -170,6 +170,10 @@
          <action name="calendar" class="com.evodat.webapp.action.CalendarAction">
              <result name="success">/WEB-INF/pages/calendar.jsp</result>
         </action>
+
+		<action name="floors" class="floorAction" method="list">
+            <result name="success">/WEB-INF/pages/floorList.jsp</result>
+        </action>
  
         <!-- Add additional actions here -->
 
@@ -186,7 +190,9 @@
         <action name="cBooking" class="cBookingAction">
              <result type="json" />
         </action>        
-        
+        <action name="carpark" class="carparkAction">
+             <result type="json" />
+        </action>         
                
 	 </package>
 
@@ -200,6 +206,15 @@
             <result name="success">/WEB-INF/pages/uploadDisplay.jsp</result>
             <result name="cancel" type="redirectAction">mainMenu</result>
         </action>
+        
+        <action name="saveFloorState" class="com.evodat.webapp.action.FloorAction" method="saveFloorState">
+            <result name="success">/WEB-INF/pages/floorStateForm.jsp</result>
+        </action>        
+        
+        <action name="updateCarpark" class="floorAction" method="updateCarpark">
+              <result name="success">/WEB-INF/pages/updateCarparkForm.jsp</result>
+        </action> 
+        
 		<action name="clientMonitorContent" class="com.evodat.webapp.action.ClientMonitorAction">
             <result name="success">/WEB-INF/pages/clientMonitorContent.jsp</result>
 			<result name="input">/WEB-INF/pages/clientMonitorNotFound.jsp</result>
