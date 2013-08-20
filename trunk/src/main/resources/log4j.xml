@@ -49,7 +49,7 @@
     </logger>
    
     <logger name="com.evodat.webapp">
-        <level value="WARN"/>
+        <level value="DEBUG"/>
     </logger>
 
     <logger name="com.evodat.webapp.filter.StaticFilter">
@@ -57,7 +57,7 @@
     </logger>
 
     <root>
-        <level value="WARN"/>
+        <level value="INFO"/>
         <appender-ref ref="CONSOLE"/>
     </root>
 
