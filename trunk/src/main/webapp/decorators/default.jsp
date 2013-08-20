@@ -9,7 +9,9 @@
         <title><decorator:title/> | <fmt:message key="webapp.name"/></title>
 
         <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/${appConfig["csstheme"]}/theme.css'/>" />
-        <link rel="stylesheet" type="text/css" media="print" href="<c:url value='/styles/${appConfig["csstheme"]}/print.css'/>" />
+       <!--  <link rel="stylesheet" type="text/css" media="print" href="<c:url value='/styles/${appConfig["csstheme"]}/print.css'/>" />
+ -->
+		<script type="text/javascript" src="<c:url value='/scripts/bootstrap/bootstrap.js'/>" ></script> 
 
         <decorator:head/>
     </head>
@@ -18,15 +20,16 @@
     <div id="page">
         <div id="header" class="clearfix">
             <jsp:include page="/common/header.jsp"/>
+        <div class="nav">
+            <div class="navbar">
+                <h2 class="accessibility">Navigation</h2>
+                <jsp:include page="/common/menu.jsp"/>
+            </div>
+        </div><!-- end nav -->
         </div>
 
-        <div id="content" class="clearfix">
-            <div id="main">
-                <%@ include file="/common/messages.jsp" %>
-                <h1><decorator:getProperty property="meta.heading"/></h1>
-                <decorator:body/>
-            </div>
 
+        <div id="content" class="clearfix">
             <c:set var="currentMenu" scope="request"><decorator:getProperty property="meta.menu"/></c:set>
             <c:if test="${currentMenu == 'AdminMenu'}">
             <div id="sub">
@@ -35,14 +38,13 @@
                 </menu:useMenuDisplayer>
             </div>
             </c:if>
-
-            <div id="nav">
-                <div class="wrapper">
-                    <h2 class="accessibility">Navigation</h2>
-                    <jsp:include page="/common/menu.jsp"/>
-                </div>
-                <hr/>
-            </div><!-- end nav -->
+            
+            <div id="main">
+                <%@ include file="/common/messages.jsp" %>
+                <h1><decorator:getProperty property="meta.heading"/></h1>
+                <decorator:body/>
+            </div>
+            
         </div>
 
         <div id="footer" class="clearfix">

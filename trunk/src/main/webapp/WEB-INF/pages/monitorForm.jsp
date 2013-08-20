@@ -14,13 +14,13 @@
     </li>
     <li class="buttonBar right">
         <c:set var="buttons">
-            <s:submit key="button.save" method="save" onclick="onFormSubmit(this.form)"/>
+            <s:submit cssClass="btn btn-primary" key="button.save" method="save" onclick="onFormSubmit(this.form)"/>
             
         <c:if test="${param.from == 'list' and not empty monitor.id}">
             <s:submit key="button.delete" method="delete" onclick="return confirmDelete('monitor')"/>
         </c:if>
         
-            <s:submit key="button.cancel" method="cancel"/>
+            <s:submit cssClass="btn btn-primary" key="button.cancel" method="cancel"/>
         </c:set>
     </li>
     <li class="info">
@@ -34,21 +34,15 @@
         </c:choose>
     </li>
 
-    <li>
             <div class="single">
                <s:textfield key="monitor.ipAddress" cssClass="text medium" required="true"/>
             </div>
-    </li>
-    <li>
       <div class="single">
                 <s:textfield key="monitor.alias" cssClass="text medium" required="true"/>
         </div>
-    </li>    
-    <li>
        <div class="single">
                <s:select label="Course" key="monitor.course.id" list="courses" listKey="id" listValue="name"/>
         </div>
-    </li>
 
     <li class="buttonBar bottom">
         <c:out value="${buttons}" escapeXml="false"/>

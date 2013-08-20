@@ -29,13 +29,14 @@
             #end
         #end
 
-        <li#if ($hasViewableChildren) class="menubar"#end>
-          <a href="$url" title="$title" #if ($menu.name == $currentMenu) class="current" #end#if($menu.target)target="$menu.target" #end#if($menu.width)style="width: ${menu.width}px"#end>${title}</a>
+        <li#if ($hasViewableChildren) class="dropdown"#end>
+          <a href="$url" class="dropdown-toggle" data-toggle="dropdown" role="button" title="$title" #if ($menu.name == $currentMenu) class="dropdown-toggle current" #end#if($menu.target)target="$menu.target" #end#if($menu.width)style="width: ${menu.width}px"#end>${title}
+    	  <b class="caret"></b></a>
     #end
 
     #if ($menu.components.size() > 0)
         #if ($hasViewableChildren) 
-          <ul> 
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
         #end
 
         #set ($count = 0)
@@ -46,7 +47,7 @@
         #if ($hasViewableChildren && ($count == $renderedChildren))
           </li>
         #else
-          </ul>
+          	</ul>
           #if ($count > $renderedChildren) 
           </li>
           #end
@@ -54,7 +55,7 @@
     #else
       </li>
       #if ($count == $menu.parent.components.size())
-      </ul>
+      	</ul>
       #end
     #end
   #end
