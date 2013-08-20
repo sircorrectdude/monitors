@@ -16,13 +16,13 @@
     </li>
     <li class="buttonBar right">
         <c:set var="buttons">
-            <s:submit key="button.save" method="save" onclick="onFormSubmit(this.form)"/>
+            <s:submit cssClass="btn btn-primary" key="button.save" method="save" onclick="onFormSubmit(this.form)"/>
             
         <c:if test="${param.from == 'list' and not empty course.id}">
-            <s:submit key="button.delete" method="delete" onclick="return confirmDelete('course')"/>
+            <s:submit cssClass="btn btn-primary" key="button.delete" method="delete" onclick="return confirmDelete('course')"/>
         </c:if>
         
-            <s:submit key="button.cancel" method="cancel"/>
+            <s:submit cssClass="btn btn-primary" key="button.cancel" method="cancel"/>
         </c:set>
     </li>
     <li class="info">
@@ -36,7 +36,6 @@
         </c:choose>
     </li>
 
-    <li>
         <div>
             <div class="left">
                <s:textfield key="course.name" cssClass="text medium" required="true"/> 
@@ -65,7 +64,6 @@
     
             </div>
         </div>
-    </li>
 
 
     <li class="buttonBar bottom">

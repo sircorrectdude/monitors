@@ -12,18 +12,21 @@
 
 
 <c:set var="buttons">
-    <input type="button" style="margin-right: 5px"
+<p style="float:right;">
+    <input type="button" style="margin-right: 5px" class="btn btn-primary"
         onclick="location.href='<c:url value="/editCourse.html?method=Add&from=list"/>'"
         value="<fmt:message key="button.add"/>"/>
     
-    <input type="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
+ <!--    <input type="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
         value="<fmt:message key="button.done"/>"/>
+         -->
+</p>
 </c:set>
 
 <c:out value="${buttons}" escapeXml="false" />
 
 <display:table name="courses" cellspacing="0" cellpadding="0" requestURI="" 
-    defaultsort="1" id="course" pagesize="25" class="table" export="true">
+    defaultsort="1" id="course" pagesize="25" class="table table-condensed table-hover table-striped table-bordered table-striped table-bordered table-striped table-bordered" export="true">
     <display:column property="name" escapeXml="true" sortable="true" titleKey="course.name" style="width: 25%"
         url="/editCourse.html?from=list" paramId="id" paramProperty="id"/>
 

@@ -18,13 +18,13 @@
     </li>
     <li class="buttonBar right">
         <c:set var="buttons">
-            <s:submit key="button.save" method="save"/>
+            <s:submit cssClass="btn btn-primary" key="button.save" method="save"/>
             
         <c:if test="${param.from == 'list' and not empty template.id}">
-            <s:submit key="button.delete" method="delete" onclick="return confirmDelete('template')"/>
+            <s:submit cssClass="btn btn-primary" key="button.delete" method="delete" onclick="return confirmDelete('template')"/>
         </c:if>
         
-            <s:submit key="button.cancel" method="cancel"/>
+            <s:submit cssClass="btn btn-primary" key="button.cancel" method="cancel"/>
         </c:set>
     </li>
     <li class="info">
@@ -38,7 +38,6 @@
         </c:choose>
     </li>
 
-    <li>
         <div>
             <div class="left">
                <s:textfield key="template.name" cssClass="text medium" required="true"/> 
@@ -49,7 +48,7 @@
 					 <s:param name="width">400</s:param>
 					 <s:param name="height">300</s:param>				    
 				</s:url>
-				<s:a title="Hinzufügen" cssClass="thickbox" href="%{uploadFileUrl}"><fmt:message key="menu.selectFile"/></s:a><br/>
+				<s:a title="Hinzufügen" cssClass="thickbox btn btn-primary" href="%{uploadFileUrl}"><fmt:message key="menu.selectFile"/></s:a><br/>
 		 </span>         
             
             </div>
@@ -66,7 +65,6 @@
 				/>            
             </div>
         </div>
-    </li>
 
 
     <li class="buttonBar bottom">

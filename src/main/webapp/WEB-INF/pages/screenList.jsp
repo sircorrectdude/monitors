@@ -18,7 +18,7 @@
 <c:out value="${buttons}" escapeXml="false" />
 
 <display:table name="screens" cellspacing="0" cellpadding="0" requestURI="" 
-    defaultsort="1" id="screens" pagesize="25" class="table" export="true">
+    defaultsort="1" id="screens" pagesize="25" class="table table-condensed table-hover table-striped table-bordered table-striped table-bordered table-striped table-bordered" export="true">
     <display:column property="cronExpression" escapeXml="true" sortable="true" titleKey="screen.cronExpression" style="width: 25%"
         url="/editScreen.html?from=list" paramId="id" paramProperty="id"/>
 
@@ -34,7 +34,3 @@
 </display:table>
 
 <c:out value="${buttons}" escapeXml="false" />
-
-<script type="text/javascript">
-    highlightTableRows("monitors");
-</script>
