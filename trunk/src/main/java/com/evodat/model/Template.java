@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -28,6 +29,7 @@ public class Template extends BaseObject implements Serializable {
 	private String name;
 	private String text;
 	private Boolean editable;
+	private User user;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -73,8 +75,8 @@ public class Template extends BaseObject implements Serializable {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append(
-				"name", name).toString();
+		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
+				.append("name", name).append("user", user).toString();
 
 	}
 
@@ -84,6 +86,15 @@ public class Template extends BaseObject implements Serializable {
 
 	public void setEditable(Boolean editable) {
 		this.editable = editable;
+	}
+
+	@ManyToOne
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

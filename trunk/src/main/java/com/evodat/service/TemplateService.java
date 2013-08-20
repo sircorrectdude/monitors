@@ -5,6 +5,7 @@ import java.util.List;
 import javax.jws.WebService;
 
 import com.evodat.model.Template;
+import com.evodat.model.User;
 
 @WebService
 public interface TemplateService {
@@ -14,5 +15,5 @@ public interface TemplateService {
 
 	void removeTemplate(String templateId);
 
-	List<Template> getTemplates();
+	List<Template> getTemplates(User user);
 }

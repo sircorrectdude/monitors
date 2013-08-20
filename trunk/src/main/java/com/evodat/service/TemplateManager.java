@@ -3,6 +3,7 @@ package com.evodat.service;
 import java.util.List;
 
 import com.evodat.model.Template;
+import com.evodat.model.User;
 
 public interface TemplateManager extends GenericManager<Template, Long> {
 	Template getTemplate(String monitorId);
@@ -11,5 +12,5 @@ public interface TemplateManager extends GenericManager<Template, Long> {
 
 	void removeTemplate(String templateId);
 
-	List<Template> getTemplates();
+	List<Template> getTemplates(User user);
 }

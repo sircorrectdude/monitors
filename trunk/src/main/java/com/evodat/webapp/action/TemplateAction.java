@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.evodat.model.Template;
+import com.evodat.model.User;
 import com.opensymphony.xwork2.Preparable;
 
 public class TemplateAction extends BaseAction implements Preparable {
@@ -20,12 +21,12 @@ public class TemplateAction extends BaseAction implements Preparable {
 			template = templateManager.getTemplate(getRequest().getParameter(
 					"template.id"));
 		}
-
+		log.info(getCurrentUser());
 	}
 
 	/**
 	 * Default: just returns "success"
-	 *
+	 * 
 	 * @return "success"
 	 */
 	public String execute() {
@@ -40,7 +41,8 @@ public class TemplateAction extends BaseAction implements Preparable {
 	}
 
 	public String list() {
-		templates = templateManager.getTemplates();
+		User currentUser = getCurrentUser();
+		templates = templateManager.getTemplates(currentUser);
 		return SUCCESS;
 	}
 
@@ -59,6 +61,7 @@ public class TemplateAction extends BaseAction implements Preparable {
 		log.info(template.getText());
 		log.info(template.getName());
 		template.setEditable(true);
+		template.setUser(getCurrentUser());
 		templateManager.saveTemplate(template);
 
 		if (!"list".equals(from)) {

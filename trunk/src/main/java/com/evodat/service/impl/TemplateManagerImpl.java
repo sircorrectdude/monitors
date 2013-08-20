@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.evodat.dao.TemplateDao;
 import com.evodat.model.Template;
+import com.evodat.model.User;
 import com.evodat.service.TemplateManager;
 import com.evodat.service.TemplateService;
 
@@ -29,8 +30,8 @@ public class TemplateManagerImpl extends GenericManagerImpl<Template, Long>
 		return templateDao.get(new Long(templateId));
 	}
 
-	public List<Template> getTemplates() {
-		return templateDao.getAllDistinct();
+	public List<Template> getTemplates(User user) {
+		return templateDao.getAll(user);
 	}
 
 	public void removeTemplate(String templateId) {
