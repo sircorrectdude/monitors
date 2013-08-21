@@ -21,14 +21,19 @@ jQuery(document).ready(function () {
 							$('<span>').append(
 								//data.carparkCristal.placesLeft
 									floor.placesLeftUpper
-							).css('text-align','center').css('width','400px').css('position','absolute').css('top','500px').css('left','1400px').css('color','#00A752').css('font','bold 180px arial, sans-serif')
+							).css('text-align','center').css('width','400px').css('position','absolute').css('top','500px').css('left','1350px').css('color','#00A752').css('font','bold 180px arial, sans-serif')
 						)
 					.css('background-image','url(images/templates/parkhaus/floor_occupied.jpg)');
 				}else{
 					$('body').empty().append(
 						$('<span>').append(
+								floor.placesLeftUpper
+						).css('text-align','center').css('width','400px').css('position','absolute').css('top','500px').css('left','1350px').css('color','#00A752').css('font','bold 180px arial, sans-serif')
+					)
+					.append(
+						$('<span>').append(
 								floor.placesLeft
-						).css('text-align','center').css('width','400px').css('position','absolute').css('top','500px').css('left','400px').css('color','#00A752').css('font','bold 280px arial, sans-serif')
+						).css('text-align','center').css('width','400px').css('position','absolute').css('top','200px').css('left','550px').css('color','#00A752').css('font','bold 180px arial, sans-serif')
 					)
 					.css('background-image','url(images/templates/parkhaus/floor_free.jpg)');
 				}
