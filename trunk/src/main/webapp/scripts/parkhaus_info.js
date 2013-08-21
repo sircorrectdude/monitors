@@ -41,24 +41,12 @@ jQuery(document).ready(function () {
 							).append(
 									$('<td>').css('width', "200px").css('background' , 'none repeat scroll 0 0 transparent').css('text-align', "center")
 									.css('color', floor.placesLeft<=0 ? '#CB0023' : '#008124')
-									.attr('class',floor.placesLeft<=0 ? 'noblink' : 'blink')
-									.css('text-decoration', floor.placesLeft<=0 ? 'blink' : '')
 									.append( floor.placesLeft<=0 ? "Besetzt <br/> <i>Occupied</i>" : "Frei <br/> <i>Available</i>")
 							)
 				)
 			}
 		});
-		blinken();
 	});
 });
 
-var i=0;
-function blinken(){
-i++;
-if (i==1) Farbe = "#008124"
-if (i==2) Farbe = "transparent"
-
-$('.blink').css('color', Farbe);
-if (i > 1) i = 0
-setTimeout('blinken()', 750)
-}
+	
