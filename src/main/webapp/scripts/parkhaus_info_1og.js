@@ -35,7 +35,7 @@ jQuery(document).ready(function () {
 								floor.placesLeft
 						).css('text-align','center').css('width','400px').css('position','absolute').css('top','200px').css('left','550px').css('color','#00A752').css('font','bold 180px arial, sans-serif')
 					)
-					.css('background-image','url(images/templates/parkhaus/floor_free.jpg)');
+					.css('background-image','url(images/templates/parkhaus/floor_frei.jpg)');
 				}
 			}
 		});
