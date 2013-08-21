@@ -22,6 +22,31 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function () {
 	
+	(function($)
+			{
+				$.fn.blink = function(options)
+				{
+					var defaults = { delay:500 };
+					var options = $.extend(defaults, options);
+					
+					return this.each(function()
+					{
+						var obj = $(this);
+						setInterval(function()
+						{
+							if($(obj).css("visibility") == "visible")
+							{
+								$(obj).css('visibility','hidden');
+							}
+							else
+							{
+								$(obj).css('visibility','visible');
+							}
+						}, options.delay);
+					});
+				}
+			}(jQuery))
+	
 	$("body").css("background-image","url(images/templates/parkhaus/Monitor-carpark-EG_Hintergrund.jpg)").css('height','1508px');
 	$('body').append(
 			$('<table>').attr("id", "floorsTable").css('margin-top', "412px").css('width', "auto").css('font','bold 40pt arial, sans-serif')
@@ -41,11 +66,13 @@ jQuery(document).ready(function () {
 							).append(
 									$('<td>').css('width', "200px").css('background' , 'none repeat scroll 0 0 transparent').css('text-align', "center")
 									.css('color', floor.placesLeft<=0 ? '#CB0023' : '#008124')
+									.attr('class', floor.placesLeft<=0 ? 'noblink' : 'blink')
 									.append( floor.placesLeft<=0 ? "Besetzt <br/> <i>Occupied</i>" : "Frei <br/> <i>Available</i>")
 							)
 				)
 			}
 		});
+		$('.blink').blink()
 	});
 });
 
