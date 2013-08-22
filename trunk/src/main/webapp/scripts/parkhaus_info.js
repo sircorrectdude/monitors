@@ -22,31 +22,20 @@ jQuery(document).ready(function () {
 
 jQuery(document).ready(function () {
 	
-	(function($)
-			{
-				$.fn.blink = function(options)
+			
+			function blink() {
+				if($('.blink').css("visibility") == "visible")
 				{
-					var defaults = { delay:500 };
-					var options = $.extend(defaults, options);
-					
-					return this.each(function()
-					{
-						var obj = $(this);
-						setInterval(function()
-						{
-							if($(obj).css("visibility") == "visible")
-							{
-								$(obj).css('visibility','hidden');
-							}
-							else
-							{
-								$(obj).css('visibility','visible');
-							}
-						}, options.delay);
-					});
+					$('.blink').css('visibility','hidden');
 				}
-			}(jQuery))
-	
+				else
+				{
+					$('.blink').css('visibility','visible');
+				}
+			}
+			
+			$(document).everyTime('500ms', 'blink', blink, 0, true);
+			
 	$("body").css("background-image","url(images/templates/parkhaus/Monitor-carpark-EG_Hintergrund.jpg)").css('height','1508px');
 	$('body').append(
 			$('<table>').attr("id", "floorsTable").css('margin-top', "412px").css('width', "auto").css('font','bold 40pt arial, sans-serif')
