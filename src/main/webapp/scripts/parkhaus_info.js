@@ -21,7 +21,7 @@ jQuery(document).ready(function () {
 */
 
 jQuery(document).ready(function () {
-	
+	$(document).stopTime('blink');	
 			
 			function blink() {
 				if($('.blink').css("visibility") == "visible")
