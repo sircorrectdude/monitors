@@ -56,7 +56,7 @@ public class ADACServlet extends HttpServlet {
 			call = (Call) service.createCall();
 
 			call.setTargetEndpointAddress(new java.net.URL(endpointURL));
-			call.setOperationName(new QName("LoudService", "serviceMethod"));
+			call.setOperationName(new QName("getDynamicData", "sMethodName"));
 			call.addParameter("mesg", XMLType.XSD_STRING, ParameterMode.IN);
 			call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);
 
