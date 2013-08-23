@@ -105,7 +105,7 @@ public class ADACServlet extends HttpServlet {
 				Pattern.DOTALL);
 		Matcher matcher = pattern.matcher(resp);
 		if (matcher.find()) {
-			String count = matcher.group(0);
+			String count = matcher.group(1);
 			log.info(count);
 		}
 
