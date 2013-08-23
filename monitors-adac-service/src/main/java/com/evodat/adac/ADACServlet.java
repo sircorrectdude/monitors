@@ -21,7 +21,7 @@ public class ADACServlet extends HttpServlet {
 	private static Logger log = Logger.getLogger(ADACServlet.class);
 
 	String sServiceUrl = "http://routenplaner.adac.de/webservice/ParkInfoServiceV2.asmx";
-	String sServiceUri = ""; // must match HelloWorld.xml
+	String sServiceUri = "http://ADAC.ITP.WebServices/getDynamicData";
 	String sMethodName = "getDynamicData";
 
 	@Override
