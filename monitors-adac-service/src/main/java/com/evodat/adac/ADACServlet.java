@@ -50,6 +50,7 @@ public class ADACServlet extends HttpServlet {
 			log.info(greeting);
 
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			System.err.println("Error while calling '" + sMethodName + "':");
 			System.err.println(ex.getMessage());
 			return;
