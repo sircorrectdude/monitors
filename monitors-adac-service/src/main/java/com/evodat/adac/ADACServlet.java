@@ -68,11 +68,12 @@ public class ADACServlet extends HttpServlet {
 		URL u = new URL(endpointURL);
 		URLConnection uc = u.openConnection();
 		HttpURLConnection connection = (HttpURLConnection) uc;
-
 		connection.setDoOutput(true);
 		connection.setDoInput(true);
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("SOAPAction", sServiceUri);
+		connection
+				.setRequestProperty("content-type", "text/xml; charset=utf-8");
 
 		OutputStream out = connection.getOutputStream();
 		Writer wout = new OutputStreamWriter(out);
