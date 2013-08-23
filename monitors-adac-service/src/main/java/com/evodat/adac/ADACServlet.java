@@ -30,7 +30,7 @@ public class ADACServlet extends HttpServlet {
 	String sMethodName = "getDynamicData";
 
 	@Override
-	protected void service(HttpServletRequest httpServletRequest,
+	protected void doGet(HttpServletRequest httpServletRequest,
 			HttpServletResponse httpServletResponse) throws ServletException,
 			IOException {
 
@@ -99,7 +99,7 @@ public class ADACServlet extends HttpServlet {
 		StringWriter writer = new StringWriter();
 		IOUtils.copy(in, writer, "utf-8");
 		String resp = writer.toString();
-		log.info(resp);
+		log.debug(resp);
 
 		Pattern pattern = Pattern.compile("<PL_frei>(.*)</PL_frei>",
 				Pattern.DOTALL);
@@ -107,6 +107,9 @@ public class ADACServlet extends HttpServlet {
 		if (matcher.find()) {
 			String count = matcher.group(1);
 			log.info(count);
+			httpServletResponse.getWriter().write(count);
+			httpServletResponse.getWriter().flush();
+			httpServletResponse.getWriter().close();
 		}
 
 		in.close();
