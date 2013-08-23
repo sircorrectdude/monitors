@@ -76,6 +76,12 @@
 	<version>0.5</version>
 </dependency>
 
+<dependency>
+	<groupId>wsdl4j</groupId>
+	<artifactId>wsdl4j</artifactId>
+	<version>1.6.2</version>
+</dependency>
+
   </dependencies>
   
   <properties>
