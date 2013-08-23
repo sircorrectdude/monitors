@@ -73,7 +73,7 @@ public class ADACServlet extends HttpServlet {
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("SOAPAction", sServiceUri);
 		connection.setRequestProperty("content-type",
-				"application/x-www-form-urlencoded");
+				"application/soap+xml; charset=utf-8");
 
 		OutputStream out = connection.getOutputStream();
 		Writer wout = new OutputStreamWriter(out);
@@ -84,7 +84,7 @@ public class ADACServlet extends HttpServlet {
 		wout.write("<getDynamicData xmlns='http://ADAC.ITP.WebServices/'>");
 		wout.write("<Kunde>Best Western Hotel</Kunde>");
 		wout.write("<Passwort>BestJun17</Passwort>");
-		wout.write("</getDynamicData");
+		wout.write("</getDynamicData>");
 		wout.write("</soap12:Body>");
 		wout.write("</soap12:Envelope>");
 
