@@ -1,18 +1,19 @@
 package com.evodat.adac;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.namespace.QName;
-import javax.xml.rpc.ParameterMode;
-import javax.xml.rpc.ServiceException;
 
-import org.apache.axis.client.Call;
-import org.apache.axis.client.Service;
-import org.apache.axis.encoding.XMLType;
 import org.apache.log4j.Logger;
 
 public class ADACServlet extends HttpServlet {
@@ -49,24 +50,51 @@ public class ADACServlet extends HttpServlet {
 		 * System.err.println("Error while calling '" + sMethodName + "':");
 		 * System.err.println(ex.getMessage()); return; }
 		 */
+		/*
+		 * Service service = new Service(); Call call; try { call = (Call)
+		 * service.createCall();
+		 * 
+		 * call.setTargetEndpointAddress(new java.net.URL(endpointURL));
+		 * call.setOperationName(new QName("getDynamicData", "sMethodName"));
+		 * call.addParameter("mesg", XMLType.XSD_STRING, ParameterMode.IN);
+		 * call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);
+		 * call.setSOAPActionURI(sServiceUri); String reply = (String)
+		 * call.invoke(new Object[] { null });
+		 * 
+		 * System.out.println("Reply: " + reply); } catch (ServiceException e) {
+		 * // TODO Auto-generated catch block e.printStackTrace(); }
+		 */
 
-		Service service = new Service();
-		Call call;
-		try {
-			call = (Call) service.createCall();
+		URL u = new URL(endpointURL);
+		URLConnection uc = u.openConnection();
+		HttpURLConnection connection = (HttpURLConnection) uc;
 
-			call.setTargetEndpointAddress(new java.net.URL(endpointURL));
-			call.setOperationName(new QName("getDynamicData", "sMethodName"));
-			call.addParameter("mesg", XMLType.XSD_STRING, ParameterMode.IN);
-			call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);
-			call.setSOAPActionURI(sServiceUri);
-			String reply = (String) call.invoke(new Object[] { null });
+		connection.setDoOutput(true);
+		connection.setDoInput(true);
+		connection.setRequestMethod("POST");
+		connection.setRequestProperty("SOAPAction", sServiceUri);
 
-			System.out.println("Reply: " + reply);
-		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		OutputStream out = connection.getOutputStream();
+		Writer wout = new OutputStreamWriter(out);
+
+		wout.write("<?xml version='1.0' encoding='utf-8'?>\r\n");
+		wout.write("<soap12:Envelope xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soap12='http://www.w3.org/2003/05/soap-envelope'>");
+		wout.write("<soap12:Body>");
+		wout.write("<getDynamicData xmlns='http://ADAC.ITP.WebServices/'>");
+		wout.write("<Kunde>Best Western Hotel</Kunde>");
+		wout.write("<Passwort>BestJun17</Passwort>");
+		wout.write("</getDynamicData");
+		wout.write("</soap12:Body>");
+		wout.write("</soap12:Envelope>");
+
+		wout.flush();
+		wout.close();
+
+		InputStream in = connection.getInputStream();
+		int c;
+		while ((c = in.read()) != -1)
+			System.out.write(c);
+		in.close();
 
 	}
 }
