@@ -1,27 +1,27 @@
 package com.evodat.adac;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.Vector;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.namespace.QName;
+import javax.xml.rpc.ParameterMode;
+import javax.xml.rpc.ServiceException;
 
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+import org.apache.axis.encoding.XMLType;
 import org.apache.log4j.Logger;
-import org.apache.soap.Constants;
-import org.apache.soap.rpc.Call;
-import org.apache.soap.rpc.Parameter;
-import org.apache.soap.rpc.Response;
 
 public class ADACServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 2210893804287737186L;
 	private static Logger log = Logger.getLogger(ADACServlet.class);
 
-	String sServiceUrl = "http://routenplaner.adac.de/webservice/ParkInfoServiceV2.asmx";
-	String sServiceUri = "http://ADAC.ITP.WebServices/getDynamicData";
+	String endpointURL = "http://routenplaner.adac.de/webservice/ParkInfoServiceV2.asmx";
+	// String sServiceUri = "http://ADAC.ITP.WebServices/getDynamicData";
 	String sMethodName = "getDynamicData";
 
 	@Override
@@ -31,29 +31,42 @@ public class ADACServlet extends HttpServlet {
 
 		super.service(httpServletRequest, httpServletResponse);
 		log.info("request..");
-		Response resp;
+		/*
+		 * Response resp; try { Vector<Parameter> params = new
+		 * Vector<Parameter>(); params.addElement(new Parameter("Kunde",
+		 * String.class, "Best Western Hotel", null)); params.addElement(new
+		 * Parameter("Passwort", String.class, "BestJun17", null)); Call call =
+		 * new Call(); call.setTargetObjectURI(sServiceUri);
+		 * call.setMethodName(sMethodName);
+		 * call.setEncodingStyleURI(Constants.NS_URI_SOAP_ENC);
+		 * call.setParams(params); resp = call.invoke(new URL(sServiceUrl),
+		 * sServiceUri);
+		 * 
+		 * Parameter result = resp.getReturnValue(); String greeting = (String)
+		 * result.getValue(); log.info(greeting);
+		 * 
+		 * } catch (Exception ex) { ex.printStackTrace();
+		 * System.err.println("Error while calling '" + sMethodName + "':");
+		 * System.err.println(ex.getMessage()); return; }
+		 */
+
+		Service service = new Service();
+		Call call;
 		try {
-			Vector<Parameter> params = new Vector<Parameter>();
-			params.addElement(new Parameter("Kunde", String.class,
-					"Best Western Hotel", null));
-			params.addElement(new Parameter("Passwort", String.class,
-					"BestJun17", null));
-			Call call = new Call();
-			call.setTargetObjectURI(sServiceUri);
-			call.setMethodName(sMethodName);
-			call.setEncodingStyleURI(Constants.NS_URI_SOAP_ENC);
-			call.setParams(params);
-			resp = call.invoke(new URL(sServiceUrl), sServiceUri);
+			call = (Call) service.createCall();
 
-			Parameter result = resp.getReturnValue();
-			String greeting = (String) result.getValue();
-			log.info(greeting);
+			call.setTargetEndpointAddress(new java.net.URL(endpointURL));
+			call.setOperationName(new QName("LoudService", "serviceMethod"));
+			call.addParameter("mesg", XMLType.XSD_STRING, ParameterMode.IN);
+			call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);
 
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.err.println("Error while calling '" + sMethodName + "':");
-			System.err.println(ex.getMessage());
-			return;
+			String reply = (String) call.invoke(new Object[] { null });
+
+			System.out.println("Reply: " + reply);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
 	}
 }
