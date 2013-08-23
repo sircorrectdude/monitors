@@ -4,16 +4,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
 public class ADACServlet extends HttpServlet {
@@ -92,9 +96,19 @@ public class ADACServlet extends HttpServlet {
 		wout.close();
 
 		InputStream in = connection.getInputStream();
-		int c;
-		while ((c = in.read()) != -1)
-			System.out.write(c);
+		StringWriter writer = new StringWriter();
+		IOUtils.copy(in, writer, "utf-8");
+		String resp = writer.toString();
+		log.info(resp);
+
+		Pattern pattern = Pattern.compile("<PL_frei>(.*)</PL_frei>",
+				Pattern.DOTALL);
+		Matcher matcher = pattern.matcher(resp);
+		if (matcher.find()) {
+			String count = matcher.group();
+			log.info(count);
+		}
+
 		in.close();
 
 	}
