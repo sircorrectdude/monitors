@@ -21,7 +21,7 @@ public class ADACServlet extends HttpServlet {
 	private static Logger log = Logger.getLogger(ADACServlet.class);
 
 	String endpointURL = "http://routenplaner.adac.de/webservice/ParkInfoServiceV2.asmx";
-	// String sServiceUri = "http://ADAC.ITP.WebServices/getDynamicData";
+	String sServiceUri = "http://ADAC.ITP.WebServices/getDynamicData";
 	String sMethodName = "getDynamicData";
 
 	@Override
@@ -59,7 +59,7 @@ public class ADACServlet extends HttpServlet {
 			call.setOperationName(new QName("getDynamicData", "sMethodName"));
 			call.addParameter("mesg", XMLType.XSD_STRING, ParameterMode.IN);
 			call.setReturnType(org.apache.axis.encoding.XMLType.XSD_STRING);
-
+			call.setSOAPActionURI(sServiceUri);
 			String reply = (String) call.invoke(new Object[] { null });
 
 			System.out.println("Reply: " + reply);
