@@ -72,8 +72,8 @@ public class ADACServlet extends HttpServlet {
 		connection.setDoInput(true);
 		connection.setRequestMethod("POST");
 		connection.setRequestProperty("SOAPAction", sServiceUri);
-		connection
-				.setRequestProperty("content-type", "text/xml; charset=utf-8");
+		connection.setRequestProperty("content-type",
+				"application/x-www-form-urlencoded");
 
 		OutputStream out = connection.getOutputStream();
 		Writer wout = new OutputStreamWriter(out);
