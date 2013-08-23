@@ -34,8 +34,6 @@ public class ADACServlet extends HttpServlet {
 			HttpServletResponse httpServletResponse) throws ServletException,
 			IOException {
 
-		super.service(httpServletRequest, httpServletResponse);
-		log.info("request..");
 		/*
 		 * Response resp; try { Vector<Parameter> params = new
 		 * Vector<Parameter>(); params.addElement(new Parameter("Kunde",
