@@ -19,6 +19,10 @@
 	<bean id="serviceResetTemporarilyOccupiedFloor" class="com.evodat.util.ResetTemporarilyOccupiedFloorCron">
 		<property name="floorManager" ref="floorManager"/>
 	</bean>
+
+	<bean id="getFreeCarparkPlaces" class="com.evodat.util.GetFreeCarparkPlacesCron">
+		<property name="carparkManager" ref="carparkManager"/>
+	</bean>
 	
     <!-- Add new DAOs here -->
 
