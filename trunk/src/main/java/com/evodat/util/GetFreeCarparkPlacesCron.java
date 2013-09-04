@@ -26,7 +26,7 @@ public class GetFreeCarparkPlacesCron {
 
 	protected CarparkManager carparkManager;
 
-	@Scheduled(cron = "*/30 * * * * ?")
+	@Scheduled(cron = "0 */05 * * * ?")
 	public void getFreeCarparkPlaces() {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(serviceUrl);
