@@ -26,7 +26,8 @@ public class GetFreeCarparkPlacesCron {
 
 	protected CarparkManager carparkManager;
 
-	@Scheduled(cron = "0 */05 * * * ?")
+	// @Scheduled(cron = "0 */05 * * * ?")
+	@Scheduled(fixedRate = 120000)
 	public void getFreeCarparkPlaces() {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(serviceUrl);
@@ -52,8 +53,13 @@ public class GetFreeCarparkPlacesCron {
 			log.info(resp);
 
 		} catch (ClientProtocolException e) {
+			log.error(e);
 			e.printStackTrace();
 		} catch (IOException e) {
+			log.error(e);
+			e.printStackTrace();
+		} catch (Exception e) {
+			log.error(e);
 			e.printStackTrace();
 		}
 	}
