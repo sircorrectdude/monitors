@@ -19,7 +19,7 @@ jQuery(document).ready(function () {
 	            		//alert($.cookie('switchToggle'))
 	            		
 	            		$.getScript('scripts/date/date-de-DE.js', function() {
-		            		var easterAdEndTime = {month: 3, day: 1, hour: 23, minute: 00};
+		            		var easterAdEndTime = {month: 8, day: 22, hour: 13, minute: 00};
 		            		var easterAdEnd = Date.today().set(easterAdEndTime);
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
 		            			if($.cookie('switchAdToggle') == 0){
@@ -30,7 +30,7 @@ jQuery(document).ready(function () {
 		            				$.cookie('switchAdToggle', 2);
 		            			}
 		            			else{
-		            				$('body').css("color", "#707173").css("background","url('images/Osterspecial-Tagungsraumscreen-Cristal.jpg')").css("height", "1920px").css("width", "1080px");
+		            				$('body').css("color", "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013.jpg')").css("height", "1920px").css("width", "1080px");
 		            				$.cookie('switchAdToggle', 0);
 		            			}	            		
 		            		}else{
