@@ -2,25 +2,26 @@ jQuery(document).ready(function () {
 	
 	$("head").append($("<link rel='stylesheet' href='styles/welcome_slideshow.css' type='text/css' media='screen' />"));
 
-	var timerStartTime = {month: 6, day: 22, hour: 21, minute: 5};
+	var timerStartTime = {month: 8, day: 16, hour: 08, minute: 00};
 	var timerStart = Date.today().set(timerStartTime);
 	
-	var timerEndTime = {month: 6, day: 25, hour: 6, minute: 00};
+	var timerEndTime = {month: 8, day: 22, hour: 13, minute: 00};
 	var timerEnd = Date.today().set(timerEndTime);
 	
+	$('#slideshow').empty()
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide1.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide2.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide3_neu.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide4.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide5_fb.png", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6_neu.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
 	if(new Date().between(timerStart, timerEnd)){
-		$('#slideshow').empty()
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung_BW.jpg", "width":"1920", "height":"925"})	)
-	}else{
+		$('#slideshow')
+		.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege-engl.jpg", "width":"1920", "height":"925"})	)
+	}
 		
-		$('#slideshow').empty()
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide1.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide2.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide3_neu.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide4.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide5_fb.png", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6_neu.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
 		
 	
 	
@@ -65,8 +66,6 @@ jQuery(document).ready(function () {
 	
 	 getLikes();
 	 $(document).everyTime('60s', 'getLikes', getLikes, 0);
-
-	}
 
     $.getJSON('openweather?days=2',function(data){
     	//data.days[0].dateString

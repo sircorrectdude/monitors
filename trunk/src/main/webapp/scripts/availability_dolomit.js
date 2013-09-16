@@ -2,29 +2,28 @@ jQuery(document).ready(function () {
 
 	$("head").append($("<link rel='stylesheet' href='styles/availability_dolomit.css' type='text/css' media='screen' />"));
 	
-	var changeClockStartTime = {month: 2, day: 30, hour: 8, minute: 00};
+	var changeClockStartTime = {month: 8, day: 16, hour: 08, minute: 00};
 	var changeClockStart = Date.today().set(changeClockStartTime);
 	
-	var changeClockEndTime = {month: 2, day: 31, hour: 16, minute: 000};
+	var changeClockEndTime = {month: 8, day: 22, hour: 13, minute: 00};
 	var changeClockEnd = Date.today().set(changeClockEndTime);
 	
 	$.getJSON('/json/cBooking.html',function(data){
 		
-		if(new Date().between(changeClockStart, changeClockEnd)){
-			$('#slideshow').empty()
-			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide4.png", "width":"1920", "height":"925"})	)	
+		if(!data.cBooking.roomsAvailable){
+			$('#slideshow').empty().append(
+					$("<img />",  {"src": "images/templates/availability_dolomit/Dolomit_Monitor-Fenster_Zimmerbelegt-925px.jpg", "width":"1920", "height":"925"})	
+			);
 		}else{
-		
-			if(!data.cBooking.roomsAvailable){
-				$('#slideshow').empty().append(
-						$("<img />",  {"src": "images/templates/availability_dolomit/Dolomit_Monitor-Fenster_Zimmerbelegt-925px.jpg", "width":"1920", "height":"925"})	
-				);
-			}else{
-				$('#slideshow').empty()
-				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.jpg", "width":"1920", "height":"925"})	)	
-				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.jpg", "width":"1920", "height":"925"})	)	
-				.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.jpg", "width":"1920", "height":"925"})	)	
-			}
+			$('#slideshow').empty()
+			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.jpg", "width":"1920", "height":"925"})	)	
+			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.jpg", "width":"1920", "height":"925"})	)	
+			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.jpg", "width":"1920", "height":"925"})	)	
+		}
+		if(new Date().between(changeClockStart, changeClockEnd)){
+			$('#slideshow')
+			.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege.jpg", "width":"1920", "height":"925"})	)
+			.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege-engl.jpg", "width":"1920", "height":"925"})	)
 		}
 		$('#slideshow').cycle({
 			fx:     'all',
