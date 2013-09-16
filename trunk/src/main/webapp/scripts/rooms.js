@@ -28,7 +28,11 @@ jQuery(document).ready(function () {
 		            			}else if($.cookie('switchAdToggle') == 1){
 		            				$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 		            				$.cookie('switchAdToggle', 2);
-		            			}
+		            			
+	            			}else if($.cookie('switchAdToggle') == 2){
+	            				$('body').css("color", "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013-engl.jpg')").css("height", "1920px").css("width", "1080px");
+	            				$.cookie('switchAdToggle', 3);
+	            			}		            			
 		            			else{
 		            				$('body').css("color", "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013.jpg')").css("height", "1920px").css("width", "1080px");
 		            				$.cookie('switchAdToggle', 0);
