@@ -44,7 +44,7 @@ jQuery(document).ready(function () {
 	            				$.cookie('switchAdToggle', 4);	
 		            		}
 		            		else if($.cookie('switchAdToggle') == 4){
-	            				$('body').css("color", "#707173").css("background","url('images/Cristal-Rezeptions-Display-60Zoll-Wiesn-Willkommen--023_vert.jpg')").css("height", "1920px").css("width", "1080px");
+	            				$('body').css("color", "#707173").css("background","url('images/Cristal-Rezeptions-Display-60Zoll-Wiesn-Willkommen--023_vert_neu.jpg')").css("height", "1920px").css("width", "1080px");
 	            				$.cookie('switchAdToggle', 5);	
 		            		}		            		
 		            		else{
