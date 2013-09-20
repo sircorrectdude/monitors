@@ -34,7 +34,7 @@ jQuery(document).ready(function () {
 	if(new Date().between(welcomewiesnAdStart, welcomewiesnAdEnd)){
 		$('#slideshow')
 		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide8.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide9.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide9_neu.jpg", "width":"1920", "height":"925"})	)
 	}	
 
 	var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};
