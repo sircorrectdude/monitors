@@ -19,8 +19,40 @@ jQuery(document).ready(function () {
 	            		//alert($.cookie('switchToggle'))
 	            		
 	            		$.getScript('scripts/date/date-de-DE.js', function() {
-		            		var easterAdEndTime = {month: 8, day: 22, hour: 13, minute: 00};
+	            			
+		            		/*var easterAdEndTime = {month: 8, day: 22, hour: 13, minute: 00};
 		            		var easterAdEnd = Date.today().set(easterAdEndTime);
+
+		            		var welcomewiesnAdEndTime = {month: 9, day: 06, hour: 22, minute: 00};
+		            		var welcomewiesnAdEnd = Date.today().set(welcomewiesnAdEndTime);
+		            		*/
+	            			
+		            		if($.cookie('switchAdToggle') == 0){
+		            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 1);
+		            		}
+		            		else if($.cookie('switchAdToggle') == 1){
+	            				$('body').css("color", "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013-engl.jpg')").css("height", "1920px").css("width", "1080px");
+	            				$.cookie('switchAdToggle', 2);	
+		            		}
+		            		else if($.cookie('switchAdToggle') == 2){
+	            				$('body').css("color", "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013.jpg')").css("height", "1920px").css("width", "1080px");
+	            				$.cookie('switchAdToggle', 3);	
+		            		}
+		            		else if($.cookie('switchAdToggle') == 3){
+	            				$('body').css("color", "#707173").css("background","url('images/Cristal-Rezeptions-Display-60Zoll-Wiesn-Willkommen02_vert.jpg')").css("height", "1920px").css("width", "1080px");
+	            				$.cookie('switchAdToggle', 4);	
+		            		}
+		            		else if($.cookie('switchAdToggle') == 4){
+	            				$('body').css("color", "#707173").css("background","url('images/Cristal-Rezeptions-Display-60Zoll-Wiesn-Willkommen--023_vert.jpg')").css("height", "1920px").css("width", "1080px");
+	            				$.cookie('switchAdToggle', 5);	
+		            		}		            		
+		            		else{
+		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 0);
+		            		}
+		            		
+		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
 		            			if($.cookie('switchAdToggle') == 0){
 		            				$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
@@ -46,6 +78,8 @@ jQuery(document).ready(function () {
 			            			$.cookie('switchAdToggle', 0);
 			            		}
 		            		}
+		            		*/
+		            		
 	            		});
 	            	}else{
 	            		//if($.cookie('switchDirectionsToggle') == 0){
