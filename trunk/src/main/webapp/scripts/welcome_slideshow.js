@@ -2,12 +2,6 @@ jQuery(document).ready(function () {
 	
 	$("head").append($("<link rel='stylesheet' href='styles/welcome_slideshow.css' type='text/css' media='screen' />"));
 
-	var timerStartTime = {month: 8, day: 16, hour: 08, minute: 00};
-	var timerStart = Date.today().set(timerStartTime);
-	
-	var timerEndTime = {month: 8, day: 22, hour: 13, minute: 00};
-	var timerEnd = Date.today().set(timerEndTime);
-	
 	$('#slideshow').empty()
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide1.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide2.jpg", "width":"1920", "height":"925"})	)
@@ -16,14 +10,43 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide5_fb.png", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6_neu.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
+	
+	var timerStartTime = {month: 8, day: 16, hour: 08, minute: 00};
+	var timerStart = Date.today().set(timerStartTime);
+	
+	var timerEndTime = {month: 8, day: 22, hour: 13, minute: 00};
+	var timerEnd = Date.today().set(timerEndTime);
+	
+	
 	if(new Date().between(timerStart, timerEnd)){
 		$('#slideshow')
 		.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege.jpg", "width":"1920", "height":"925"})	)
 		.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege-engl.jpg", "width":"1920", "height":"925"})	)
 	}
 		
-		
+
+	var welcomewiesnAdStartTime = {month: 8, day: 16, hour: 08, minute: 00};
+	var welcomewiesnAdStart = Date.today().set(welcomewiesnAdStartTime);
 	
+	var welcomewiesnAdEndTime = {month: 9, day: 06, hour: 22, minute: 00};
+	var welcomewiesnAdEnd = Date.today().set(welcomewiesnAdEndTime);
+	
+	if(new Date().between(welcomewiesnAdStart, welcomewiesnAdEnd)){
+		$('#slideshow')
+		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide8.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide9.jpg", "width":"1920", "height":"925"})	)
+	}	
+
+	var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};
+	var huettenAdStart = Date.today().set(huettenAdStartTime);
+	
+	var huettenAdEndTime = {year: 2014, month: 01, day: 28, hour: 22, minute: 00};
+	var huettenAdEnd = Date.today().set(huettenAdEndTime);
+	
+	if(new Date().between(huettenAdStart, huettenAdEnd)){
+		$('#slideshow')
+		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide10.jpg", "width":"1920", "height":"925"})	)
+	}	
 	
 	/*
 	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};
