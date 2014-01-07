@@ -37,16 +37,16 @@ jQuery(document).ready(function () {
 		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide9_neu.jpg", "width":"1920", "height":"925"})	)
 	}	
 
-	var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};
-	var huettenAdStart = Date.today().set(huettenAdStartTime);
+	//var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};
+	//var huettenAdStart = Date.today().set(huettenAdStartTime);
 	
-	var huettenAdEndTime = {year: 2014, month: 01, day: 28, hour: 22, minute: 00};
-	var huettenAdEnd = Date.today().set(huettenAdEndTime);
+	//var huettenAdEndTime = {year: 2014, month: 01, day: 28, hour: 22, minute: 00};
+	//var huettenAdEnd = Date.today().set(huettenAdEndTime);
 	
-	if(new Date().between(huettenAdStart, huettenAdEnd)){
+	//if(new Date().between(huettenAdStart, huettenAdEnd)){
 		$('#slideshow')
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide10.jpg", "width":"1920", "height":"925"})	)
-	}	
+		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide11.jpg", "width":"1920", "height":"925"})	)
+	//}	
 	
 	/*
 	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};
