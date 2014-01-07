@@ -28,7 +28,7 @@ jQuery(document).ready(function () {
 		            		*/
 	            			
 		            		if($.cookie('switchAdToggle') == 0){
-		            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 1);
 		            		}		            		
 		            		else{
