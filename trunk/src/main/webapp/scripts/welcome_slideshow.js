@@ -58,7 +58,7 @@ jQuery(document).ready(function () {
 	*/
 	
 	$('#slideshow').cycle({
-	    fx:     'all',
+	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
 	    timeout: 10000,
 	    speed:   2000
 	});
