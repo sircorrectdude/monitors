@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
 		        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/openweather/Dolomit-Monitor-Wetter.jpg')").css("height", "1280px");	            	
 
 	            		weather();
-	            		$.refreshId = setInterval(weather, 5000);
+	            		$.refreshId = setInterval(weather, 20000);
 	            	}else{
 	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-020513.jpg')");	            	
 	            		
@@ -107,10 +107,27 @@ jQuery(document).ready(function () {
 	        				}
 	        			}else{
 	        	            if($.welcome==0){
-	        	            	$.welcome=1;
-	        	            	$('body > *').remove();
-	        	            	$('body').css("color", "#043A80").css("background","url('images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg')").css("height", "1080px").css("width", "1920px")	        	            	
-	        	            }	        				
+	        	            	
+			        	            	$.welcome=1;
+			        	            	$('body > *').remove();
+			        	            	$('body').css("background","none");	            	
+
+			    	            		$('body').append(
+			    	            				$('<div>').attr("id", "slideshow")
+			    	            		);
+			    	            		$('#slideshow').css("width","1920px").css("height", "1080px")
+			    	            		.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
+			    	            		.append($("<img />",  {"src": "images/huettenzauber/Dolomit-Fahrstuhlmonitor-60Zoll-Huettenzauber-2014.jpg", "width":"1920", "height":"1080"})	)
+			    	            		.append($("<img />",  {"src": "images/huettenzauber/Dolomit-Fahrstuhlmonitor-60Zoll-Huettenzauber-20142.jpg", "width":"1920", "height":"1080"})	)
+			    	            		.append($("<img />",  {"src": "images/huettenzauber/Dolomit-Fahrstuhlmonitor-60Zoll-Huettenzauber-20143.jpg", "width":"1920", "height":"1080"})	)
+	
+			    	            		$('#slideshow').cycle({
+			    	            			fx:     'fade',
+			    	            			timeout: 1000,
+			    	            			speed:   2000
+			    	            		});
+		        	            	
+	        	            	}
 	        				if (i==0){
 	        					return;
 	        				}
@@ -194,7 +211,7 @@ jQuery(document).ready(function () {
 	            	$.oddeven=1;
 	            }
 		}
-	
-	dolomit();	
-	
+	$.getScript("scripts/jquery.cycle.all.js", function(data, textStatus, jqxhr) {
+		dolomit();	
+	});
 });

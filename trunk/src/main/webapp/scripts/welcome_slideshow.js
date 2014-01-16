@@ -45,7 +45,9 @@ jQuery(document).ready(function () {
 	
 	//if(new Date().between(huettenAdStart, huettenAdEnd)){
 		$('#slideshow')
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide11.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/huettenzauber/Cristal-Rezeptions-Display-60Zoll-Fondueessen-2014-1.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/huettenzauber/Cristal-Rezeptions-Display-60Zoll-Fondueessen-2014-2.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/huettenzauber/Cristal-Rezeptions-Display-60Zoll-Fondueessen-2014-3.jpg", "width":"1920", "height":"925"})	)
 	//}	
 	
 	/*

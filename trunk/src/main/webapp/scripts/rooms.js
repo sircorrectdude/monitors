@@ -30,6 +30,15 @@ jQuery(document).ready(function () {
 		            		if($.cookie('switchAdToggle') == 0){
 		            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 1);
+		            		}else if($.cookie('switchAdToggle') == 1){
+		            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/monitor-cristal-lobby_huettenzauber-2014.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 2);
+		            		}else if($.cookie('switchAdToggle') == 2){
+		            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/monitor-cristal-lobby_huettenzauber-20142.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 3);
+		            		}else if($.cookie('switchAdToggle') == 3){
+		            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/monitor-cristal-lobby_huettenzauber-20143.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 4);
 		            		}		            		
 		            		else{
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
