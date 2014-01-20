@@ -21,13 +21,13 @@ jQuery(document).ready(function () {
 */
 
 jQuery(document).ready(function () {
-	clearInterval($.refreshId);
+	//clearInterval($.refreshId);
 	parkhaus();
 	
-	$.refreshId = setInterval(parkhaus, 16000);
+	//$.refreshId = setInterval(parkhaus, 25000);
 	
 	$(document).stopTime('blink');	
-			
+	$(document).everyTime('500ms', 'blink', blink, 0, true);
 			function blink() {
 				if($('.blink').css("visibility") == "visible")
 				{
@@ -51,14 +51,14 @@ jQuery(document).ready(function () {
         		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
         		.append($("<img />",  {"src": "images/Monitor-carpark-EG_1912werbung.jpg", "width":"1080", "height":"1920"})	)
         		$('#slideshow').cycle({
-        			fx:     'turnRight',
+        			fx:     'none',
         			timeout: 1000,
         			speed:   1500
         		});
 			});
 			}else{
 		
-		$(document).everyTime('500ms', 'blink', blink, 0, true);
+		
 			
 		$("body").css("background-image","url(images/templates/parkhaus/Monitor-carpark-EG_Hintergrund.jpg)").css('height','1508px');
 		$('body').append(
@@ -88,10 +88,10 @@ jQuery(document).ready(function () {
 			//$('.blink').blink()
 		});
 	}
-        if($.oddeven==1){
-        	$.oddeven=0;
-        }else{
+        if($.oddeven==0){
         	$.oddeven=1;
+        }else{
+        	$.oddeven=0;
         }
 	}
 });
