@@ -45,16 +45,29 @@ jQuery(document).ready(function () {
 				$('body').append(
         				$('<div>').attr("id", "slideshow")
         		);
-				$('#slideshow').css("width","1920px").css("height", "1080px")
-        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014.jpg", "width":"1080", "height":"1920"})	)
-        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-2.jpg", "width":"1080", "height":"1920"})	)
-        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
-        		.append($("<img />",  {"src": "images/Monitor-carpark-EG_1912werbung.jpg", "width":"1080", "height":"1920"})	)
-        		$('#slideshow').cycle({
+				$('#slideshow').empty()
+				if($.adcounter==0){
+					$('#slideshow').css("width","1920px").css("height", "1080px")
+	        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014.jpg", "width":"1080", "height":"1920"})	)
+	        		$.adcounter=1;
+				}
+				else if($.adcounter==1){
+					$('#slideshow').css("width","1920px").css("height", "1080px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-2.jpg", "width":"1080", "height":"1920"})	)
+					$.adcounter=2;
+				}
+				else if($.adcounter==2){
+					$('#slideshow').css("width","1920px").css("height", "1080px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
+					$.adcounter=3;
+				}
+				else{
+					$('#slideshow').css("width","1920px").css("height", "1080px").append($("<img />",  {"src": "images/Monitor-carpark-EG_1912werbung.jpg", "width":"1080", "height":"1920"})	)
+					$.adcounter=0;
+				}
+				/*$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,
         			speed:   1500
-        		});
+        		});*/
 			});
 			}else{
 		
