@@ -38,6 +38,7 @@ jQuery(document).ready(function () {
 					$('.blink').css('visibility','visible');
 				}
 			}
+			
 	function parkhaus(){
 		$('body > *').remove();
 		if($.oddeven==0){
@@ -47,27 +48,27 @@ jQuery(document).ready(function () {
         		);
 				$('#slideshow').empty()
 				if($.adcounter==0){
-					$('#slideshow').css("width","1920px").css("height", "1080px")
+					$('#slideshow').css("width","1080px").css("height", "1920px")
 	        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014.jpg", "width":"1080", "height":"1920"})	)
 	        		$.adcounter=1;
 				}
 				else if($.adcounter==1){
-					$('#slideshow').css("width","1920px").css("height", "1080px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-2.jpg", "width":"1080", "height":"1920"})	)
+					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-2.jpg", "width":"1080", "height":"1920"})	)
 					$.adcounter=2;
 				}
 				else if($.adcounter==2){
-					$('#slideshow').css("width","1920px").css("height", "1080px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
+					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
 					$.adcounter=3;
 				}
 				else{
-					$('#slideshow').css("width","1920px").css("height", "1080px").append($("<img />",  {"src": "images/Monitor-carpark-EG_1912werbung.jpg", "width":"1080", "height":"1920"})	)
+					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/Monitor-carpark-EG_1912werbung.jpg", "width":"1080", "height":"1920"})	)
 					$.adcounter=0;
 				}
-				/*$('#slideshow').cycle({
+				$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,
         			speed:   1500
-        		});*/
+        		});
 			});
 			}else{
 		
