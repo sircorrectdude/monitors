@@ -11,30 +11,9 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6_neu.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
 	
-	var timerStartTime = {month: 8, day: 16, hour: 08, minute: 00};
-	var timerStart = Date.today().set(timerStartTime);
-	
-	var timerEndTime = {month: 8, day: 22, hour: 13, minute: 00};
-	var timerEnd = Date.today().set(timerEndTime);
-	
-	
-	if(new Date().between(timerStart, timerEnd)){
+	if(new Date().between(Date.today().set({month: 0, day: 30, hour: 08, minute: 00}), Date.today().set({month: 1, day: 14, hour: 22, minute: 00}))){
 		$('#slideshow')
-		.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege-engl.jpg", "width":"1920", "height":"925"})	)
-	}
-		
-
-	var welcomewiesnAdStartTime = {month: 8, day: 16, hour: 08, minute: 00};
-	var welcomewiesnAdStart = Date.today().set(welcomewiesnAdStartTime);
-	
-	var welcomewiesnAdEndTime = {month: 9, day: 06, hour: 22, minute: 00};
-	var welcomewiesnAdEnd = Date.today().set(welcomewiesnAdEndTime);
-	
-	if(new Date().between(welcomewiesnAdStart, welcomewiesnAdEnd)){
-		$('#slideshow')
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide8.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide9_neu.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/templates/welcome_slideshow/cristal-rezeptions-Display-60Zoll-valentinstag.jpg", "width":"1920", "height":"925"})	)
 	}	
 
 	//var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};
