@@ -38,7 +38,14 @@ jQuery(document).ready(function () {
 		            			$.cookie('switchAdToggle', 3);
 		            		}else if($.cookie('switchAdToggle') == 3){
 		            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/monitor-cristal-lobby_huettenzauber-20143.jpg')").css("height", "1920px").css("width", "1080px");
+		            				if(new Date().between(Date.today().set({month: 0, day: 30, hour: 08, minute: 00}), Date.today().set({month: 1, day: 14, hour: 22, minute: 00}))){
 		            			$.cookie('switchAdToggle', 4);
+		            			}else{
+		            				$.cookie('switchAdToggle', 5);
+		            			}
+		            		}else if($.cookie('switchAdToggle') == 4){
+		            			$('body').css("color", "#707173").css("background","url('images/templates/rooms/monitor-cristal-lobby_valentinstag-2014-final.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 5);
 		            		}		            		
 		            		else{
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");

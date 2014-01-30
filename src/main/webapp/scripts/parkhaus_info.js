@@ -58,8 +58,18 @@ jQuery(document).ready(function () {
 				}
 				else if($.adcounter==2){
 					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
-					$.adcounter=3;
+					$.getScript('scripts/date/date-de-DE.js', function() {
+						if(new Date().between(Date.today().set({month: 0, day: 30, hour: 08, minute: 00}), Date.today().set({month: 1, day: 14, hour: 22, minute: 00}))){
+							$.adcounter=3;
+						}else{
+							$.adcounter=4;
+						}
+					});
 				}
+				else if($.adcounter==3){
+					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/monitor-carpark-valentinstag.jpg", "width":"1080", "height":"1920"})	)
+					$.adcounter=4;
+				}				
 				else{
 					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/Monitor-carpark-EG_1912werbung.jpg", "width":"1080", "height":"1920"})	)
 					$.adcounter=0;
