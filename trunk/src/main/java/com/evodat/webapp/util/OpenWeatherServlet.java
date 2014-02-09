@@ -88,7 +88,8 @@ public class OpenWeatherServlet extends HttpServlet {
 				day.setDateString(new SimpleDateFormat("dd. MMM. yyyy", GERMAN)
 						.format(dateValue));
 				for (Time time : date.getTimes()) {
-					if (time.getValue().equals("05:00")) {
+					if (time.getValue().equals("05:00")
+							|| time.getValue().equals("06:00")) {
 						day.setMorning(time.getTn());
 						day.setMorningImg("d_" + time.getW().substring(0, 1)
 								+ "_b");
@@ -98,7 +99,8 @@ public class OpenWeatherServlet extends HttpServlet {
 						day.setMorningF(String.valueOf(((Double
 								.parseDouble(time.getTn()) * 9) / 5) + 32));
 					}
-					if (time.getValue().equals("10:00")) {
+					if (time.getValue().equals("10:00")
+							|| time.getValue().equals("11:00")) {
 						day.setMiday(time.getTn());
 						day.setMidayImg("d_" + time.getW().substring(0, 1)
 								+ "_b");
@@ -108,7 +110,8 @@ public class OpenWeatherServlet extends HttpServlet {
 						day.setMidayF(String.valueOf(((Double.parseDouble(time
 								.getTn()) * 9) / 5) + 32));
 					}
-					if (time.getValue().equals("16:00")) {
+					if (time.getValue().equals("16:00")
+							|| time.getValue().equals("17:00")) {
 						day.setEvening(time.getTn());
 						day.setEveningImg("d_" + time.getW().substring(0, 1)
 								+ "_b");
@@ -118,7 +121,8 @@ public class OpenWeatherServlet extends HttpServlet {
 						day.setEveningF(String.valueOf(((Double
 								.parseDouble(time.getTn()) * 9) / 5) + 32));
 					}
-					if (time.getValue().equals("22:00")) {
+					if (time.getValue().equals("22:00")
+							|| time.getValue().equals("23:00")) {
 						day.setNight(time.getTn());
 						day.setNightImg("d_" + time.getW().substring(0, 1)
 								+ "_b");
