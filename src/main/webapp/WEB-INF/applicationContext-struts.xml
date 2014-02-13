@@ -68,5 +68,8 @@
     	<property name="monitorManager" ref="monitorManager"/>
     	<property name="carparkManager" ref="carparkManager"/>
     </bean>
+
+    <bean id="lunchAction" class="com.evodat.webapp.action.LunchAction" scope="prototype">
+    </bean>
 	
 </beans>

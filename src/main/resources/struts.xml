@@ -193,7 +193,9 @@
         <action name="carpark" class="carparkAction">
              <result type="json" />
         </action>         
-               
+        <action name="lunch" class="lunchAction">
+             <result type="json" />
+        </action>                  
 	 </package>
 
 	 <package name="ajax" extends="default" namespace="/ajax">
