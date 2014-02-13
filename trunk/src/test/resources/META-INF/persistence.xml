@@ -5,6 +5,7 @@
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <class>com.evodat.model.User</class>
         <class>com.evodat.model.Role</class>
+         <class>com.evodat.model.Carpark</class>
     </persistence-unit>
 
 </persistence>

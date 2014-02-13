@@ -6,6 +6,7 @@
         <class>com.evodat.model.User</class>
         <class>com.evodat.model.Role</class>
         <class>com.evodat.model.Monitor</class>
+        <class>com.evodat.model.Carpark</class>
     </persistence-unit>
 
     <!-- WARNING: This file's file original source is at web/common/src/main/resources/META-INF. The

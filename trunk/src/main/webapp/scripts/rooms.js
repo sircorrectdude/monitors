@@ -26,7 +26,6 @@ jQuery(document).ready(function () {
 		            		var welcomewiesnAdEndTime = {month: 9, day: 06, hour: 22, minute: 00};
 		            		var welcomewiesnAdEnd = Date.today().set(welcomewiesnAdEndTime);
 		            		*/
-	            			
 		            		if($.cookie('switchAdToggle') == 0){
 		            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 1);
@@ -46,6 +45,28 @@ jQuery(document).ready(function () {
 		            		}else if($.cookie('switchAdToggle') == 4){
 		            			$('body').css("color", "#707173").css("background","url('images/templates/rooms/monitor-cristal-lobby_valentinstag-2014-final.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 5);
+		            		}else if($.cookie('switchAdToggle') == 5){
+		            			$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
+
+		            			$.getJSON('/json/lunch.html',function(data){
+		        	            	$('body').css("font-family","arial,sans-serif")
+		        	            	.append($('<div>').css("width","700px").css("position", "absolute").css("top", "600px").css("left", "180px").css("text-align","center").css("font-weight","bold")
+		        	            	.append(
+		        	            			$('<div>').css("padding-top", "0px").css("margin-bottom", "55px").css("font-size","30pt").css("color","rgb(131,13,41)").append(data.todaysLunch.date)
+		        	            	).append(
+		        	            			$('<div>').css("text-align", "center").css("display", "table-cell").css("vertical-align", "middle").css("height", "150px").css("width", "700px").css("font-size","25pt").css("color","rgb(112,111,111)").append(data.todaysLunch.vor)
+		        	            	).append(
+		        	            			$('<div>').css("clear", "both").css("margin-bottom", "55px")
+		        	            	).append(
+		        	            			$('<div>').css("text-align", "center").css("display", "table-cell").css("vertical-align", "middle").css("height", "150px").css("width", "700px").css("font-size","25pt").css("color","rgb(112,111,111)").append(data.todaysLunch.haupt)
+		        	            	).append(
+		        	            			$('<div>').css("clear", "both").css("margin-bottom", "55px")
+		        	            	).append(
+		        	            			$('<div>').css("text-align", "center").css("display", "table-cell").css("vertical-align", "middle").css("height", "150px").css("width", "700px").css("font-size","25pt").css("color","rgb(112,111,111)").append(data.todaysLunch.nach)
+		        	            	)
+		        	            	);
+		            			});
+		            			$.cookie('switchAdToggle', 6);
 		            		}		            		
 		            		else{
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
