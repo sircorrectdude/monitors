@@ -44,8 +44,14 @@ jQuery(document).ready(function () {
 		            			}
 		            		}else if($.cookie('switchAdToggle') == 4){
 		            			$('body').css("color", "#707173").css("background","url('images/templates/rooms/monitor-cristal-lobby_valentinstag-2014-final.jpg')").css("height", "1920px").css("width", "1080px");
-		            			$.cookie('switchAdToggle', 5);
+		            			if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00}))){
+		            				$.cookie('switchAdToggle', 5);
+		            			}
+		            			else{
+		            				$.cookie('switchAdToggle', 6);
+		            			}
 		            		}else if($.cookie('switchAdToggle') == 5){
+		            			
 		            			$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 
 		            			$.getJSON('/json/lunch.html',function(data){

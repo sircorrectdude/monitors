@@ -68,7 +68,14 @@ jQuery(document).ready(function () {
 				}
 				else if($.adcounter==3){
 					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/monitor-carpark-valentinstag.jpg", "width":"1080", "height":"1920"})	)
-					$.adcounter=4;
+        			$.getScript('scripts/date/date-de-DE.js', function() {
+						if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00}))){
+	        				$.adcounter=4;
+	        			}
+	        			else{
+	        				$.adcounter=0;
+	        			}
+        			});
 				}	
 				else{
 					$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
