@@ -41,6 +41,10 @@ jQuery(document).ready(function () {
 			
 	function parkhaus(){
 		$('body > *').remove();
+		$.getScript('scripts/date/date-de-DE.js', function() {
+//			alert(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
+//			!(Date.today().is().sunday() || Date.today().is().saturday()));
+		});
 		if($.oddeven==0){
 			$.getScript("scripts/jquery.cycle.all.js", function(data, textStatus, jqxhr) {
 				$('body').append(
@@ -59,24 +63,14 @@ jQuery(document).ready(function () {
 				else if($.adcounter==2){
 					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
 					$.getScript('scripts/date/date-de-DE.js', function() {
-						if(new Date().between(Date.today().set({month: 0, day: 30, hour: 08, minute: 00}), Date.today().set({month: 1, day: 14, hour: 22, minute: 00}))){
+						if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
+								!Date.today().is().sunday() && !Date.today().is().saturday()){
 							$.adcounter=3;
 						}else{
-							$.adcounter=4;
+							$.adcounter=0;
 						}
 					});
 				}
-				else if($.adcounter==3){
-					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/monitor-carpark-valentinstag.jpg", "width":"1080", "height":"1920"})	)
-        			$.getScript('scripts/date/date-de-DE.js', function() {
-						if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00}))){
-	        				$.adcounter=4;
-	        			}
-	        			else{
-	        				$.adcounter=0;
-	        			}
-        			});
-				}	
 				else{
 					$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 					
@@ -100,11 +94,12 @@ jQuery(document).ready(function () {
 					});
 					$.adcounter=0;
 				}
-				$('#slideshow').cycle({
+				/*$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,
         			speed:   1500
         		});
+        		*/
 			});
 			}else{
 		
