@@ -1,52 +1,27 @@
 jQuery(document).ready(function () {
 
-	$.getScript("scripts/date/date-de-DE.js", function(data, textStatus, jqxhr) {
-		   var timerStartTime = {month: 6, day: 22, hour: 22, minute: 50};
-		   var timerStart = Date.today().set(timerStartTime);
-		   
-		   var timerEndTime = {month: 6, day: 25, hour: 6, minute: 00};
-		   var timerEnd = Date.today().set(timerEndTime);		
-	
-	
 	function switchEmptyPage() {
-		$('body > div').remove();
+		$('body > *').remove();
 		if($.switchToggle ==1){
-			$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_slide.jpg')").css("height", "768px").css("width", "1366px")
+			$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
 	    	$('body').append(
 	    			$('<div>')
-	    				.css("text-align","center")		            			
-		            				.css("font","175px Arial, sans-serif")
-		            				.css("padding-top", "138px")
+        				.css("font","60px Arial, sans-serif")
+        				.css("text-decoration", "underline")
+        				.css("padding-top", "45px")
+        				.css("padding-left", "135px")
 	    				.css("text-transform", "uppercase")
-	    				.css("letter-spacing", "15px")
-	    				.css("text-decoration", "none")
+	    				.css("letter-spacing", "5px")
 	    				.attr("id", "roomName").append($.roomName)
 	    	);
-			if(new Date().between(timerStart, timerEnd)){
-				var sub_logo=$('<div>').attr("id", "sub_logo").css("margin-top", "250px").css("height", "226px").css("width", "1366px").css("background-repeat", "no-repeat").css("background","url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-belegt-Neu-BW.jpg')");
-			}else{
-				var sub_logo=$('<div>').attr("id", "sub_logo").css("margin-top", "250px").css("height", "226px").css("width", "1366px").css("background-repeat", "no-repeat").css("background","url('images/templates/rooms/single_room_hd_ready_logo.jpg')");
-			}
-        	$('body').append(sub_logo);			
+			//var sub_logo=$('<div>').attr("id", "sub_logo").css("margin-top", "250px").css("height", "226px").css("width", "1366px").css("background-repeat", "no-repeat").css("background","url('images/templates/rooms/single_room_hd_ready_logo.jpg')");
+        	//$('body').append(sub_logo);			
 			$.switchToggle =0;
 		}else{
-			if(new Date().between(timerStart, timerEnd)){
-	    		$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_bwalt.jpg')").css("height", "768px").css("width", "1366px")
-				
-			}else{
-				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
-			}
-    		$('body').append(
-        			$('<div>')
-        				.css("font","90px Arial, sans-serif")
-        				.css("padding-top", "15px")
-        				.css("padding-left", "50px")
-        				.css("text-transform", "uppercase")
-        				.css("text-decoration", "none")
-        				.attr("id", "roomName").append($.roomName)
-        	);	
+			$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitor-we-tagungsraeume-"+$.roomName+"-frei.jpg')").css("height", "768px").css("width", "1366px")
     		$.switchToggle =1
 		}
+		$('body').show();
 		$(document).everyTime('10s', 'switchEmptyPage', switchEmptyPage, 0, true);
 	}
 	
@@ -61,14 +36,11 @@ jQuery(document).ready(function () {
 	            		$.switchToggle =1;
 	            		$.roomName = data.runningEvent.roomName;
 	            		switchEmptyPage();
+	            		return;
 	            	}
 	            	else{
-	        			if(new Date().between(timerStart, timerEnd)){
-	        	    		$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_bwalt.jpg')").css("height", "768px").css("width", "1366px")
-	        				
-	        			}else{
 	        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
-	        			}		            	$('body').append(
+	       	            	$('body').append(
 		            			$('<div>')
 		            				.css("text-align","center")		            			
 		            				.css("font","175px Arial, sans-serif")
@@ -126,6 +98,5 @@ jQuery(document).ready(function () {
 	}
 	rooms();	
 
-	});
 	
 });
