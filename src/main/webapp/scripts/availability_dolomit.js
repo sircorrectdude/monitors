@@ -19,17 +19,12 @@ jQuery(document).ready(function () {
 			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.jpg", "width":"1920", "height":"925"})	)	
 			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.jpg", "width":"1920", "height":"925"})	)	
 			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.jpg", "width":"1920", "height":"925"})	)	
+			$('#slideshow').cycle({
+				fx:     'all',
+				timeout: 10000,
+				speed:   2000
+			});
 		}
-		if(new Date().between(changeClockStart, changeClockEnd)){
-			$('#slideshow')
-			.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege.jpg", "width":"1920", "height":"925"})	)
-			.append($("<img />",  {"src": "images/templates/Cristal-Rezeptions-Display-Wiesn-Umzuege-engl.jpg", "width":"1920", "height":"925"})	)
-		}
-		$('#slideshow').cycle({
-			fx:     'all',
-			timeout: 10000,
-			speed:   2000
-		});
 	})
 	
     $.getJSON('openweather?days=2',function(data){
