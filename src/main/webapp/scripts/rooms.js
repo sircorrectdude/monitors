@@ -68,9 +68,17 @@ jQuery(document).ready(function () {
 		        	            	);
 		            			});
 		            			$.cookie('switchAdToggle', 5);
-		            		}		            		
-		            		else{
+		            		}
+		            		else if($.cookie('switchAdToggle') == 5){
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
+	    						if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
+									$.cookie('switchAdToggle', 6);
+		            			}else{
+		            				$.cookie('switchAdToggle', 0);
+		            			}
+		            		}
+		            		else{
+		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehlingsfest-01.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 0);
 		            		}
 		            		

@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide4.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide5_fb.png", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide6_neu.jpg", "width":"1920", "height":"925"})	)
-	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
+	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"})	)	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"})	)	
 	
 	if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 2, day: 30, hour: 15, minute: 00}))){
@@ -17,6 +17,11 @@ jQuery(document).ready(function () {
 		.append($("<img />",  {"src": "images/display-quer-zeitumstellung-cristal.jpg", "width":"1920", "height":"925"})	)
 	}	
 
+	if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
+		$('#slideshow')
+		.append($("<img />",  {"src": "images/fruehlingsfest-2014-hippodrom-displaycristal-03.jpg", "width":"1920", "height":"925"})	)
+	}
+	
 	//var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};
 	//var huettenAdStart = Date.today().set(huettenAdStartTime);
 	

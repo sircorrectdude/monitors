@@ -51,6 +51,7 @@ jQuery(document).ready(function () {
         				$('<div>').attr("id", "slideshow")
         		);
 				$('#slideshow').empty()
+				alert($.adcounter)
 				if($.adcounter==0){
 					$('#slideshow').css("width","1080px").css("height", "1920px")
 	        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014.jpg", "width":"1080", "height":"1920"})	)
@@ -67,11 +68,15 @@ jQuery(document).ready(function () {
 								!Date.today().is().sunday() && !Date.today().is().saturday()){
 							$.adcounter=3;
 						}else{
-							$.adcounter=0;
+    						if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
+    							$.adcounter=4;
+	            			}else{
+	            				$.adcounter=0;
+	            			}
 						}
 					});
 				}
-				else{
+				else if($.adcounter==3){
 					$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 					
 					$.getJSON('/json/lunch.html',function(data){
@@ -92,7 +97,15 @@ jQuery(document).ready(function () {
 								)
 						);
 					});
-					$.adcounter=0;
+					if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
+						$.adcounter=4;
+        			}else{
+        				$.adcounter=0;
+        			}
+				}
+				else{
+        			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehlingsfest-01.jpg')").css("height", "1920px").css("width", "1080px");
+        			$.adcounter==0;
 				}
 				/*$('#slideshow').cycle({
         			fx:     'none',
