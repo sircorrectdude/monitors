@@ -12,9 +12,9 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide7.jpg", "width":"1920", "height":"925"})	)	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"})	)	
 	
-	if(new Date().between(Date.today().set({month: 0, day: 30, hour: 08, minute: 00}), Date.today().set({month: 1, day: 14, hour: 22, minute: 00}))){
+	if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 2, day: 30, hour: 15, minute: 00}))){
 		$('#slideshow')
-		.append($("<img />",  {"src": "images/templates/welcome_slideshow/cristal-rezeptions-Display-60Zoll-valentinstag.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/display-quer-zeitumstellung-cristal.jpg", "width":"1920", "height":"925"})	)
 	}	
 
 	//var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};

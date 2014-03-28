@@ -122,8 +122,8 @@ jQuery(document).ready(function () {
 			    	            			.append($("<img />",  {"src": "images/huettenzauber/Dolomit-Fahrstuhlmonitor-60Zoll-Huettenzauber-2014.jpg", "width":"1920", "height":"1080"})	)
 			    	            			.append($("<img />",  {"src": "images/huettenzauber/Dolomit-Fahrstuhlmonitor-60Zoll-Huettenzauber-20142.jpg", "width":"1920", "height":"1080"})	)
 			    	            			.append($("<img />",  {"src": "images/huettenzauber/Dolomit-Fahrstuhlmonitor-60Zoll-Huettenzauber-20143.jpg", "width":"1920", "height":"1080"})	)
-				    	            		if(new Date().between(Date.today().set({month: 0, day: 30, hour: 08, minute: 00}), Date.today().set({month: 1, day: 14, hour: 22, minute: 00}))){
-				    	            			$('#slideshow').append($("<img />",  {"src": "images/templates/Dolomit-Fahrstuhlmonitor-60Zoll-valentinstag.jpg", "width":"1920", "height":"1080"})	)
+				    	            		if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 2, day: 30, hour: 15, minute: 00}))){
+				    	            			$('#slideshow').append($("<img />",  {"src": "images/display-quer-zeitumstellung-dolomit.jpg", "width":"1920", "height":"1080"})	)
 				    	            		}	
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
