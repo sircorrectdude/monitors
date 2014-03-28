@@ -51,7 +51,6 @@ jQuery(document).ready(function () {
         				$('<div>').attr("id", "slideshow")
         		);
 				$('#slideshow').empty()
-				alert($.adcounter)
 				if($.adcounter==0){
 					$('#slideshow').css("width","1080px").css("height", "1920px")
 	        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014.jpg", "width":"1080", "height":"1920"})	)
