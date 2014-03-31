@@ -22,19 +22,6 @@ jQuery(document).ready(function () {
 		.append($("<img />",  {"src": "images/fruehlingsfest-2014-hippodrom-displaycristal-03.jpg", "width":"1920", "height":"925"})	)
 	}
 	
-	//var huettenAdStartTime = {month: 10, day: 01, hour: 08, minute: 00};
-	//var huettenAdStart = Date.today().set(huettenAdStartTime);
-	
-	//var huettenAdEndTime = {year: 2014, month: 01, day: 28, hour: 22, minute: 00};
-	//var huettenAdEnd = Date.today().set(huettenAdEndTime);
-	
-	//if(new Date().between(huettenAdStart, huettenAdEnd)){
-		$('#slideshow')
-		.append($("<img />",  {"src": "images/huettenzauber/Cristal-Rezeptions-Display-60Zoll-Fondueessen-2014-1.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/huettenzauber/Cristal-Rezeptions-Display-60Zoll-Fondueessen-2014-2.jpg", "width":"1920", "height":"925"})	)
-		.append($("<img />",  {"src": "images/huettenzauber/Cristal-Rezeptions-Display-60Zoll-Fondueessen-2014-3.jpg", "width":"1920", "height":"925"})	)
-	//}	
-	
 	/*
 	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};
 	var easterAdEnd = Date.today().set(easterAdEndTime);

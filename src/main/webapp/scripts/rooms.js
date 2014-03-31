@@ -28,24 +28,15 @@ jQuery(document).ready(function () {
 		            		*/
 		            		if($.cookie('switchAdToggle') == 0){
 		            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
-		            			$.cookie('switchAdToggle', 1);
-		            		}else if($.cookie('switchAdToggle') == 1){
-		            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/monitor-cristal-lobby_huettenzauber-2014.jpg')").css("height", "1920px").css("width", "1080px");
-		            			$.cookie('switchAdToggle', 2);
-		            		}else if($.cookie('switchAdToggle') == 2){
-		            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/monitor-cristal-lobby_huettenzauber-20142.jpg')").css("height", "1920px").css("width", "1080px");
-		            			$.cookie('switchAdToggle', 3);
-		            		}else if($.cookie('switchAdToggle') == 3){
-		            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/monitor-cristal-lobby_huettenzauber-20143.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.getScript('scripts/date/date-de-DE.js', function() {
-		    						if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
-		    								!Date.today().is().sunday() && !Date.today().is().saturday()){
-										$.cookie('switchAdToggle', 4);
-			            			}else{
-			            				$.cookie('switchAdToggle', 5);
-			            			}
+		            				if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
+		            						!Date.today().is().sunday() && !Date.today().is().saturday()){
+		            					$.cookie('switchAdToggle', 1);
+		            				}else{
+		            					$.cookie('switchAdToggle', 2);
+		            				}
 		            			});
-		            		}else if($.cookie('switchAdToggle') == 4){
+		            		}else if($.cookie('switchAdToggle') == 1){
 		            			
 		            			$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 
@@ -67,12 +58,12 @@ jQuery(document).ready(function () {
 		        	            	)
 		        	            	);
 		            			});
-		            			$.cookie('switchAdToggle', 5);
+		            			$.cookie('switchAdToggle', 2);
 		            		}
-		            		else if($.cookie('switchAdToggle') == 5){
+		            		else if($.cookie('switchAdToggle') == 2){
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 	    						if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
-									$.cookie('switchAdToggle', 6);
+									$.cookie('switchAdToggle', 3);
 		            			}else{
 		            				$.cookie('switchAdToggle', 0);
 		            			}
