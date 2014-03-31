@@ -52,30 +52,17 @@ jQuery(document).ready(function () {
         		);
 				$('#slideshow').empty()
 				if($.adcounter==0){
-					$('#slideshow').css("width","1080px").css("height", "1920px")
-	        		.append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014.jpg", "width":"1080", "height":"1920"})	)
-	        		$.adcounter=1;
+        			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehlingsfest-01.jpg')").css("height", "1920px").css("width", "1080px");
+        			$.getScript('scripts/date/date-de-DE.js', function() {
+        				if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
+        						!Date.today().is().sunday() && !Date.today().is().saturday()){
+        					$.adcounter=1;
+        				}else{
+        					$.adcounter=0;
+        				}
+        			});
 				}
-				else if($.adcounter==1){
-					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-2.jpg", "width":"1080", "height":"1920"})	)
-					$.adcounter=2;
-				}
-				else if($.adcounter==2){
-					$('#slideshow').css("width","1080px").css("height", "1920px").append($("<img />",  {"src": "images/huettenzauber/Monitor-CarPark-EG_Huettenzauber-2014-3.jpg", "width":"1080", "height":"1920"})	)
-					$.getScript('scripts/date/date-de-DE.js', function() {
-						if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
-								!Date.today().is().sunday() && !Date.today().is().saturday()){
-							$.adcounter=3;
-						}else{
-    						if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
-    							$.adcounter=4;
-	            			}else{
-	            				$.adcounter=0;
-	            			}
-						}
-					});
-				}
-				else if($.adcounter==3){
+				else{
 					$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 					
 					$.getJSON('/json/lunch.html',function(data){
@@ -96,16 +83,9 @@ jQuery(document).ready(function () {
 								)
 						);
 					});
-					if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
-						$.adcounter=4;
-        			}else{
-        				$.adcounter=0;
-        			}
+					$.adcounter=0;
 				}
-				else{
-        			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehlingsfest-01.jpg')").css("height", "1920px").css("width", "1080px");
-        			$.adcounter=0;
-				}
+
 				/*$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,
