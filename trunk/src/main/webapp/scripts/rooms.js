@@ -61,9 +61,13 @@ jQuery(document).ready(function () {
 		            			$.cookie('switchAdToggle', 2);
 		            		}
 		            		else if($.cookie('switchAdToggle') == 2){
+		            			$('body').css("color", "#707173").css("background","url('images/fussball-special-displaycristal-hochkant.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 3);	            			
+		            		}
+		            		else if($.cookie('switchAdToggle') == 3){
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 	    						if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
-									$.cookie('switchAdToggle', 3);
+									$.cookie('switchAdToggle', 4);
 		            			}else{
 		            				$.cookie('switchAdToggle', 0);
 		            			}
