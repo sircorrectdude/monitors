@@ -87,6 +87,7 @@ jQuery(document).ready(function () {
 				}
 				else {
 					$('body').css("color", "#707173").css("background","url('images/fussball-special-displaycristal-hochkant.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=0;
 				}
 				/*$('#slideshow').cycle({
         			fx:     'none',
