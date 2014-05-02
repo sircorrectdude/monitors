@@ -85,6 +85,10 @@ jQuery(document).ready(function () {
 					});
 					$.adcounter=2;
 				}
+				else if($.adcounter==2){
+					$('body').css("color", "#707173").css("background","url('images/Monitor-carpark-EG_theater-tarif-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=3;
+				}
 				else {
 					$('body').css("color", "#707173").css("background","url('images/fussball-special-displaycristal-hochkant.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=0;
