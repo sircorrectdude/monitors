@@ -1,0 +1,36 @@
+
+table{width:100%;border-collapse:collapse;margin:0;}
+th, td{text-align:left;margin:.5em;}
+th{background:#003b81 ;color:#fff;}
+td{background:#b3d2de;}
+
+/* tablecloth styles */
+
+tr.even td{background:##B3D2DE;}
+tr.odd td{background:#fff;}
+
+th.down, tr.even th.down, tr.odd th.down{background:#bce774;}
+th.selected, tr.even th.selected, tr.odd th.selected{}
+
+td.down, tr.even td.down, tr.odd td.down{background:#bce774;color:#fff;}
+td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774;color:#555;}
+
+/* use this if you want to apply different styleing to empty table cells
+td.empty, tr.odd td.empty, tr.even td.empty{background:#fff;}
+*/
+
+.dolomit_table table{width:100%;border-collapse:collapse;margin:0;}
+.dolomit_table th, td{text-align:left;margin:.5em;}
+.dolomit_table th{background:#3fb7d2 ;color:#fff;}
+.dolomit_table td{background:#eeeeee;}
+
+/* tablecloth styles */
+
+.dolomit_table tr.even td{background:##4dbcd7 !important;}
+.dolomit_table tr.odd td{background:#fff !important;}
+
+.dolomit_table th.down, tr.even th.down, tr.odd th.down{background:#bce774;}
+.dolomit_table th.selected, tr.even th.selected, tr.odd th.selected{}
+
+.dolomit_table td.down, tr.even td.down, tr.odd td.down{background:#bce774;color:#fff;}
+.dolomit_table td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774;color:#555;}

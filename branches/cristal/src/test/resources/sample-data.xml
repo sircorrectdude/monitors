@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="app_user">
+        <column>id</column>
+        <column>username</column>
+        <column>password</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <column>address</column>
+        <column>city</column>
+        <column>country</column>
+        <column>email</column>
+        <column>phone_number</column>
+        <column>postal_code</column>
+        <column>province</column>
+        <column>website</column>
+        <column>password_hint</column>
+        <column>version</column>
+        <column>account_enabled</column>
+        <column>account_expired</column>
+        <column>account_locked</column>
+        <column>credentials_expired</column>
+        <row>
+            <value description="id">-1</value>
+            <value description="username">user</value>
+            <value description="password">12dea96fec20593566ab75692c9949596833adc9</value>
+            <value description="first_name">Tomcat</value>
+            <value description="last_name">User</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt_raible@yahoo.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://tomcat.apache.org</value>
+            <value description="password_hint"><![CDATA[A male kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+        <row>
+            <value description="id">-2</value>
+            <value description="username">admin</value>
+            <value description="password">d033e22ae348aeb5660fc2140aec35850c4da997</value>
+            <value description="first_name">Matt</value>
+            <value description="last_name">Raible</value>
+            <value description="address"></value>
+            <value description="city">Denver</value>
+            <value description="country">US</value>
+            <value description="email">matt@raibledesigns.com</value>
+            <value description="phone_number"></value>
+            <value description="postal_code">80210</value>
+            <value description="province">CO</value>
+            <value description="website">http://raibledesigns.com</value>
+            <value description="password_hint"><![CDATA[Not a female kitty.]]></value>
+            <value description="version">1</value>
+            <value description="account_enabled">1</value>
+            <value description="account_expired">0</value>
+            <value description="account_locked">0</value>
+            <value description="credentials_expired">0</value>
+        </row>
+    </table>
+    <table name="role">
+        <column>id</column>
+        <column>name</column>
+        <column>description</column>
+        <row>
+            <value description="id">-1</value>
+            <value description="name">ROLE_ADMIN</value>
+            <value description="description"><![CDATA[Administrator role (can edit Users)]]></value>
+        </row>
+        <row>
+            <value description="id">-2</value>
+            <value description="name">ROLE_USER</value>
+            <value description="description"><![CDATA[Default role for all Users]]></value>
+        </row>
+    </table>
+    <table name="user_role">
+        <column>user_id</column>
+        <column>role_id</column>
+        <row>
+            <value description="user_id">-1</value>
+            <value description="role_id">-2</value>
+        </row>
+        <row>
+            <value description="user_id">-2</value>
+            <value description="role_id">-1</value>
+        </row>
+    </table>
+    <table name="template">
+    	<column>id</column>
+    	<column>name</column>
+        <column>editable</column>
+        <column>text</column>
+        <row>
+        	<value description="id">1</value>
+        	<value description="name">Wettervorhersage</value>
+        	<value description="editable">0</value>
+            <value description="text">
+            
+                        
+            <![CDATA[
+            	<script type="text/javascript" src="scripts/openweather.js"></script>
+			]]>   
+            
+            
+            </value>
+        </row>
+         <row>
+        	<value description="id">2</value>
+        	<value description="name">Konferenzraum</value>
+        	<value description="editable">1</value>
+            <value description="text">
+ 			<![CDATA[
+ 			<link rel="stylesheet" type="text/css" href="styles/tagungsraeume.css">
+			<table border="0" cellspacing="0" cellpadding="0" align="left">
+    <tr>
+        <td valign="top" width="1920" height="1080">
+        <div class="box1">
+            <img src=
+            "images/templates/konferenzraum/bildschirmhintergrund_03443.png"
+             alt="bildschirmhintergrund_03.png" width="1920" height="1080" 
+            border="0"></div>
+        </td><td valign="top" width="1" height="1080">
+        <img src="images/templates/konferenzraum/qwdspacer.gif" alt="" width="1" height="1080" border=
+        "0"></td>
+    </tr>
+    <tr>
+        <td valign="top" width="1920" height="1">
+        <img src="images/templates/konferenzraum/qwdspacer.gif" alt="" width="1920" height="1" border=
+        "0"></td><td valign="top" width="1" height="1">
+        <img src="images/templates/konferenzraum/qwdspacer.gif" alt="" width="1" height="1" border="0"></td></tr>
+</table>
+<div class="box2">
+    <div class="para1">
+        <span class="text6">Rubin I </span>
+    </div>
+</div>
+<div class="box3">
+    <div class="para1">
+        <span class="text6">Rubin II </span>
+    </div>
+</div>
+<div class="box4">
+    <img src=
+    "images/templates/konferenzraum/Line140_Kopie440.gif" alt=
+    "" width="1425" height="2" border="0"></div>
+<div class="box5">
+    <img src=
+    "images/templates/konferenzraum/Line139_Kopie439.gif" alt=
+    "" width="1426" height="2" border="0"></div>
+<div class="box6">
+    <img src=
+    "images/templates/konferenzraum/Line138_Kopie438.gif" alt=
+    "" width="1425" height="2" border="0"></div>
+<div class="box7">
+    <img src=
+    "images/templates/konferenzraum/Line137_Kopie437.gif" alt=
+    "" width="1425" height="2" border="0"></div>
+<div class="box8">
+    <img src=
+    "images/templates/konferenzraum/Line136_Kopie436.gif" alt=
+    "" width="1426" height="2" border="0"></div>
+<div class="box9">
+    <img src=
+    "images/templates/konferenzraum/Line135_Kopie435.gif" alt=
+    "" width="2" height="782" border="0"></div>
+<div class="box10">
+    <img src=
+    "images/templates/konferenzraum/Line134_Kopie434.gif" alt=
+    "" width="2" height="782" border="0"></div>
+<div class="box11">
+    <div class="para1">
+        <span class="text2">26. Januar 2011 </span>
+    </div>
+    <div class="para1">
+        <span class="text3">26th of January 2011 </span>
+    </div>
+</div>
+<div class="box12">
+    <div class="para1">
+        <span class="text2">Ab 18.00 Uhr </span>
+    </div>
+    <div class="para1">
+        <span class="text3">From 6 p.m. </span>
+    </div>
+</div>
+<div class="box13">
+    <div class="para1">
+        <span class="text2">1. Etage, links. </span>
+    </div>
+    <div class="para1">
+        <span class="text3">1st floor, left. </span>
+    </div>
+</div>
+<div class="box14">
+    <img src=
+    "images/templates/konferenzraum/Line134_Kopie430.gif" alt=
+    "" width="2" height="782" border="0"></div>
+<div class="box15">
+    <img src=
+    "images/templates/konferenzraum/konferenzraum_dolo_rubin230.jpg"
+     alt="konferenzraum_dolo_rubin1_bearb.jpg" width="316" height="237" border=
+    "0"></div>
+<div class="box16">
+    <img src=
+    "images/templates/konferenzraum/konferenzraum_dolo_rubin233.jpg"
+     alt="konferenzraum_dolo_rubin2.jpg" width="317" height="237" border="0"></div>
+<div class="box17">
+    <div class="pNormal">
+        <span class="text0">Veranstalter </span>
+    </div>
+    <div class="pNormal">
+        <span class="text4">Organisation </span>
+    </div>
+</div>
+<div class="box18">
+    <div class="pNormal">
+        <span class="text0">Datum </span>
+    </div>
+    <div class="pNormal">
+        <span class="text4">Date </span>
+    </div>
+</div>
+<div class="box19">
+    <div class="pNormal">
+        <span class="text0">Uhrzeit </span>
+    </div>
+    <div class="pNormal">
+        <span class="text4">Time </span>
+    </div>
+</div>
+<div class="box20">
+    <div class="pNormal">
+        <span class="text0">Wegbeschreibung </span>
+    </div>
+    <div class="pNormal">
+        <span class="text4">How to get there </span>
+    </div>
+</div>
+<div class="box21">
+    <div class="para1">
+        <span class="text2">26. Januar 2011 </span>
+    </div>
+    <div class="para1">
+        <span class="text3">26th of January 2011 </span>
+    </div>
+</div>
+<div class="box22">
+    <div class="para1">
+        <span class="text2">Ab 18.00 Uhr </span>
+    </div>
+    <div class="para1">
+        <span class="text3">From 6 p.m. </span>
+    </div>
+</div>
+<div class="box23">
+    <div class="para1">
+        <span class="text2">1. Etage, links. </span>
+    </div>
+    <div class="para1">
+        <span class="text3">1st floor, left. </span>
+    </div>
+</div>
+<div class="box24">
+<span class="text2">
+    <img src=
+    "images/templates/konferenzraum/logo_metzger-innung404_K406.png"
+     alt="logo_metzger-innung.png" width="289" height="160" border="0"></span></div>
+<div class="box25">
+<span class="text2">
+    <img src=
+    "images/templates/konferenzraum/logo_metzger-innung404_K406.png"
+     alt="logo_metzger-innung.png" width="289" height="160" border="0"></span></div>
+<div class="box26">
+    <div class="pNormal">
+        <span class="text1">Tagungsr&auml;ume / </span><span class="text5">Conference rooms 
+        </span>
+    </div>
+</div>
+			]]>   
+            </value>
+        </row>
+        
+        <row>
+        	<value description="id">3</value>
+        	<value description="name">Welcome Screen</value>
+        	<value description="editable">1</value>
+            <value description="text">
+	            <![CDATA[
+					<script type="text/javascript" src="/scripts/supersized.1.0.js"></script>
+					<style type="text/css">
+					*{margin:0;padding:0;font:60px "Gotham Black", Arial, sans-serif;color:#FFF;}img{border:none;}body {overflow:hidden;/*Needed to eliminate scrollbars*/}#content{margin:0px auto;height:100px;width:100%;bottom:5%;background-color:#262626;border-top:3px solid #4F4F4F;border-bottom:3px solid #4F4F4F;position:absolute;}#contentframe{text-align:center;}/*Supersize Plugin Styles*/#supersize img, #supersize a{height:100%;width:100%;display:none;}#supersize .activeslide, #supersize .activeslide img{display:inline;}</style>
+					<script type="text/javascript">
+						$(function(){
+						$.fn.supersized.options = {
+						startwidth: 1920,
+						startheight: 1280,
+						minsize: .50,
+						slideshow: 0,
+						slideinterval: 5000
+						};$('#supersize').supersized();
+						});
+					</script><div id="supersize">
+						<img class="activeslide" src="images/startbildschirm115.png" /></div>
+   
+				]]>             
+            </value>
+        </row>
+        <row>
+        	<value description="id">4</value>
+        	<value description="name">Verkehrsinformation DB</value>
+        	<value description="editable">0</value>
+            <value description="text">
+            
+                        
+            <![CDATA[
+            	<script type="text/javascript" src="scripts/traffic-db.js"></script>
+			]]>   
+            </value>
+        </row>        
+        <row>
+        	<value description="id">5</value>
+        	<value description="name">Verkehrsinformation MVG</value>
+        	<value description="editable">0</value>
+            <value description="text">
+            
+                        
+            <![CDATA[
+            	<script type="text/javascript" src="scripts/traffic-mvg.js"></script>
+			]]>   
+            </value>
+        </row> 
+		 <row>
+        	<value description="id">6</value>
+        	<value description="name">Verkehrsinformation Alle</value>
+        	<value description="editable">0</value>
+            <value description="text">
+            
+                        
+            <![CDATA[
+            	<script type="text/javascript" src="scripts/traffic.js"></script>
+			]]>   
+            </value>
+        </row> 
+        <row>
+        	<value description="id">7</value>
+        	<value description="name">Verkehrsinformation Airport</value>
+        	<value description="editable">0</value>
+            <value description="text">
+            
+                        
+            <![CDATA[
+            	<script type="text/javascript" src="scripts/traffic-air.js"></script>
+			]]>   
+            </value>
+        </row>
+        <row>
+        	<value description="id">8</value>
+        	<value description="name">Belegungsplan</value>
+        	<value description="editable">0</value>
+            <value description="text">
+            
+                        
+            <![CDATA[
+            	<script type="text/javascript" src="scripts/rooms.js"></script>
+			]]>   
+            </value>
+        </row> 
+        
+        <row>
+        	<value description="id">9</value>
+        	<value description="name">Welcome Screen Topaz</value>
+        	<value description="editable">1</value>
+            <value description="text">
+	            <![CDATA[
+					<script type="text/javascript" src="/scripts/supersized.1.0.js"></script>
+					<style type="text/css">
+					*{margin:0;padding:0;font:60px "Gotham Black", Arial, sans-serif;color:#FFF;}img{border:none;}body {overflow:hidden;}#content{margin:0px auto;height:100px;width:100%;bottom:5%;background-color:#262626;border-top:3px solid #4F4F4F;border-bottom:3px solid #4F4F4F;position:absolute;}#contentframe{text-align:center;}/*Supersize Plugin Styles*/#supersize img, #supersize a{height:100%;width:100%;display:none;}#supersize .activeslide, #supersize .activeslide img{display:inline;}</style>
+					<script type="text/javascript">
+					$(function(){
+					$.fn.supersized.options = {
+					startwidth: 1024,
+					startheight: 576,
+					minsize: .50,
+					slideshow: 0,
+					slideinterval: 10000
+					};$('#supersize').supersized();
+					});
+					</script>
+					<div id="supersize">
+					<img class="activeslide" src="/images/templates/konferenzraum/Monitor-Konferenzraeume_Cristal.jpg" />
+					<img class="activeslide" src="/images/templates/konferenzraum/Monitor-1912_080711.jpg" />
+					</div>
+				]]>             
+            </value>
+        </row>        
+                                  
+    </table>
+    
+    <table name="course">
+    	<column>id</column>
+    	<column>name</column>
+    	<column>courseMode</column>
+        <row>
+        	<value description="id">1</value>
+        	<value description="name">Welcome Screen/Wettervorhersage</value> 
+        	<value description="courseMode">1</value>
+        </row>
+        <row>
+        	<value description="id">2</value>
+        	<value description="name">24/7 - Wettervorhersage</value> 
+        	<value description="courseMode">0</value>
+        </row> 
+        <row>
+        	<value description="id">3</value>
+        	<value description="name">Zeit/Datum</value> 
+        	<value description="courseMode">2</value>
+        </row>
+		<row>
+        	<value description="id">4</value>
+        	<value description="name">24/7 - Traffic</value> 
+        	<value description="courseMode">0</value>
+        </row>
+		<row>
+        	<value description="id">5</value>
+        	<value description="name">Traffic DB-MVG-Airport</value> 
+        	<value description="courseMode">1</value>
+        </row>
+		<row>
+        	<value description="id">6</value>
+        	<value description="name">Belegung</value> 
+        	<value description="courseMode">0</value>
+        </row>
+		<row>
+        	<value description="id">7</value>
+        	<value description="name">Welcome Screen Topaz</value> 
+        	<value description="courseMode">0</value>
+        </row>                          
+    </table>    
+
+    <table name="screen">
+    	<column>id</column>
+    	<column>template_id</column>
+    	<column>cronExpression</column>
+    	<column>duration</column>
+        <row>
+        	<value description="id">1</value>
+        	<value description="template_id">1</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">500</value>
+        </row>
+        <row>
+        	<value description="id">2</value>
+        	<value description="template_id">3</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">500</value>
+        </row>
+        <row>
+        	<value description="id">3</value>
+        	<value description="template_id">1</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">500</value>
+        </row>
+        <row>
+        	<value description="id">4</value>
+        	<value description="template_id">1</value>
+        	<value description="cronExpression">0 30 11 ? * *</value>
+        	<value description="duration">0</value>
+        </row>
+        <row>
+        	<value description="id">5</value>
+        	<value description="template_id">2</value>
+        	<value description="cronExpression">0 30 18 ? * *</value>
+        	<value description="duration">0</value>
+        </row>
+		 <row>
+        	<value description="id">6</value>
+        	<value description="template_id">4</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">0</value>
+        </row> 
+		 <row>
+        	<value description="id">7</value>
+        	<value description="template_id">4</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">30</value>
+        </row> 
+   		 <row>
+        	<value description="id">8</value>
+        	<value description="template_id">5</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">30</value>
+        </row>
+   		 <row>
+        	<value description="id">9</value>
+        	<value description="template_id">7</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">30</value>
+        </row>
+   		 <row>
+        	<value description="id">10</value>
+        	<value description="template_id">8</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">30</value>
+        </row>
+   		 <row>
+        	<value description="id">11</value>
+        	<value description="template_id">9</value>
+        	<value description="cronExpression"></value>
+        	<value description="duration">0</value>
+        </row>                           
+    </table> 
+ 
+     <table name="course_screen">
+    	<column>course_id</column>
+    	<column>screen_id</column>
+        <row>
+        	<value description="course_id">1</value>
+        	<value description="screen_id">1</value>
+        </row> 
+        <row>
+        	<value description="course_id">1</value>
+        	<value description="screen_id">2</value>
+        </row> 
+        <row>
+        	<value description="course_id">2</value>
+        	<value description="screen_id">3</value>
+        </row> 
+        <row>
+        	<value description="course_id">3</value>
+        	<value description="screen_id">4</value>
+        </row>
+        <row>
+        	<value description="course_id">3</value>
+        	<value description="screen_id">5</value>
+        </row> 
+        <row>
+        	<value description="course_id">4</value>
+        	<value description="screen_id">6</value>
+        </row>
+        <row>
+        	<value description="course_id">5</value>
+        	<value description="screen_id">7</value>
+        </row> 
+        <row>
+        	<value description="course_id">5</value>
+        	<value description="screen_id">8</value>
+        </row>
+        <row>
+        	<value description="course_id">5</value>
+        	<value description="screen_id">9</value>
+        </row>
+        <row>
+        	<value description="course_id">6</value>
+        	<value description="screen_id">10</value>
+        </row>
+        <row>
+        	<value description="course_id">7</value>
+        	<value description="screen_id">11</value>
+        </row>                                                                               
+    </table>
+    	
+    <table name="monitor">
+    	<column>id</column>
+        <column>alias</column>
+		 <column>ip_address</column>
+		 <column>course_id</column>
+        <row>
+        	<value description="id">1</value>
+            <value description="alias">localhost</value>
+			<value description="ip_address">0:0:0:0:0:0:0:1</value>
+			<value description="course_id">2</value>
+        </row>
+        <row>
+        	<value description="id">2</value>
+            <value description="alias">Dolomit Eingang</value>
+			<value description="ip_address">10.95.6.253</value>
+			<value description="course_id">2</value>
+        </row>
+        <row>
+        	<value description="id">3</value>
+            <value description="alias">Topaz</value>
+			<value description="ip_address">10.95.6.249</value>
+			<value description="course_id">7</value>
+        </row>
+    	<row>
+        	<value description="id">4</value>
+            <value description="alias">Rubin I</value>
+			<value description="ip_address">10.95.6.250</value>
+			<value description="course_id">1</value>
+        </row> 
+        <row>
+        	<value description="id">5</value>
+            <value description="alias">Rubin II</value>
+			<value description="ip_address">10.95.6.251</value>
+			<value description="course_id">1</value>
+        </row>         
+    </table>	
+</dataset>
