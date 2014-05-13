@@ -104,30 +104,31 @@ jQuery(document).ready(function () {
 		
 		
 			
-		$("body").css("background-image","url(images/templates/parkhaus/Monitor-carpark-EG_Hintergrund.jpg)").css('height','1508px');
+		$("body").css("background-image","url(images/templates/parkhaus/hintergrund-monitor-carpark-EG_etagen-visu.jpg)").css('height','1508px');
 		$('body').append(
-				$('<table>').attr("id", "floorsTable").css('margin-top', "412px").css('width', "auto").css('font','bold 40pt arial, sans-serif')
+				$('<table>').attr("id", "floorsTable").css('margin-top', "395px").css('width', "auto").css('font','bold 40pt arial, sans-serif')
 		);
 		
 		$.getJSON('/json/carpark.html',function(data){
 			data.carparkCristal.floors.reverse();
 			$.each(data.carparkCristal.floors, function(i, floor){
-				if(floor.name !== 'UG' && floor.name !== 'EG'){
+				//if(floor.name !== 'UG' && floor.name !== 'EG'){
 					$('#floorsTable').append(
-							$('<tr>').css('height', "175px")
+							$('<tr>').css('height', "111px")
 								.append(
-										$('<td>').css('width', "385px").css('background' , 'none repeat scroll 0 0 transparent')
+										$('<td>').css('width', "930px").css('background' , 'none repeat scroll 0 0 transparent')
 								).append(
-										$('<td>').css('width', "185px").css('background' , 'none repeat scroll 0 0 transparent')
+										$('<td>').css('background' , 'none repeat scroll 0 0 transparent')
 										.append($("<img>").attr('src', floor.placesLeft<=0 ? 'images/templates/parkhaus/Parken_besetzt.jpg' : 'images/templates/parkhaus/Parken_frei.jpg'))
-								).append(
+								)
+								/*.append(
 										$('<td>').css('width', "200px").css('background' , 'none repeat scroll 0 0 transparent').css('text-align', "center")
 										.css('color', floor.placesLeft<=0 ? '#CB0023' : '#008124')
 										.attr('class', floor.placesLeft<=0 ? 'noblink' : 'blink')
 										.append( floor.placesLeft<=0 ? "Besetzt <br/> <i>Occupied</i>" : "Frei <br/> <i>Available</i>")
-								)
+								)*/
 					)
-				}
+				//}
 			});
 			//$('.blink').blink()
 		});
