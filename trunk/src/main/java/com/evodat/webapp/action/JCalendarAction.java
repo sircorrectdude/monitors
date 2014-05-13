@@ -77,50 +77,7 @@ public class JCalendarAction extends BaseAction {
 									.get(Calendar.MONTH) && startTime
 							.get(Calendar.DAY_OF_MONTH) == nowC
 							.get(Calendar.DAY_OF_MONTH))) {
-				if (jCalendar.getColor().getId().equals(Room.RUBIN_1_2)) {
-
-					Room room = new Room();
-					room.setName("RUBIN I");
-					room.setId(Room.RUBIN_1);
-					room.setLocation("DOLOMIT");
-					jCalendar.setColor(room);
-					addEvent(events, jCalendar);
-
-					room.setName("RUBIN II");
-					room.setId(Room.RUBIN_2);
-					jCalendar.setColor(room);
-					addEvent(events, jCalendar);
-
-				} else if (jCalendar.getColor().getId()
-						.equals(Room.CARAT_JUWEL)
-						&& !getRooms().equals(Room.RUBIN_1_2)) {
-
-					Room room = new Room();
-					room.setName("CARAT");
-					room.setId(Room.CARAT);
-					room.setLocation("7. OG");
-					jCalendar.setColor(room);
-					addEvent(events, jCalendar);
-
-					room.setName("JUWEL");
-					room.setId(Room.JUWEL);
-					jCalendar.setColor(room);
-					addEvent(events, jCalendar);
-
-				}
-
-				else {
-					// RoomParameter for Dolomit
-					if (!getRooms().equals(Room.RUBIN_1_2)) {
-						addEvent(events, jCalendar);
-					} else {
-						if (jCalendar.getColor().getId().equals(Room.RUBIN_1)
-								|| jCalendar.getColor().getId()
-										.equals(Room.RUBIN_2)) {
-							addEvent(events, jCalendar);
-						}
-					}
-				}
+				addEvent(events, jCalendar);
 			}
 		}
 
@@ -131,8 +88,10 @@ public class JCalendarAction extends BaseAction {
 					isEmpty = false;
 				}
 			}
+			if(!room.getLocation().equals("DOLOMIT")){
 			if (isEmpty) {
 				emptyRooms.add(room);
+			}
 			}
 		}
 

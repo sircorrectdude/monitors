@@ -68,6 +68,9 @@
         else if(options.index==10){
         	leftdiv.text("DIAMANT");
         }
+        else if(options.index==11){
+        	leftdiv.text("SAPHIR");
+        }        
         else{
         	leftdiv.text("NICHT ZUGEWIESEN");
         }        
@@ -130,7 +133,10 @@
             }
             else if(i==10){
             	atemp.push("DIAMANT");
-            }		
+            }
+            else if(i==11){
+            	atemp.push("SAPHIR");
+            }	    		
     		else{
 				atemp.push("NICHT ZUGEWIESEN");		
 			}            
@@ -199,6 +205,9 @@
             else if(key==10){
             	leftdiv.text("DIAMANT");
             }
+            else if(key==11){
+            	leftdiv.text("SAPHIR");
+            }            
             else{
             	leftdiv.text("NICHT ZUGEWIESEN");
             }

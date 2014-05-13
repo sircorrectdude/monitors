@@ -15,18 +15,18 @@ jQuery(document).ready(function () {
 	            		weather();
 	            		$.refreshId = setInterval(weather, 20000);
 	            	}else{
-	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-020513.jpg')");	            	
+	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-120514.jpg')");	            	
 	            		
 	            		$('body').append(
-	            				$('<div>').attr("id", "conference_info_wrapper").css("width","1920px").css("height", "1080px").css("font-size","36px").css("font-weight","bold")
+	            				$('<div>').attr("id", "conference_info_wrapper").css("width","1920px").css("height", "1080px").css("font-size","32px").css("font-weight","bold")
 	            		);
 		            	$.each(data.calendars, function(i, element){
 		            		if(element.roomName === ("RUBIN I")){
 		    	        		$('#conference_info_wrapper').append(
-				        				$('<div>').attr("id", "company_1").css("position", "absolute").css("left","580px").css("top","380px").css("width","600px").text(element.company)
+				        				$('<div>').attr("id", "company_1").css("position", "absolute").css("left","430px").css("top","380px").css("width","365px").text(element.company)
 		    	        		);
 		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime").css("position", "absolute").css("left","580px").css("top","550px")
+		    	        				$('<div>').attr("id", "datetime").css("position", "absolute").css("left","430px").css("top","550px").css("width","365px")
 		    	        				.append(
 		    	        						$('<span>').attr("id", "date_1").text(element.dateString)
 				        				)
@@ -38,7 +38,7 @@ jQuery(document).ready(function () {
 				        				)				        				
 		    	        		);
 		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_en").css("position", "absolute").css("left","580px").css("top","600px")
+		    	        				$('<div>').attr("id", "datetime_en").css("position", "absolute").css("left","430px").css("top","600px").css("width","365px")
 		    	        				.append(
 		    	        						$('<span>').attr("id", "date_1_en").text(element.dateStringEn)
 				        				)
@@ -53,10 +53,10 @@ jQuery(document).ready(function () {
 		            		if(element.roomName === ("RUBIN II")){
 		            			
 		    	        		$('#conference_info_wrapper').append(
-				        				$('<div>').attr("id", "company_2").css("position", "absolute").css("left","1280px").css("top","380px").css("width","600px").text(element.company)
+				        				$('<div>').attr("id", "company_2").css("position", "absolute").css("left","800px").css("top","380px").css("width","365px").text(element.company)
 		    	        		);
 		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_2").css("position", "absolute").css("left","1280px").css("top","550px")
+		    	        				$('<div>').attr("id", "datetime_2").css("position", "absolute").css("left","800px").css("top","550px").css("width","365px")
 		    	        				.append(
 		    	        						$('<span>').attr("id", "date_2").text(element.dateString)
 				        				)
@@ -68,7 +68,7 @@ jQuery(document).ready(function () {
 				        				)				        				
 		    	        		);
 		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_2_en").css("position", "absolute").css("left","1280px").css("top","600px")
+		    	        				$('<div>').attr("id", "datetime_2_en").css("position", "absolute").css("left","800px").css("top","600px").css("width","365px")
 		    	        				.append(
 		    	        						$('<span>').attr("id", "date_2_en").text(element.dateStringEn)
 				        				)
@@ -80,7 +80,69 @@ jQuery(document).ready(function () {
 				        				)				        				
 		    	        		);		            			
 		            			
-		            		}	            		
+		            		}
+		            		if(element.roomName === ("RUBIN I + II")){
+		            			
+		    	        		$('#conference_info_wrapper').append(
+				        				$('<div>').attr("id", "company_3").css("position", "absolute").css("left","1175px").css("top","380px").css("width","365px").text(element.company)
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime_3").css("position", "absolute").css("left","1175px").css("top","550px").css("width","365px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_3").text(element.dateString)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_3").text(element.startString)
+				        				)				        				
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime_3_en").css("position", "absolute").css("left","1175px").css("top","600px").css("width","365px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_3_en").text(element.dateStringEn)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_3_en").text(element.startStringEn)
+				        				)				        				
+		    	        		);		            			
+		            			
+		            		}
+		            		if(element.roomName === ("SAPHIR")){
+		            			
+		    	        		$('#conference_info_wrapper').append(
+				        				$('<div>').attr("id", "company_4").css("position", "absolute").css("left","1550px").css("top","380px").css("width","365px").text(element.company)
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime_4").css("position", "absolute").css("left","1550px").css("top","550px").css("width","365px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_4").text(element.dateString)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_4").text(element.startString)
+				        				)				        				
+		    	        		);
+		    	        		$('#conference_info_wrapper').append(
+		    	        				$('<div>').attr("id", "datetime_4_en").css("position", "absolute").css("left","1550px").css("top","600px").css("width","365px")
+		    	        				.append(
+		    	        						$('<span>').attr("id", "date_4_en").css("width","365px").text(element.dateStringEn)
+				        				)
+				        				.append(
+		    	        						$('<span>').text(" ")
+				        				)
+		    	        				.append(
+		    	        						$('<span>').attr("id", "startTime_4_en").text(element.startStringEn)
+				        				)				        				
+		    	        		);		            			
+		            			
+		            		}		            		
 		            	});
 	            	}
 	            	$('body').css('display','block');

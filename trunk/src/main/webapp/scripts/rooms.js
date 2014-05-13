@@ -125,7 +125,9 @@ jQuery(document).ready(function () {
 		            		if(linecounter < maxlines){
 			            		var text = element.roomLocation;
 			            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
-			            		if(element.roomLocation === "DOLOMIT") text=""
+			            		if(element.roomLocation === "DOLOMIT"){ 
+			            			return false;
+			            		}
 			            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
 								.append(
 									$('<tr>').css("height", "136px").attr("height", "136px").attr("max-height", "136px")
