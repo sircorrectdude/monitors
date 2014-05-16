@@ -181,11 +181,7 @@ jQuery(document).ready(function () {
 			    	            		$.getScript('scripts/date/date-de-DE.js', function() {
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
-			    	            			.append($("<img />",  {"src": "images/fussball-special-displaydolomit-01.jpg", "width":"1920", "height":"1080"})	)
-			    	            			if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
-			    	            				$('#slideshow')
-			    	            				.append($("<img />",  {"src": "images/fruehlingsfest-2014-hippodrom-displaydolomit-01.jpg", "width":"1920", "height":"1080"})	)
-			    	            			}			    	            			
+			    	            			.append($("<img />",  {"src": "images/fussball-special-displaydolomit-01.jpg", "width":"1920", "height":"1080"})	)			    	            			
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
 			    	            				timeout: 500,
