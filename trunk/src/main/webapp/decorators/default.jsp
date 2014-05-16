@@ -5,19 +5,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
     <sj:head />
+	<sb:head includeScripts="true" includeScriptsValidation="true"/>
         <%@ include file="/common/meta.jsp" %>
         <title><decorator:title/> | <fmt:message key="webapp.name"/></title>
 
         <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/${appConfig["csstheme"]}/theme.css'/>" />
        <!--  <link rel="stylesheet" type="text/css" media="print" href="<c:url value='/styles/${appConfig["csstheme"]}/print.css'/>" />
- -->
 		<script type="text/javascript" src="<c:url value='/scripts/bootstrap/bootstrap.js'/>" ></script> 
-
+ -->
         <decorator:head/>
     </head>
 <body<decorator:getProperty property="body.id" writeEntireProperty="true"/><decorator:getProperty property="body.class" writeEntireProperty="true"/>>
 
-    <div id="page">
+    <div class="container">
         <div id="header" class="clearfix">
             <jsp:include page="/common/header.jsp"/>
         <div class="nav">
@@ -40,11 +40,17 @@
             </c:if>
             
             <div id="main">
-                <%@ include file="/common/messages.jsp" %>
-                <h1><decorator:getProperty property="meta.heading"/></h1>
-                <decorator:body/>
-            </div>
-            
+	            <div class="row">
+		            <div class="col-md-12">
+		                <%@ include file="/common/messages.jsp" %>
+		            	<div class="clear"></div>
+		                <h1><decorator:getProperty property="meta.heading"/></h1>
+		            </div>
+	            </div>
+	            <div class="row">
+	                <decorator:body/>
+	            </div>
+	         </div>
         </div>
 
         <div id="footer" class="clearfix">

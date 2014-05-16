@@ -110,9 +110,9 @@
         </action>
 
         <action name="saveMonitor" class="monitorAction" method="save">
-            <result name="cancel" type="redirectAction">admin/monitors</result>
+            <result name="cancel" type="redirectAction">monitors</result>
             <result name="input">/WEB-INF/pages/monitorForm.jsp</result>
-            <result name="success" type="redirectAction">admin/monitors</result>
+            <result name="success" type="redirectAction">monitors</result>
         </action>
 
         <action name="saveTemplate" class="templateAction" method="save">
@@ -124,7 +124,10 @@
         <action name="saveCourse" class="courseAction" method="save">
             <result name="cancel" type="redirectAction">admin/courses</result>
             <result name="input">/WEB-INF/pages/courseForm.jsp</result>
-            <result name="success" type="redirectAction">admin/courses</result>
+            <result name="success" type="redirectAction">
+            	<param name="actionName">editCourse</param>
+            	<param name="id">${id}</param> 
+            </result>
         </action>
 
         <action name="editMonitor" class="monitorAction" method="edit">
@@ -136,10 +139,22 @@
             <result name="success">/WEB-INF/pages/templateForm.jsp</result>
             <result name="input">/WEB-INF/pages/templateList.jsp</result>
         </action>
+<!-- 
+        <action name="editTemplateSlideshow" class="slideshowAction" method="edit">
+            <result name="success">/WEB-INF/pages/templateSlideshowForm.jsp</result>
+        </action>
+ -->
+        <action name="templateType" class="templateAction">
+            <result name="success">/WEB-INF/pages/templateTypeForm.jsp</result>
+        </action>
 
         <action name="editCourse" class="courseAction" method="edit">
             <result name="success">/WEB-INF/pages/courseForm.jsp</result>
             <result name="input">/WEB-INF/pages/courseList.jsp</result>
+        </action>
+
+        <action name="removeCourse" class="courseAction" method="delete">
+            <result name="success" type="redirectAction">courses</result>
         </action>
 		
 		<action name="monitors" class="monitorAction" method="list">
@@ -160,11 +175,17 @@
         </action>
         
 	     <action name="removeScreen" class="screenAction" method="delete">
-            <result type="redirectAction">courses</result>
+			<result name="success" type="redirectAction">
+            	<param name="actionName">../editCourse</param>
+            	<param name="id">${courseId}</param> 
+            </result>
         </action> 
         
          <action name="saveScreen" class="screenAction" method="save">
-             <result type="redirectAction">../courses</result>
+         	<result name="success" type="redirectAction">
+            	<param name="actionName">../editCourse</param>
+            	<param name="id">${courseId}</param> 
+            </result>
         </action>
 
          <action name="calendar" class="com.evodat.webapp.action.CalendarAction">
@@ -194,6 +215,9 @@
              <result type="json" />
         </action>         
         <action name="lunch" class="lunchAction">
+             <result type="json" />
+        </action>
+        <action name="slideshow" class="slideshowAction">
              <result type="json" />
         </action>                  
 	 </package>
@@ -241,4 +265,5 @@
         </action>
 		
     </package>
+    
 </struts>

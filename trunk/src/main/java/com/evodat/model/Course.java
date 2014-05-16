@@ -3,7 +3,6 @@ package com.evodat.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,13 +11,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.compass.annotations.SearchableId;
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "course")
@@ -32,6 +31,8 @@ public class Course extends BaseObject implements Serializable {
 
 	private String name;
 
+	private User user;
+
 	@Column(name = "order_type", nullable = false)
 	@Enumerated(EnumType.ORDINAL)
 	private CourseMode courseMode;
@@ -43,7 +44,7 @@ public class Course extends BaseObject implements Serializable {
 		return id;
 	}
 
-	//private Set<Monitor> monitors;
+	// private Set<Monitor> monitors;
 
 	@Override
 	public String toString() {
@@ -58,18 +59,53 @@ public class Course extends BaseObject implements Serializable {
 	}
 
 	@Override
-	public boolean equals(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((courseMode == null) ? 0 : courseMode.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((screens == null) ? 0 : screens.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
 	}
 
 	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return 0;
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Course other = (Course) obj;
+		if (courseMode != other.courseMode)
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (screens == null) {
+			if (other.screens != null)
+				return false;
+		} else if (!screens.equals(other.screens))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "course", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
 	public List<Screen> getScreens() {
 		return screens;
 	}
@@ -92,6 +128,15 @@ public class Course extends BaseObject implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@ManyToOne
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

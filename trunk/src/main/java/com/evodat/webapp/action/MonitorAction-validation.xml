@@ -1,5 +1,5 @@
-<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0//EN" 
-    "http://www.opensymphony.com/xwork/xwork-validator-1.0.dtd">
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
     <field name="monitor.ipAddress">
         <field-validator type="required">
@@ -10,5 +10,5 @@
         <field-validator type="required">
             <message>Alias is a required field.</message>
         </field-validator>
-    </field>	
+    </field>
 </validators>

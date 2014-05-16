@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.evodat.dao.MonitorDao;
 import com.evodat.model.Monitor;
+import com.evodat.model.User;
 import com.evodat.service.MonitorExistsException;
 import com.evodat.service.MonitorManager;
 import com.evodat.service.MonitorNotFoundException;
@@ -52,12 +53,12 @@ public class MonitorManagerImpl extends GenericManagerImpl<Monitor, Long>
 		try {
 			return monitorDao.saveMonitor(monitor);
 		} catch (DataIntegrityViolationException e) {
-			//e.printStackTrace();
+			// e.printStackTrace();
 			log.warn(e.getMessage());
 			throw new MonitorExistsException("Monitor '"
 					+ monitor.getIpAddress() + "' already exists!");
 		} catch (JpaSystemException e) { // needed for JPA
-			//e.printStackTrace();
+			// e.printStackTrace();
 			log.warn(e.getMessage());
 			throw new MonitorExistsException("Monitor '"
 					+ monitor.getIpAddress() + "' already exists!");
@@ -68,4 +69,9 @@ public class MonitorManagerImpl extends GenericManagerImpl<Monitor, Long>
 			throws MonitorNotFoundException {
 		return monitorDao.getMonitorByAlias(alias);
 	}
+
+	public List<Monitor> getMonitorsByUser(User currentUser) {
+		return monitorDao.getMonitorsByUser(currentUser);
+	}
+
 }

@@ -4,16 +4,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.convention.annotation.InterceptorRef;
+
 import com.evodat.model.Template;
+import com.evodat.model.TemplateType;
 import com.evodat.model.User;
 import com.opensymphony.xwork2.Preparable;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+import com.opensymphony.xwork2.validator.annotations.ValidatorType;
 
+@InterceptorRef("jsonValidationWorkflowStack")
+@Validations(requiredStrings = { @RequiredStringValidator(fieldName = "template.name", type = ValidatorType.FIELD, key = "error.template.name.required") })
 public class TemplateAction extends BaseAction implements Preparable {
 
 	private static final long serialVersionUID = 1618519184179033297L;
 	private List<Template> templates;
 	private Template template;
 	private String id;
+	private TemplateType templateType;
 
 	public void prepare() throws Exception {
 		if (getRequest().getMethod().equalsIgnoreCase("post")
@@ -52,6 +61,10 @@ public class TemplateAction extends BaseAction implements Preparable {
 			template = templateManager.getTemplate(id);
 		} else {
 			template = new Template();
+			System.out.println(templateType);
+			System.out.println(templateType.name());
+			System.out.println(templateType.ordinal());
+			template.setTemplateType(templateType);
 		}
 
 		return SUCCESS;
@@ -105,6 +118,14 @@ public class TemplateAction extends BaseAction implements Preparable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public TemplateType getTemplateType() {
+		return templateType;
+	}
+
+	public void setTemplateType(TemplateType templateType) {
+		this.templateType = templateType;
 	}
 
 }

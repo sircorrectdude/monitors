@@ -3,7 +3,10 @@ package com.evodat.model;
 import java.io.Serializable;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,6 +33,10 @@ public class Template extends BaseObject implements Serializable {
 	private String text;
 	private Boolean editable;
 	private User user;
+
+	@Column(name = "order_type", nullable = false)
+	@Enumerated(EnumType.ORDINAL)
+	private TemplateType templateType;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,8 +82,8 @@ public class Template extends BaseObject implements Serializable {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-				.append("name", name).append("user", user).toString();
+		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append(
+				"name", name).toString();
 
 	}
 
@@ -95,6 +102,14 @@ public class Template extends BaseObject implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public TemplateType getTemplateType() {
+		return templateType;
+	}
+
+	public void setTemplateType(TemplateType templateType) {
+		this.templateType = templateType;
 	}
 
 }

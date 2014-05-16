@@ -35,8 +35,11 @@
 
 <c:if test="${appConfig['rememberMeEnabled']}">
     <li>
-        <input type="checkbox" class="checkbox" name="_spring_security_remember_me" id="rememberMe" tabindex="3"/>
-        <label for="rememberMe" class="choice"><fmt:message key="login.rememberMe"/></label>
+    	<div class="checkbox">
+	        <label for="rememberMe" class="choice">
+	        	<input type="checkbox" name="_spring_security_remember_me" id="rememberMe" tabindex="3"/>
+	        <fmt:message key="login.rememberMe"/></label>
+        </div>
     </li>
 </c:if>
     <li>

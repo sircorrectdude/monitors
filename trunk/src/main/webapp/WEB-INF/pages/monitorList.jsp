@@ -8,6 +8,7 @@
 
 <c:set var="buttons">
 <p style="float:right;">
+<div class="clear"></div>
     <input type="button" style="margin-right: 5px" class="btn btn-primary"
         onclick="location.href='<c:url value="/editMonitor.html?method=Add&from=list"/>'"
         value="<fmt:message key="button.add"/>"/>
@@ -26,7 +27,7 @@
         url="/editMonitor.html?from=list" paramId="id" paramProperty="id"/>
     <display:column property="alias" escapeXml="true" sortable="true" titleKey="monitor.alias" style="width: 34%"/>
 
-    <display:column property="course" url="/http://localhost:8080/editCourse.html?from=list" paramId="id" paramProperty="course.id" escapeXml="true" sortable="true" titleKey="course.name" style="width: 34%"/>
+    <display:column property="course" url="editCourse.html?from=list" paramId="id" paramProperty="course.id" escapeXml="true" sortable="true" titleKey="course.name" style="width: 34%"/>
 
 
     <display:setProperty name="paging.banner.item_name" value="monitor"/>

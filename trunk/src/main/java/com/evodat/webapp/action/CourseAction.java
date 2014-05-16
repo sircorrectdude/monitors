@@ -4,10 +4,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.convention.annotation.InterceptorRef;
+
 import com.evodat.model.Course;
 import com.evodat.model.CourseMode;
 import com.opensymphony.xwork2.Preparable;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+import com.opensymphony.xwork2.validator.annotations.ValidatorType;
 
+@InterceptorRef("jsonValidationWorkflowStack")
+@Validations(requiredStrings = { @RequiredStringValidator(fieldName = "course.name", type = ValidatorType.FIELD, key = "error.course.name.required") })
 public class CourseAction extends BaseAction implements Preparable {
 
 	private static final long serialVersionUID = -5752286128277850761L;
@@ -18,10 +25,10 @@ public class CourseAction extends BaseAction implements Preparable {
 
 	private List<Course> courses;
 
-	//	private List<Screen> screens;
+	// private List<Screen> screens;
 
 	public void prepare() throws Exception {
-		//		screens = screenManager.getAll();
+		// screens = screenManager.getAll();
 		if (getRequest().getMethod().equalsIgnoreCase("post")
 				&& (!"".equals(getRequest().getParameter("course.id")))) {
 			course = courseManager.getCourse(getRequest().getParameter(
@@ -70,20 +77,15 @@ public class CourseAction extends BaseAction implements Preparable {
 
 	public String save() throws Exception {
 
-		courseManager.saveCourse(course);
-
-		if (!"list".equals(from)) {
-			// add success messages
-			saveMessage(getText("course.saved"));
-			return "mainMenu";
-		} else {
-			// add success messages
-			List<Object> args = new ArrayList<Object>();
-			args.add(course.getName());
-			saveMessage(getText("course.added", args));
-			// Send an account information e-mail
-			return SUCCESS;
-		}
+		course.setUser(getCurrentUser());
+		Course saveCourse = courseManager.saveCourse(course);
+		setId(String.valueOf(saveCourse.getId()));
+		// add success messages
+		List<Object> args = new ArrayList<Object>();
+		args.add(course.getName());
+		saveMessage(getText("course.added", args));
+		// Send an account information e-mail
+		return SUCCESS;
 	}
 
 	public String delete() {
@@ -103,13 +105,13 @@ public class CourseAction extends BaseAction implements Preparable {
 		this.courses = courses;
 	}
 
-	//	public List<Screen> getScreens() {
-	//		return screens;
-	//	}
+	// public List<Screen> getScreens() {
+	// return screens;
+	// }
 	//
-	//	public void setScreens(List<Screen> screens) {
-	//		this.screens = screens;
-	//	}
+	// public void setScreens(List<Screen> screens) {
+	// this.screens = screens;
+	// }
 
 	public CourseMode[] getCoursemodes() {
 		return courseModes;

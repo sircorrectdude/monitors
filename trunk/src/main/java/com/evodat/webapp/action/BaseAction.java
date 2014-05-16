@@ -27,6 +27,7 @@ import com.evodat.service.MailEngine;
 import com.evodat.service.MonitorManager;
 import com.evodat.service.RoleManager;
 import com.evodat.service.ScreenManager;
+import com.evodat.service.SlideshowManager;
 import com.evodat.service.TemplateManager;
 import com.evodat.service.UserManager;
 import com.opensymphony.xwork2.ActionSupport;
@@ -52,6 +53,11 @@ public class BaseAction extends ActionSupport {
 	 * use instance for logging.
 	 */
 	protected final transient Log log = LogFactory.getLog(getClass());
+
+	/**
+	 * 
+	 */
+	protected SlideshowManager slideshowManager;
 
 	/**
 	 * The UserManager
@@ -309,4 +315,11 @@ public class BaseAction extends ActionSupport {
 		this.floorManager = floorManager;
 	}
 
+	public SlideshowManager getSlideshowManager() {
+		return slideshowManager;
+	}
+
+	public void setSlideshowManager(SlideshowManager slideshowManager) {
+		this.slideshowManager = slideshowManager;
+	}
 }

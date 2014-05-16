@@ -14,5 +14,7 @@
 		<mapping class="com.evodat.model.Room"/>
 		<mapping class="com.evodat.model.Carpark"/>
 		<mapping class="com.evodat.model.Floor"/>
+		<mapping class="com.evodat.model.Slideshow"/>
+		<mapping class="com.evodat.model.SlideshowImage"/>
     </session-factory>
 </hibernate-configuration>

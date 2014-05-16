@@ -2,11 +2,24 @@
 
 <head>
     <title><fmt:message key="mainMenu.title"/></title>
-    <meta name="heading" content="<fmt:message key='mainMenu.heading'/>"/>
     <meta name="menu" content="MainMenu"/>
 </head>
 
-<p><fmt:message key="mainMenu.message"/></p>
+	<div class="container">
+<div class="jumbotron">
+		<h1>
+			<fmt:message key='mainMenu.heading' />
+		</h1>
+		<p>
+			<fmt:message key="mainMenu.message" />
+		</p>
+		<p>
+			<a class="btn btn-primary btn-lg" role="button">Bildschirm
+				einrichten</a>
+		</p>
+	</div>
+</div>
+
 
 <div class="separator"></div>
 

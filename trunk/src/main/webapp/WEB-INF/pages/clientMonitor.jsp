@@ -13,15 +13,16 @@
 		<style type="text/css">
 			<!-- 
 				html,body {
+				/*
 					overflow:hidden;
 					cursor: none;
-					/*background-color: ${backgroundColor}; //#b3d2de */
+					background-color: ${backgroundColor}; //#b3d2de */
 				}
 			 -->
 		</style>
 		<script type="text/javascript">
 		$.cookie('switchAdToggle', 0);
-		$(document).everyTime('${refresh}s', 'reloadPage', reloadPage, 0, true);
+		//$(document).everyTime('${refresh}s', 'reloadPage', reloadPage, 0, true);
 		//$(document).everyTime('600s', 'allrefresh', function(){window.location = "clientMonitor.html";}, 0, true);
 		function reloadPage() {
 		    $.ajax({
