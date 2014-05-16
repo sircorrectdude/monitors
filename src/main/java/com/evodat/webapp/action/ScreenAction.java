@@ -19,16 +19,17 @@ public class ScreenAction extends BaseAction {
 
 	private String courseId;
 	private String screenId;
+	private Course course;
 
 	@Override
 	public String execute() throws Exception {
-		templates = templateManager.getAll();
+		templates = templateManager.getTemplates(getCurrentUser());
 		return SUCCESS;
 	}
 
 	public String save() throws Exception {
 
-		Course course = courseManager.getCourse(courseId);
+		course = courseManager.getCourse(courseId);
 		screen.setCourse(course);
 		screenManager.saveScreen(screen);
 
@@ -42,14 +43,16 @@ public class ScreenAction extends BaseAction {
 
 	public String delete() {
 		screen = screenManager.getScreen(screenId);
-		Course course = screen.getCourse();
+		course = screen.getCourse();
 		course.getScreens().remove(screen);
-		//		courseManager.save(course);
+		courseManager.save(course);
+		log.info(course);
+		// course = courseManager.getCourse(String.valueOf(course.getId()));
 		screenManager.removeScreen(screenId);
 		List<Object> args = new ArrayList<Object>();
-		args.add(screen.getCronExpression());
+		// args.add(screen.getCronExpression());
 		saveMessage(getText("screen.deleted", args));
-
+		setCourseId(String.valueOf(course.getId()));
 		return SUCCESS;
 	}
 
@@ -91,6 +94,14 @@ public class ScreenAction extends BaseAction {
 
 	public void setScreenId(String screenId) {
 		this.screenId = screenId;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 }

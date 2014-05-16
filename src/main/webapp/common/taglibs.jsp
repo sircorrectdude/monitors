@@ -11,6 +11,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjr" uri="/struts-jquery-richtext-tags"%>
+<%@ taglib prefix="sb" uri="/struts-bootstrap-tags" %>
 <%@ taglib uri="http://www.appfuse.org/tags/struts" prefix="appfuse" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <c:set var="datePattern"><fmt:message key="date.format"/></c:set>

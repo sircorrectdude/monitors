@@ -16,6 +16,7 @@ import com.evodat.model.CourseMode;
 import com.evodat.model.Monitor;
 import com.evodat.model.Screen;
 import com.evodat.model.Template;
+import com.evodat.model.TemplateType;
 import com.evodat.service.MonitorNotFoundException;
 import com.opensymphony.xwork2.Preparable;
 
@@ -171,7 +172,8 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 					}
 				}
 			}
-			setContent(screenToSet.getTemplate().getText());
+
+			setContent(createOutputContent(screenToSet));
 
 			// Save to cookie
 			lastScreenIdCookie.setValue(String.valueOf(screenToSet.getId()));
@@ -190,6 +192,24 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 			return INPUT;
 		}
 		return SUCCESS;
+	}
+
+	private String createOutputContent(Screen screen) {
+
+		String output = "";
+		TemplateType templateType = screen.getTemplate().getTemplateType();
+
+		switch (templateType) {
+		case CUSTOM_HTML:
+			output = screen.getTemplate().getText();
+			break;
+		case SLIDESHOW:
+			output = "<script type='text/javascript' src='scripts/templates/slideshow.js'></script>";
+			break;
+		default:
+			break;
+		}
+		return output;
 	}
 
 	public String getContent() {

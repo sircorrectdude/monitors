@@ -72,4 +72,13 @@
     <bean id="lunchAction" class="com.evodat.webapp.action.LunchAction" scope="prototype">
     </bean>
 	
+	<bean id="slideshowAction" class="com.evodat.webapp.action.templates.SlideshowAction" scope="prototype">
+		<property name="slideshowManager" ref="slideshowManager"/>
+    </bean>
+	
+	<!-- Validators -->
+	<bean id="monitorAliasUniqueValidator" class="com.evodat.webapp.validators.MonitorAliasUniqueValidator" scope="prototype">
+    	<property name="monitorManager" ref="monitorManager"/>
+    </bean>
+	
 </beans>

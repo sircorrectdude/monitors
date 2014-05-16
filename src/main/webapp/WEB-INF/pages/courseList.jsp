@@ -26,14 +26,14 @@
 <c:out value="${buttons}" escapeXml="false" />
 
 <display:table name="courses" cellspacing="0" cellpadding="0" requestURI="" 
-    defaultsort="1" id="course" pagesize="25" class="table table-condensed table-hover table-striped table-bordered table-striped table-bordered table-striped table-bordered" export="true">
+    defaultsort="1" id="course" pagesize="5" class="table table-condensed table-hover table-striped table-bordered table-striped table-bordered table-striped table-bordered" export="true">
     <display:column property="name" escapeXml="true" sortable="true" titleKey="course.name" style="width: 25%"
         url="/editCourse.html?from=list" paramId="id" paramProperty="id"/>
 
     <display:column property="courseMode" escapeXml="true" sortable="true" titleKey="course.courseMode" style="width: 25%"/>
     
     <display:column property="screens" escapeXml="true" sortable="true" titleKey="course.screens" style="width: 25%"/>
-
+<!-- 
      <display:column title="" >
 	      <span style="float:right;margin:3px;">
 				<s:url action="addScreen" id="addScreenUrl" namespace="/ajax">
@@ -44,7 +44,7 @@
 				<s:a title="Hinzufügen" cssClass="thickbox" href="%{addScreenUrl}">add</s:a><br/>
 		 </span>
      </display:column>
-
+ -->
     <display:setProperty name="paging.banner.item_name" value="course"/>
     <display:setProperty name="paging.banner.items_name" value="courses"/>
 

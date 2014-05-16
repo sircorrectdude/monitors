@@ -844,7 +844,12 @@
 		<groupId>com.googlecode.json-simple</groupId>
 		<artifactId>json-simple</artifactId>
 		<version>1.1.1</version>
-	</dependency>	
+	</dependency>
+    <dependency>
+        <groupId>com.jgeppert.struts2.bootstrap</groupId>
+        <artifactId>struts2-bootstrap-plugin</artifactId>
+        <version>1.6.0</version>
+    </dependency>
     </dependencies>
 
     <reporting>
@@ -1090,7 +1095,7 @@
     <properties>
         <!-- Application settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <copyright.year>2010</copyright.year>
+        <copyright.year>2014</copyright.year>
         <dao.framework>hibernate</dao.framework>
         <web.framework>struts</web.framework>
         <amp.genericCore>true</amp.genericCore>
@@ -1139,7 +1144,7 @@
         <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
         <jdbc.url>jdbc:mysql://localhost/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8</jdbc.url>
         <jdbc.username>root</jdbc.username>
-        <jdbc.password></jdbc.password>
+        <jdbc.password>chemo</jdbc.password>
     
         <!-- Properties calculated by AppFuse when running full-source plugin -->
         <commons.beanutils.version>1.8.3</commons.beanutils.version>

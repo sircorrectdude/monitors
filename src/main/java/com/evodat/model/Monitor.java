@@ -25,6 +25,7 @@ public class Monitor extends BaseObject implements Serializable {
 	private String ipAddress;
 	private String alias;
 	private Course course;
+	private User user;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,7 +44,7 @@ public class Monitor extends BaseObject implements Serializable {
 		this.ipAddress = ipAddress;
 	}
 
-	@Column(name = "alias")
+	@Column(name = "alias", unique = true)
 	@SearchableProperty
 	public String getAlias() {
 		return alias;
@@ -64,6 +65,15 @@ public class Monitor extends BaseObject implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	@ManyToOne
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

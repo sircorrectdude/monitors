@@ -4,16 +4,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.convention.annotation.InterceptorRef;
+
+import com.evodat.model.Course;
 import com.evodat.model.Monitor;
 import com.opensymphony.xwork2.Preparable;
+import com.opensymphony.xwork2.validator.annotations.CustomValidator;
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
+import com.opensymphony.xwork2.validator.annotations.ValidatorType;
 
+@InterceptorRef("jsonValidationWorkflowStack")
+@Validations(customValidators = { @CustomValidator(fieldName = "monitor.alias", key = "error.monitor.alias.notunique", type = "monitorAliasUniqueValidator") }, requiredStrings = {
+		@RequiredStringValidator(fieldName = "monitor.ipAddress", type = ValidatorType.FIELD, key = "error.monitor.ipAddress.required"),
+		@RequiredStringValidator(fieldName = "monitor.alias", type = ValidatorType.FIELD, key = "error.monitor.alias.required") })
 public class MonitorAction extends BaseAction implements Preparable {
 	private static final long serialVersionUID = 1219079371677051761L;
 
-	private List monitors;
+	private List<Monitor> monitors;
 	private Monitor monitor;
 	private String id;
-	private List courses;
+	private List<Course> courses;
 
 	public void prepare() throws Exception {
 		courses = courseManager.getAll();
@@ -28,7 +39,7 @@ public class MonitorAction extends BaseAction implements Preparable {
 
 	/**
 	 * Default: just returns "success"
-	 *
+	 * 
 	 * @return "success"
 	 */
 	public String execute() {
@@ -36,8 +47,9 @@ public class MonitorAction extends BaseAction implements Preparable {
 	}
 
 	/**
-	 * Sends users to "mainMenu" when !from.equals("list"). Sends everyone else to "cancel"
-	 *
+	 * Sends users to "mainMenu" when !from.equals("list"). Sends everyone else
+	 * to "cancel"
+	 * 
 	 * @return "mainMenu" or "cancel"
 	 */
 	public String cancel() {
@@ -48,7 +60,7 @@ public class MonitorAction extends BaseAction implements Preparable {
 	}
 
 	public String list() {
-		monitors = monitorManager.getMonitors();
+		monitors = monitorManager.getMonitorsByUser(getCurrentUser());
 		return SUCCESS;
 	}
 
@@ -65,25 +77,19 @@ public class MonitorAction extends BaseAction implements Preparable {
 
 	public String save() throws Exception {
 
+		monitor.setUser(getCurrentUser());
 		monitorManager.saveMonitor(monitor);
 
-		if (!"list".equals(from)) {
-			// add success messages
-			saveMessage(getText("monitor.saved"));
-			return "mainMenu";
-		} else {
-			// add success messages
-			List<Object> args = new ArrayList<Object>();
-			args.add(monitor.getIpAddress());
-			saveMessage(getText("monitor.added", args));
-			// Send an account information e-mail
-			return SUCCESS;
-		}
+		// add success messages
+		List<Object> args = new ArrayList<Object>();
+		args.add(monitor.getIpAddress());
+		saveMessage(getText("monitor.added", args));
+		return SUCCESS;
 	}
 
 	/**
 	 * Delete the user passed in.
-	 *
+	 * 
 	 * @return success
 	 */
 	public String delete() {
@@ -95,12 +101,20 @@ public class MonitorAction extends BaseAction implements Preparable {
 		return SUCCESS;
 	}
 
-	public List getMonitors() {
+	public List<Monitor> getMonitors() {
 		return monitors;
 	}
 
-	public void setMonitors(List monitors) {
+	public void setMonitors(List<Monitor> monitors) {
 		this.monitors = monitors;
+	}
+
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 
 	public Monitor getMonitor() {
@@ -109,14 +123,6 @@ public class MonitorAction extends BaseAction implements Preparable {
 
 	public void setMonitor(Monitor monitor) {
 		this.monitor = monitor;
-	}
-
-	public List getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List courses) {
-		this.courses = courses;
 	}
 
 	public void setId(String id) {

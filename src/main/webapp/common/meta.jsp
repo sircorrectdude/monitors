@@ -7,3 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="generator" content="AppFuse 2.0" /> <!-- leave this for stats please -->
         <link rel="icon" href="<c:url value="/images/favicon.ico"/>"/>
+        
+        <!-- bootstrap.css -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        

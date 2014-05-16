@@ -3,6 +3,7 @@ package com.evodat.service;
 import java.util.List;
 
 import com.evodat.model.Monitor;
+import com.evodat.model.User;
 
 public interface MonitorManager extends GenericManager<Monitor, Long> {
 	Monitor getMonitor(String monitorId);
@@ -17,4 +18,6 @@ public interface MonitorManager extends GenericManager<Monitor, Long> {
 	List<Monitor> getMonitors();
 
 	Monitor getMonitorByAlias(String aliasPath) throws MonitorNotFoundException;
+
+	List<Monitor> getMonitorsByUser(User currentUser);
 }
