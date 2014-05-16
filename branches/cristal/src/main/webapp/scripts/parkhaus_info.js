@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
         		);
 				$('#slideshow').empty()
 				if($.adcounter==0){
-        			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehlingsfest-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$('body').css("color", "#707173").css("background","url('images/fussball-special-displaycristal-hochkant.jpg')").css("height", "1920px").css("width", "1080px");
         			$.getScript('scripts/date/date-de-DE.js', function() {
         				if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
@@ -85,12 +85,8 @@ jQuery(document).ready(function () {
 					});
 					$.adcounter=2;
 				}
-				else if($.adcounter==2){
+				else{
 					$('body').css("color", "#707173").css("background","url('images/Monitor-carpark-EG_theater-tarif-01.jpg')").css("height", "1920px").css("width", "1080px");
-					$.adcounter=3;
-				}
-				else {
-					$('body').css("color", "#707173").css("background","url('images/fussball-special-displaycristal-hochkant.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=0;
 				}
 				/*$('#slideshow').cycle({
