@@ -6,7 +6,15 @@ jQuery(document).ready(function () {
 	            function( data )
 	            {        
 	            	 clearInterval($.refreshId);
-	            	if(data.calendars == null || data.calendars.length === 0){
+	            	 
+	            	 var dolomitEvents=false;
+	            	 $.each(data.calendars, function(i, element){
+	            		 if(element.roomLocation === ("DOLOMIT")){
+	            			 dolomitEvents=true;
+	            		 }
+	            	 })
+	            	 
+	            	if(data.calendars == null || data.calendars.length === 0 || !dolomitEvents){
 	            		$('body > *').remove();
 	            		$.oddeven=0;
 	            		$.welcome=0;
