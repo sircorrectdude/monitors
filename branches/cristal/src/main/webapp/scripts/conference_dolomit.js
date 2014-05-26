@@ -189,7 +189,6 @@ jQuery(document).ready(function () {
 			    	            		$.getScript('scripts/date/date-de-DE.js', function() {
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
-			    	            			.append($("<img />",  {"src": "images/fussball-special-displaydolomit-01.jpg", "width":"1920", "height":"1080"})	)			    	            			
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
 			    	            				timeout: 500,
