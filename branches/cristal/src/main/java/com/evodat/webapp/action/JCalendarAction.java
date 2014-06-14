@@ -17,6 +17,7 @@ public class JCalendarAction extends BaseAction {
 
 	List<JCalendar> calendars;
 	private String rooms = "";
+	private String location = "";
 	private List<Room> emptyRooms = new ArrayList<Room>();
 
 	@Override
@@ -88,10 +89,19 @@ public class JCalendarAction extends BaseAction {
 					isEmpty = false;
 				}
 			}
-			if(!room.getLocation().equals("DOLOMIT")){
-			if (isEmpty) {
-				emptyRooms.add(room);
-			}
+			if (!room.getLocation().equals("DOLOMIT")) {
+				if (isEmpty) {
+
+					// filter Location Param;
+					if ((location != null && !room.getLocation().equals(
+							location))
+							|| room.getName().equals("CARAT")
+							|| room.getName().equals("JUWEL")) {
+						continue;
+					}
+
+					emptyRooms.add(room);
+				}
 			}
 		}
 
@@ -117,6 +127,14 @@ public class JCalendarAction extends BaseAction {
 		}
 		event.setCompany(jCalendar.getSubject());
 		event.setRoomId(jCalendar.getColor().getId());
+		// filter Location Param;
+		if ((location != null && !jCalendar.getColor().getLocation()
+				.equals(location))
+				|| jCalendar.getColor().getName().equals("CARAT")
+				|| jCalendar.getColor().getName().equals("JUWEL")) {
+			return;
+		}
+
 		events.add(event);
 		// log.info(event);
 	}
@@ -146,6 +164,14 @@ public class JCalendarAction extends BaseAction {
 
 	public void setEmptyRooms(List<Room> emptyRooms) {
 		this.emptyRooms = emptyRooms;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 }

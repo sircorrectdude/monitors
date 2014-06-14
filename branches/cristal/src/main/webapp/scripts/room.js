@@ -3,8 +3,13 @@ jQuery(document).ready(function () {
 	function switchEmptyPage() {
 		$('body > *').remove();
 		if($.switchToggle ==1){
-			$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
-	    	$('body').append(
+			if($.roomName == 'SAPHIR' || $.roomName == 'RUBIN I' || $.roomName == 'RUBIN II'){
+				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-02.jpg')").css("height", "900px").css("width", "1600px")
+				
+			}else{
+				$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
+			}
+			$('body').append(
 	    			$('<div>')
         				.css("font","60px Arial, sans-serif")
         				.css("text-decoration", "underline")
@@ -39,8 +44,12 @@ jQuery(document).ready(function () {
 	            		return;
 	            	}
 	            	else{
-	        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
-	       	            	$('body').append(
+		        			if($.roomName == 'SAPHIR' || $.roomName == 'RUBIN I' || $.roomName == 'RUBIN II'){
+		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-belegt-hintergrund.jpg')").css("height", "768px").css("width", "1366px")
+		        			}else{
+		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
+		        			}
+	        				$('body').append(
 		            			$('<div>')
 		            				.css("text-align","center")		            			
 		            				.css("font","175px Arial, sans-serif")
