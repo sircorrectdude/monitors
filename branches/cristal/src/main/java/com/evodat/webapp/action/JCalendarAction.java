@@ -17,7 +17,7 @@ public class JCalendarAction extends BaseAction {
 
 	List<JCalendar> calendars;
 	private String rooms = "";
-	private String location = "";
+	private String location;
 	private List<Room> emptyRooms = new ArrayList<Room>();
 
 	@Override
