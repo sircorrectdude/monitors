@@ -6,9 +6,12 @@ jQuery(document).ready(function () {
 			if($.roomName == 'SAPHIR' || $.roomName == 'RUBIN I' || $.roomName == 'RUBIN II'){
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-02.jpg')").css("height", "900px").css("width", "1600px")
 				
+			}else if($.roomName == 'RESTAURANT'){
+				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-restaurant-1440x900px.jpg')").css("height", "768px").css("width", "1366px")
 			}else{
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
 			}
+			if($.roomName != 'RESTAURANT'){
 			$('body').append(
 	    			$('<div>')
         				.css("font","60px Arial, sans-serif")
@@ -19,6 +22,7 @@ jQuery(document).ready(function () {
 	    				.css("letter-spacing", "5px")
 	    				.attr("id", "roomName").append($.roomName)
 	    	);
+			}
 			//var sub_logo=$('<div>').attr("id", "sub_logo").css("margin-top", "250px").css("height", "226px").css("width", "1366px").css("background-repeat", "no-repeat").css("background","url('images/templates/rooms/single_room_hd_ready_logo.jpg')");
         	//$('body').append(sub_logo);			
 			$.switchToggle =0;
@@ -45,7 +49,7 @@ jQuery(document).ready(function () {
 	            	}
 	            	else{
 		        			if($.roomName == 'SAPHIR' || $.roomName == 'RUBIN I' || $.roomName == 'RUBIN II'){
-		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-belegt-hintergrund.jpg')").css("height", "768px").css("width", "1366px")
+		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/Hintergrund-monitore-raeume-dolomit-belegt-1440x900px.jpg')").css("height", "768px").css("width", "1366px")
 		        			}else{
 		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
 		        			}
