@@ -7,7 +7,7 @@ jQuery(document).ready(function () {
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-02.jpg')").css("height", "900px").css("width", "1600px")
 				
 			}else if($.roomName == 'RESTAURANT'){
-				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-restaurant-1440x900px.jpg')").css("height", "768px").css("width", "1366px")
+				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-02.jpg')").css("height", "768px").css("width", "1366px")
 			}else{
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
 			}
