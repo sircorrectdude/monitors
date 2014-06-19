@@ -23,138 +23,66 @@ jQuery(document).ready(function () {
 	            		weather();
 	            		$.refreshId = setInterval(weather, 20000);
 	            	}else{
-	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-120514.jpg')");	            	
+	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-17014.jpg')");	            	
 	            		
 	            		$('body').append(
 	            				$('<div>').attr("id", "conference_info_wrapper").css("width","1920px").css("height", "1080px").css("font-size","32px").css("font-weight","bold")
 	            		);
 		            	$.each(data.calendars, function(i, element){
 		            		if(element.roomName === ("RUBIN I")){
-		    	        		$('#conference_info_wrapper').append(
-				        				$('<div>').attr("id", "company_1").css("position", "absolute").css("left","430px").css("top","380px").css("width","365px").text(element.company)
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime").css("position", "absolute").css("left","430px").css("top","550px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_1").text(element.dateString)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_1").text(element.startString)
-				        				)				        				
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_en").css("position", "absolute").css("left","430px").css("top","600px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_1_en").text(element.dateStringEn)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_1_en").text(element.startStringEn)
-				        				)				        				
-		    	        		);
+		            			fillRoom(element, 1, "430px");
 		            		}
 		            		if(element.roomName === ("RUBIN II")){
 		            			
-		    	        		$('#conference_info_wrapper').append(
-				        				$('<div>').attr("id", "company_2").css("position", "absolute").css("left","800px").css("top","380px").css("width","365px").text(element.company)
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_2").css("position", "absolute").css("left","800px").css("top","550px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_2").text(element.dateString)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_2").text(element.startString)
-				        				)				        				
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_2_en").css("position", "absolute").css("left","800px").css("top","600px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_2_en").text(element.dateStringEn)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_2_en").text(element.startStringEn)
-				        				)				        				
-		    	        		);		            			
+		            			fillRoom(element, 2, "950px");            			
 		            			
 		            		}
 		            		if(element.roomName === ("RUBIN I + II")){
 		            			
-		    	        		$('#conference_info_wrapper').append(
-				        				$('<div>').attr("id", "company_3").css("position", "absolute").css("left","1175px").css("top","380px").css("width","365px").text(element.company)
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_3").css("position", "absolute").css("left","1175px").css("top","550px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_3").text(element.dateString)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_3").text(element.startString)
-				        				)				        				
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_3_en").css("position", "absolute").css("left","1175px").css("top","600px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_3_en").text(element.dateStringEn)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_3_en").text(element.startStringEn)
-				        				)				        				
-		    	        		);		            			
+		            			fillRoom(element, 1, "430px");
+		            			fillRoom(element, 2, "950px"); 
 		            			
 		            		}
 		            		if(element.roomName === ("SAPHIR")){
 		            			
-		    	        		$('#conference_info_wrapper').append(
-				        				$('<div>').attr("id", "company_4").css("position", "absolute").css("left","1550px").css("top","380px").css("width","365px").text(element.company)
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_4").css("position", "absolute").css("left","1550px").css("top","550px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_4").text(element.dateString)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_4").text(element.startString)
-				        				)				        				
-		    	        		);
-		    	        		$('#conference_info_wrapper').append(
-		    	        				$('<div>').attr("id", "datetime_4_en").css("position", "absolute").css("left","1550px").css("top","600px").css("width","365px")
-		    	        				.append(
-		    	        						$('<span>').attr("id", "date_4_en").css("width","365px").text(element.dateStringEn)
-				        				)
-				        				.append(
-		    	        						$('<span>').text(" ")
-				        				)
-		    	        				.append(
-		    	        						$('<span>').attr("id", "startTime_4_en").text(element.startStringEn)
-				        				)				        				
-		    	        		);		            			
+		            			fillRoom(element, 4, "1450px"); 	            			
 		            			
 		            		}		            		
 		            	});
 	            	}
 	            	$('body').css('display','block');
 	            });		
+	}
+	
+	
+	function fillRoom(element, divNo, left){
+		$('#conference_info_wrapper').append(
+				$('<div>').attr("id", "company_"+divNo).css("position", "absolute").css("left",left).css("top","380px").css("width","365px").text(element.company)
+		);
+		$('#conference_info_wrapper').append(
+				$('<div>').attr("id", "datetime").css("position", "absolute").css("left",left).css("top","550px").css("width","365px")
+				.append(
+						$('<span>').attr("id", "date_"+divNo).text(element.dateString)
+				)
+				.append(
+						$('<span>').text(" ")
+				)
+				.append(
+						$('<span>').attr("id", "startTime_"+divNo).text(element.startString)
+				)				        				
+		);
+		$('#conference_info_wrapper').append(
+				$('<div>').attr("id", "datetime_en").css("position", "absolute").css("left",left).css("top","600px").css("width","365px")
+				.append(
+						$('<span>').attr("id", "date_"+divNo+"_en").text(element.dateStringEn)
+				)
+				.append(
+						$('<span>').text(" ")
+				)
+				.append(
+						$('<span>').attr("id", "startTime_"+divNo+"_en").text(element.startStringEn)
+				)				        				
+		);		
 	}
 	
 	function weather(){
