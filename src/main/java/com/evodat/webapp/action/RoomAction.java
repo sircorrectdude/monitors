@@ -14,31 +14,33 @@ import com.evodat.model.Monitor;
 import com.evodat.model.Room;
 import com.evodat.service.MonitorNotFoundException;
 import com.evodat.webapp.model.Event;
-import com.lowagie.text.RomanList;
 import com.opensymphony.xwork2.Preparable;
 
-public class RoomAction extends BaseAction implements ServletRequestAware, Preparable{
+public class RoomAction extends BaseAction implements ServletRequestAware,
+		Preparable {
 
 	protected HttpServletRequest servletRequest;
 	private String remoteAddr;
 	private String roomName;
-	
+
 	public void prepare() throws Exception {
 		remoteAddr = getRequest().getRemoteAddr();
 		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
 				+ getRequest().getMethod());
 
 	}
+
 	@Override
 	public String execute() throws Exception {
 		return SUCCESS;
 	}
 
 	public Event getRunningEvent() {
-		// Auto Resolv  Alias = roomname 
+		// Auto Resolv Alias = roomname
 		Monitor monitorByIpAddress;
 		try {
-			monitorByIpAddress = monitorManager.getMonitorByIpAddress(remoteAddr);
+			monitorByIpAddress = monitorManager
+					.getMonitorByIpAddress(remoteAddr);
 			setRoomName(monitorByIpAddress.getAlias().toUpperCase());
 			log.debug("roomName: " + roomName);
 		} catch (MonitorNotFoundException e) {
@@ -46,7 +48,7 @@ public class RoomAction extends BaseAction implements ServletRequestAware, Prepa
 			e.printStackTrace();
 		}
 		// end
-		
+
 		List<JCalendar> nextCalendars = jCalendarManager.getNextCalendars(1);
 		Calendar now = Calendar.getInstance();
 		Date nowDate = now.getTime();
@@ -55,11 +57,11 @@ public class RoomAction extends BaseAction implements ServletRequestAware, Prepa
 		for (JCalendar jCalendar : nextCalendars) {
 			Calendar startTime = Calendar.getInstance();
 			startTime.setTime(jCalendar.getStartTime());
-			startTime.add(Calendar.HOUR_OF_DAY,-4);
+			startTime.add(Calendar.HOUR_OF_DAY, -4);
 			Date startDate = startTime.getTime();
 			Calendar endTime = Calendar.getInstance();
 			endTime.setTime(jCalendar.getEndTime());
-			endTime.add(Calendar.HOUR_OF_DAY,0);
+			endTime.add(Calendar.HOUR_OF_DAY, 2);
 			Date endDate = endTime.getTime();
 			boolean display = (jCalendar.getColor().getName().equals(roomName)
 					|| (jCalendar.getColor().getId().equals(Room.RUBIN_1_2) && (roomName
@@ -67,9 +69,9 @@ public class RoomAction extends BaseAction implements ServletRequestAware, Prepa
 					.getColor().getId().equals(Room.CARAT_JUWEL) && (roomName
 					.equals("CARAT") || roomName.equals("JUWEL"))))
 					&& (startDate.before(nowDate) && endDate.after(nowDate));
-			
+
 			if (display) {
-				
+
 				event.setDateString(new SimpleDateFormat("dd. MMMMM yyyy")
 						.format(jCalendar.getStartTime()));
 				event.setStartString(new SimpleDateFormat("H.mm")
@@ -94,7 +96,7 @@ public class RoomAction extends BaseAction implements ServletRequestAware, Prepa
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
 	}
-	
+
 	public void setServletRequest(HttpServletRequest servletRequest) {
 		this.servletRequest = servletRequest;
 	}
