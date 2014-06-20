@@ -72,7 +72,7 @@ jQuery(document).ready(function () {
 												)
 										)								
 										.append(
-											$('<td>').css("width", "240px").css("text-align","center").attr("class", getRoomDirectionCssName(element.roomName))	
+											$('<td>').css("width", "240px").css("text-align","center").attr("style", getRoomDirectionCssName(element.roomName))	
 										)								
 								);
 		            		}
@@ -97,7 +97,7 @@ jQuery(document).ready(function () {
 													)
 											)								
 										.append(
-											$('<td>').css("width", "240px").css("text-align","center").attr("class", getRoomDirectionCssName(element.name))	
+											$('<td>').css("width", "240px").css("text-align","center").attr("style", getRoomDirectionCssName(element.name))	
 										)									
 								);
 		            		}
@@ -114,16 +114,29 @@ jQuery(document).ready(function () {
 	}
 	
 	function getRoomDirectionCssName(str){
-		if(str == "BERNSTEIN") return "leftArrow";
-		if(str == "TOPAZ") return "rightArrow";
-		if(str == "SMARAGD") return "leftArrow";
-		if(str == "BRILLIANT") return "rightArrow";
-		if(str == "CARAT") return "rightArrow";
-		if(str == "JUWEL") return "rightArrow";
-		if(str == "CARAT + JUWEL") return "rightArrow";
+		if(str == "BERNSTEIN") return getLeftArrowCss();
+		if(str == "TOPAZ") return getRightArrowCss();
+		if(str == "SMARAGD") return getLeftArrowCss();
+		if(str == "BRILLIANT") return getRightArrowCss();
+		if(str == "CARAT") return getRightArrowCss();
+		if(str == "JUWEL") return getRightArrowCss();
+		if(str == "CARAT + JUWEL") return getRightArrowCss();
 		return "";
 	}
 	
+	function getLeftArrowCss(){
+	 return "background-image: url(../images/templates/rooms7og/Pfeil-links.png);"+
+	 "background-repeat:no-repeat;"+
+	 "background-color:transparent;"+
+	 "background-position:80px 0px;";
+	}
+	
+	function getRightArrowCss(){
+		return "background-image: url(../images/templates/rooms7og/Pfeil-rechts.png);"+
+		 "background-repeat:no-repeat;"+
+		 "background-color:transparent;"+
+		 "background-position:80px 0px;";		
+	}
 	
 	function weather(){
 	    $.getJSON(
