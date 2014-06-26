@@ -128,14 +128,14 @@ jQuery(document).ready(function () {
 	 return "background-image: url(../images/templates/rooms7og/Pfeil-links.png);"+
 	 "background-repeat:no-repeat;"+
 	 "background-color:transparent;"+
-	 "background-position:80px 0px;";
+	 "background-position:260px 0px;";
 	}
 	
 	function getRightArrowCss(){
 		return "background-image: url(../images/templates/rooms7og/Pfeil-rechts.png);"+
 		 "background-repeat:no-repeat;"+
 		 "background-color:transparent;"+
-		 "background-position:80px 0px;";		
+		 "background-position:260px 0px;";		
 	}
 	
 	function weather(){
