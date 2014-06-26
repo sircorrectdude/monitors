@@ -28,7 +28,11 @@ jQuery(document).ready(function () {
 			$.switchToggle =0;
 		}else{
 			$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitor-we-tagungsraeume-"+$.roomName+"-frei.jpg')").css("height", "768px").css("width", "1366px")
-    		$.switchToggle =1
+    		if($.roomName == 'RESTAURANT' && (new Date().between(Date.today().set({hour: 06, minute: 00}), Date.today().set({hour: 10, minute: 00})))){
+    			$.switchToggle =0;
+    		}else{
+    			$.switchToggle =1;
+    		}
 		}
 		$('body').show();
 		$(document).everyTime('10s', 'switchEmptyPage', switchEmptyPage, 0, true);
@@ -42,7 +46,7 @@ jQuery(document).ready(function () {
 	            	$('body > div').remove();
 	            	$(document).stopTime('switchEmptyPage');
 	            	if(data.runningEvent.company == null){
-	            		$.switchToggle =1;
+	            		$.switchToggle =0;
 	            		$.roomName = data.runningEvent.roomName;
 	            		switchEmptyPage();
 	            		return;
@@ -109,7 +113,9 @@ jQuery(document).ready(function () {
 	            	}
 	            });		
 	}
-	rooms();	
+	$.getScript('scripts/date/date-de-DE.js', function() {
+		rooms();	
+	})
 
 	
 });
