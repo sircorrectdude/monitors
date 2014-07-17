@@ -61,10 +61,6 @@ jQuery(document).ready(function () {
 		            			$.cookie('switchAdToggle', 2);
 		            		}
 		            		else if($.cookie('switchAdToggle') == 2){
-		            			$('body').css("color", "#707173").css("background","url('images/wm14-special-displaycristal-hochkant-02.jpg')").css("height", "1920px").css("width", "1080px");
-		            			$.cookie('switchAdToggle', 3);	            			
-		            		}
-		            		else if($.cookie('switchAdToggle') == 3){
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 		            				$.cookie('switchAdToggle', 0);
 		            		}
