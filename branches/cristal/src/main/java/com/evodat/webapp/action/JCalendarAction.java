@@ -94,9 +94,7 @@ public class JCalendarAction extends BaseAction {
 
 					// filter Location Param;
 					if ((location != null && !room.getLocation().equals(
-							location))
-							|| room.getName().equals("CARAT")
-							|| room.getName().equals("JUWEL")) {
+							location))) {
 						continue;
 					}
 
@@ -129,9 +127,7 @@ public class JCalendarAction extends BaseAction {
 		event.setRoomId(jCalendar.getColor().getId());
 		// filter Location Param;
 		if ((location != null && !jCalendar.getColor().getLocation()
-				.equals(location))
-				|| jCalendar.getColor().getName().equals("CARAT")
-				|| jCalendar.getColor().getName().equals("JUWEL")) {
+				.equals(location))) {
 			return;
 		}
 
