@@ -12,9 +12,16 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"})	)	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"})	)
 
-	if(new Date().between(Date.today().set({month: 2, day: 28, hour: 08, minute: 00}), Date.today().set({month: 4, day: 11, hour: 22, minute: 00}))){
+	if(new Date().between(Date.today().set({month: 8, day: 20, hour: 06, minute: 00}), Date.today().set({month: 9, day: 5, hour: 23, minute: 00}))){
 		$('#slideshow')
-		.append($("<img />",  {"src": "images/fruehlingsfest-2014-hippodrom-displaycristal-03.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/templates/wiesn2014/reze/Cristal-Rezeptions-Display-Wiesn-Willkommen-925px.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/templates/wiesn2014/reze/Cristal-Rezeptions-Display-Wiesn-Specials-925px.jpg", "width":"1920", "height":"925"})	)
+	}
+
+	if(new Date().between(Date.today().set({month: 8, day: 3, hour: 06, minute: 00}), Date.today().set({month: 8, day: 21, hour: 23, minute: 00}))){
+		$('#slideshow')
+		.append($("<img />",  {"src": "images/templates/wiesn2014/reze/Cristal-Rezeptions-Display-Wiesn-Umzuege-deutsch-925px.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/templates/wiesn2014/reze/Cristal-Rezeptions-Display-Wiesn-Umzuege-englisch-925px.jpg", "width":"1920", "height":"925"})	)
 	}
 	
 	/*
