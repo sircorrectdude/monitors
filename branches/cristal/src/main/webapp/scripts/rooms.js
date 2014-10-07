@@ -63,40 +63,12 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 2){
 			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(now.between(Date.today().set({month: 8, day: 20, hour: 06, minute: 00}), Date.today().set({month: 9, day: 5, hour: 23, minute: 00}))){
-			            				$.cookie('switchAdToggle', 3);
-			            			}else{
-			            				if(now.between(Date.today().set({month: 8, day: 3, hour: 06, minute: 00}), Date.today().set({month: 8, day: 21, hour: 23, minute: 00}))){
-				            				$.cookie('switchAdToggle', 5);
-				            			}else{
-				            				$.cookie('switchAdToggle', 0);
-				            			}
-			            			}
+			            			$.cookie('switchAdToggle', 3);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 3){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2014/lobby/Lobby-Monitor-Cristal_Wiesn2014-01.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(now.between(Date.today().set({month: 8, day: 20, hour: 06, minute: 00}), Date.today().set({month: 9, day: 5, hour: 23, minute: 00}))){
-			            				$.cookie('switchAdToggle', 4);
-			            			}else{
+			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2014/cristal-lobby_hoch-huettenzauber-2014.jpg')").css("height", "1920px").css("width", "1080px");
 			            				$.cookie('switchAdToggle', 0);
-			            			}		            		
 			            		}		            		
-			            		else if($.cookie('switchAdToggle') == 4){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2014/lobby/Lobby-Monitor-Cristal_Wiesn-Specials2014-01.jpg')").css("height", "1920px").css("width", "1080px");
-		            				if(now.between(Date.today().set({month: 8, day: 3, hour: 06, minute: 00}), Date.today().set({month: 8, day: 21, hour: 23, minute: 00}))){
-			            				$.cookie('switchAdToggle', 5);
-			            			}else{
-			            				$.cookie('switchAdToggle', 0);
-			            			}		            		
-			            		}
-			            		else if($.cookie('switchAdToggle') == 5){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2014/lobby/Lobby-Monitor-Cristal_Wiesn-Umzuege2014-dt-01.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 6);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2014/lobby/Lobby-Monitor-Cristal_Wiesn-Umzuege2014-engl-01.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 0);
-			            		}			            		
 		            		});
 		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser

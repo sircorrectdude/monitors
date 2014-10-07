@@ -11,6 +11,7 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Zimmer-011414.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"})	)	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />",  {"src": "images/huettenzauber/2014/Cristal-Rezeptions-Display-60Zoll-huettenzauber-2014.jpg", "width":"1920", "height":"925"})	)
 
 	if(new Date().between(Date.today().set({month: 8, day: 20, hour: 06, minute: 00}), Date.today().set({month: 9, day: 5, hour: 23, minute: 00}))){
 		$('#slideshow')
