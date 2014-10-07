@@ -118,17 +118,7 @@ jQuery(document).ready(function () {
 			    	            			var now = Date.today().set({month: 9, day: 6, hour: 06, minute: 01})
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
-			    	            			if(now.between(Date.today().set({month: 8, day: 20, hour: 06, minute: 00}), Date.today().set({month: 9, day: 5, hour: 23, minute: 00}))){
-			    	            				$('#slideshow')
-			    	            				.append($("<img />",  {"src": "images/templates/wiesn2014/dolomit/Dolomit-Monitor-60Zoll-Wiesn2013-Willkommen-925px.jpg", "width":"1920", "height":"925"})	)
-			    	            				.append($("<img />",  {"src": "images/templates/wiesn2014/dolomit/Dolomit-Monitor-60Zoll-Wiesn2014-Specials-925px.jpg", "width":"1920", "height":"925"})	)
-			    	            			}
-
-			    	            			if(now.between(Date.today().set({month: 8, day: 3, hour: 06, minute: 00}), Date.today().set({month: 8, day: 21, hour: 23, minute: 00}))){
-			    	            				$('#slideshow')
-			    	            				.append($("<img />",  {"src": "images/templates/wiesn2014/dolomit/Dolomit-Monitor-60Zoll-Wiesn2014-Umzuege-deutsch-925px.jpg", "width":"1920", "height":"925"})	)
-			    	            				.append($("<img />",  {"src": "images/templates/wiesn2014/dolomit/Dolomit-Monitor-60Zoll-Wiesn2014-Umzuege-englisch-925px.jpg", "width":"1920", "height":"925"})	)
-			    	            			}
+			    	            			.append($("<img />",  {"src": "images/huettenzauber/2014/Dolomit-Fahrstuhlmonitor-60Zoll-Huettenzauber-2014-15.jpg", "width":"1920", "height":"1080"})	)
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
 			    	            				timeout: 500,
