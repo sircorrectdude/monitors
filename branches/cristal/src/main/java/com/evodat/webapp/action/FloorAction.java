@@ -16,6 +16,7 @@ public class FloorAction extends BaseAction {
 
 	private String floorId;
 	private String floorStateName;
+	private int floorPlacesName;
 
 	Carpark carpark;
 
@@ -35,6 +36,13 @@ public class FloorAction extends BaseAction {
 		// FloorState floorState = floorManager.getFloorState(floorStateName);
 		FloorState floorState = FloorState.valueOf(floorStateName);
 		floor.setFloorState(floorState);
+		floor = floorManager.save(floor);
+		return SUCCESS;
+	}
+
+	public String saveFloorPlaces() {
+		floor = floorManager.get(Long.valueOf(floorId));
+		floor.setPlaces(floorPlacesName);
 		floor = floorManager.save(floor);
 		return SUCCESS;
 	}
@@ -82,6 +90,14 @@ public class FloorAction extends BaseAction {
 
 	public void setFloorStateName(String floorStateName) {
 		this.floorStateName = floorStateName;
+	}
+
+	public int getFloorPlacesName() {
+		return floorPlacesName;
+	}
+
+	public void setFloorPlacesName(int floorPlacesName) {
+		this.floorPlacesName = floorPlacesName;
 	}
 
 	public Carpark getCarpark() {

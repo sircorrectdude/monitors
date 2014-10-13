@@ -2,7 +2,7 @@
 
 <form id="floorStateForm_${floor.id}" name="floorStateForm" action="ajax/saveFloorState.html" method="post">
 	<input type="hidden" name="floorId" value="${floor.id}"></input>
-					<select name="floorStateName" id="floorStateSelect_${floor.id}">
+					<select class="btn" name="floorStateName" id="floorStateSelect_${floor.id}">
 						<option value="SYSTEM"
 							<c:if test="${floor.floorState eq 'SYSTEM'}">selected="selected"</c:if>>SYSTEM MANAGED</option>
 						<option value="TEMPORARY"

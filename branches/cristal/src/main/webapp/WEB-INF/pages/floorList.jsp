@@ -17,7 +17,15 @@
 <display:table name="floors" cellspacing="0" cellpadding="0" requestURI="" 
     defaultsort="1" id="floor" pagesize="25" class="table table-condensed table-hover table-striped table-bordered table-striped table-bordered table-striped table-bordered" export="true">
     <display:column property="name" escapeXml="true" sortable="true" titleKey="floor.name" style="width: 20%"/>
+    <%--
     <display:column property="places" escapeXml="true" sortable="false" titleKey="floor.places" style="width: 10%"/>
+	 --%>
+	 <display:column title="" style="width: 10%">
+	 		<div id="floorPlacesContent_${floor.id}">
+			 <%@ include file="floorPlacesForm.jsp" %>
+		</div>
+	 </display:column>
+	 
 	<display:column  property="placesLeft" escapeXml="true" sortable="true" titleKey="floor.placesLeft" style="width: 10%">
 	</display:column>
 	
