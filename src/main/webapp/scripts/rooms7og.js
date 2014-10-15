@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
 			            		var text = element.roomLocation;
 			            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
 			            		if(element.roomLocation === "DOLOMIT"){ 
-			            			return false;
+			            			return;
 			            		}
 			            		$('#mainTable').css("width","1080px").css("font-size","45px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
 								.append(
