@@ -21,7 +21,8 @@
 							// prepare Options Object 
 							var options = { 
 							    target:     '#floorPlacesContent_${floor.id}', 
-							    type:		'post'
+							    type:		'post',
+							    success: function(){ location.reload(); }
 							    
 							}; 
 							
