@@ -31,7 +31,7 @@
 							// submit form on load
 							$('#floorPlacesForm_${floor.id}').submit();		
 							
-							location.reload();
+							//location.reload();
 							
 						});
 					});
