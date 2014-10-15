@@ -114,6 +114,9 @@ jQuery(document).ready(function () {
 		            	
 		            	var maxlines = 15;
 		            	var linecounter = 0;
+		            	if ( window.console && window.console.log ) {
+		            		console.log ( "data.calendars.length: "+ data.calendars.length );
+		            	}
 		            	$.each(data.calendars, function(i, element){
 		            		if ( window.console && window.console.log ) {
 		            			console.log ( "i"+i+"maxlines "+maxlines+" linecounter "+linecounter );
