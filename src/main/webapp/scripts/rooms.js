@@ -115,6 +115,10 @@ jQuery(document).ready(function () {
 		            	var maxlines = 15;
 		            	var linecounter = 0;
 		            	$.each(data.calendars, function(i, element){
+		            		if ( window.console && window.console.log ) {
+		            			console.log ( "i"+i+"maxlines "+maxlines+" linecounter "+linecounter );
+		            			console.log ( element.roomLocation+" "+element.roomName+" "+element.company );
+		            			}
 		            		if(linecounter < maxlines){
 			            		var text = element.roomLocation;
 			            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
