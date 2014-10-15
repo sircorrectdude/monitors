@@ -114,19 +114,19 @@ jQuery(document).ready(function () {
 		            	
 		            	var maxlines = 15;
 		            	var linecounter = 0;
-		            	if ( window.console && window.console.log ) {
+		            	/*if ( window.console && window.console.log ) {
 		            		console.log ( "data.calendars.length: "+ data.calendars.length );
-		            	}
+		            	}*/
 		            	$.each(data.calendars, function(i, element){
-		            		if ( window.console && window.console.log ) {
+		            		/*if ( window.console && window.console.log ) {
 		            			console.log ( "i"+i+"maxlines "+maxlines+" linecounter "+linecounter );
 		            			console.log ( element.roomLocation+" "+element.roomName+" "+element.company );
-		            			}
+		            			}*/
 		            		if(linecounter < maxlines){
 			            		var text = element.roomLocation;
 			            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
 			            		if(element.roomLocation === "DOLOMIT"){ 
-			            			return false;
+			            			return;
 			            		}
 			            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
 								.append(
