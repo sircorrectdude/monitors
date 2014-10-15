@@ -112,7 +112,7 @@ jQuery(document).ready(function () {
 		            		//.css("text-shadow", "1px 1px #333333")
 		            		.css("background","url('images/templates/rooms/Cristal-Monitor.jpg')").css("height", "1920px").css("width", "1080px")
 		            	
-		            	var maxlines = 9;
+		            	var maxlines = 15;
 		            	var linecounter = 0;
 		            	$.each(data.calendars, function(i, element){
 		            		if(linecounter < maxlines){
