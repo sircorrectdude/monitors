@@ -212,6 +212,10 @@
         <action name="saveFloorState" class="com.evodat.webapp.action.FloorAction" method="saveFloorState">
             <result name="success">/WEB-INF/pages/floorStateForm.jsp</result>
         </action>        
+
+        <action name="saveFloorPlaces" class="com.evodat.webapp.action.FloorAction" method="saveFloorPlaces">
+            <result name="success">/WEB-INF/pages/floorPlacesForm.jsp</result>
+        </action>        
         
         <action name="updateCarpark" class="floorAction" method="updateCarpark">
               <result name="success">/WEB-INF/pages/updateCarparkForm.jsp</result>
