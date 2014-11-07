@@ -204,7 +204,8 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 			output = screen.getTemplate().getText();
 			break;
 		case SLIDESHOW:
-			output = "<script type='text/javascript' src='scripts/templates/slideshow.js'></script>";
+			output = "<script type='text/javascript' src='scripts/templates/slideshow.js'></script><div id='templateId' style='display:none'>"
+					+ screen.getTemplate().getId() + "</div>";
 			break;
 		default:
 			break;

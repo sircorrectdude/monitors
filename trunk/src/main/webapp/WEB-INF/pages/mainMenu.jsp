@@ -14,7 +14,7 @@
 			<fmt:message key="mainMenu.message" />
 		</p>
 		<p>
-			<a class="btn btn-primary btn-lg" role="button">Bildschirm
+			<a href="<c:url value='/templateType.html'/>" class="btn btn-primary btn-lg" role="button">Bildschirm
 				einrichten</a>
 		</p>
 	</div>

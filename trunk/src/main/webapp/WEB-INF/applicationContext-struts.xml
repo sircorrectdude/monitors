@@ -71,9 +71,31 @@
 
     <bean id="lunchAction" class="com.evodat.webapp.action.LunchAction" scope="prototype">
     </bean>
+
+    <bean id="fileUploadAction" class="com.evodat.webapp.action.FileUploadAction" scope="prototype">
+    </bean>
 	
 	<bean id="slideshowAction" class="com.evodat.webapp.action.templates.SlideshowAction" scope="prototype">
 		<property name="slideshowManager" ref="slideshowManager"/>
+    </bean>
+
+	<bean id="saveSlideshowAction" class="com.evodat.webapp.action.templates.SaveSlideshowAction" scope="prototype">
+		<property name="slideshowManager" ref="slideshowManager"/>
+    </bean>
+
+	<bean id="deleteSlideshowImageAction" class="com.evodat.webapp.action.templates.DeleteSlideshowImageAction" scope="prototype">
+		<property name="slideshowManager" ref="slideshowManager"/>
+    </bean>
+
+	<bean id="slideshowSessionAction" class="com.evodat.webapp.action.templates.SlideshowSessionAction" scope="prototype">
+		<property name="slideshowManager" ref="slideshowManager"/>
+    </bean>
+
+	<bean id="quickstartAction" class="com.evodat.webapp.action.QuickstartAction" scope="prototype">
+		<property name="templateManager" ref="templateManager"/>
+		<property name="monitorManager" ref="monitorManager"/>
+		<property name="courseManager" ref="courseManager"/>
+		<property name="screenManager" ref="screenManager"/>
     </bean>
 	
 	<!-- Validators -->

@@ -12,7 +12,7 @@
       <div class="caption">
         <h3>Image Slideshow</h3>
         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        <p><a href="#" class="btn btn-primary" role="button">Diese Anzeige auswählen</a></p>
+        <p><a href="quickstart.html?templateType=SLIDESHOW" class="btn btn-primary" role="button">Diese Anzeige auswählen</a></p>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
       <div class="caption">
         <h3>Eigenes HTML</h3>
         <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        <p><a href="#" class="btn btn-primary" role="button">Diese Anzeige auswählen</a></p>
+        <p><a href="quickstart.html?templateType=CUSTOM_HTML" class="btn btn-primary" role="button">Diese Anzeige auswählen</a></p>
       </div>
     </div>
   </div>

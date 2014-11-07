@@ -97,7 +97,7 @@
             <result name="success" type="redirectAction">admin/users</result>
         </action>
 
-        <action name="uploadFile" class="com.evodat.webapp.action.FileUploadAction">
+        <action name="uploadFile" class="fileUploadAction">
             <interceptor-ref name="fileUploadStack"/>
             <result name="input">/WEB-INF/pages/uploadForm.jsp</result>
             <result name="success">/WEB-INF/pages/uploadDisplay.jsp</result>
@@ -195,7 +195,19 @@
 		<action name="floors" class="floorAction" method="list">
             <result name="success">/WEB-INF/pages/floorList.jsp</result>
         </action>
+    
+        <action name="quickstart" class="quickstartAction" method="edit">
+            <result name="success">/WEB-INF/pages/quickstart/wizardForm.jsp</result>
+        </action>  
  
+        <action name="saveQuickstart" class="quickstartAction" method="save">
+            <result name="success">/WEB-INF/pages/quickstart/wizardSuccess.jsp</result>
+        </action> 
+          
+        <action name="saveSlideshow" class="slideshowAction" method="save">
+            <result name="success">/WEB-INF/pages/quickstart/wizardForm.jsp</result>
+        </action>  
+
         <!-- Add additional actions here -->
 
     </package>
@@ -219,20 +231,32 @@
         </action>
         <action name="slideshow" class="slideshowAction">
              <result type="json" />
-        </action>                  
+        </action>
+        <action name="slideshowFileUpload" class="saveSlideshowAction" method="upload">
+	       	 <interceptor-ref name="fileUploadStack"/>
+			 <result type="json" />
+        </action>
+        <action name="deleteSlideshowImage" class="deleteSlideshowImageAction">
+            <result type="json" />
+        </action>          
+         <action name="slideshowSession" class="slideshowSessionAction">
+			 <result type="json" >
+			 	<param name="root">slideShowSessionElements</param>
+			 </result>
+        </action>       
 	 </package>
 
 	 <package name="ajax" extends="default" namespace="/ajax">
 	     <action name="addScreen" class="screenAction">
             <result>/WEB-INF/ajax/screenForm.jsp</result>
         </action>
-        <action name="uploadFile" class="com.evodat.webapp.action.FileUploadAction">
+        <action name="uploadFile" class="fileUploadAction">
             <interceptor-ref name="fileUploadStack"/>
             <result name="input">/WEB-INF/pages/uploadForm.jsp</result>
             <result name="success">/WEB-INF/pages/uploadDisplay.jsp</result>
             <result name="cancel" type="redirectAction">mainMenu</result>
         </action>
-        
+
         <action name="saveFloorState" class="com.evodat.webapp.action.FloorAction" method="saveFloorState">
             <result name="success">/WEB-INF/pages/floorStateForm.jsp</result>
         </action>        

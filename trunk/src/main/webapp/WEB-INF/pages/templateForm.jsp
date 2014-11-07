@@ -25,7 +25,7 @@
 		</c:set>
 
 		<s:form name="templateForm" action="saveTemplate" method="post"
-			theme="bootstrap" class="form-horizontal" role="form">
+			theme="bootstrap" class="form-horizontal" role="form" id="qq-form">
 			<li style="display: none"><s:hidden name="template.id" /> <input
 				type="hidden" name="from" value="${param.from}" /></li>
 			<div class="info">
