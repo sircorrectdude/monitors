@@ -12,7 +12,6 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.log4j.Logger;
-import org.springframework.scheduling.annotation.Scheduled;
 
 import com.evodat.model.Carpark;
 import com.evodat.model.Floor;
@@ -26,8 +25,7 @@ public class GetFreeCarparkPlacesCron {
 
 	protected CarparkManager carparkManager;
 
-	// @Scheduled(cron = "0 */05 * * * ?")
-	@Scheduled(fixedRate = 120000)
+	// @Scheduled(fixedRate = 120000)
 	public void getFreeCarparkPlaces() {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(serviceUrl);

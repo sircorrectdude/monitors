@@ -451,11 +451,11 @@
             <artifactId>mail</artifactId>
             <version>${javamail.version}</version>
         </dependency>
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>${jpa.version}</version>
-        </dependency>
+<dependency>
+    <groupId>org.hibernate.javax.persistence</groupId>
+    <artifactId>hibernate-jpa-2.0-api</artifactId>
+    <version>1.0.1.Final</version>
+</dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
@@ -667,17 +667,6 @@
             <groupId>org.directwebremoting</groupId>
             <artifactId>dwr</artifactId>
             <version>${dwr.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>${hibernate.annotations.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>ejb3-persistence</artifactId>
-                    <groupId>org.hibernate</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -1156,10 +1145,10 @@
         <dwr.version>2.0.1</dwr.version>
         <ehcache.version>2.2.0</ehcache.version>
         <ehcache.web.version>2.0.2</ehcache.web.version>
-        <hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
-        <hibernate.version>3.3.2.GA</hibernate.version>
+        <hibernate.annotations.version>3.5.6-Final</hibernate.annotations.version>
+        <hibernate.version>3.6.10.Final</hibernate.version>
         <javamail.version>1.4.1</javamail.version>
-        <jpa.version>1.0</jpa.version>
+        <jpa.version>2.0</jpa.version>
         <jstl.version>1.1.2</jstl.version>
         <log4j.version>1.2.16</log4j.version>
         <sitemesh.version>2.4.2</sitemesh.version>

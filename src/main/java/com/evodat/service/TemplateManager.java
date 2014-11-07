@@ -8,7 +8,7 @@ import com.evodat.model.User;
 public interface TemplateManager extends GenericManager<Template, Long> {
 	Template getTemplate(String monitorId);
 
-	Template saveTemplate(Template template) throws MonitorExistsException;
+	Template saveTemplate(Template template);
 
 	void removeTemplate(String templateId);
 
