@@ -23,6 +23,7 @@ import com.evodat.service.CarparkManager;
 import com.evodat.service.CourseManager;
 import com.evodat.service.FloorManager;
 import com.evodat.service.JCalendarManager;
+import com.evodat.service.LicenseManager;
 import com.evodat.service.MailEngine;
 import com.evodat.service.MonitorManager;
 import com.evodat.service.RoleManager;
@@ -103,6 +104,8 @@ public class BaseAction extends ActionSupport {
 	 * The FloorManager
 	 */
 	protected FloorManager floorManager;
+
+	protected LicenseManager licenseManager;
 
 	/**
 	 * Indicator if the user clicked cancel
@@ -284,6 +287,10 @@ public class BaseAction extends ActionSupport {
 		this.courseManager = courseManager;
 	}
 
+	public void setLicenseManager(LicenseManager licenseManager) {
+		this.licenseManager = licenseManager;
+	}
+
 	/**
 	 * Convenience method for setting a "from" parameter to indicate the
 	 * previous page.
@@ -313,10 +320,6 @@ public class BaseAction extends ActionSupport {
 
 	public void setFloorManager(FloorManager floorManager) {
 		this.floorManager = floorManager;
-	}
-
-	public SlideshowManager getSlideshowManager() {
-		return slideshowManager;
 	}
 
 	public void setSlideshowManager(SlideshowManager slideshowManager) {

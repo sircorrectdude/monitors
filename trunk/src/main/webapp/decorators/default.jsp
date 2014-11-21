@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
     <sj:head />
-	<sb:head includeScripts="true" includeScriptsValidation="true"/>
+	<sb:head includeScripts="true" includeScriptsValidation="true" includeStyles="false"/>
+	<link rel="stylesheet" href="<s:url value="/styles/bootstrap/bootstrap.css" />" type="text/css"/>
         <%@ include file="/common/meta.jsp" %>
         <title><decorator:title/> | <fmt:message key="webapp.name"/></title>
 

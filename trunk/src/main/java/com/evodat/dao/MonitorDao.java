@@ -19,4 +19,6 @@ public interface MonitorDao extends GenericDao<Monitor, Long> {
 	Monitor getMonitorByAlias(String alias) throws MonitorNotFoundException;
 
 	List<Monitor> getMonitorsByUser(User currentUser);
+
+	Monitor getMonitorByUuid(String uuid) throws MonitorNotFoundException;
 }

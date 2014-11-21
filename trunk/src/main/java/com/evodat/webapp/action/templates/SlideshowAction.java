@@ -14,7 +14,7 @@ public class SlideshowAction extends BaseAction {
 	public String execute() throws Exception {
 		Template template = new Template();
 		template.setId(Long.valueOf(templateId));
-		slideshow = getSlideshowManager().getSlideshow(template);
+		slideshow = slideshowManager.getSlideshow(template);
 		return SUCCESS;
 
 	}

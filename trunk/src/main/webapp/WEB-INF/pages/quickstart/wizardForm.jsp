@@ -5,18 +5,72 @@
 <meta name="heading" content="<fmt:message key='wizard.heading'/>" />
 <meta name="menu" content="MonitorMenu" />
 <script type="text/javascript" src="scripts/jquery.psteps.js"></script>
+<script type="text/javascript" src="scripts/bootstrapValidator/bootstrapValidator.js"></script>
 <link media="screen" rel="stylesheet" type="text/css"
 	href="<c:url value='styles/thickbox.css'/>" />
 </head>
+<!--  -->
 <script type="text/javascript">
 $(document).ready(function() {
+	/*
+    $('#saveQuickstartForm').bootstrapValidator({
+        container: 'tooltip',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+        	monitoruuid: {
+                validators: {
+                    notEmpty: {
+                        message: 'The first name is required',
+                        trigger: 'blur'
+                    }
+                }
+            }
+        }
+    });    	
+*/	
     $('#psteps_simple_horiz_layout').psteps({
         steps_width_percentage: true,
         alter_width_at_viewport: '1300',
-        steps_height_equalize: true
+        steps_height_equalize: true,
+        /*validation_rule: function() {
+        	var cur_step = $(this);
+	        	if (cur_step.hasClass('pstep1')) {
+		        	var first_name = cur_step.find('[name=monitor\\.ipAddress]');
+		        	if (first_name.val().toLowerCase() == ''){
+		        		$('#myModal').modal({
+		        			  keyboard: false
+		        			})
+		        		return 'error';
+		        	}else{
+		        		return true;
+		        	}
+	        	}
+        	}
+    */
         });
+    
 });
 </script>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
 <s:if test="template.id == null || template.editable">
 	<div class="col-md-12">
 
@@ -47,15 +101,16 @@ $(document).ready(function() {
 							<s:form id="saveQuickstartForm" name="saveQuickstartForm" action="saveQuickstart" method="post"
 								theme="bootstrap" class="form-horizontal" role="form">
 									<div class="form-group">
-										<s:textfield key="monitor.ipAddress" cssClass="text medium" required="true"/>
-										<s:textfield key="monitor.alias" cssClass="text medium" required="true"/>
+										<s:textfield key="monitor.ipAddress" cssClass="form-control" required="true"/>
+										<s:textfield key="monitor.alias" cssClass="form-control" required="true"/>
+										<s:select key="monitor.license.id" list="licenses" listKey="id" listValue="uuid"/>
 										<s:hidden key="template.id"></s:hidden>
 									</div>			
 							</s:form>
 						</div>		
 						 <div class="step-content">
 							<s:form name="saveTemplateForm" action="%{saveTemplate}" method="post"
-								theme="bootstrap" class="form-horizontal" role="form" id="qq-form">
+								theme="bootstrap" cssClass="form-horizontal" role="form" id="qq-form">
 								<li style="display: none"><input
 									type="hidden" name="from" value="${param.from}" /></li>
 								<div class="info">

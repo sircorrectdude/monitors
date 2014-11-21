@@ -37,7 +37,7 @@ public class CourseAction extends BaseAction implements Preparable {
 	}
 
 	public String list() {
-		courses = courseManager.getCourses();
+		courses = courseManager.getCoursesByUser(getCurrentUser());
 		return SUCCESS;
 	}
 

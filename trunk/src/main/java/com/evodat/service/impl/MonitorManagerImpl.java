@@ -74,4 +74,9 @@ public class MonitorManagerImpl extends GenericManagerImpl<Monitor, Long>
 		return monitorDao.getMonitorsByUser(currentUser);
 	}
 
+	public Monitor getMonitorByUuid(String uuid)
+			throws MonitorNotFoundException {
+		return monitorDao.getMonitorByUuid(uuid);
+	}
+
 }

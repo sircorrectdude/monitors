@@ -76,4 +76,19 @@ public class MonitorDaoHibernate extends GenericDaoHibernate<Monitor, Long>
 		// log.warn("getMonitorByIpAddress(" + ipAddress + ")");
 		return monitors;
 	}
+
+	public Monitor getMonitorByUuid(String uuid)
+			throws MonitorNotFoundException {
+		List<Monitor> monitors = getHibernateTemplate().find(
+				"from Monitor monitor where monitor.license.uuid=?", uuid);
+		// log.warn("getMonitorByAlias(" + alias + ")");
+		if (monitors == null || monitors.isEmpty()) {
+			throw new MonitorNotFoundException("monitor '" + monitors
+					+ "' not found...");
+		} else {
+			Monitor monitor = (Monitor) monitors.get(0);
+			// log.debug(monitor);
+			return monitor;
+		}
+	}
 }

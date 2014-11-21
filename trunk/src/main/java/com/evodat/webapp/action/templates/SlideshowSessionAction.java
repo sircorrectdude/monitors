@@ -17,12 +17,15 @@ public class SlideshowSessionAction extends BaseAction {
 
 	private transient Slideshow slideshow;
 
-	public Object[] slideShowSessionElements;
+	public Object[] slideShowSessionElements = new Object[] {};
 
 	@Override
 	public String execute() throws Exception {
-		slideshow = getSlideshowManager().getSlideshow(template);
+		slideshow = slideshowManager.getSlideshow(template);
 		Set<SlideshowSessionAction.SlideShowSessionElement> slideShowSessionElements = new HashSet<SlideshowSessionAction.SlideShowSessionElement>();
+		if (slideshow == null) {
+			return SUCCESS;
+		}
 		for (SlideshowImage image : slideshow.getSlideshowImages()) {
 			slideShowSessionElements.add(new SlideShowSessionElement(image));
 		}

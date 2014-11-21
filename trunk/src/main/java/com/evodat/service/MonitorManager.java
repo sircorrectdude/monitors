@@ -19,5 +19,7 @@ public interface MonitorManager extends GenericManager<Monitor, Long> {
 
 	Monitor getMonitorByAlias(String aliasPath) throws MonitorNotFoundException;
 
+	Monitor getMonitorByUuid(String uuid) throws MonitorNotFoundException;
+
 	List<Monitor> getMonitorsByUser(User currentUser);
 }
