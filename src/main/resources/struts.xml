@@ -6,7 +6,7 @@
     <!-- Constants -->
     <constant name="struts.devMode" value="false"/>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
-    <constant name="struts.action.extension" value="html"/>
+    <constant name="struts.action.extension" value=",,html"/>
     <constant name="struts.objectFactory" value="spring"/>
     <constant name="struts.custom.i18n.resources" value="ApplicationResources,errors"/>
     <constant name="struts.multipart.maxSize" value="2097152"/>
@@ -14,9 +14,10 @@
     <constant name="struts.codebehind.pathPrefix" value="/WEB-INF/pages/"/>
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.convention.action.disableScanning" value="true"/>
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
     <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
+    <package name="default" extends="struts-default" namespace="/">
         <interceptors>
             <!-- Interceptor to handle allowing only admins to certain actions -->
             <interceptor name="adminOnly" class="adminInterceptor"/>
@@ -169,7 +170,8 @@
             <result name="success">/WEB-INF/pages/courseList.jsp</result>
         </action>
 
-		<action name="clientMonitor" class="com.evodat.webapp.action.ClientMonitorAction">
+		<action name="clientMonitor/*" class="com.evodat.webapp.action.ClientMonitorAction">
+			<param name="uuid">{1}</param>
             <result name="success">/WEB-INF/pages/clientMonitor.jsp</result>
 			<result name="input" type="redirectAction">mainMenu</result>
         </action>
@@ -195,12 +197,16 @@
 		<action name="floors" class="floorAction" method="list">
             <result name="success">/WEB-INF/pages/floorList.jsp</result>
         </action>
+
+        <action name="saveLicense" class="saveLicenseAction">
+            <result name="success">/WEB-INF/pages/saveLicenseSuccess.jsp</result>
+        </action>
     
         <action name="quickstart" class="quickstartAction" method="edit">
             <result name="success">/WEB-INF/pages/quickstart/wizardForm.jsp</result>
         </action>  
  
-        <action name="saveQuickstart" class="quickstartAction" method="save">
+        <action name="saveQuickstart" class="saveQuickstartAction">
             <result name="success">/WEB-INF/pages/quickstart/wizardSuccess.jsp</result>
         </action> 
           

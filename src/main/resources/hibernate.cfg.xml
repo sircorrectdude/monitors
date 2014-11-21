@@ -1,5 +1,5 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
     <session-factory>
@@ -16,5 +16,6 @@
 		<mapping class="com.evodat.model.Floor"/>
 		<mapping class="com.evodat.model.Slideshow"/>
 		<mapping class="com.evodat.model.SlideshowImage"/>
+		<mapping class="com.evodat.model.License"/>
     </session-factory>
 </hibernate-configuration>

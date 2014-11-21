@@ -32,7 +32,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 	private String remoteAddr;
 	private String content;
 	private String refresh = String.valueOf(DEFAULT_REFRESH);
-	private String aliasPath;
+	private String uuid;
 	private String fade = "0";
 
 	// For access to the raw servlet request / response, eg for cookies
@@ -86,8 +86,8 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 		}
 		Monitor monitor = null;
 		try {
-			if (aliasPath != null) {
-				monitor = monitorManager.getMonitorByAlias(aliasPath);
+			if (uuid != null) {
+				monitor = monitorManager.getMonitorByUuid(uuid);
 			} else {
 				monitor = monitorManager.getMonitorByIpAddress(remoteAddr);
 			}
@@ -204,7 +204,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 			output = screen.getTemplate().getText();
 			break;
 		case SLIDESHOW:
-			output = "<script type='text/javascript' src='scripts/templates/slideshow.js'></script><div id='templateId' style='display:none'>"
+			output = "<script type='text/javascript' src='/scripts/templates/slideshow.js'></script><div id='templateId' style='display:none'>"
 					+ screen.getTemplate().getId() + "</div>";
 			break;
 		default:
@@ -256,4 +256,13 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 	public void setFade(String fade) {
 		this.fade = fade;
 	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+
 }

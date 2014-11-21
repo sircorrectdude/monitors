@@ -17,6 +17,9 @@
 			<a href="<c:url value='/templateType.html'/>" class="btn btn-primary btn-lg" role="button">Bildschirm
 				einrichten</a>
 		</p>
+		<p>
+			<a href="<c:url value='/saveLicense.html'/>" class="btn btn-primary btn-lg" role="button">Eine Lizenz erwerben</a>
+		</p>		
 	</div>
 </div>
 

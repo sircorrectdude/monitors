@@ -1,9 +1,12 @@
 package com.evodat.dao.hibernate;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.evodat.dao.CourseDao;
 import com.evodat.model.Course;
+import com.evodat.model.User;
 
 @Repository("courseDao")
 public class CourseDaoHibernate extends GenericDaoHibernate<Course, Long>
@@ -25,6 +28,13 @@ public class CourseDaoHibernate extends GenericDaoHibernate<Course, Long>
 	@Override
 	public Course save(Course course) {
 		return this.saveCourse(course);
+	}
+
+	public List<Course> getCoursesByUser(User currentUser) {
+		List<Course> courses = getHibernateTemplate().find(
+				"from Course course where course.user=?", currentUser);
+		// log.warn("getMonitorByIpAddress(" + ipAddress + ")");
+		return courses;
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.evodat.dao.CourseDao;
 import com.evodat.model.Course;
+import com.evodat.model.User;
 import com.evodat.service.CourseManager;
 import com.evodat.service.CourseService;
 
@@ -20,7 +21,7 @@ public class CourseManagerImpl extends GenericManagerImpl<Course, Long>
 	private CourseDao courseDao;
 
 	@Autowired
-	public void setTemplateDao(CourseDao courseDao) {
+	public void setCourseDao(CourseDao courseDao) {
 		this.dao = courseDao;
 		this.courseDao = courseDao;
 	}
@@ -41,6 +42,10 @@ public class CourseManagerImpl extends GenericManagerImpl<Course, Long>
 
 	public List<Course> getCourses() {
 		return courseDao.getAllDistinct();
+	}
+
+	public List<Course> getCoursesByUser(User currentUser) {
+		return courseDao.getCoursesByUser(currentUser);
 	}
 
 }

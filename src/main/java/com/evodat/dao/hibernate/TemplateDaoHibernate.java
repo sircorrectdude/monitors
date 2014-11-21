@@ -37,7 +37,7 @@ public class TemplateDaoHibernate extends GenericDaoHibernate<Template, Long>
 
 	public List<Template> getAll(User user) {
 		List<Template> templates = getHibernateTemplate().find(
-				"from Template where user.id=?", user.getId());
+				"from Template t where t.user=?", user);
 
 		return templates;
 	}

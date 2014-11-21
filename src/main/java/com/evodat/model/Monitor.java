@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.compass.annotations.Searchable;
 import org.compass.annotations.SearchableId;
 import org.compass.annotations.SearchableProperty;
@@ -26,6 +28,7 @@ public class Monitor extends BaseObject implements Serializable {
 	private String alias;
 	private Course course;
 	private User user;
+	private License license;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -76,22 +79,74 @@ public class Monitor extends BaseObject implements Serializable {
 		this.user = user;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+	@OneToOne(mappedBy = "monitor")
+	public License getLicense() {
+		return license;
 	}
 
-	@Override
-	public int hashCode() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setLicense(License license) {
+		this.license = license;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return ReflectionToStringBuilder.toString(this);
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((alias == null) ? 0 : alias.hashCode());
+		result = prime * result + ((course == null) ? 0 : course.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((ipAddress == null) ? 0 : ipAddress.hashCode());
+		result = prime * result + ((license == null) ? 0 : license.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Monitor other = (Monitor) obj;
+		if (alias == null) {
+			if (other.alias != null)
+				return false;
+		} else if (!alias.equals(other.alias))
+			return false;
+		if (course == null) {
+			if (other.course != null)
+				return false;
+		} else if (!course.equals(other.course))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (ipAddress == null) {
+			if (other.ipAddress != null)
+				return false;
+		} else if (!ipAddress.equals(other.ipAddress))
+			return false;
+		if (license == null) {
+			if (other.license != null)
+				return false;
+		} else if (!license.equals(other.license))
+			return false;
+		if (user == null) {
+			if (other.user != null)
+				return false;
+		} else if (!user.equals(other.user))
+			return false;
+		return true;
 	}
 
 }

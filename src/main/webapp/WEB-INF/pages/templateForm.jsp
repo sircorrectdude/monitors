@@ -24,8 +24,6 @@
 				method="cancel" />
 		</c:set>
 
-		<s:form name="templateForm" action="saveTemplate" method="post"
-			theme="bootstrap" class="form-horizontal" role="form" id="qq-form">
 			<li style="display: none"><s:hidden name="template.id" /> <input
 				type="hidden" name="from" value="${param.from}" /></li>
 			<div class="info">
@@ -48,18 +46,19 @@
 					<s:textfield key="template.name" cssClass="form-control" />
 				</div>
 				<s:if test="template.templateType.toString() == ('CUSTOM_HTML') ">
-					<s:include value="templateTypes/templateHtml.jsp"></s:include>
+					<s:url id="saveTemplate" action="saveHtml" />
+					<s:set var="include">templateTypes/templateHtml.jsp</s:set>
 				</s:if>
 				<s:elseif test="template.templateType.toString() == ('SLIDESHOW') ">
-					<s:include value="templateTypes/templateSlideshow.jsp"></s:include>
-				</s:elseif>				
+					<s:url id="saveTemplate" action="slideshowFileUpload" namespace="/json"/>
+					<s:set var="include">templateTypes/templateSlideshow.jsp</s:set>
+				</s:elseif>	
+				<s:include value="%{include}"></s:include>			
 			</div>
 
 
-			<div class="buttonBar bottom">
-				<c:out value="${buttons}" escapeXml="false" />
-			</div>
-		</s:form>
+			<s:submit cssClass="submit-button btn" key="button.save" method="save"
+						validate="true" validateFunction="bootstrapValidation" theme="simple"/>
 	</div>
 	<div class="col-md-4">
 	
