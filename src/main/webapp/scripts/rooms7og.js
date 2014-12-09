@@ -56,9 +56,9 @@ jQuery(document).ready(function () {
 			            		}
 			            		$('#mainTable').css("width","1080px").css("font-size","45px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
 								.append(
-									$('<tr>').css("height", "158px").attr("height", "158px").attr("max-height", "158px")
+									$('<tr>').css("height", "112px").attr("height", "112px").attr("max-height", "112px")
 										.append(
-											$('<td>').css("padding-left","30px").css("text-align","left").css("background", "none repeat scroll 0 0 transparent").css("width", "210px").append(
+											$('<td>').css("padding-left","30px").css("text-align","left").css("background", "none repeat scroll 0 0 transparent").css("width", "250px").append(
 													element.roomName
 											)	
 										)
@@ -81,14 +81,14 @@ jQuery(document).ready(function () {
 		            	$.each(data.emptyRooms, function(i, element){
 		            		if(linecounter < maxlines){
 			            		$('#mainTable').append(
-									$('<tr>').css("height", "158px").attr("height", "158px").attr("max-height", "158px")
+									$('<tr>').css("height", "112px").attr("height", "112px").attr("max-height", "112px")
 										.append(
-											$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "158px").css("padding-left","30px").css("text-align","left").css("width", "210px").append(
+											$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "112px").css("padding-left","30px").css("text-align","left").css("width", "210px").append(
 													element.name
 											)	
 										)
 										.append(
-												$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "350px")
+												$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "310px")
 												.append(
 													$('<div>').css("max-height", "110px").css("padding-top", "10px").css("text-overflow", "ellipsis").css("overflow", "hidden")
 														.append(
@@ -128,14 +128,14 @@ jQuery(document).ready(function () {
 	 return "background-image: url(../images/templates/rooms7og/Pfeil-links.png);"+
 	 "background-repeat:no-repeat;"+
 	 "background-color:transparent;"+
-	 "background-position:260px 0px;";
+	 "background-position:210px 0px;";
 	}
 	
 	function getRightArrowCss(){
 		return "background-image: url(../images/templates/rooms7og/Pfeil-rechts.png);"+
 		 "background-repeat:no-repeat;"+
 		 "background-color:transparent;"+
-		 "background-position:260px 0px;";		
+		 "background-position:210px 0px;";		
 	}
 	
 	function weather(){
@@ -148,7 +148,7 @@ jQuery(document).ready(function () {
 		        				$('<table>').attr("id", "weatherTable").css("position", "absolute").css("top", "1560px").css("width", "1020px").css("font", "bold 22px Helvetica,sans-serif")
 	        		);
 	        		$('#weatherTable').append(
-							$('<tr>').attr("id", "weatherTableLine").css("height", "158px")
+							$('<tr>').attr("id", "weatherTableLine").css("height", "112px")
 					);
 	        		$.each(data.days, function(i, element){
 						/*$.table
@@ -161,7 +161,7 @@ jQuery(document).ready(function () {
 		            	*/
 
 	        			$('#weatherTableLine').append(
-									$('<td>').css("height", "158px").css("width", "360px").css("padding-left", "60px").css("background", "none repeat scroll 0 0 transparent")
+									$('<td>').css("height", "112px").css("width", "360px").css("padding-left", "60px").css("background", "none repeat scroll 0 0 transparent")
 										.append($('<div>').css("padding-bottom", "10px").append(element.name+ " "+element.dateString))
 										.append($('<div>').css("float", "left").append($('<img>').attr('src', "images/Wetter-Icons_181212/"+element.midayImg+".jpg")))
 										.append($('<div>').css("padding-left", "120px").append(element.miday+" °C / ").append(element.midayF+" °F "))
