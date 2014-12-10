@@ -58,7 +58,7 @@ jQuery(document).ready(function () {
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
         					$.adcounter=1;
         				}else{
-        					$.adcounter=2;
+        					$.adcounter=0;
         				}
         			});
 				}
@@ -83,11 +83,6 @@ jQuery(document).ready(function () {
 								)
 						);
 					});
-					$.adcounter=2;
-				}
-				else{
-					$('body').css("color", "#707173").css("background","url('images/huettenzauber/2014/carpark_hoch-huettenzauber-2014.jpg')").css("height", "1920px").css("width", "1080px");
-					
 					$.adcounter=0;
 				}
 				/*$('#slideshow').cycle({
