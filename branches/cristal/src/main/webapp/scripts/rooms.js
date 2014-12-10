@@ -63,12 +63,8 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 2){
 			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 3);
+			            			$.cookie('switchAdToggle', 0);
 			            		}
-			            		else if($.cookie('switchAdToggle') == 3){
-			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2014/cristal-lobby_hoch-huettenzauber-2014.jpg')").css("height", "1920px").css("width", "1080px");
-			            				$.cookie('switchAdToggle', 0);
-			            		}		            		
 		            		});
 		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
