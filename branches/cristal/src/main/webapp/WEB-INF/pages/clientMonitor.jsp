@@ -11,14 +11,12 @@
 		<script type="text/javascript" src="/scripts/jquery.cookie.js" ></script>
 		<link href="<c:url value='/scripts/tablecloth/tablecloth.css'/>" rel="stylesheet" type="text/css" media="screen" />
 		<style type="text/css">
-			<!-- 
 				html,body {
 				/*
 					overflow:hidden;
 					cursor: none;
 					background-color: ${backgroundColor}; //#b3d2de */
 				}
-			 -->
 		</style>
 		<script type="text/javascript">
 		$.cookie('switchAdToggle', 0);
