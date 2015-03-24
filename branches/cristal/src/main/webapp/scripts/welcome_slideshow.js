@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"})	)
 	if(new Date().between(Date.today().set({month: 9, day: 25, hour: 11, minute: 00}), Date.today().set({month: 9, day: 26, hour: 14, minute: 00}))){
 		$('#slideshow')
-		.append($("<img />",  {"src": "images/templates/display-cristal-quer-zeitumstellung-winter2014.jpg", "width":"1920", "height":"925"})	)
+		.append($("<img />",  {"src": "images/display-quer-zeitumstellung-2015.jpg", "width":"1920", "height":"925"})	)
 	}
 
 	

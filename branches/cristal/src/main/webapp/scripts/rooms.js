@@ -121,12 +121,12 @@ jQuery(document).ready(function () {
 		            		if(linecounter < maxlines){
 			            		var text = element.roomLocation;
 			            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
-			            		if(element.roomLocation === "DOLOMIT"){ 
-			            			return;
-			            		}
+			            		//if(element.roomLocation === "DOLOMIT"){ 
+			            		//	return;
+			            		//}
 			            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
 								.append(
-									$('<tr>').css("height", "136px").attr("height", "136px").attr("max-height", "136px")
+									$('<tr>').css("height", "125px").attr("height", "125px").attr("max-height", "125px")
 										.append(
 											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "210px").append(
 													element.roomName
@@ -142,7 +142,7 @@ jQuery(document).ready(function () {
 												)
 										)								
 										.append(
-											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "120px")
+											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "125px")
 											//.append(element.dateString)
 											//.append("<br>")
 											.append($('<div>')
@@ -162,12 +162,15 @@ jQuery(document).ready(function () {
 		            		}
 		            		linecounter = linecounter+1;
 		            	});
+		            	// do not show text on dolomit location
+		            	$('.dolomit').empty();
+		            	
 		            	$.each(data.emptyRooms, function(i, element){
 		            		if(linecounter < maxlines){
 			            		$('#mainTable').append(
-									$('<tr>').css("height", "136px").attr("height", "136px").attr("max-height", "136px")
+									$('<tr>').css("height", "125px").attr("height", "125px").attr("max-height", "125px")
 										.append(
-											$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "136px").css("text-align","center").css("width", "230px").append(
+											$('<td>').css("background", "none repeat scroll 0 0 transparent").css("height", "125px").css("text-align","center").css("width", "230px").append(
 													element.name
 											)	
 										)
@@ -208,7 +211,7 @@ jQuery(document).ready(function () {
 		        				$('<table>').attr("id", "weatherTable").css("position", "absolute").css("top", "1560px").css("width", "1020px").css("font", "bold 22px Helvetica,sans-serif")
 	        		);
 	        		$('#weatherTable').append(
-							$('<tr>').attr("id", "weatherTableLine").css("height", "136px")
+							$('<tr>').attr("id", "weatherTableLine").css("height", "125px")
 					);
 	        		$.each(data.days, function(i, element){
 						/*$.table
@@ -221,11 +224,11 @@ jQuery(document).ready(function () {
 		            	*/
 
 	        			$('#weatherTableLine').append(
-									$('<td>').css("height", "136px").css("width", "360px").css("padding-left", "60px").css("background", "none repeat scroll 0 0 transparent")
+									$('<td>').css("height", "125px").css("width", "360px").css("padding-left", "60px").css("background", "none repeat scroll 0 0 transparent")
 										.append($('<div>').css("padding-bottom", "10px").append(element.name+ " "+element.dateString))
 										.append($('<div>').css("float", "left").append($('<img>').attr('src', "images/Wetter-Icons_181212/"+element.midayImg+".jpg")))
-										.append($('<div>').css("padding-left", "120px").append(element.miday+" °C / ").append(element.midayF+" °F "))
-										.append($('<div>').css("padding-left", "120px").append(element.midayPc+"%"))
+										.append($('<div>').css("padding-left", "125px").append(element.miday+" °C / ").append(element.midayF+" °F "))
+										.append($('<div>').css("padding-left", "125px").append(element.midayPc+"%"))
 									/*	.append(
 												$('<td>').css("background", "none repeat scroll 0 0 transparent").append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/"+element.midayImg+".jpg"))
 										)						

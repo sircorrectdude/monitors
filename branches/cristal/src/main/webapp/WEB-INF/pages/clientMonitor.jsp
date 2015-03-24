@@ -13,9 +13,10 @@
 		<style type="text/css">
 			<!-- 
 				html,body {
+				/*
 					overflow:hidden;
 					cursor: none;
-					/*background-color: ${backgroundColor}; //#b3d2de */
+					background-color: ${backgroundColor}; //#b3d2de */
 				}
 			 -->
 		</style>
