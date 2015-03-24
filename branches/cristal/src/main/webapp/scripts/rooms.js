@@ -63,8 +63,16 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 2){
 			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 0);
+			            			if(new Date().between(Date.today().set({month: 2, day: 24, hour: 20, minute: 00}), Date.today().set({month: 2, day: 29, hour: 14, minute: 00}))){
+			            				$.cookie('switchAdToggle', 3);
+			            			}else{
+			            				$.cookie('switchAdToggle', 0);
+			            			}
 			            		}
+			            		else if($.cookie('switchAdToggle') == 3){
+				            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Zeitumstellung-2015.jpg')").css("height", "1920px").css("width", "1080px");
+				            			$.cookie('switchAdToggle', 0);
+			            		}			            		
 		            		});
 		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser

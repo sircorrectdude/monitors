@@ -119,10 +119,10 @@ jQuery(document).ready(function () {
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
-			    	            			if(new Date().between(Date.today().set({month: 9, day: 25, hour: 11, minute: 00}), Date.today().set({month: 9, day: 26, hour: 14, minute: 00}))){
+			    	            			if(new Date().between(Date.today().set({month: 2, day: 24, hour: 20, minute: 00}), Date.today().set({month: 2, day: 29, hour: 14, minute: 00}))){
 			    	            				$('#slideshow')
-			    	            				.append($("<img />",  {"src": "images/templates/display-dolomit-quer-zeitumstellung-winter2014.jpg", "width":"1920", "height":"1080"})	)
-			    	            			}			    	            			
+			    	            				.append($("<img />",  {"src": "images/display-quer-zeitumstellung-20152.jpg", "width":"1920", "height":"925"})	)
+			    	            			}		    	            			
 			    	            			
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
