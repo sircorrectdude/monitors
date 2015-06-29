@@ -46,12 +46,13 @@ jQuery(document).ready(function () {
 //			!(Date.today().is().sunday() || Date.today().is().saturday()));
 		});
 		if($.oddeven==0){
+			console.log("$.oddeven == 0")
 			$.getScript("scripts/jquery.cycle.all.js", function(data, textStatus, jqxhr) {
 				$('body').append(
         				$('<div>').attr("id", "slideshow")
         		);
 				$('#slideshow').empty()
-				if($.adcounter==0){
+				if($.adcounter==0 || $.adcounter == undefined){
 					$('body').css("color", "#707173").css("background","url('images/Monitor-carpark-EG_theater-tarif-01.jpg')").css("height", "1920px").css("width", "1080px");
         			$.getScript('scripts/date/date-de-DE.js', function() {
         				if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
@@ -125,7 +126,7 @@ jQuery(document).ready(function () {
 			//$('.blink').blink()
 		});
 	}
-        if($.oddeven==0){
+        if($.oddeven==0 || $.oddeven == undefined){
         	$.oddeven=1;
         }else{
         	$.oddeven=0;
