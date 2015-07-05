@@ -22,7 +22,7 @@ public class GetFreeCarparkPlacesCron {
 
 	private static Logger log = Logger
 			.getLogger(GetFreeCarparkPlacesCron.class);
-	private static String serviceUrl = "http://88.198.201.139:8080/monitors-adac-service/adac";
+	private static String serviceUrl = "http://144.76.153.113:8080/monitors-adac-service/adac";
 
 	protected CarparkManager carparkManager;
 
