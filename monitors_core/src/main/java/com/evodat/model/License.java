@@ -88,7 +88,7 @@ public class License extends BaseObject implements Serializable {
 	}
 
 	@OneToOne
-	@JoinColumn(name = "license_id")
+	@JoinColumn(name = "monitor_id")
 	public Monitor getMonitor() {
 		return monitor;
 	}

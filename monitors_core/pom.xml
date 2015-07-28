@@ -62,13 +62,14 @@
 			</plugin>      
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.6.1</version>
 				<configuration>
 					<!--  delete jars and classes in WEB-INF folder -->
 					<filesets>
 						<fileset>
 							<directory>src/main/webapp/WEB-INF/lib</directory>
 							<includes>
-								<include>*.jar</include>
+								<include>**/*.jar</include>
 							</includes>
 						</fileset>
 						<fileset>
@@ -151,7 +152,6 @@
                     <useFullNames>false</useFullNames>
                 </configuration>
             </plugin>
-             <!--
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>hibernate3-maven-plugin</artifactId>
@@ -226,7 +226,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-             -->
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
@@ -251,12 +250,13 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>native2ascii-maven-plugin</artifactId>
-                <version>1.0-alpha-1</version>
+                <version>1.0-beta-1</version>
                 <configuration>
                     <dest>target/classes</dest>
                     <src>src/main/resources</src>
                 </configuration>
                 <executions>
+                <!--
                     <execution>
                         <id>native2ascii-utf8</id>
                         <goals>
@@ -283,6 +283,7 @@
                                 ApplicationResources_pt*.properties</includes>
                         </configuration>
                     </execution>
+                    -->
                 </executions>
             </plugin>
         </plugins>
@@ -339,7 +340,6 @@
         <url>http://remus.evodat.net:8081/artifactory/libs-release-local</url>
     </repository>   
     </repositories>
- -->
     <pluginRepositories>
         <pluginRepository>
             <id>appfuse-snapshots</id>
@@ -352,6 +352,7 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+ -->
 
     <!-- Dependencies calculated by AppFuse when running full-source plugin -->
     <dependencies>
@@ -444,7 +445,7 @@
         <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.4.GA</version>
+            <version>3.11.0.GA</version>
         </dependency>
         <dependency>
             <groupId>javax.mail</groupId>
@@ -604,6 +605,22 @@
             <artifactId>struts2-core</artifactId>
             <version>${struts.version}</version>
         </dependency>
+		<dependency>
+			<groupId>ognl</groupId>
+			<artifactId>ognl</artifactId>
+			<version>3.0.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts-annotations</artifactId>
+			<version>1.0.5</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+				        
 	    <!-- Struts 2 JSON Plugins -->
 	    <dependency>
 	          <groupId>org.apache.struts</groupId>
@@ -818,7 +835,7 @@
         <groupId>com.jgeppert.struts2.bootstrap</groupId>
         <artifactId>struts2-bootstrap-plugin</artifactId>
         <version>${struts2-bootstrap.version}</version>
-    </dependency>    
+    </dependency>     
 	<dependency>
 		<groupId>com.thoughtworks.xstream</groupId>
 		<artifactId>xstream</artifactId>
@@ -838,8 +855,7 @@
 		<groupId>com.googlecode.json-simple</groupId>
 		<artifactId>json-simple</artifactId>
 		<version>1.1.1</version>
-	</dependency>
-	<!--  -->
+	</dependency>	
     </dependencies>
 
     <reporting>
@@ -1085,7 +1101,7 @@
     <properties>
         <!-- Application settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <copyright.year>2014</copyright.year>
+        <copyright.year>2010</copyright.year>
         <dao.framework>hibernate</dao.framework>
         <web.framework>struts</web.framework>
         <amp.genericCore>true</amp.genericCore>
@@ -1098,8 +1114,8 @@
         <commons.fileupload.version>1.3.1</commons.fileupload.version>
         <commons.io.version>2.2</commons.io.version>
         <displaytag.version>1.2</displaytag.version>
-        <spring.version>3.0.4.RELEASE</spring.version>
-        <struts.version>2.3.16.3</struts.version>
+        <spring.version>3.0.5.RELEASE</spring.version>
+        <struts.version>2.3.24</struts.version>
 
         <!-- Testing dependency versions -->
         <cargo.version>1.0</cargo.version>
@@ -1114,7 +1130,7 @@
 
         <cargo.container>tomcat6x</cargo.container>
         <cargo.container.home>${env.CATALINA_HOME}</cargo.container.home>
-        <cargo.container.url>http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.29/bin/apache-tomcat-6.0.29.zip</cargo.container.url>
+        <cargo.container.url>http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.30/bin/apache-tomcat-6.0.30.zip</cargo.container.url>
         <cargo.host>localhost</cargo.host>
         <cargo.port>8081</cargo.port>
         <cargo.wait>true</cargo.wait>

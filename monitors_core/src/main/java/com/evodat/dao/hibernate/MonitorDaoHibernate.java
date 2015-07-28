@@ -81,7 +81,7 @@ public class MonitorDaoHibernate extends GenericDaoHibernate<Monitor, Long>
 			throws MonitorNotFoundException {
 		List<Monitor> monitors = getHibernateTemplate().find(
 				"from Monitor monitor where monitor.license.uuid=?", uuid);
-		// log.warn("getMonitorByAlias(" + alias + ")");
+		 log.warn("getMonitorByUuid(" + uuid + ")");
 		if (monitors == null || monitors.isEmpty()) {
 			throw new MonitorNotFoundException("monitor '" + monitors
 					+ "' not found...");

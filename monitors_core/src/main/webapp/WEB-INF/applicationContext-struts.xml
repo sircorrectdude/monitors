@@ -105,6 +105,7 @@
 		<property name="monitorManager" ref="monitorManager"/>
 		<property name="courseManager" ref="courseManager"/>
 		<property name="screenManager" ref="screenManager"/>
+		<property name="licenseManager" ref="licenseManager"/>
     </bean>
 	
 	<!-- Validators -->

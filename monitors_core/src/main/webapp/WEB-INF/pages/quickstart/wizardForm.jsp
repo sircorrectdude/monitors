@@ -103,7 +103,7 @@ $(document).ready(function() {
 									<div class="form-group">
 										<s:textfield key="monitor.ipAddress" cssClass="form-control" required="true"/>
 										<s:textfield key="monitor.alias" cssClass="form-control" required="true"/>
-										<s:select key="monitor.license.id" list="licenses" listKey="id" listValue="uuid"/>
+										<s:select key="license.id" list="licenses" listKey="id" listValue="uuid"/>
 										<s:hidden key="template.id"></s:hidden>
 									</div>			
 							</s:form>

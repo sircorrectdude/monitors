@@ -20,6 +20,7 @@ import com.evodat.model.TemplateType;
 import com.evodat.service.MonitorNotFoundException;
 import com.opensymphony.xwork2.Preparable;
 
+
 public class ClientMonitorAction extends BaseAction implements Preparable,
 		ServletResponseAware, ServletRequestAware {
 
@@ -85,6 +86,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 			}
 		}
 		Monitor monitor = null;
+		log.info("uuid: " + uuid);
 		try {
 			if (uuid != null) {
 				monitor = monitorManager.getMonitorByUuid(uuid);
@@ -188,7 +190,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 			// log.debug("Monitor: " + monitor.getTemplate().getText());
 		} catch (MonitorNotFoundException e) {
-			// e.printStackTrace();
+			 e.printStackTrace();
 			return INPUT;
 		}
 		return SUCCESS;
