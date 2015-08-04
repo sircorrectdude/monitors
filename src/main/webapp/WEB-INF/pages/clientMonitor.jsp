@@ -15,7 +15,8 @@
 				
 					overflow:hidden;
 					cursor: none;
-					background-color: ${backgroundColor}; //#b3d2de 
+					/*background-color: ${backgroundColor}; //#b3d2de 
+					*/
 				}
 		</style>
 		<script type="text/javascript">
