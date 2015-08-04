@@ -13,7 +13,7 @@ insert into course(id, courseMode, name) values(41,1,"Stubn MVG/Airport/Wetter")
 insert into course_screen values(41,76);
 insert into course_screen values(41,77);
 insert into course_screen values(41,78);
-insert into monitor values(34,"localhost", "127.0.0.1", 41);
+insert into monitor values(34,"Stubn Wetter/Traffic", "10.95.6.222", 41);
 
 --//@UNDO
 delete from course_screen where course_id=41;
