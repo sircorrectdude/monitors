@@ -24,8 +24,14 @@ td.empty, tr.odd td.empty, tr.even td.empty{background:#fff;}
 .dolomit_table th{background:#3fb7d2 ;color:#fff;}
 .dolomit_table td{background:#eeeeee;}
 
+.stubn_table table{width:100%;border-collapse:collapse;margin:0;}
+.stubn_table th, td{text-align:left;margin:.5em;}
+.stubn_table th{background:#291D11 ;color:#FFD020;}
+.stubn_table td{background:#eeeeee;}
+
 /* tablecloth styles */
 
+/*dolomit*/
 .dolomit_table tr.even td{background:##4dbcd7 !important;}
 .dolomit_table tr.odd td{background:#fff !important;}
 
@@ -34,3 +40,14 @@ td.empty, tr.odd td.empty, tr.even td.empty{background:#fff;}
 
 .dolomit_table td.down, tr.even td.down, tr.odd td.down{background:#bce774;color:#fff;}
 .dolomit_table td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774;color:#555;}
+
+/*stubn*/
+
+.stubn_table tr.even td{background:#DFDEDC !important;}
+.stubn_table tr.odd td{background:#fff !important;}
+
+.stubn_table th.down, tr.even th.down, tr.odd th.down{background:#bce774;}
+.stubn_table th.selected, tr.even th.selected, tr.odd th.selected{}
+
+.stubn_table td.down, tr.even td.down, tr.odd td.down{background:#bce774;color:#fff;}
+.stubn_table td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774;color:#555;}
