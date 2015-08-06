@@ -1095,7 +1095,7 @@
         <web.framework>struts</web.framework>
         <amp.genericCore>true</amp.genericCore>
         <amp.fullSource>true</amp.fullSource>
-        <db.name>monitors_cristal</db.name>
+        <db.name>monitors</db.name>
 
         <!-- Framework dependency versions -->
         <appfuse.version>2.1.0-M2-SNAPSHOT</appfuse.version>
@@ -1139,7 +1139,7 @@
         <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
         <jdbc.url>jdbc:mysql://localhost/${db.name}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8</jdbc.url>
         <jdbc.username>root</jdbc.username>
-        <jdbc.password>chemo</jdbc.password>
+        <jdbc.password></jdbc.password>
     
         <!-- Properties calculated by AppFuse when running full-source plugin -->
         <commons.beanutils.version>1.8.3</commons.beanutils.version>
