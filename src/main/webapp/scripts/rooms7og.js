@@ -16,9 +16,6 @@ jQuery(document).ready(function () {
 	            	);
 	            	
 	            	if(data.calendars == null || data.calendars.length === 0){
-	            		//alert($.cookie('switchToggle'))
-	            		
-	            		
 	            			
 		            		/*var easterAdEndTime = {month: 8, day: 22, hour: 13, minute: 00};
 		            		var easterAdEnd = Date.today().set(easterAdEndTime);
@@ -28,9 +25,10 @@ jQuery(document).ready(function () {
 		            		*/
 		            		if($.cookie('switchAdToggle') == 0){
 		            			$('body').css("color", "#707173").css("background","url('images/templates/rooms7og/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
-		            			$.getScript('scripts/date/date-de-DE.js', function() {
-		            					$.cookie('switchAdToggle', 0);
-		            			});
+		            			$.cookie('switchAdToggle', 1);
+		            		}else{
+		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 0);
 		            		}
 	            	}else{
 	            		//if($.cookie('switchDirectionsToggle') == 0){
