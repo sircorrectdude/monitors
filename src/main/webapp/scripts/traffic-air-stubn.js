@@ -49,7 +49,7 @@ jQuery(document).ready(function () {
 	            {
 	            	var limit=500;
 	            	$('body > *').remove();
-	        	    $('body').css("font-weight","normal").css("font-family","Texta Narrow W00 Medium,sans-serif").css("color","#291D11").css("background-color","#FFD020").append(
+	        	    $('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
 	        		    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","125px")
 	        		    	.append(
 	        		    			$('<span>').append(
@@ -140,6 +140,8 @@ jQuery(document).ready(function () {
 					 });
 	            });		
 	}
+	$('head').append('<link rel="stylesheet" href="styles/textaNarrowMedium.css" type="text/css" />');
+
 	traffic();
 	//$.refreshId = setInterval(traffic, 10000);
             

@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'texta_narrowmedium';
+    src: url('/fonts/TextaNarrowMedium/latinotype_-_textanarrow-medium-webfont.eot');
+    src: url('/fonts/TextaNarrowMedium/latinotype_-_textanarrow-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/TextaNarrowMedium/latinotype_-_textanarrow-medium-webfont.woff2') format('woff2'),
+         url('/fonts/TextaNarrowMedium/latinotype_-_textanarrow-medium-webfont.woff') format('woff'),
+         url('/fonts/TextaNarrowMedium/latinotype_-_textanarrow-medium-webfont.ttf') format('truetype'),
+         url('/fonts/TextaNarrowMedium/latinotype_-_textanarrow-medium-webfont.svg#texta_narrowmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;

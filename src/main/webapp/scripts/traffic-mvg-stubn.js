@@ -4,7 +4,7 @@ var all_script = document.createElement('script');
   document.body.appendChild(all_script);
 					  
 jQuery(document).ready(function () {
-	
+	$('head').append('<link rel="stylesheet" href="styles/textaNarrowMedium.css" type="text/css" />');
 	function trafficmvg(){
 	    $.getJSON(
 	            'traffic?mvg=true',
@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
 	            	var limit=36;
 	            	$('body > *').remove();
 	            	
-	        	    $('body').css("font-family","Texta Narrow W00 Medium,sans-serif").css("color","#291D11").css("background-color","#FFD020").append(
+	        	    $('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
 	        		    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","175px")
 	        		    	.append(
 	        		    			$('<span>').append(
@@ -30,7 +30,7 @@ jQuery(document).ready(function () {
 	            	
 	        		$('body').append(
 	        				$('<div>').attr("id", "mainDiv").append(
-	        				$('<table>').attr("id", "mainTable").attr("style", "padding:10px;").css("font-family","Texta Narrow W00 Medium,sans-serif").css("font-weight","normal").addClass("stubn_table")
+	        				$('<table>').attr("id", "mainTableStubn").attr("style", "padding:10px;").css("font-weight","normal").addClass("stubn_table")
 	        				.append(
         						$('<tr>').css('text-align','left').css('padding-bottom','10px')
         								.append(
@@ -56,7 +56,7 @@ jQuery(document).ready(function () {
 	        		var max=0;
 					$.each(data.allObjects, function(i, element){
 						if(max<limit && element.timeShift>1){
-							$('#mainTable')
+							$('#mainTableStubn')
 								.append(
 										$('<tr>').addClass("line")
 											.append(

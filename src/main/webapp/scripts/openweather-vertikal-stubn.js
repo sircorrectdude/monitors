@@ -1,12 +1,12 @@
 jQuery(document).ready(function () {
-
+	$('head').append('<link rel="stylesheet" href="styles/textaNarrowMedium.css" type="text/css" />');
     $.getJSON(
             'openweather',
             function( data )
             {
             	$('body > div').remove();
             	
-        	    $('body').css("font-family","Texta Narrow W00 Medium,sans-serif").css("color","#291D11").css("background-color","#FFD020").append(
+        	    $('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
         		    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","75px").css("padding-top","15px")
         		    	.append(
         		    			$('<span>').append(
@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
         		$('body').append(
         				$('<div>')
         				.attr("id", "mainDiv").append(
-	        				$('<table>').css("font-size","30px").attr("id", "mainTable").attr("style", "padding:10px;").css("font-weight","normal").css("font-family","Texta Narrow W00 Medium,sans-serif").addClass("stubn_table")
+	        				$('<table>').css("font-size","30px").attr("id", "mainTableStubn").attr("style", "padding:10px;").css("font-weight","normal").addClass("stubn_table")
 	        				.append(
 	    						$('<tr>').css('padding-bottom','10px')
 			    						.append(
@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
     						)
         		);
         		$.each(data.days, function(i, element){
-					$('#mainTable').css("background", "none repeat scroll 0 0 #073b80")
+					$('#mainTableStubn').css("background", "none repeat scroll 0 0 #073b80")
 					.append(
 							$('<tr>').css("background", "none repeat scroll 0 0 #FFFFFF")
 							.append(
