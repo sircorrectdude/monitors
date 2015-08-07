@@ -57,8 +57,8 @@ public class TemplateAction extends BaseAction implements Preparable {
 
 	public String edit() throws IOException {
 
-		if (id != null) {
-			template = templateManager.getTemplate(id);
+		if (template.getId() != null) {
+			template = templateManager.getTemplate(String.valueOf(template.getId()));
 		} else {
 			template = new Template();
 			System.out.println(templateType);

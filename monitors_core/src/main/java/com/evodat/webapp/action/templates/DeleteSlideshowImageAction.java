@@ -21,17 +21,15 @@ public class DeleteSlideshowImageAction extends BaseAction {
 		Slideshow slideshow = slideshowManager.getSlideshow(template);
 		SlideshowImage image = null;
 		log.info("qquuid " + qquuid);
-		Set<SlideshowImage> slideshowImages = slideshow.getSlideshowImages();
-		for (SlideshowImage slideshowImage : slideshowImages) {
+		for (SlideshowImage slideshowImage : slideshow.getSlideshowImages()) {
 			log.info("slideshowImage.getId() " + slideshowImage.getId());
 			if (String.valueOf(slideshowImage.getId()).equals(qquuid)) {
 				image = slideshowImage;
 			}
 		}
-		log.info("slideshowImages SIZE " + slideshowImages.size());
-		slideshowImages.remove(image);
-		log.info("slideshowImages SIZE " + slideshowImages.size());
-		slideshow.setSlideshowImages(slideshowImages);
+		log.info("slideshowImages SIZE " + slideshow.getSlideshowImages().size());
+		slideshow.getSlideshowImages().remove(image);
+		log.info("slideshowImages SIZE " + slideshow.getSlideshowImages().size());
 		log.info(slideshow);
 		slideshowManager.save(slideshow);
 		return SUCCESS;

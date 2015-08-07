@@ -8,7 +8,9 @@
     <link href="scripts/fineuploader/fineuploader-5.0.8.css" rel="stylesheet">
 </head>
 
-<s:url action="slideshowFileUpload" id="uploadFileUrl" namespace="/json"></s:url>
+<s:url action="slideshowFileUpload" id="uploadFileUrl" namespace="/json">
+	<s:param name="template.id" value="template.id"></s:param>
+</s:url>
 <s:url action="deleteSlideshowImage" id="deleteFileUrl" namespace="/json"></s:url>
 <s:url action="slideshowSession" id="slideshowSession" namespace="/json">
 	<s:param name="template.id" value="template.id"></s:param>
@@ -29,7 +31,7 @@ $(document).ready(function() {
         inputName:"file"
     },
     validation: {
-    	sizeLimit: 2097152
+    	sizeLimit: 5000000
     },
     maxConnections: 1,
     autoUpload: false,
