@@ -1,44 +1,45 @@
 jQuery(document).ready(function () {
+	$('body').css('background-color','#FFD020');
 	$('head').append('<link rel="stylesheet" href="styles/textaNarrowMedium.css" type="text/css" />');
+	$('body > div').remove();
+	
+	$('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
+			$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","75px").css("padding-top","15px")
+			.append(
+					$('<span>').append(
+							"WETTER / WEATHER"
+					)
+			)
+	);	            	
+	
+	$('body').append(
+			$('<div>')
+			.attr("id", "mainDiv").append(
+					$('<table>').css("font-size","30px").attr("id", "mainTableStubn").attr("style", "padding:10px;").css("font-weight","normal").addClass("stubn_table")
+					.append(
+							$('<tr>').css('padding-bottom','10px')
+							.append(
+									$('<th>').css('text-align','center').append(" ")
+							)
+							.append(
+									$('<th>').css('text-align','center').append("AUSSICHT /").append("<br>").append("FORECAST")
+							)    						
+							.append(
+									$('<th>').css('text-align','center').append("°C / °F")
+							)
+							.append(
+									$('<th>').css('text-align','center').append("% REGEN /").append("<br>").append("CHANCE OF RAIN")
+							)
+							.append(
+									$('<th>').attr("colspan", "2").css('text-align','center').append("WIND")
+							)   								
+					)
+			)
+	);
     $.getJSON(
             'openweather',
             function( data )
             {
-            	$('body > div').remove();
-            	
-        	    $('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
-        		    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","75px").css("padding-top","15px")
-        		    	.append(
-        		    			$('<span>').append(
-        		    					"WETTER / WEATHER"
-        		    					)
-        		    			)
-        	    );	            	
-            	
-        		$('body').append(
-        				$('<div>')
-        				.attr("id", "mainDiv").append(
-	        				$('<table>').css("font-size","30px").attr("id", "mainTableStubn").attr("style", "padding:10px;").css("font-weight","normal").addClass("stubn_table")
-	        				.append(
-	    						$('<tr>').css('padding-bottom','10px')
-			    						.append(
-			    								$('<th>').css('text-align','center').append(" ")
-			    						)
-	    								.append(
-	    										$('<th>').css('text-align','center').append("AUSSICHT /").append("<br>").append("FORECAST")
-	    								)    						
-	    								.append(
-	    										$('<th>').css('text-align','center').append("°C / °F")
-	    								)
-	    								.append(
-	    										$('<th>').css('text-align','center').append("% REGEN /").append("<br>").append("CHANCE OF RAIN")
-	    								)
-	     								.append(
-	     										$('<th>').attr("colspan", "2").css('text-align','center').append("WIND")
-	    								)   								
-	    						)
-    						)
-        		);
         		$.each(data.days, function(i, element){
 					$('#mainTableStubn').css("background", "none repeat scroll 0 0 #073b80")
 					.append(

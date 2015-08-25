@@ -26,7 +26,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 	public static final int DEFAULT_REFRESH = 30;
 	// Screen Options
-	public final String backgroundColor = "#b3d2de";
+	public String backgroundColor = "transparent";
 
 	private String remoteAddr;
 	private String content;

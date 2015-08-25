@@ -4,55 +4,56 @@ var all_script = document.createElement('script');
   document.body.appendChild(all_script);
 					  
 jQuery(document).ready(function () {
+	$('body > *').remove();
+	$('body').css('background-color','#FFD020');
 	$('head').append('<link rel="stylesheet" href="styles/textaNarrowMedium.css" type="text/css" />');
+	
+    $('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
+	    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","175px"));
+	    	$('#topbanner').append(
+	    			$('<span>').append(
+	    				"HAUPTBAHNHOF /").append("<br>").append("CENTRAL STATION"
+	    					)
+	    			)
+	    	.append($('<br>'));	
+    		$('body').append(
+    				$('<div>').attr("id", "mainDiv").append(
+    				$('<table>').attr("id", "mainTableStubn").attr("style", "padding:10px;font-size:31px").css("font-weight","normal").addClass("stubn_table")
+    				.append(
+						$('<tr>').css('text-align','left').css('padding-bottom','10px')
+								.append(
+								$('<th>').attr("colspan","2").append("LINIE /").append("<br>").append("LINE")
+								)
+								.append(
+								$('<th>').append("ZIEL /").append("<br>").append("DESTINATION")
+								)
+								.append(
+								$('<th>').append("ABFAHRT /").append("<br>").append("DEPARTURE")
+								)
+								.append(
+								$('<th>').append("STATION /").append("<br>").append("STATION")
+								)        								
+						)
+						)
+    		);	    	
+    $('body').append(
+	    	$('<div>').attr("id", "banner").css("position","absolute").css("bottom","0").addClass("bannerDiv").append(
+	    			$('<img>').attr("width","1080").css("border", "0px").attr("src", "images/templates/stubn/Abbinder-1080x329.jpg")
+	    			)
+    );	
 	function trafficmvg(){
 	    $.getJSON(
 	            'traffic?mvg=true',
 	            function( data )
 	            {
 	            	var limit=36;
-	            	$('body > *').remove();
+
+        		    	$('#topbanner').append(
+        		    			$('<span>').append(
+        		    					data.time
+        		    					)
+        		    	);	            	
 	            	
-	        	    $('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
-	        		    	$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","175px")
-	        		    	.append(
-	        		    			$('<span>').append(
-	        		    				"HAUPTBAHNHOF /").append("<br>").append("CENTRAL STATION"
-	        		    					)
-	        		    			)
-	        		    	.append($('<br>'))
-	        		    	.append(
-	        		    			$('<span>').append(
-	        		    					data.time
-	        		    					)
-	        		    		)
-	        	    );	            	
-	            	
-	        		$('body').append(
-	        				$('<div>').attr("id", "mainDiv").append(
-	        				$('<table>').attr("id", "mainTableStubn").attr("style", "padding:10px;").css("font-weight","normal").addClass("stubn_table")
-	        				.append(
-        						$('<tr>').css('text-align','left').css('padding-bottom','10px')
-        								.append(
-        								$('<th>').attr("colspan","2").append("LINIE /").append("<br>").append("LINE")
-        								)
-        								.append(
-        								$('<th>').append("ZIEL /").append("<br>").append("DESTINATION")
-        								)
-        								.append(
-        								$('<th>').append("ABFAHRT /").append("<br>").append("DEPARTURE")
-        								)
-        								.append(
-        								$('<th>').append("STATION /").append("<br>").append("STATION")
-        								)        								
-        						)
-        						)
-	        		);
-	        	    $('body').append(
-	        		    	$('<div>').attr("id", "banner").css("position","absolute").css("bottom","0").addClass("bannerDiv").append(
-	        		    			$('<img>').attr("width","1080").css("border", "0px").attr("src", "images/templates/stubn/Abbinder-1080x329.jpg")
-	        		    			)
-	        	    );	        		
 	        		var max=0;
 					$.each(data.allObjects, function(i, element){
 						if(max<limit && element.timeShift>1){

@@ -399,9 +399,9 @@ public class TrafficServlet extends HttpServlet {
 				Airport airport = new Airport();
 				allObjects = airport.pull();
 
-				for (Object munichAirport : allObjects) {
-					logger.info(munichAirport);
-				}
+//				for (Object munichAirport : allObjects) {
+//					logger.info(munichAirport);
+//				}
 
 				TRAFFIC_CACHE_AIR.put("TRAFFIC_CACHE_AIR", allObjects);
 
@@ -412,10 +412,11 @@ public class TrafficServlet extends HttpServlet {
 
 		Collections.sort(allObjects);
 		Collections.reverse(allObjects);
-		// for (Object object : allObjects) {
-		// TrafficInfo trafficInfo = (TrafficInfo) object;
-		// logger.debug(trafficInfo);
-		// }
+
+		List subList = new ArrayList();
+		
+		int i = 0;
+
 		// List<Object> obj = new ArrayList<Object>(allObjects);
 		// //Format time for view
 		for (Object object : allObjects) {
@@ -440,13 +441,23 @@ public class TrafficServlet extends HttpServlet {
 				// + 1000 * 60 * 60
 						)));
 				// obj.add(trafficInfo);
+				if (req.getParameter("air") != null) {
+					logger.info(trafficInfo.getTimeShift());
+					if (Integer.parseInt(trafficInfo.getTimeShift()) < 40) {
+						continue;
+					}
+				}
+				if (i < 30) {
+					subList.add(trafficInfo);
+					i++;
+				}
 			}
 
 		}
 		// Serialize to JSON
 
 		TrafficInfoDTO trafficInfoDTO = new TrafficInfoDTO();
-		trafficInfoDTO.setAllObjects(allObjects);
+		trafficInfoDTO.setAllObjects(subList);
 		trafficInfoDTO.setTime(new SimpleDateFormat("HH:mm", Locale.GERMAN)
 				.format(new Date().getTime()
 				// Somerzeit Bug?
