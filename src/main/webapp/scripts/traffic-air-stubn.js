@@ -41,56 +41,59 @@ var all_script = document.createElement('script');
 	    }
 	}
 jQuery(document).ready(function () {
-	$('body > *').remove();
-	$('body').css('background-color','#FFD020');
-	$('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
-			$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","125px"));
-	
-	$('#topbanner')
-	.append(
-			$('<span>').append(
-					"FLUGHAFEN / AIRPORT"
-			)
-	)
-	.append($('<br>'));
-	$('body').append(
-			$('<div>').attr("id", "mainDiv").append(
-			$('<table>').attr("id", "mainTable_air").addClass("stubn_table")
-					.append( 
-							$('<thead>').append(
-        						$('<tr>').css('text-align','left').css('padding-bottom','10px')
-								.append(
-										$('<th>').append("FLUG /").append("<br>").append("FLIGHT")
-								)
-								.append(
-										$('<th>').append("NACH /").append("<br>").append("TO")
-								)
-								.append(
-										$('<th>').append("ABFLUG /").append("<br>").append("DEPARTURE")
-								)
-								.append(
-										$('<th>').append("TERMINAL /").append("<br>").append("TERMINAL")
-								)
-								.append(
-										$('<th>').append("AKTUELL /").append("<br>").append("CURRENT")
-								)
-							)
-					)
-					.append(
-						$('<tbody>')
-					)
-			)
-	);	
-    $('body').append(
-	    	$('<div>').attr("id", "banner").css("position","absolute").css("bottom","0").addClass("bannerDiv").append(
-	    			$('<img>').css("border", "0px").attr("src", "images/templates/stubn/Abbinder-1080x329.jpg")
-	    			)
-    );		
+
 	function traffic(){
 	    $.getJSON(
 	            'traffic?air=true',
 	            function( data )
 	            {
+	            	
+	            	$('body > *').remove();
+	            	$('body').css('background-color','#FFD020');
+	            	$('body').css("font-family","texta_narrowmedium").css("color","#291D11").css("background-color","#FFD020").append(
+	            			$('<div>').attr("id", "topbanner").css("font-size","50px").css("text-align","center").css("height","125px"));
+	            	
+	            	$('#topbanner')
+	            	.append(
+	            			$('<span>').append(
+	            					"FLUGHAFEN / AIRPORT"
+	            			)
+	            	)
+	            	.append($('<br>'));
+	            	$('body').append(
+	            			$('<div>').attr("id", "mainDiv").append(
+	            			$('<table>').attr("id", "mainTable_air").addClass("stubn_table")
+	            					.append( 
+	            							$('<thead>').append(
+	                    						$('<tr>').css('text-align','left').css('padding-bottom','10px')
+	            								.append(
+	            										$('<th>').append("FLUG /").append("<br>").append("FLIGHT")
+	            								)
+	            								.append(
+	            										$('<th>').append("NACH /").append("<br>").append("TO")
+	            								)
+	            								.append(
+	            										$('<th>').append("ABFLUG /").append("<br>").append("DEPARTURE")
+	            								)
+	            								.append(
+	            										$('<th>').append("TERMINAL /").append("<br>").append("TERMINAL")
+	            								)
+	            								.append(
+	            										$('<th>').append("AKTUELL /").append("<br>").append("CURRENT")
+	            								)
+	            							)
+	            					)
+	            					.append(
+	            						$('<tbody>')
+	            					)
+	            			)
+	            	);	
+	                $('body').append(
+	            	    	$('<div>').attr("id", "banner").css("position","absolute").css("bottom","0").addClass("bannerDiv").append(
+	            	    			$('<img>').css("border", "0px").attr("src", "images/templates/stubn/Abbinder-1080x329.jpg")
+	            	    			)
+	                );			            	
+	            	
 	            	var limit=500;
 	        		 $('#topbanner').append(
 	        		    			$('<span>').append(

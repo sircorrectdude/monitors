@@ -40,8 +40,10 @@
 						        					function(){ $.globalEval(this.text || this.textContent || this.innerHTML || ''); }
 						        			);
 						        			//$("body").fadeOut(500);
-						        			$('body > *').remove();
-						        			$('body').attr("style", "");
+						        			<s:if test="removeBody">
+						        				$('body > *').remove();
+						        			</s:if>
+						        			//$('body').attr("style", "");
 					        			/*window.setTimeout(function() {
 					        			}, 5000);
 					        			*/

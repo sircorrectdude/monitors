@@ -33,6 +33,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 	private String refresh = String.valueOf(DEFAULT_REFRESH);
 	private String aliasPath;
 	private String fade = "0";
+	private boolean removeBody = true;
 
 	// For access to the raw servlet request / response, eg for cookies
 	protected HttpServletRequest servletRequest;
@@ -111,6 +112,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 				}
 			} else if (courseMode == CourseMode.CYCLE) {
+				removeBody = false;
 				fade = "1000";
 				screenToSet = screens.get(0);
 				screenToSet.setDuration(DEFAULT_REFRESH);
@@ -235,4 +237,14 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 	public void setFade(String fade) {
 		this.fade = fade;
 	}
+
+	public boolean isRemoveBody() {
+		return removeBody;
+	}
+
+	public void setRemoveBody(boolean removeBody) {
+		this.removeBody = removeBody;
+	}
+	
+	
 }
