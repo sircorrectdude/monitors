@@ -447,7 +447,7 @@ public class TrafficServlet extends HttpServlet {
 						continue;
 					}
 				}
-				if (i < 30) {
+				if (i < 50) {
 					subList.add(trafficInfo);
 					i++;
 				}
