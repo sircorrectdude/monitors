@@ -38,7 +38,7 @@ jQuery(document).ready(function () {
 	//$("#fb_counter").css("padding", "250px 0px 0px 1050px")
     
 	var getLikes = function() {
-		$.getJSON('https://graph.facebook.com/cristalhotel?access_token=CAACEdEose0cBABpp5VfMZBBWnQRrpHDkRwqZA8iBjOjn6JhFc6oYG0ujZCmpjRFi90oFxSB9SjV0LgX5g0MJ48a9rLEhgZAuwV7zWQQWtZAaCWqZArDdwgRx0ZA8ZAtIv257qw4nTeo259el55tq7WhsTaRJD7rsBKjS3ZCLYj6TxORAdE7VGeyXGRRQ1DURlOikWthZBhxJsvbe0tixWLPYSCskbpbuvZCBkkZD', function(json) {
+		$.getJSON('https://graph.facebook.com/cristalhotel?access_token=CAADMgm9xZC7IBALrA05fCsZBDrWJddIYZCZBs3ShU5pMZCZAas7AcKlIzZAmmA3dXKtPMzqKkAJEqL4R30AWb32VnMhIBz9MeVnmSJVSA4wZAMuD1GMrqEQpb7CnqxupYeEyHUsw4i3yN8HZBCZA3SrVmpr7Ial7s5hq9v6D6150mIvklFPCaQU5ZA8Jwa3HZC8IDKyBXloZAkTBZCU4gU34SYvOmI', function(json) {
 			
 			  $start_likes =json.likes
 			  
