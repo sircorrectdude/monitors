@@ -52,20 +52,24 @@ jQuery(document).ready(function () {
 				$('#slideshow').empty()
 				if($.adcounter==0 || $.adcounter == undefined){
 					$('body').css("color", "#707173").css("background","url('images/Monitor-carpark-EG_theater-tarif-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=1;
+				}
+				else if($.adcounter==1){
+					$('body').css("color", "#707173").css("background","url('images/Monitor-hoch_WerbungMuenchnerStubn.jpg')").css("height", "1920px").css("width", "1080px");
         			$.getScript('scripts/date/date-de-DE.js', function() {
         				if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
-        					$.adcounter=1;
+        					$.adcounter=2;
         				}else{
 	            			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
-	            				$.adcounter=2;
+	            				$.adcounter=3;
 	            			}else{
 	            				$.adcounter=0;
 	            			}
         				}
-        			});
+        			});					
 				}
-				else if($.adcounter==1){
+				else if($.adcounter==2){
 					$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 					
 					$.getJSON('/json/lunch.html',function(data){
@@ -87,16 +91,16 @@ jQuery(document).ready(function () {
 						);
 					});
           			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
-        				$.adcounter=2;
+        				$.adcounter=3;
         			}else{
         				$.adcounter=0;
         			}
 				}
-				else if($.adcounter==2){
-        			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-dt-01.jpg')").css("height", "1920px").css("width", "1080px");
-					$.adcounter=3;
-				}
 				else if($.adcounter==3){
+        			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-dt-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=4;
+				}
+				else if($.adcounter==4){
         			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-engl-01.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=0;
 				}				

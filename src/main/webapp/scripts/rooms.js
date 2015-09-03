@@ -63,17 +63,21 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 2){
 			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 3);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 3){
+			            			$('body').css("color", "#707173").css("background","url('images/Monitor-quer-Werbung-MuenchnerStubn.jpg')").css("height", "1920px").css("width", "1080px");
 			            			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
-			            				$.cookie('switchAdToggle', 3);
+			            				$.cookie('switchAdToggle', 4);
 			            			}else{
 			            				$.cookie('switchAdToggle', 0);
 			            			}
-			            		}
-			            		else if($.cookie('switchAdToggle') == 3){
-				            			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-dt-01.jpg')").css("height", "1920px").css("width", "1080px");
-				            			$.cookie('switchAdToggle', 4);
-			            		}
+			            		}			            		
 			            		else if($.cookie('switchAdToggle') == 4){
+				            			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-dt-01.jpg')").css("height", "1920px").css("width", "1080px");
+				            			$.cookie('switchAdToggle', 5);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-engl-01.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 		            		}			            		
