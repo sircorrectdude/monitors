@@ -11,9 +11,10 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Zimmer-011414.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"})	)	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"})	)
-	if(new Date().between(Date.today().set({month: 2, day: 24, hour: 20, minute: 00}), Date.today().set({month: 2, day: 29, hour: 14, minute: 00}))){
-		$('#slideshow')
-		.append($("<img />",  {"src": "images/display-quer-zeitumstellung-2015.jpg", "width":"1920", "height":"925"})	)
+	if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/umzuege/Cristal-Rezeptions-Display-Wiesn-Umzuege-dt.jpg", "width":"1920", "height":"925"})	)
+		$('#slideshow').append($("<img />",  {"src": "images/umzuege/Cristal-Rezeptions-Display-Wiesn-Umzuege-engl.jpg", "width":"1920", "height":"925"})	)
+
 	}
 
 	

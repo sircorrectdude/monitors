@@ -42,8 +42,6 @@ jQuery(document).ready(function () {
 	function parkhaus(){
 		$('body > *').remove();
 		$.getScript('scripts/date/date-de-DE.js', function() {
-//			alert(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
-//			!(Date.today().is().sunday() || Date.today().is().saturday()));
 		});
 		if($.oddeven==0){
 			console.log("$.oddeven == 0")
@@ -59,7 +57,11 @@ jQuery(document).ready(function () {
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
         					$.adcounter=1;
         				}else{
-        					$.adcounter=0;
+	            			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
+	            				$.adcounter=2;
+	            			}else{
+	            				$.adcounter=0;
+	            			}
         				}
         			});
 				}
@@ -84,8 +86,20 @@ jQuery(document).ready(function () {
 								)
 						);
 					});
-					$.adcounter=0;
+          			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
+        				$.adcounter=2;
+        			}else{
+        				$.adcounter=0;
+        			}
 				}
+				else if($.adcounter==2){
+        			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-dt-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=3;
+				}
+				else if($.adcounter==3){
+        			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-engl-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=0;
+				}				
 				/*$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,

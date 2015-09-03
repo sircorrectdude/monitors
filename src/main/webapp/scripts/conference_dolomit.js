@@ -119,10 +119,11 @@ jQuery(document).ready(function () {
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
-			    	            			if(new Date().between(Date.today().set({month: 2, day: 24, hour: 20, minute: 00}), Date.today().set({month: 2, day: 29, hour: 14, minute: 00}))){
-			    	            				$('#slideshow')
-			    	            				.append($("<img />",  {"src": "images/display-quer-zeitumstellung-20152.jpg", "width":"1920", "height":"925"})	)
-			    	            			}		    	            			
+			    	            			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/umzuege/Dolomit-Rezeptions-Display-Wiesn-Umzuege-dt.jpg", "width":"1920", "height":"1080"})	)
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/umzuege/Dolomit-Rezeptions-Display-Wiesn-Umzuege-engl.jpg", "width":"1920", "height":"1080"})	)
+
+			    	            			}	    	            			
 			    	            			
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
