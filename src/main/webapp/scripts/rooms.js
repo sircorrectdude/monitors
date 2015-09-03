@@ -66,7 +66,7 @@ jQuery(document).ready(function () {
 			            			$.cookie('switchAdToggle', 3);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 3){
-			            			$('body').css("color", "#707173").css("background","url('images/Monitor-quer-Werbung-MuenchnerStubn.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/Monitor-hoch_WerbungMuenchnerStubn.jpg')").css("height", "1920px").css("width", "1080px");
 			            			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
 			            				$.cookie('switchAdToggle', 4);
 			            			}else{
