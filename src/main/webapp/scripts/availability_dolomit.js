@@ -18,8 +18,7 @@ jQuery(document).ready(function () {
 			$('#slideshow').empty()
 			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide1.jpg", "width":"1920", "height":"925"})	)	
 			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide2.jpg", "width":"1920", "height":"925"})	)	
-			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.jpg", "width":"1920", "height":"925"})	)
-			.append($("<img />",  {"src": "images/Monitor-quer-Werbung-MuenchnerStubn.jpg", "width":"1920", "height":"925"}));
+			.append($("<img />",  {"src": "images/templates/availability_dolomit/slide3.jpg", "width":"1920", "height":"925"})	);
 			$('#slideshow').cycle({
 				fx:     'all',
 				timeout: 10000,
