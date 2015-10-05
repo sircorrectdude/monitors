@@ -6,14 +6,7 @@ jQuery(document).ready(function () {
 	            function( data )
 	            {        
 	            	$('#header').remove();
-	            	$('body').append(
-	            			$('<div>').attr("id", "header")
-	            	);
-	            	
 	            	$('#mainTable').remove();
-	            	$('body').append(
-	            			$('<table>').attr("id", "mainTable")
-	            	);
 	            	
 	            	if(data.calendars == null || data.calendars.length === 0){
 	            			
@@ -31,6 +24,18 @@ jQuery(document).ready(function () {
 		            			$.cookie('switchAdToggle', 0);
 		            		}
 	            	}else{
+	            		
+		            	$('body').append(
+		            			$('<div>').attr("id", "header")
+		            	);
+		            	$('body').append(
+		            			$('<table>').attr("id", "mainTable")
+		            	);
+		            	$('body').css("color", "#707173")
+		            	//.css("text-shadow", "1px 1px #333333")
+		            	.css("background","url('images/templates/rooms7og/monitor-cristal-tagungszentrum-110614-hintergrund.jpg')").css("height", "1920px").css("width", "1080px")
+		            	
+		            	
 	            		//if($.cookie('switchDirectionsToggle') == 0){
 		            		$('#header').css("color", "#fff").css("height","322px").css("width", "1080px");
 		            		$('#header').append(
@@ -39,10 +44,6 @@ jQuery(document).ready(function () {
 		            		$('#header').append(
 		            				$('<div>').css("font-size", "40px").css("padding-top", "30px").css("text-align", "center").append(data.today_en)
 		            		)	            				
-		            		$('body').css("color", "#707173")
-		            		//.css("text-shadow", "1px 1px #333333")
-		            		.css("background","url('images/templates/rooms7og/monitor-cristal-tagungszentrum-110614-hintergrund.jpg')").css("height", "1920px").css("width", "1080px")
-		            	
 		            	var maxlines = 9;
 		            	var linecounter = 0;
 		            	$.each(data.calendars, function(i, element){

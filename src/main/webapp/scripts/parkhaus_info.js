@@ -40,16 +40,12 @@ jQuery(document).ready(function () {
 			}
 			
 	function parkhaus(){
-		$('body > *').remove();
 		$.getScript('scripts/date/date-de-DE.js', function() {
 		});
 		if($.oddeven==0){
 			console.log("$.oddeven == 0")
 			$.getScript("scripts/jquery.cycle.all.js", function(data, textStatus, jqxhr) {
-				$('body').append(
-        				$('<div>').attr("id", "slideshow")
-        		);
-				$('#slideshow').empty()
+				$('body > *').remove();
 				if($.adcounter==0 || $.adcounter == undefined){
 					$('body').css("color", "#707173").css("background","url('images/Monitor-carpark-EG_theater-tarif-01.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=1;
@@ -70,9 +66,10 @@ jQuery(document).ready(function () {
         			});					
 				}
 				else if($.adcounter==2){
-					$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 					
 					$.getJSON('/json/lunch.html',function(data){
+						$('body > *').remove();
+						$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
 						$('body').css("font-family","arial,sans-serif")
 						.append($('<div>').css("width","700px").css("position", "absolute").css("top", "600px").css("left", "180px").css("text-align","center").css("font-weight","bold")
 								.append(
@@ -97,10 +94,12 @@ jQuery(document).ready(function () {
         			}
 				}
 				else if($.adcounter==3){
+					$('body > *').remove();
         			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-dt-01.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=4;
 				}
 				else if($.adcounter==4){
+					$('body > *').remove();
         			$('body').css("color", "#707173").css("background","url('images/umzuege/Lobby-Monitor-Cristal_Wiesn-Umzuege2015-engl-01.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=0;
 				}				
