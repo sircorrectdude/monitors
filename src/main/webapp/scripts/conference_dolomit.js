@@ -118,15 +118,9 @@ jQuery(document).ready(function () {
 			    	            			var now = Date.today().set({month: 9, day: 6, hour: 06, minute: 01})
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
-			    	            			
-			    	            			/*if(new Date().between(Date.today().set({year: 2015, month: 9, day: 24, hour: 14, minute: 00}), Date.today().set({year: 2015, month: 9, day: 25, hour: 14, minute: 00}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/display-dolomit-quer-zeitumstellung-winter2015.jpg", "width":"1920", "height":"1080"})	)
-
-			    	            			}	    	            			
-			    	            			*/
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-dolomit-dt.jpg", "width":"1920", "height":"1080"})	)
 											$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-dolomit-dt.jpg", "width":"1920", "height":"1080"})	)
-			    	            			
+
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
 			    	            				timeout: 500,
