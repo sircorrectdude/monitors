@@ -125,7 +125,7 @@ jQuery(document).ready(function () {
 			    	            			}	    	            			
 			    	            			*/
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-dolomit-dt.jpg", "width":"1920", "height":"1080"})	)
-											$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-dolomit-engl.jpg", "width":"1920", "height":"1080"})	)
+											$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-dolomit-dt.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
