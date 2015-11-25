@@ -57,11 +57,7 @@ jQuery(document).ready(function () {
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
         					$.adcounter=2;
         				}else{
-	            			if(new Date().between(Date.today().set({year: 2015, month: 8, day: 1, hour: 20, minute: 00}), Date.today().set({year: 2015, month: 8, day: 20, hour: 18, minute: 00}))){
-	            				$.adcounter=3;
-	            			}else{
-	            				$.adcounter=0;
-	            			}
+	            			$.adcounter=3;
         				}
         			});					
 				}
@@ -97,8 +93,13 @@ jQuery(document).ready(function () {
 				else if($.adcounter==4){
 					$('body > *').remove();
         			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2015/screen-weihnachtszauber2015-hoch-engl.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=5;
+				}
+				else if($.adcounter==5){
+					$('body > *').remove();
+        			$('body').css("color", "#707173").css("background","url('images/screen-weihnachtszauber-lobbycristal-hoch-01.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=0;
-				}				
+				}								
 				/*$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,

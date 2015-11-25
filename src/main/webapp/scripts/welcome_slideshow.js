@@ -13,6 +13,7 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-quer-rezepetioncristal-dt.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-quer-rezepetioncristal-engl.jpg", "width":"1920", "height":"925"}))
+	.append($("<img />",  {"src": "images/screen-silvestermenue-2015-quer.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/Monitor-quer-Werbung-MuenchnerStubn.jpg", "width":"1920", "height":"925"}));
 	if(new Date().between(Date.today().set({year: 2015, month: 9, day: 24, hour: 14, minute: 00}), Date.today().set({year: 2015, month: 9, day: 25, hour: 14, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/display-cristal-quer-zeitumstellung-winter2015.jpg", "width":"1920", "height":"925"})	)

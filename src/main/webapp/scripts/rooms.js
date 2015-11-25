@@ -75,8 +75,12 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2015/screen-weihnachtszauber2015-hoch-engl.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 6);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 6){
+			            			$('body').css("color", "#707173").css("background","url('images/screen-weihnachtszauber-lobbycristal-hoch-01.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
-			            		}			            					            					            		
+			            		}			            					            					            					            		
 		            		});
 		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
