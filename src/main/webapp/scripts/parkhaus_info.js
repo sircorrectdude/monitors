@@ -97,11 +97,6 @@ jQuery(document).ready(function () {
 				}
 				else if($.adcounter==5){
 					$('body > *').remove();
-        			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2015/screen-weihnachtszauber2015-hoch-engl.jpg')").css("height", "1920px").css("width", "1080px");
-					$.adcounter=6;
-				}				
-				else if($.adcounter==6){
-					$('body > *').remove();
         			$('body').css("color", "#707173").css("background","url('images/mittagssause/screen-mittagssause-101215-hoch.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=0;
 				}								

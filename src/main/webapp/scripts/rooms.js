@@ -79,12 +79,8 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 6){
 			            			$('body').css("color", "#707173").css("background","url('images/mittagssause/screen-mittagssause-101215-hoch.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 7);
-			            		}			            		
-			            		else if($.cookie('switchAdToggle') == 7){
-			            			$('body').css("color", "#707173").css("background","url('images/screen-weihnachtszauber-lobbycristal-hoch-01.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
-			            		}			            					            					            					            		
+			            		}			            		
 		            		});
 		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
