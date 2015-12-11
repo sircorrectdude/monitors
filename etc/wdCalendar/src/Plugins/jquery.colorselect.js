@@ -70,7 +70,10 @@
         }
         else if(options.index==11){
         	leftdiv.text("SAPHIR");
-        }        
+        }
+        else if(options.index==12){
+        	leftdiv.text("EISSTOCKEVENT");
+        }                
         else{
         	leftdiv.text("NICHT ZUGEWIESEN");
         }        
@@ -136,7 +139,10 @@
             }
             else if(i==11){
             	atemp.push("SAPHIR");
-            }	    		
+            }
+            else if(i==12){
+            	atemp.push("EISSTOCKEVENT");
+            }            	    		
     		else{
 				atemp.push("NICHT ZUGEWIESEN");		
 			}            
@@ -207,7 +213,10 @@
             }
             else if(key==11){
             	leftdiv.text("SAPHIR");
-            }            
+            }
+            else if(key==12){
+            	leftdiv.text("EISSTOCKEVENT");
+            }                        
             else{
             	leftdiv.text("NICHT ZUGEWIESEN");
             }
