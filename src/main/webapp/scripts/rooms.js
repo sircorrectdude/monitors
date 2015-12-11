@@ -145,7 +145,7 @@ jQuery(document).ready(function () {
 									$('<tr>').css("height", "125px").attr("height", "125px").attr("max-height", "125px")
 										.append(
 											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "210px").append(
-													element.roomName
+													getRoomName(element.roomName)
 											)	
 										)
 										.append(
@@ -171,7 +171,7 @@ jQuery(document).ready(function () {
 										)
 										.append(
 											$('<td>').css("width", "170px").attr("class", getRoomLocationCssName(element.roomLocation)).append(
-													text
+													getRoomLocationName(text)
 											)	
 										)								
 								);
@@ -210,12 +210,22 @@ jQuery(document).ready(function () {
 	
 	function getRoomLocationCssName(str){
 		if(str == "7. OG") return "og7";
+		if(str == "PARKDECK 6. OG") return "pd_og6";
 		if(str == "1. OG") return "og1";
 		if(str == "DOLOMIT") return "dolomit";
 		if(str == "UG") return "ug";
 		return "";
 	}
+
+	function getRoomName(str){
+		if(str == "EISSTOCKEVENT") return "EISSTOCK<br/>EVENT";
+		return str;
+	}	
 	
+	function getRoomLocationName(str){
+		if(str == "PARKDECK 6. OG") return "PARKDECK<br/>6. OG";
+		return str;
+	}	
 	
 	function weather(){
 	    $.getJSON(
