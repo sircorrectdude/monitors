@@ -10,6 +10,16 @@ jQuery(document).ready(function () {
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-03.jpg')").css("height", "900px").css("width", "1600")
 			}else{
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
+				// append footer overlay
+				$('body').append(
+		    			$('<div>')
+	        				.css("bottom", "0")
+	        				.css("position", "absolute")
+	        				.css("height", "184px")
+	        				.css("width", "1366px")
+		    				.css("background-image", "url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-logoleiste-weiss.jpg')")
+		    				.css("background-repeat", "no-repeat")
+		    	);			
 			}
 			if($.roomName != 'RESTAURANT'){
 			$('body').append(
@@ -28,6 +38,16 @@ jQuery(document).ready(function () {
 			$.switchToggle =0;
 		}else{
 			$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitor-we-tagungsraeume-"+$.roomName+"-frei.jpg')").css("height", "768px").css("width", "1366px")
+			// append footer overlay
+			$('body').append(
+	    			$('<div>')
+        				.css("bottom", "0")
+        				.css("position", "absolute")
+        				.css("height", "184px")
+        				.css("width", "1366px")
+	    				.css("background-image", "url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-logoleiste-grau.jpg')")
+	    				.css("background-repeat", "no-repeat")
+	    	);	
     		if($.roomName == 'RESTAURANT' && (new Date().between(Date.today().set({hour: 06, minute: 00}), Date.today().set({hour: 10, minute: 00})))){
     			$.switchToggle =0;
     		}else{
@@ -55,7 +75,7 @@ jQuery(document).ready(function () {
 		        			if($.roomName == 'SAPHIR' || $.roomName == 'RUBIN I' || $.roomName == 'RUBIN II'){
 		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/Hintergrund-monitore-raeume-dolomit-belegt-1440x900px.jpg')").css("height", "768px").css("width", "1366px")
 		        			}else{
-		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/single_room_hd_ready_neu.jpg')").css("height", "768px").css("width", "1366px")
+		        				$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-belegt-Neu.jpg')").css("height", "768px").css("width", "1366px")
 		        			}
 	        				$('body').append(
 		            			$('<div>')

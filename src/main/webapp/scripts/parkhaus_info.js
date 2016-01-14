@@ -51,7 +51,7 @@ jQuery(document).ready(function () {
 					$.adcounter=1;
 				}
 				else if($.adcounter==1){
-					$('body').css("color", "#707173").css("background","url('images/Monitor-hoch_WerbungMuenchnerStubn.jpg')").css("height", "1920px").css("width", "1080px");
+					$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
         			$.getScript('scripts/date/date-de-DE.js', function() {
         				if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
