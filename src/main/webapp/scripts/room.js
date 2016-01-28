@@ -15,7 +15,7 @@ jQuery(document).ready(function () {
 		    			$('<div>')
 	        				.css("bottom", "0")
 	        				.css("position", "absolute")
-	        				.css("height", "184px")
+	        				.css("height", "174px")
 	        				.css("width", "1366px")
 		    				.css("background-image", "url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-logoleiste-weiss.jpg')")
 		    				.css("background-repeat", "no-repeat")
@@ -43,10 +43,11 @@ jQuery(document).ready(function () {
 	    			$('<div>')
         				.css("bottom", "0")
         				.css("position", "absolute")
-        				.css("height", "184px")
+        				.css("height", "154px")
         				.css("width", "1366px")
 	    				.css("background-image", "url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-logoleiste-grau.jpg')")
 	    				.css("background-repeat", "no-repeat")
+	    				.css("background-position", "0px -20px")
 	    	);	
     		if($.roomName == 'RESTAURANT' && (new Date().between(Date.today().set({hour: 06, minute: 00}), Date.today().set({hour: 10, minute: 00})))){
     			$.switchToggle =0;
