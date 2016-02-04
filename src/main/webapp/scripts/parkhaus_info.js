@@ -93,8 +93,19 @@ jQuery(document).ready(function () {
 				else if($.adcounter==4){
 					$('body > *').remove();
         			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2015/screen-weihnachtszauber2015-hoch-engl.jpg')").css("height", "1920px").css("width", "1080px");
-					$.adcounter=0;
+        			$.getScript('scripts/date/date-de-DE.js', function() {
+        				if(new Date().between(Date.today().set({year: 2016, month: 1, day: 1, hour: 14, minute: 00}), Date.today().set({year: 2016, month: 1, day: 15, hour: 11, minute: 00}))){
+        					$.adcounter=5;
+        				}else{
+	            			$.adcounter=0;
+        				}
+        			});	
 				}
+				else if($.adcounter==5){
+					$('body > *').remove();
+        			$('body').css("color", "#707173").css("background","url('images/valentin/16/monitor-cristal-lobby_valentinstag-2016-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=0;
+				}				
 				/*$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,

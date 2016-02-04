@@ -20,13 +20,10 @@ jQuery(document).ready(function () {
 	            		
 	            		
 	            			
-		            		/*var easterAdEndTime = {month: 8, day: 22, hour: 13, minute: 00};
-		            		var easterAdEnd = Date.today().set(easterAdEndTime);
-
-		            		var welcomewiesnAdEndTime = {month: 9, day: 06, hour: 22, minute: 00};
-		            		var welcomewiesnAdEnd = Date.today().set(welcomewiesnAdEndTime);
-		            		*/
 		            		$.getScript('scripts/date/date-de-DE.js', function() {
+		            		var adEndTime = {year: 2016, month: 1, day: 15, hour: 11, minute: 00};
+		            		var adEnd = Date.today().set(adEndTime);
+		            		
 		            			var now = new Date();
 		            			//console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
@@ -75,8 +72,18 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2015/screen-weihnachtszauber2015-hoch-engl.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 0);
+			            			$.getScript('scripts/date/date-de-DE.js', function() {
+				            			if(new Date().compareTo(adEnd) ==-1 ){// lesser
+				            				$.cookie('switchAdToggle', 6);
+				            			}else{
+				            				$.cookie('switchAdToggle', 0);
+				            			}
+			            			})
 			            		}
+			            		else if($.cookie('switchAdToggle') == 6){
+			            			$('body').css("color", "#707173").css("background","url('images/valentin/16/monitor-cristal-lobby_valentinstag-2016-01.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 0);
+			            		}			            		
 		            		});
 		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser

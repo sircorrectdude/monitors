@@ -14,9 +14,8 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-quer-rezepetioncristal-dt.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/huettenzauber/2015/screen-winterzauber-2015-quer-rezepetioncristal-engl.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}));
-	if(new Date().between(Date.today().set({year: 2015, month: 9, day: 24, hour: 14, minute: 00}), Date.today().set({year: 2015, month: 9, day: 25, hour: 14, minute: 00}))){
-		$('#slideshow').append($("<img />",  {"src": "images/display-cristal-quer-zeitumstellung-winter2015.jpg", "width":"1920", "height":"925"})	)
-
+	if(new Date().between(Date.today().set({year: 2016, month: 1, day: 1, hour: 14, minute: 00}), Date.today().set({year: 2016, month: 1, day: 15, hour: 11, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/valentin/16/screen-valentinstag-2016-925px.png", "width":"1920", "height":"925"})	)
 	}
 
 	
