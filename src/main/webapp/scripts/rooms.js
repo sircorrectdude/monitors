@@ -64,26 +64,8 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 3){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 4);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 4){
-			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2015/screen-weihnachtszauber2015-hoch-dt.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 5);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 5){
-			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2015/screen-weihnachtszauber2015-hoch-engl.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.getScript('scripts/date/date-de-DE.js', function() {
-				            			if(new Date().compareTo(adEnd) ==-1 ){// lesser
-				            				$.cookie('switchAdToggle', 6);
-				            			}else{
-				            				$.cookie('switchAdToggle', 0);
-				            			}
-			            			})
-			            		}
-			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/valentin/16/monitor-cristal-lobby_valentinstag-2016-01.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
-			            		}			            		
+			            		}
 		            		});
 		            		/*
 		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
