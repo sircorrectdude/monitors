@@ -64,6 +64,14 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 3){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
+		            				if(new Date().between(Date.today().set({year: 2016, month: 2, day: 26, hour: 12, minute: 00}), Date.today().set({year: 2016, month: 2, day: 27, hour: 14, minute: 00}))){
+		            					$.cookie('switchAdToggle', 4);
+		            				}else{
+		            					$.cookie('switchAdToggle', 0);
+		            				}
+			            		}
+			            		else if($.cookie('switchAdToggle') == 4){
+			            			$('body').css("color", "#707173").css("background","url('images/zu/16/Monitor-Lobby_Cristal-Zeitumstellung-2016.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 			            		}
 		            		});
