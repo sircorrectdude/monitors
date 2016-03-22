@@ -12,8 +12,8 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"}))	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}));
-	if(new Date().between(Date.today().set({year: 2016, month: 1, day: 1, hour: 14, minute: 00}), Date.today().set({year: 2016, month: 1, day: 15, hour: 11, minute: 00}))){
-		$('#slideshow').append($("<img />",  {"src": "images/valentin/16/screen-valentinstag-2016-925px.png", "width":"1920", "height":"925"})	)
+	if(new Date().between(Date.today().set({year: 2016, month: 2, day: 26, hour: 12, minute: 00}), Date.today().set({year: 2016, month: 2, day: 27, hour: 14, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/zeit/2016/display-cristal-quer-zeitumstellung-2016.jpg", "width":"1920", "height":"925"})	)
 	}
 
 	
