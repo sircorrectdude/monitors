@@ -121,7 +121,7 @@ jQuery(document).ready(function () {
 											if(new Date().between(Date.today().set({year: 2016, month: 2, day: 26, hour: 12, minute: 00}), Date.today().set({year: 2016, month: 2, day: 27, hour: 14, minute: 00}))){
 												$('#slideshow').append($("<img />",  {"src": "images/zu/16/display-dolomit-quer-zeitumstellung-2016.jpg", "width":"1920", "height":"1080"})	)
 											}			    	            			
-			    	            			
+			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/display-dolomit-quer-theaterpackage2016.jpg", "width":"1920", "height":"1080"})	)
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
 			    	            				timeout: 500,

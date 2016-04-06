@@ -57,7 +57,7 @@ jQuery(document).ready(function () {
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
         					$.adcounter=2;
         				}else{
-	            			$.adcounter=0;
+	            			$.adcounter=3;
         				}
         			});					
 				}
@@ -83,7 +83,11 @@ jQuery(document).ready(function () {
 								)
 						);
 					});
-        			$.adcounter=0;
+        			$.adcounter=3;
+				}
+				else if($.adcounter==3){
+						$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
+						$.adcounter=0;
 				}
 				/*$('#slideshow').cycle({
         			fx:     'none',
