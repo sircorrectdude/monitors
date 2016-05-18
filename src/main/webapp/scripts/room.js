@@ -9,7 +9,13 @@ jQuery(document).ready(function () {
 			}else if($.roomName == 'RESTAURANT'){
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-03.jpg')").css("height", "900px").css("width", "1600")
 			}else{
-				$('body').css("color", "#838486").css("background","url('images/design_2016/Tagungs-Monitor-WerbungMuenchnerStubn-01.jpg')").css("height", "768px").css("width", "1366px")
+				if ($.adSwitchToggle ==0) {
+					$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
+					$.adSwitchToggle =1;				
+				}else{
+					$('body').css("color", "#838486").css("background","url('images/design_2016/Tagungs-Monitor-WerbungMuenchnerStubn-01.jpg')").css("height", "768px").css("width", "1366px")
+					$.adSwitchToggle =0;
+				}				
 				// append footer overlay
 				$('body').append(
 		    			$('<div>')
