@@ -9,7 +9,13 @@ jQuery(document).ready(function () {
 			}else if($.roomName == 'RESTAURANT'){
 				$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-03.jpg')").css("height", "900px").css("width", "1600")
 			}else{
-				$('body').css("color", "#838486").css("background","url('images/design_2016/Tagungs-Monitor-WerbungMuenchnerStubn-01.jpg')").css("height", "768px").css("width", "1366px")
+				if ($.adSwitchToggle ==0) {
+					$('body').css("color", "#838486").css("background","url('images/templates/rooms/Monitor-Werbung1912-01.jpg')").css("height", "768px").css("width", "1366px")
+					$.adSwitchToggle =1;				
+				}else{
+					$('body').css("color", "#838486").css("background","url('images/design_2016/Tagungs-Monitor-WerbungMuenchnerStubn-01.jpg')").css("height", "768px").css("width", "1366px")
+					$.adSwitchToggle =0;
+				}				
 				// append footer overlay
 				$('body').append(
 		    			$('<div>')
@@ -19,7 +25,7 @@ jQuery(document).ready(function () {
 	        				.css("width", "1366px")
 		    				.css("background-image", "url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-logoleiste-weiss.jpg')")
 		    				.css("background-repeat", "no-repeat")
-		    	);			
+		    	);		
 			}
 			if($.roomName != 'RESTAURANT'){
 			$('body').append(
@@ -38,17 +44,20 @@ jQuery(document).ready(function () {
 			$.switchToggle =0;
 		}else{
 			$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitor-we-tagungsraeume-"+$.roomName+"-frei.jpg')").css("height", "768px").css("width", "1366px")
+			
 			// append footer overlay
-			$('body').append(
-	    			$('<div>')
-        				.css("bottom", "0")
-        				.css("position", "absolute")
-        				.css("height", "154px")
-        				.css("width", "1366px")
-	    				.css("background-image", "url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-logoleiste-grau.jpg')")
-	    				.css("background-repeat", "no-repeat")
-	    				.css("background-position", "0px -20px")
-	    	);	
+			if($.roomName != 'SAPHIR' && $.roomName != 'RUBIN I' && $.roomName == 'RUBIN II'){
+				$('body').append(
+		    			$('<div>')
+	        				.css("bottom", "0")
+	        				.css("position", "absolute")
+	        				.css("height", "154px")
+	        				.css("width", "1366px")
+		    				.css("background-image", "url('images/templates/rooms/Monitor-Konferenzraeume-Cristal-logoleiste-grau.jpg')")
+		    				.css("background-repeat", "no-repeat")
+		    				.css("background-position", "0px -20px")
+		    	);
+	    	}
     		if($.roomName == 'RESTAURANT' && (new Date().between(Date.today().set({hour: 06, minute: 00}), Date.today().set({hour: 10, minute: 00})))){
     			$.switchToggle =0;
     		}else{
