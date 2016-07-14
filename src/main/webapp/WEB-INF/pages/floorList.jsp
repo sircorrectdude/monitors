@@ -9,6 +9,9 @@
 <script type="text/javascript" src="scripts/jquery.form.js"></script>
 </head>
 
+<s:url action="carparkHistory" id="carparkHistoryUrl" />
+<s:a title="View History"  href="%{carparkHistoryUrl}">View History</s:a><br/>
+
 
 <div id="updateCarparkFormContent">
 	 <%@ include file="updateCarparkForm.jsp" %>
