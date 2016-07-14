@@ -174,6 +174,10 @@
 		<action name="floors" class="floorAction" method="list">
             <result name="success">/WEB-INF/pages/floorList.jsp</result>
         </action>
+
+		<action name="carparkHistory" class="carparkHistoryAction">
+            <result name="success">/WEB-INF/pages/carparkhistory.jsp</result>
+        </action>
  
         <!-- Add additional actions here -->
 

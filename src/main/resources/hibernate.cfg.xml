@@ -14,5 +14,6 @@
 		<mapping class="com.evodat.model.Room"/>
 		<mapping class="com.evodat.model.Carpark"/>
 		<mapping class="com.evodat.model.Floor"/>
+		<mapping class="com.evodat.model.CarparkHistory"/>
     </session-factory>
 </hibernate-configuration>

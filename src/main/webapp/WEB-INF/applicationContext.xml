@@ -22,6 +22,7 @@
 
 	<bean id="getFreeCarparkPlaces" class="com.evodat.util.GetFreeCarparkPlacesCron">
 		<property name="carparkManager" ref="carparkManager"/>
+		<property name="carparkHistoryManager" ref="carparkHistoryManager"/>
 	</bean>
 	
     <!-- Add new DAOs here -->

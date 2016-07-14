@@ -20,6 +20,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import com.evodat.Constants;
 import com.evodat.model.User;
 import com.evodat.service.CarparkManager;
+import com.evodat.service.CarparkHistoryManager;
 import com.evodat.service.CourseManager;
 import com.evodat.service.FloorManager;
 import com.evodat.service.JCalendarManager;
@@ -92,6 +93,10 @@ public class BaseAction extends ActionSupport {
 	 * The CarparkManager
 	 */
 	protected CarparkManager carparkManager;
+	
+	
+	protected CarparkHistoryManager carparkHistoryManager;
+	
 
 	/**
 	 * The FloorManager
@@ -307,6 +312,10 @@ public class BaseAction extends ActionSupport {
 
 	public void setFloorManager(FloorManager floorManager) {
 		this.floorManager = floorManager;
+	}
+
+	public void setCarparkHistoryManager(CarparkHistoryManager carparkHistoryManager) {
+		this.carparkHistoryManager = carparkHistoryManager;
 	}
 
 }

@@ -69,6 +69,10 @@
     	<property name="carparkManager" ref="carparkManager"/>
     </bean>
 
+    <bean id="carparkHistoryAction" class="com.evodat.webapp.action.CarparkHistoryAction" scope="prototype">
+    	<property name="carparkHistoryManager" ref="carparkHistoryManager"/>
+    </bean>
+
     <bean id="lunchAction" class="com.evodat.webapp.action.LunchAction" scope="prototype">
     </bean>
 	

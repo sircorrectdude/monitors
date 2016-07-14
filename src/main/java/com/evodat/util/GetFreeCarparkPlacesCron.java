@@ -3,6 +3,7 @@ package com.evodat.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
@@ -15,7 +16,9 @@ import org.apache.log4j.Logger;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import com.evodat.model.Carpark;
+import com.evodat.model.CarparkHistory;
 import com.evodat.model.Floor;
+import com.evodat.service.CarparkHistoryManager;
 import com.evodat.service.CarparkManager;
 
 public class GetFreeCarparkPlacesCron {
@@ -25,6 +28,8 @@ public class GetFreeCarparkPlacesCron {
 	private static String serviceUrl = "http://144.76.153.113:8080/monitors-adac-service/adac";
 
 	protected CarparkManager carparkManager;
+	
+	protected CarparkHistoryManager carparkHistoryManager;
 
 	// @Scheduled(cron = "0 */05 * * * ?")
 	@Scheduled(fixedRate = 120000)
@@ -42,6 +47,12 @@ public class GetFreeCarparkPlacesCron {
 			IOUtils.copy(content, writer, "utf-8");
 			String resp = writer.toString();
 			int placesLeft = Integer.valueOf(resp);
+			
+			CarparkHistory carparkHistory = new CarparkHistory();
+			carparkHistory.setFreeplaces(placesLeft);
+			carparkHistory.setTimestamp(new Date());
+			carparkHistoryManager.save(carparkHistory);
+			
 			Carpark carparkCristal = carparkManager.get(Carpark.Cristal);
 			List<Floor> floors = carparkCristal.getFloors();
 			int placesTotal = 0;
@@ -66,6 +77,10 @@ public class GetFreeCarparkPlacesCron {
 
 	public void setCarparkManager(CarparkManager carparkManager) {
 		this.carparkManager = carparkManager;
+	}
+
+	public void setCarparkHistoryManager(CarparkHistoryManager carparkHistoryManager) {
+		this.carparkHistoryManager = carparkHistoryManager;
 	}
 
 }
