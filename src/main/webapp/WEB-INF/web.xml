@@ -226,6 +226,12 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <servlet>
+        <servlet-name>Signal</servlet-name>
+        <servlet-class>com.evodat.webapp.util.SignalServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
@@ -249,6 +255,11 @@
     <servlet-mapping>
         <servlet-name>Traffic</servlet-name>
         <url-pattern>/traffic/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Signal</servlet-name>
+        <url-pattern>/signal</url-pattern>
     </servlet-mapping>
 
     <session-config>
