@@ -22,7 +22,7 @@ public class SignalValue implements Runnable {
 	}
 
 	public void runTimer() {
-		while (remainTime > 0) {
+		while (remainTime > 1) {
 //			System.out.println("Remaining: " + getRemainTime() + " seconds");
 			try {
 				remainTime--;

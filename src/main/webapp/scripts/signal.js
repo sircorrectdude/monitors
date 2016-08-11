@@ -29,8 +29,8 @@ jQuery(document).ready(function () {
 	    $.getJSON(
             'signal',
             function( data ){
-            	//console.log(data)
-            	if(data !=0){
+            	console.log(data)
+            	if(data > 10){
 					$('body').css("background","url('images/signal/countdown.png')")
 					$('#defaultCountdown').show();
             		
@@ -43,16 +43,20 @@ jQuery(document).ready(function () {
 				    	compact: true,
 				    	onExpiry: liftOff});
 				  });	            	
-	            }
-            	else{
-					$('body').css("background","url('images/signal/drive.png')")
+	            }else if(data<=10 && data != 0){
+	            	$('body').css("background","url('images/signal/start.png')");
+	            	liftOff();
+	            }else{
+					$('body').css("background","url('images/signal/drive.png')");
+					liftOff();
             	}
 		});
 	            
 	}
 
 	function liftOff() {
-		$('#defaultCountdown').hide();
+		$('#defaultCountdown').countdown('destroy') ;
+		//$('#defaultCountdown').hide();
 	    //console.log('We have lift off!'); 
 	} 
 	
