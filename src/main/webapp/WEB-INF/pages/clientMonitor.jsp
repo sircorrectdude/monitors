@@ -14,7 +14,7 @@
 				html,body {
 				
 					overflow:hidden;
-					cursor: none;
+					cursor: url(images/FFFFFF-0.png), none !important;
 					background-color: ${backgroundColor}; //#b3d2de 
 					
 				}
