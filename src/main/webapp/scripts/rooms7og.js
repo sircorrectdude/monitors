@@ -9,20 +9,28 @@ jQuery(document).ready(function () {
 	            	$('#mainTable').remove();
 	            	
 	            	if(data.calendars == null || data.calendars.length === 0){
-	            			
-		            		/*var easterAdEndTime = {month: 8, day: 22, hour: 13, minute: 00};
-		            		var easterAdEnd = Date.today().set(easterAdEndTime);
-
-		            		var welcomewiesnAdEndTime = {month: 9, day: 06, hour: 22, minute: 00};
-		            		var welcomewiesnAdEnd = Date.today().set(welcomewiesnAdEndTime);
-		            		*/
+	            		$.getScript('scripts/date/date-de-DE.js', function() {
+		            		var adEndTime = {year: 2016, month: 8, day: 18, hour: 14, minute: 00};
+		            		var adEnd = Date.today().set(adEndTime);
 		            		if($.cookie('switchAdToggle') == 0){
 		            			$('body').css("color", "#707173").css("background","url('images/templates/rooms7og/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 1);
-		            		}else{
+		            		}else if($.cookie('switchAdToggle') == 1){
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
+		            			if(new Date().compareTo(adEnd) ==-1 ){
+		            				$.cookie('switchAdToggle', 2);
+		            			}else{
+		            				$.cookie('switchAdToggle', 0);
+		            			}
+		            		}else if($.cookie('switchAdToggle') == 2){
+		            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 3);
+		            		}
+		            		else if($.cookie('switchAdToggle') == 3){
+		            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 0);
 		            		}
+	            		});
 	            	}else{
 	            		
 		            	$('body').append(

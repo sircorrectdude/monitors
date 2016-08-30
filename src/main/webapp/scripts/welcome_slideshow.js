@@ -13,8 +13,10 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"}))	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}));
-	if(new Date().between(Date.today().set({year: 2016, month: 2, day: 26, hour: 12, minute: 00}), Date.today().set({year: 2016, month: 2, day: 27, hour: 14, minute: 00}))){
-		$('#slideshow').append($("<img />",  {"src": "images/zu/16/display-cristal-quer-zeitumstellung-2016.jpg", "width":"1920", "height":"925"})	)
+	if(new Date().between(Date.today().set({year: 2016, month: 7, day: 18, hour: 14, minute: 00}), Date.today().set({year: 2016, month: 8, day: 18, hour: 14, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-Wiesn-Umzuege-2016-dt.jpg", "width":"1920", "height":"925"})	)
+		$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-Wiesn-Umzuege-2016-engl.jpg", "width":"1920", "height":"925"})	)
+
 	}
 
 	

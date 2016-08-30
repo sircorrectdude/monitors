@@ -115,12 +115,12 @@ jQuery(document).ready(function () {
 			    	            		);
 			    	            		
 			    	            		$.getScript('scripts/date/date-de-DE.js', function() {
-			    	            			var now = Date.today().set({month: 9, day: 6, hour: 06, minute: 01})
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
-											if(new Date().between(Date.today().set({year: 2016, month: 2, day: 26, hour: 12, minute: 00}), Date.today().set({year: 2016, month: 2, day: 27, hour: 14, minute: 00}))){
-												$('#slideshow').append($("<img />",  {"src": "images/zu/16/display-dolomit-quer-zeitumstellung-2016.jpg", "width":"1920", "height":"1080"})	)
-											}			    	            			
+			    	            			if(new Date().between(Date.today().set({year: 2016, month: 7, day: 18, hour: 14, minute: 00}), Date.today().set({year: 2016, month: 8, day: 18, hour: 14, minute: 00}))){
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Dolomit-Rezeptions-Display-Wiesn-dt.jpg", "width":"1920", "height":"1080"})	)
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Dolomit-Rezeptions-Display-Wiesn-engl.jpg", "width":"1920", "height":"1080"})	)
+			    	            			}		    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/display-dolomit-quer-theaterpackage2016.jpg", "width":"1920", "height":"1080"})	)
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',

@@ -87,8 +87,22 @@ jQuery(document).ready(function () {
 				}
 				else if($.adcounter==3){
 						$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
-						$.adcounter=0;
+	        			$.getScript('scripts/date/date-de-DE.js', function() {
+	        				if(new Date().between(Date.today().set({year: 2016, month: 7, day: 18, hour: 14, minute: 00}), Date.today().set({year: 2016, month: 8, day: 18, hour: 14, minute: 00}))){
+	        					$.adcounter=4;
+	        				}else{
+		            			$.adcounter=0;
+	        				}
+	        			});		
 				}
+				else if($.adcounter==4){
+					$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=5;
+				}
+				else if($.adcounter==5){
+					$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
+					$.adcounter=0;
+				}				
 				/*$('#slideshow').cycle({
         			fx:     'none',
         			timeout: 1000,

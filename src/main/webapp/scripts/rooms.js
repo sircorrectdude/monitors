@@ -21,9 +21,8 @@ jQuery(document).ready(function () {
 	            		
 	            			
 		            		$.getScript('scripts/date/date-de-DE.js', function() {
-		            		var adEndTime = {year: 2016, month: 1, day: 15, hour: 11, minute: 00};
-		            		var adEnd = Date.today().set(adEndTime);
-		            		
+			            		var adEndTime = {year: 2016, month: 8, day: 18, hour: 14, minute: 00};
+			            		var adEnd = Date.today().set(adEndTime);
 		            			var now = new Date();
 		            			//console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
@@ -68,6 +67,18 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 4){
 			            			$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
+			            			if(new Date().compareTo(adEnd) ==-1 ){
+			            				$.cookie('switchAdToggle', 5);
+			            			}else{
+			            				$.cookie('switchAdToggle', 0);
+			            			}
+			            		}
+			            		else if($.cookie('switchAdToggle') == 5){
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 6);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 6){
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 			            		}			            		
 		            		});
