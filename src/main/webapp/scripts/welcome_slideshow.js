@@ -18,7 +18,10 @@ jQuery(document).ready(function () {
 		$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-Wiesn-Umzuege-2016-engl.jpg", "width":"1920", "height":"925"})	)
 
 	}
-
+	if(new Date().between(Date.today().set({year: 2016, month: 8, day: 15, hour: 08, minute: 00}), Date.today().set({year: 2016, month: 9, day: 2, hour: 23, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-oktoberfestregeln-2016-dt-925px.jpg", "width":"1920", "height":"925"})	)
+		$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-oktoberfestregeln-2016-engl.jpg", "width":"1920", "height":"925"})	)
+	}
 	
 	/*
 	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};

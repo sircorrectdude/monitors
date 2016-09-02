@@ -16,7 +16,7 @@ jQuery(document).ready(function () {
 	            	);
 	            	
 	            	if(data.calendars == null || data.calendars.length === 0){
-	            		//alert($.cookie('switchToggle'))
+	            		// alert($.cookie('switchToggle'))
 	            		
 	            		
 	            			
@@ -24,7 +24,7 @@ jQuery(document).ready(function () {
 			            		var adEndTime = {year: 2016, month: 8, day: 18, hour: 14, minute: 00};
 			            		var adEnd = Date.today().set(adEndTime);
 		            			var now = new Date();
-		            			//console.log($.cookie('switchAdToggle'))
+		            			// console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
 			            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
 			            				if(now.between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
@@ -63,56 +63,77 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 3){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-		            				$.cookie('switchAdToggle', 4);
+			            			if(new Date().between(Date.today().set({year: 2016, month: 8, day: 15, hour: 08, minute: 00}), Date.today().set({year: 2016, month: 9, day: 2, hour: 23, minute: 00}))){
+			            				$.cookie('switchAdToggle', 4);
+			            			}else{
+			            				$.cookie('switchAdToggle', 7);
+			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 4){
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 5);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 5){
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 6);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 6){
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 7);
+			            		}			            		
+			            		else if($.cookie('switchAdToggle') == 7){
 			            			$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
 			            			if(new Date().compareTo(adEnd) ==-1 ){
-			            				$.cookie('switchAdToggle', 5);
+			            				$.cookie('switchAdToggle', 8);
 			            			}else{
 			            				$.cookie('switchAdToggle', 0);
 			            			}
 			            		}
-			            		else if($.cookie('switchAdToggle') == 5){
+			            		else if($.cookie('switchAdToggle') == 8){
 			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 6);
 			            		}
-			            		else if($.cookie('switchAdToggle') == 6){
+			            		else if($.cookie('switchAdToggle') == 9){
 			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 			            		}			            		
 		            		});
 		            		/*
-		            		if(new Date().compareTo(easterAdEnd) ==-1 ){// lesser
-		            			if($.cookie('switchAdToggle') == 0){
-		            				$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
-		            				$.cookie('switchAdToggle', 1);
-		            			}else if($.cookie('switchAdToggle') == 1){
-		            				$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
-		            				$.cookie('switchAdToggle', 2);
-		            			
-	            			}else if($.cookie('switchAdToggle') == 2){
-	            				$('body').css("color", "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013-engl.jpg')").css("height", "1920px").css("width", "1080px");
-	            				$.cookie('switchAdToggle', 3);
-	            			}		            			
-		            			else{
-		            				$('body').css("color", "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013.jpg')").css("height", "1920px").css("width", "1080px");
-		            				$.cookie('switchAdToggle', 0);
-		            			}	            		
-		            		}else{
-			            		if($.cookie('switchAdToggle') == 0){
-			            			$('body').css("color", "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 1);
-			            		}else{
-			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 0);
-			            		}
-		            		}
-		            		*/
+							 * if(new Date().compareTo(easterAdEnd) ==-1 ){//
+							 * lesser if($.cookie('switchAdToggle') == 0){
+							 * $('body').css("color",
+							 * "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height",
+							 * "1920px").css("width", "1080px");
+							 * $.cookie('switchAdToggle', 1); }else
+							 * if($.cookie('switchAdToggle') == 1){
+							 * $('body').css("color",
+							 * "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height",
+							 * "1920px").css("width", "1080px");
+							 * $.cookie('switchAdToggle', 2);
+							 * 
+							 * }else if($.cookie('switchAdToggle') == 2){
+							 * $('body').css("color",
+							 * "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013-engl.jpg')").css("height",
+							 * "1920px").css("width", "1080px");
+							 * $.cookie('switchAdToggle', 3); } else{
+							 * $('body').css("color",
+							 * "#707173").css("background","url('images/Lobby-Monitor-Cristal_Wiesn-Umzuege-2013.jpg')").css("height",
+							 * "1920px").css("width", "1080px");
+							 * $.cookie('switchAdToggle', 0); } }else{
+							 * if($.cookie('switchAdToggle') == 0){
+							 * $('body').css("color",
+							 * "#707173").css("background","url('images/cristal_lobby_intermediate.jpg')").css("height",
+							 * "1920px").css("width", "1080px");
+							 * $.cookie('switchAdToggle', 1); }else{
+							 * $('body').css("color",
+							 * "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height",
+							 * "1920px").css("width", "1080px");
+							 * $.cookie('switchAdToggle', 0); } }
+							 */
 		            		
 	            		
 	            	}else{
-	            		//if($.cookie('switchDirectionsToggle') == 0){
+	            		// if($.cookie('switchDirectionsToggle') == 0){
 		            		$('#header').css("color", "#fff").css("height","322px").css("width", "1080px");
 		            		$('#header').append(
 		            				$('<div>').css("font-size", "45px").css("padding-top", "60px").css("text-align", "center").append(data.today)
@@ -121,25 +142,32 @@ jQuery(document).ready(function () {
 		            				$('<div>').css("font-size", "40px").css("padding-top", "30px").css("text-align", "center").append(data.today_en)
 		            		)	            				
 		            		$('body').css("color", "#707173")
-		            		//.css("text-shadow", "1px 1px #333333")
+		            		// .css("text-shadow", "1px 1px #333333")
 		            		.css("background","url('images/templates/rooms/Cristal-Monitor.jpg')").css("height", "1920px").css("width", "1080px")
 		            	
 		            	var maxlines = 15;
 		            	var linecounter = 0;
-		            	/*if ( window.console && window.console.log ) {
-		            		console.log ( "data.calendars.length: "+ data.calendars.length );
-		            	}*/
+		            	/*
+						 * if ( window.console && window.console.log ) {
+						 * console.log ( "data.calendars.length: "+
+						 * data.calendars.length ); }
+						 */
 		            	$.each(data.calendars, function(i, element){
-		            		/*if ( window.console && window.console.log ) {
-		            			console.log ( "i"+i+"maxlines "+maxlines+" linecounter "+linecounter );
-		            			console.log ( element.roomLocation+" "+element.roomName+" "+element.company );
-		            			}*/
+		            		/*
+							 * if ( window.console && window.console.log ) {
+							 * console.log ( "i"+i+"maxlines "+maxlines+"
+							 * linecounter "+linecounter ); console.log (
+							 * element.roomLocation+" "+element.roomName+"
+							 * "+element.company ); }
+							 */
 		            		if(linecounter < maxlines){
 			            		var text = element.roomLocation;
-			            		//var imageSrc = element.logo != "" ? "images/"+element.logo : "images/"+"pixel.gif";
-			            		//if(element.roomLocation === "DOLOMIT"){ 
-			            		//	return;
-			            		//}
+			            		// var imageSrc = element.logo != "" ?
+								// "images/"+element.logo :
+								// "images/"+"pixel.gif";
+			            		// if(element.roomLocation === "DOLOMIT"){
+			            		// return;
+			            		// }
 			            		$('#mainTable').css("width","1080px").css("font-size","30px").css("table-layout", "fixed").attr("border", "0").attr("cellspacing", "0").attr("cellpadding", "0")
 								.append(
 									$('<tr>').css("height", "125px").attr("height", "125px").attr("max-height", "125px")
@@ -159,8 +187,8 @@ jQuery(document).ready(function () {
 										)								
 										.append(
 											$('<td>').css("text-align","center").css("background", "none repeat scroll 0 0 transparent").css("width", "125px")
-											//.append(element.dateString)
-											//.append("<br>")
+											// .append(element.dateString)
+											// .append("<br>")
 											.append($('<div>')
 												.append(
 														element.startString
@@ -200,10 +228,12 @@ jQuery(document).ready(function () {
 		            	});
 		            	$.cookie('switchDirectionsToggle', 1);
 		            	weather();
-            		//}else{
-            		//	$('body').css("color", "#043A80").css("background","url('images/Monitor-Lobby_Wegbeschreibung-Tagungsraeume.jpg')").css("height", "1920px").css("width", "1080px");
-            		//	$.cookie('switchDirectionsToggle', 0);
-            		//}	            		
+            		// }else{
+            		// $('body').css("color",
+					// "#043A80").css("background","url('images/Monitor-Lobby_Wegbeschreibung-Tagungsraeume.jpg')").css("height",
+					// "1920px").css("width", "1080px");
+            		// $.cookie('switchDirectionsToggle', 0);
+            		// }
 	            	}
 	            });
 	}
@@ -240,14 +270,13 @@ jQuery(document).ready(function () {
 							$('<tr>').attr("id", "weatherTableLine").css("height", "125px")
 					);
 	        		$.each(data.days, function(i, element){
-						/*$.table
-						.append(
-								$('<tr>').css("background", "none repeat scroll 0 0 transparent")
-								.append(
-										$('<td>').css("background", "none repeat scroll 0 0 transparent").css('text-align','left').attr("colspan","6").append(element.name+ " "+element.dateString)
-								)
-		            	);
-		            	*/
+						/*
+						 * $.table .append( $('<tr>').css("background", "none
+						 * repeat scroll 0 0 transparent") .append( $('<td>').css("background",
+						 * "none repeat scroll 0 0
+						 * transparent").css('text-align','left').attr("colspan","6").append(element.name+ "
+						 * "+element.dateString) ) );
+						 */
 
 	        			$('#weatherTableLine').append(
 									$('<td>').css("height", "125px").css("width", "360px").css("padding-left", "60px").css("background", "none repeat scroll 0 0 transparent")
@@ -255,23 +284,28 @@ jQuery(document).ready(function () {
 										.append($('<div>').css("float", "left").append($('<img>').attr('src', "images/Wetter-Icons_181212/"+element.midayImg+".jpg")))
 										.append($('<div>').css("padding-left", "125px").append(element.miday+" °C / ").append(element.midayF+" °F "))
 										.append($('<div>').css("padding-left", "125px").append(element.midayPc+"%"))
-									/*	.append(
-												$('<td>').css("background", "none repeat scroll 0 0 transparent").append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/"+element.midayImg+".jpg"))
-										)						
-										.append(
-												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.miday+" °C / ").append(element.midayF+" °F ")
-										)
-										.append(
-												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.midayPc+"%")
-										)
-										.append(
-												$('<td>').css("background", "none repeat scroll 0 0 transparent").append($('<img>').attr("width","90").attr("height","90").attr('src', "images/icons/Windpfeil-"+element.midayWd_txt+".png"))
-										)
-										.append(
-												$('<td>').css("background", "none repeat scroll 0 0 transparent").append(element.midayWs).append(' km/h')
-										)
-										
-										*/
+									/*
+									 * .append( $('<td>').css("background",
+									 * "none repeat scroll 0 0
+									 * transparent").append($('<img>').attr("width","90").attr("height","90").attr('src',
+									 * "images/icons/"+element.midayImg+".jpg")) )
+									 * .append( $('<td>').css("background",
+									 * "none repeat scroll 0 0
+									 * transparent").append(element.miday+" °C /
+									 * ").append(element.midayF+" °F ") )
+									 * .append( $('<td>').css("background",
+									 * "none repeat scroll 0 0
+									 * transparent").append(element.midayPc+"%") )
+									 * .append( $('<td>').css("background",
+									 * "none repeat scroll 0 0
+									 * transparent").append($('<img>').attr("width","90").attr("height","90").attr('src',
+									 * "images/icons/Windpfeil-"+element.midayWd_txt+".png")) )
+									 * .append( $('<td>').css("background",
+									 * "none repeat scroll 0 0
+									 * transparent").append(element.midayWs).append('
+									 * km/h') )
+									 * 
+									 */
 			            	);
 	        		});
 					
