@@ -70,15 +70,15 @@ jQuery(document).ready(function () {
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 4){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt-NEU.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 5);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 5){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-engl-NEU.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 6);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt-NEU.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 7);
 			            		}			            		
 			            		else if($.cookie('switchAdToggle') == 7){

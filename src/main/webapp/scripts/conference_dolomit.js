@@ -122,8 +122,8 @@ jQuery(document).ready(function () {
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Dolomit-Rezeptions-Display-Wiesn-engl.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}
 					            			if(new Date().between(Date.today().set({year: 2016, month: 8, day: 15, hour: 08, minute: 00}), Date.today().set({year: 2016, month: 9, day: 2, hour: 23, minute: 00}))){
-					            				$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-oktoberfestregeln-2016-dt.jpg", "width":"1920", "height":"1080"})	)
-					            				$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-oktoberfestregeln-2016-engl.jpg", "width":"1920", "height":"1080"})	)
+					            				$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-oktoberfestregeln-2016-Dt-NEU.jpg", "width":"1920", "height":"1080"})	)
+					            				$('#slideshow').append($("<img />",  {"src": "images/templates/wiesn2016/Cristal-Rezeptions-Display-60Zoll-oktoberfestregeln-2016-Engl-NEU.jpg", "width":"1920", "height":"1080"})	)
 					            			}
 			    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/display-dolomit-quer-theaterpackage2016.jpg", "width":"1920", "height":"1080"})	)
