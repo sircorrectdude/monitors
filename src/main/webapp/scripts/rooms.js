@@ -264,7 +264,7 @@ jQuery(document).ready(function () {
 	            {
 	
 	        		$('body').append(
-		        				$('<table>').attr("id", "weatherTable").css("position", "absolute").css("top", "1560px").css("width", "1020px").css("font", "bold 22px Helvetica,sans-serif")
+		        				$('<table>').css("background", "none repeat scroll 0 0 #A6F1F7").attr("id", "weatherTable").css("position", "absolute").css("top", "1580px").css("width", "1020px").css("font", "bold 22px Helvetica,sans-serif")
 	        		);
 	        		$('#weatherTable').append(
 							$('<tr>').attr("id", "weatherTableLine").css("height", "125px")
