@@ -21,8 +21,6 @@ jQuery(document).ready(function () {
 	            		
 	            			
 		            		$.getScript('scripts/date/date-de-DE.js', function() {
-			            		var adEndTime = {year: 2016, month: 8, day: 18, hour: 14, minute: 00};
-			            		var adEnd = Date.today().set(adEndTime);
 		            			var now = new Date();
 		            			// console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
@@ -63,40 +61,20 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 3){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2016, month: 8, day: 15, hour: 08, minute: 00}), Date.today().set({year: 2016, month: 9, day: 2, hour: 23, minute: 00}))){
+			            			if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 9, day: 30, hour: 18, minute: 00}))){
 			            				$.cookie('switchAdToggle', 4);
 			            			}else{
-			            				$.cookie('switchAdToggle', 7);
+			            				$.cookie('switchAdToggle', 5);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 4){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt-NEU.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/templates/zeit/Monitor-Lobby_Cristal-Zeitumstellung-winter-2016.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 5);
-			            		}
+			            		}		            		
 			            		else if($.cookie('switchAdToggle') == 5){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-engl-NEU.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 6);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_oktoberfestregeln-2016-dt-NEU.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 7);
-			            		}			            		
-			            		else if($.cookie('switchAdToggle') == 7){
 			            			$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().compareTo(adEnd) ==-1 ){
-			            				$.cookie('switchAdToggle', 8);
-			            			}else{
-			            				$.cookie('switchAdToggle', 0);
-			            			}
-			            		}
-			            		else if($.cookie('switchAdToggle') == 8){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 6);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 9){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
-			            		}			            		
+			            		}
 		            		});
 		            		/*
 							 * if(new Date().compareTo(easterAdEnd) ==-1 ){//
