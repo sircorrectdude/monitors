@@ -122,11 +122,21 @@ jQuery(document).ready(function () {
 					            			}
 			    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/display-dolomit-quer-theaterpackage2016.jpg", "width":"1920", "height":"1080"})	)
-			    	            			$('#slideshow').cycle({
-			    	            				fx:     'fade',
-			    	            				timeout: 500,
-			    	            				speed:   1500
-			    	            			});
+			    	            			
+		    	            				menufilename = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+".jpg";
+										    $.ajax({
+										        url:menufilename,
+										        type:'HEAD',
+										        success:  function() { 
+										        	$('#slideshow').append($("<img />",  {"src": menufilename, "width":"1920", "height":"1080"})	)
+										        }
+										    }).complete(function() {
+				    	            			$('#slideshow').cycle({
+				    	            				fx:     'fade',
+				    	            				timeout: 500,
+				    	            				speed:   1500
+				    	            			});
+										    });
 			    	            		});
 		        	            	
 	        	            	}

@@ -16,6 +16,22 @@ jQuery(document).ready(function () {
 	if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 9, day: 30, hour: 18, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/templates/zeit/display-cristal-quer-zeitumstellung-winter2016.jpg", "width":"1920", "height":"925"})	)
 	}
+
+	menufilename = "images/templates/1912_monatskarte/1920x925-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+".jpg";
+    $.ajax({
+        url:menufilename,
+        type:'HEAD',
+        success:  function() { 
+        	$('#slideshow').append($("<img />",  {"src": menufilename, "width":"1920", "height":"925"})	)
+        }
+    }).complete(function() {
+    	$('#slideshow').cycle({
+    	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
+    	    timeout: 10000,
+    	    speed:   2000
+    	});
+    });
+	
 	
 	/*
 	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};
@@ -25,12 +41,6 @@ jQuery(document).ready(function () {
 		$('#easterAd').remove();
 	}
 	*/
-	
-	$('#slideshow').cycle({
-	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
-	    timeout: 10000,
-	    speed:   2000
-	});
 	
     $("<div/>", {"id": "fb_counter"}).prependTo('#main').css('position','absolute').css('top','619px').css('left','903px').show();
 	//$("#fb_counter").css("padding", "250px 0px 0px 1050px")

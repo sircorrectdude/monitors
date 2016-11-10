@@ -22,6 +22,7 @@ jQuery(document).ready(function () {
 	            			
 		            		$.getScript('scripts/date/date-de-DE.js', function() {
 		            			var now = new Date();
+		            			menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+".jpg";
 		            			// console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
 			            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
@@ -73,8 +74,24 @@ jQuery(document).ready(function () {
 			            		}		            		
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 0);
+			            			
+			            		    $.ajax({
+			            		        url:menufilename,
+			            		        type:'HEAD',
+			            		        success:  function() { 
+			            		        	$.cookie('switchAdToggle', 6);
+			            		        },
+				            		    statusCode: {
+				            		        404: function() {
+				            		        	$.cookie('switchAdToggle', 0);
+				            		        }
+				            		    }
+			            		    })
 			            		}
+			            		else if($.cookie('switchAdToggle') == 6){
+			            			$('body').css("color", "#707173").css("background","url('"+menufilename+"')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 0);
+			            		}			            		
 		            		});
 		            		/*
 							 * if(new Date().compareTo(easterAdEnd) ==-1 ){//

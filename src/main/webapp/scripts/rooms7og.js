@@ -10,6 +10,7 @@ jQuery(document).ready(function () {
 	            	
 	            	if(data.calendars == null || data.calendars.length === 0){
 	            		$.getScript('scripts/date/date-de-DE.js', function() {
+	            			menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+".jpg";
 		            		var adEndTime = {year: 2016, month: 8, day: 18, hour: 14, minute: 00};
 		            		var adEnd = Date.today().set(adEndTime);
 		            		if($.cookie('switchAdToggle') == 0){
@@ -17,18 +18,21 @@ jQuery(document).ready(function () {
 		            			$.cookie('switchAdToggle', 1);
 		            		}else if($.cookie('switchAdToggle') == 1){
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
-		            			if(new Date().compareTo(adEnd) ==-1 ){
-		            				$.cookie('switchAdToggle', 2);
-		            			}else{
-		            				$.cookie('switchAdToggle', 0);
-		            			}
+		            		    $.ajax({
+		            		        url:menufilename,
+		            		        type:'HEAD',
+		            		        success:  function() { 
+		            		        	$.cookie('switchAdToggle', 2);
+		            		        },
+			            		    statusCode: {
+			            		        404: function() {
+			            		        	$.cookie('switchAdToggle', 0);
+			            		        }
+			            		    }
+		            		    })
 		            		}else if($.cookie('switchAdToggle') == 2){
-		            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-dt.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$('body').css("color", "#707173").css("background","url('"+menufilename+"')").css("height", "1920px").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 3);
-		            		}
-		            		else if($.cookie('switchAdToggle') == 3){
-		            			$('body').css("color", "#707173").css("background","url('images/templates/wiesn2016/Lobby-Monitor-Cristal_Wiesn-Umzuege2016-engl.jpg')").css("height", "1920px").css("width", "1080px");
-		            			$.cookie('switchAdToggle', 0);
 		            		}
 	            		});
 	            	}else{
