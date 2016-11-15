@@ -16,7 +16,10 @@ jQuery(document).ready(function () {
 	if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 9, day: 30, hour: 18, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/templates/zeit/display-cristal-quer-zeitumstellung-winter2016.jpg", "width":"1920", "height":"925"})	)
 	}
-
+	if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 2, day: 31, hour: 23, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2016/1920x925-weihnachtszauber2016-de.jpg", "width":"1920", "height":"925"}));
+		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2016/1920x925-weihnachtszauber2016-engl.jpg", "width":"1920", "height":"925"}));
+	}
 	menufilename = "images/templates/1912_monatskarte/1920x925-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+".jpg";
     $.ajax({
         url:menufilename,
