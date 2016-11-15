@@ -16,22 +16,34 @@ jQuery(document).ready(function () {
 	if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 9, day: 30, hour: 18, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/templates/zeit/display-cristal-quer-zeitumstellung-winter2016.jpg", "width":"1920", "height":"925"})	)
 	}
-
-	menufilename = "images/templates/1912_monatskarte/1920x925-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+".jpg";
+	if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 2, day: 31, hour: 23, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2016/1920x925-weihnachtszauber2016-de.jpg", "width":"1920", "height":"925"}));
+		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2016/1920x925-weihnachtszauber2016-engl.jpg", "width":"1920", "height":"925"}));
+	}
+	menufilename_de = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
     $.ajax({
-        url:menufilename,
+        url:menufilename_de,
         type:'HEAD',
         success:  function() { 
-        	$('#slideshow').append($("<img />",  {"src": menufilename, "width":"1920", "height":"925"})	)
+        	$('#slideshow').append($("<img />",  {"src": menufilename_de, "width":"1920", "height":"925"})	)
         }
     }).complete(function() {
-    	$('#slideshow').cycle({
-    	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
-    	    timeout: 10000,
-    	    speed:   2000
-    	});
+    	menufilename_en = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-en.jpg";
+        $.ajax({
+            url:menufilename_en,
+            type:'HEAD',
+            success:  function() { 
+            	$('#slideshow').append($("<img />",  {"src": menufilename_en, "width":"1920", "height":"925"})	)
+            }
+        }).complete(function() {
+        	$('#slideshow').cycle({
+        	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
+        	    timeout: 10000,
+        	    speed:   2000
+        	});
+        });
     });
-	
+
 	
 	/*
 	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};
