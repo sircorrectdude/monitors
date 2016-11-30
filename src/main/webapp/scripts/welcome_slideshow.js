@@ -38,8 +38,8 @@ jQuery(document).ready(function () {
         }).complete(function() {
         	$('#slideshow').cycle({
         	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
-        	    timeout: 10000,
-        	    speed:   2000
+        	    timeout: 1000,
+        	    speed:   200
         	});
         });
     });
