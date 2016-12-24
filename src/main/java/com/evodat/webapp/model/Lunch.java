@@ -5,7 +5,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import com.picotel.spider.annotation.Spider;
 import com.picotel.spider.annotation.Xpath;
 
-@Spider(url = "http://www.1912-restaurant.de", path = "speisen-getraenke/business-lunch")
+@Spider(url = "https://www.1912-restaurant.de", path = "speisen-getraenke/business-lunch")
 // @Spider(url = "http://localhost", path = "test.html")
 @Xpath(xPathExpr = "//div[@class='ce_text block']/div")
 public class Lunch {
