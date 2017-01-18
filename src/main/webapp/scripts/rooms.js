@@ -130,20 +130,8 @@ jQuery(document).ready(function () {
 			            		}			            		
 			            		else if($.cookie('switchAdToggle') == 9){
 			            			$('body').css("color", "#707173").css("background","url('"+menufilename_en+"')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 11, day: 31, hour: 23, minute: 59}))){
-			            				$.cookie('switchAdToggle', 10);
-			            			}else{
-			            				$.cookie('switchAdToggle', 0);
-			            			}
-			            		}
-			            		else if($.cookie('switchAdToggle') == 10){
-			            			$('body').css("color", "#707173").css("background","url('images/sylvester/1920x1080-1912-silvestermenu16-de.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 11);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 11){
-			            			$('body').css("color", "#707173").css("background","url('images/sylvester/1920x1080-1912-silvestermenu16-en.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
-			            		}				            		
+			            		}
 		            		});
 		            		/*
 							 * if(new Date().compareTo(easterAdEnd) ==-1 ){//

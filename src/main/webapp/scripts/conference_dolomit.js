@@ -120,10 +120,6 @@ jQuery(document).ready(function () {
 			    	            			if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 9, day: 30, hour: 18, minute: 00}))){
 					            				$('#slideshow').append($("<img />",  {"src": "images/templates/zeit/display-dolomit-quer-zeitumstellung-winter2016.jpg", "width":"1920", "height":"1080"})	)
 					            			}
-			    	            			if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 11, day: 31, hour: 23, minute: 59}))){
-					            				$('#slideshow').append($("<img />",  {"src": "images/sylvester/1080x1920-1912-silvestermenu16-de.jpg", "width":"1920", "height":"1080"})	)
-					            				$('#slideshow').append($("<img />",  {"src": "images/sylvester/1080x1920-1912-silvestermenu16-en.jpg", "width":"1920", "height":"1080"})	)
-			    	            			}			    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/display-dolomit-quer-theaterpackage2016.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
 		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
