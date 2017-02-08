@@ -75,24 +75,28 @@ jQuery(document).ready(function () {
 			            		}			            		
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2016, month: 9, day: 29, hour: 06, minute: 00}), Date.today().set({year: 2016, month: 9, day: 30, hour: 18, minute: 00}))){
+			            			if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 7, day: 14, hour: 23, minute: 59}))){
 			            				$.cookie('switchAdToggle', 6);
 			            			}else{
-			            				$.cookie('switchAdToggle', 7);
+			            				$.cookie('switchAdToggle', 8);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/zeit/Monitor-Lobby_Cristal-Zeitumstellung-winter-2016.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/valentin/17/1920x1080-valentinstag17-1912-de.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 7);
-			            		}		            		
+			            		}
 			            		else if($.cookie('switchAdToggle') == 7){
+			            			$('body').css("color", "#707173").css("background","url('images/valentin/17/1920x1080-valentinstag17-1912-en.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 8);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 8){
 			            			$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
 			            			
 			            		    $.ajax({
 			            		        url:menufilename,
 			            		        type:'HEAD',
 			            		        success:  function() { 
-			            		        	$.cookie('switchAdToggle', 8);
+			            		        	$.cookie('switchAdToggle', 9);
 			            		        },
 				            		    statusCode: {
 				            		        404: function() {
@@ -100,7 +104,7 @@ jQuery(document).ready(function () {
 						            		        url:menufilename_en,
 						            		        type:'HEAD',
 						            		        success:  function() { 
-						            		        	$.cookie('switchAdToggle', 9);
+						            		        	$.cookie('switchAdToggle', 10);
 						            		        },
 							            		    statusCode: {
 							            		        404: function() {
@@ -112,14 +116,14 @@ jQuery(document).ready(function () {
 				            		    }
 			            		    })
 			            		}
-			            		else if($.cookie('switchAdToggle') == 8){
+			            		else if($.cookie('switchAdToggle') == 9){
 			            			$('body').css("color", "#707173").css("background","url('"+menufilename+"')").css("height", "1920px").css("width", "1080px");
 			            			
 			            		    $.ajax({
 			            		        url:menufilename_en,
 			            		        type:'HEAD',
 			            		        success:  function() { 
-			            		        	$.cookie('switchAdToggle', 9);
+			            		        	$.cookie('switchAdToggle', 10);
 			            		        },
 				            		    statusCode: {
 				            		        404: function() {
@@ -128,7 +132,7 @@ jQuery(document).ready(function () {
 				            		    }
 			            		    })
 			            		}			            		
-			            		else if($.cookie('switchAdToggle') == 9){
+			            		else if($.cookie('switchAdToggle') == 10){
 			            			$('body').css("color", "#707173").css("background","url('"+menufilename_en+"')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 			            		}
