@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"}))	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}));
-	if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 7, day: 14, hour: 23, minute: 59}))){
+	if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 1, day: 14, hour: 23, minute: 59}))){
 		$('#slideshow').append($("<img />",  {"src": "images/valentin/17/925x1920-valentinstag17-1912-de.jpg", "width":"1920", "height":"925"})	)
 		$('#slideshow').append($("<img />",  {"src": "images/valentin/17/925x1920-valentinstag17-1912-en.jpg", "width":"1920", "height":"925"})	)
 	}
