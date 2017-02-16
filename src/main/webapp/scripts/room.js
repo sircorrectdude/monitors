@@ -52,7 +52,7 @@ jQuery(document).ready(function () {
 			$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitor-we-tagungsraeume-"+$.roomName+"-frei.jpg')").css("height", "768px").css("width", "1366px")
 			
 			// append footer overlay
-			if($.roomName != 'SAPHIR' && $.roomName != 'RUBIN I' && $.roomName != 'RUBIN II'){
+			if($.roomName != 'SAPHIR' && $.roomName != 'RUBIN I' && $.roomName != 'RUBIN II' && $.roomName != 'RESTAURANT'){
 				$('body').append(
 		    			$('<div>')
 	        				.css("bottom", "0")
