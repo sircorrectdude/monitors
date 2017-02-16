@@ -86,7 +86,7 @@ jQuery(document).ready(function () {
         			$.adcounter=3;
 				}
 				else if($.adcounter==3){
-						$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
+						$('body').css("color", "#707173").css("background","url('images/theater/2017/1080x1920px-monitor-lobbycristal_theaterpackage-feb2017.jpg')").css("height", "1920px").css("width", "1080px");
 	        			$.getScript('scripts/date/date-de-DE.js', function() {
 	        				if(new Date().between(Date.today().set({year: 2016, month: 7, day: 18, hour: 14, minute: 00}), Date.today().set({year: 2016, month: 8, day: 18, hour: 14, minute: 00}))){
 	        					$.adcounter=4;

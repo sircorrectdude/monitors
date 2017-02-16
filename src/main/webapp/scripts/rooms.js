@@ -90,7 +90,7 @@ jQuery(document).ready(function () {
 			            			$.cookie('switchAdToggle', 8);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 8){
-			            			$('body').css("color", "#707173").css("background","url('images/theater/monitor-lobbycristal_theaterpackage2016.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/theater/2017/1080x1920px-monitor-lobbycristal_theaterpackage-feb2017.jpg')").css("height", "1920px").css("width", "1080px");
 			            			
 			            		    $.ajax({
 			            		        url:menufilename,

@@ -121,7 +121,7 @@ jQuery(document).ready(function () {
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/valentin/17/1080x1920-valentinstag17-1912-de.jpg", "width":"1920", "height":"925"})	)
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/valentin/17/1080x1920-valentinstag17-1912-en.jpg", "width":"1920", "height":"925"})	)
 			    	            			}
-			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/display-dolomit-quer-theaterpackage2016.jpg", "width":"1920", "height":"1080"})	)
+			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/2017/1920x1080px-monitor-rezeption-quer-theaterpackage2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
 		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
 										    $.ajax({
