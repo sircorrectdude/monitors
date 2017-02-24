@@ -75,18 +75,18 @@ jQuery(document).ready(function () {
 			            		}			            		
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 1, day: 14, hour: 23, minute: 59}))){
+			            			if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 2, day: 1, hour: 23, minute: 00}))){
 			            				$.cookie('switchAdToggle', 6);
 			            			}else{
 			            				$.cookie('switchAdToggle', 8);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/valentin/17/1920x1080-valentinstag17-1912-de.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/templates/aschermittwoch/1920x1080-aschermittwoch-1912-02-2017-de.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 7);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 7){
-			            			$('body').css("color", "#707173").css("background","url('images/valentin/17/1920x1080-valentinstag17-1912-en.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/templates/aschermittwoch/1920x1080-aschermittwoch-1912-02-2017-en.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 8);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 8){
