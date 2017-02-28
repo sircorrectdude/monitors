@@ -123,7 +123,7 @@ jQuery(document).ready(function () {
 			    	            			}
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/2017/1920x1080px-monitor-rezeption-quer-theaterpackage2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
-		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
+		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
 										    $.ajax({
 										        url:menufilename,
 										        type:'HEAD',
@@ -131,7 +131,7 @@ jQuery(document).ready(function () {
 										        	$('#slideshow').append($("<img />",  {"src": menufilename, "width":"1920", "height":"1080"})	)
 										        }
 										    }).complete(function() {
-			    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-en.jpg";
+			    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
 											    $.ajax({
 											        url:menufilename,
 											        type:'HEAD',

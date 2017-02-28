@@ -22,8 +22,8 @@ jQuery(document).ready(function () {
 	            			
 		            		$.getScript('scripts/date/date-de-DE.js', function() {
 		            			var now = new Date();
-		            			menufilename = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
-		            			menufilename_en = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-en.jpg";
+		            			menufilename = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
+		            			menufilename_en = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
 		            			// console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
 			            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");

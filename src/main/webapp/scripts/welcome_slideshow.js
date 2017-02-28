@@ -17,15 +17,15 @@ jQuery(document).ready(function () {
 		$('#slideshow').append($("<img />",  {"src": "images/templates/aschermittwoch/925x1920-aschermittwoch-1912-02-2017-de.jpg", "width":"1920", "height":"925"})	)
 		$('#slideshow').append($("<img />",  {"src": "images/templates/aschermittwoch/925x1920-aschermittwoch-1912-02-2017-en.jpg", "width":"1920", "height":"925"})	)
 	}
-	menufilename_de = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
-    $.ajax({
+	menufilename_de = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
+	$.ajax({
         url:menufilename_de,
         type:'HEAD',
         success:  function() { 
         	$('#slideshow').append($("<img />",  {"src": menufilename_de, "width":"1920", "height":"925"})	)
         }
     }).complete(function() {
-    	menufilename_en = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-en.jpg";
+    	menufilename_en = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
         $.ajax({
             url:menufilename_en,
             type:'HEAD',
