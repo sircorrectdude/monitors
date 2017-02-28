@@ -117,13 +117,12 @@ jQuery(document).ready(function () {
 			    	            		$.getScript('scripts/date/date-de-DE.js', function() {
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
-			    	            			if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 2, day: 1, hour: 23, minute: 00}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/templates/aschermittwoch/1080x1920-aschermittwoch-1912-02-2017-de.jpg", "width":"1920", "height":"1080"})	)
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/templates/aschermittwoch/1080x1920-aschermittwoch-1912-02-2017-en.jpg", "width":"1920", "height":"1080"})	)
+			    	            			if(new Date().between(Date.today().set({year: 2017, month: 2, day: 25, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 2, day: 26, hour: 18, minute: 00}))){
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-dolomit-quer-zeitumstellung-2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/2017/1920x1080px-monitor-rezeption-quer-theaterpackage2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
-		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
+		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
 										    $.ajax({
 										        url:menufilename,
 										        type:'HEAD',
@@ -131,7 +130,7 @@ jQuery(document).ready(function () {
 										        	$('#slideshow').append($("<img />",  {"src": menufilename, "width":"1920", "height":"1080"})	)
 										        }
 										    }).complete(function() {
-			    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-en.jpg";
+			    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
 											    $.ajax({
 											        url:menufilename,
 											        type:'HEAD',

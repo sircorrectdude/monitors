@@ -13,19 +13,19 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"}))	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}));
-	if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 2, day: 1, hour: 23, minute: 00}))){
-		$('#slideshow').append($("<img />",  {"src": "images/templates/aschermittwoch/925x1920-aschermittwoch-1912-02-2017-de.jpg", "width":"1920", "height":"925"})	)
-		$('#slideshow').append($("<img />",  {"src": "images/templates/aschermittwoch/925x1920-aschermittwoch-1912-02-2017-en.jpg", "width":"1920", "height":"925"})	)
+	if(new Date().between(Date.today().set({year: 2017, month: 2, day: 25, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 2, day: 26, hour: 18, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-cristalt-quer-zeitumstellung-2017.jpg", "width":"1920", "height":"925"})	)
+		$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-cristalt-quer-zeitumstellung-2017.jpg", "width":"1920", "height":"925"})	)
 	}
-	menufilename_de = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
-    $.ajax({
+	menufilename_de = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
+	$.ajax({
         url:menufilename_de,
         type:'HEAD',
         success:  function() { 
         	$('#slideshow').append($("<img />",  {"src": menufilename_de, "width":"1920", "height":"925"})	)
         }
     }).complete(function() {
-    	menufilename_en = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-en.jpg";
+    	menufilename_en = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
         $.ajax({
             url:menufilename_en,
             type:'HEAD',

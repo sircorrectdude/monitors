@@ -22,8 +22,8 @@ jQuery(document).ready(function () {
 	            			
 		            		$.getScript('scripts/date/date-de-DE.js', function() {
 		            			var now = new Date();
-		            			menufilename = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-de.jpg";
-		            			menufilename_en = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1) +"-"+new Date().getFullYear()+"-en.jpg";
+		            			menufilename = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
+		            			menufilename_en = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
 		            			// console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
 			            			$('body').css("color", "#707173").css("background","url('images/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
@@ -75,18 +75,17 @@ jQuery(document).ready(function () {
 			            		}			            		
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2017, month: 1, day: 1, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 2, day: 1, hour: 23, minute: 00}))){
-			            				$.cookie('switchAdToggle', 6);
+			            			if(new Date().between(Date.today().set({year: 2017, month: 2, day: 25, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 2, day: 26, hour: 18, minute: 00}))){			            				$.cookie('switchAdToggle', 6);
 			            			}else{
 			            				$.cookie('switchAdToggle', 8);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/aschermittwoch/1920x1080-aschermittwoch-1912-02-2017-de.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/zu/17/Monitor-Lobby_Cristal-Zeitumstellung-2017.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 7);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 7){
-			            			$('body').css("color", "#707173").css("background","url('images/templates/aschermittwoch/1920x1080-aschermittwoch-1912-02-2017-en.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/zu/17/Monitor-Lobby_Cristal-Zeitumstellung-2017.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 8);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 8){
