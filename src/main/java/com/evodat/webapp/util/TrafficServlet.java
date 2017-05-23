@@ -205,17 +205,19 @@ public class TrafficServlet extends HttpServlet {
 		// Mvg
 		if (req.getParameter("mvg") != null) {
 			if (TRAFFIC_CACHE_MVG.get("TRAFFIC_CACHE_MVG") == null) {
-				// 1. HBF
 				Map<String, String> params = new HashMap<String, String>();
+				String STATION;
+				SpiderProcessor spiderProcessor = new SpiderProcessor();
+				
+				// 1. HBF
 				params = new HashMap<String, String>();
-				String STATION = "hauptbahnhof";
+				 STATION = "hauptbahnhof";
 				params.put("haltestelle", STATION);
 				params.put("ubahn", "checked");
 				params.put("tram", "checked");
 				params.put("bus", "checked");
 				params.put("sbahn", "checked");
 
-				SpiderProcessor spiderProcessor = new SpiderProcessor();
 				spiderProcessor.setParams(params);
 				spiderProcessor.setClassName(Mvg.class.getName());
 				try {
@@ -282,41 +284,7 @@ public class TrafficServlet extends HttpServlet {
 					for (Object object : objects) {
 						Mvg mvg = (Mvg) object;
 						mvg.setStation("Hauptbahnhof Nord");
-						if (mvg.getTrain() != null) {
-							String firstLetter = mvg.getTrain().substring(0, 1);
-							if (mvg.getTrain().equals("58")) {
-								mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
-							} else if (firstLetter.equals("N")) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-										+ firstLetter
-										+ "-"
-										+ mvg.getTrain().substring(1) + ".gif");
-							} else if (firstLetter.equals("U")) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-										+ firstLetter
-										+ "-"
-										+ mvg.getTrain().substring(1) + ".gif");
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
-							} else if (firstLetter.equals("S")) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-										+ firstLetter
-										+ mvg.getTrain().substring(1,
-												mvg.getTrain().length()) + ".gif");
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
-							} else {
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
-								if ("100".equals(mvg.getTrain())) {
-									mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/S-100.gif");
-								} else if ("58".equals(mvg.getTrain())) {
-									mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/B-58.gif");
-								} else {
-									mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-											+ "T-" + mvg.getTrain() + ".gif");
-									mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
-								}
-							}
-						}
+						setImages(mvg);
 					}
 					allObjects.addAll(objects);
 				} catch (IllegalStateException e) {
@@ -344,36 +312,7 @@ public class TrafficServlet extends HttpServlet {
 					for (Object object : objects) {
 						Mvg mvg = (Mvg) object;
 						mvg.setStation("Hauptbahnhof Süd");
-						if (mvg.getTrain() != null) {
-							String firstLetter = mvg.getTrain().substring(0, 1);
-							if (mvg.getTrain().equals("58")) {
-								mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
-							} else if (firstLetter.equals("N")) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-										+ firstLetter
-										+ "-"
-										+ mvg.getTrain().substring(1) + ".gif");
-							} else if (firstLetter.equals("U")) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-										+ firstLetter
-										+ "-"
-										+ mvg.getTrain().substring(1) + ".gif");
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
-							} else if (firstLetter.equals("S")) {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-										+ firstLetter
-										+ mvg.getTrain().substring(1,
-												mvg.getTrain().length()) + ".gif");
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
-							}
-
-							else {
-								mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-										+ "T-" + mvg.getTrain() + ".gif");
-								mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
-							}
-						}
+						setImages(mvg);
 					}
 					allObjects.addAll(objects);
 				} catch (IllegalStateException e) {
@@ -411,9 +350,9 @@ public class TrafficServlet extends HttpServlet {
 		}
 
 		Collections.sort(allObjects);
-		Collections.reverse(allObjects);
+//		Collections.reverse(allObjects);
 
-		List subList = new ArrayList();
+		List<TrafficInfo> subList = new ArrayList<TrafficInfo>();
 		
 		int i = 0;
 
@@ -454,8 +393,7 @@ public class TrafficServlet extends HttpServlet {
 			}
 
 		}
-		// Serialize to JSON
-
+		
 		TrafficInfoDTO trafficInfoDTO = new TrafficInfoDTO();
 		trafficInfoDTO.setAllObjects(subList);
 		trafficInfoDTO.setTime(new SimpleDateFormat("HH:mm", Locale.GERMAN)
@@ -478,5 +416,50 @@ public class TrafficServlet extends HttpServlet {
 		out.flush();
 		out.close();
 
+	}
+
+	private void setImages(Mvg mvg) {
+		if (mvg.getTrain() != null) {
+			String firstLetter = mvg.getTrain().substring(0, 1);
+			if (mvg.getTrain().equals("58")) {
+				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+			}else if (mvg.getTrain().equals("100")) {
+				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/S-100.gif";
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+			}else if (mvg.getTrain().equals("150")) {
+				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/S-150.gif";
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+			} else if (firstLetter.equals("N")) {
+				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+						+ firstLetter
+						+ "-"
+						+ mvg.getTrain().substring(1) + ".gif");
+			} else if (firstLetter.equals("X")) {
+				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+						+ firstLetter
+						+ "-"
+						+ mvg.getTrain().substring(1) + ".gif");
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/ExpressBus.gif";
+			} else if (firstLetter.equals("U")) {
+				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+						+ firstLetter
+						+ "-"
+						+ mvg.getTrain().substring(1) + ".gif");
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+			} else if (firstLetter.equals("S")) {
+				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+						+ firstLetter
+						+ mvg.getTrain().substring(1,
+								mvg.getTrain().length()) + ".gif");
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+			}
+
+			else {
+				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+						+ "T-" + mvg.getTrain() + ".gif");
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+			}
+		}
 	}
 }

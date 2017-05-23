@@ -5,7 +5,7 @@ import java.util.Date;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-public class TrafficInfo implements Comparable {
+public class TrafficInfo implements Comparable<TrafficInfo> {
 
 	protected Date time;
 	protected String train;
@@ -61,20 +61,6 @@ public class TrafficInfo implements Comparable {
 		this.timeString = timeString;
 	}
 
-	public int compareTo(Object o) {
-		if (this.getTime() != null && (((TrafficInfo) o).getTime()) != null) {
-			try {
-				if (this.getTime().after(((TrafficInfo) o).getTime())) {
-					return 0;
-				}
-				return 1;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return 0;
-	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -82,12 +68,9 @@ public class TrafficInfo implements Comparable {
 		}
 
 		if (obj instanceof TrafficInfo) {
-			return platform == ((TrafficInfo) obj).platform
-					&& train == ((TrafficInfo) obj).train
-					&& target == ((TrafficInfo) obj).target
-					&& image == ((TrafficInfo) obj).image
-					&& ris == ((TrafficInfo) obj).ris
-					&& timeString == ((TrafficInfo) obj).timeString
+			return platform == ((TrafficInfo) obj).platform && train == ((TrafficInfo) obj).train
+					&& target == ((TrafficInfo) obj).target && image == ((TrafficInfo) obj).image
+					&& ris == ((TrafficInfo) obj).ris && timeString == ((TrafficInfo) obj).timeString
 					&& time == ((TrafficInfo) obj).time;
 		}
 
@@ -98,9 +81,14 @@ public class TrafficInfo implements Comparable {
 	 * {@inheritDoc}
 	 */
 	public String toString() {
-		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE)
-				.append(this.platform).append(this.time).append(this.train)
-				.append(this.target).append(this.ris).toString();
+		return new ToStringBuilder(this, ToStringStyle.SIMPLE_STYLE).append(this.platform).append(this.time)
+				.append(this.train).append(this.target).append(this.ris).toString();
+	}
+
+	public int compareTo(TrafficInfo o) {
+		if (getTime() == null || o.getTime() == null)
+			return 0;
+		return getTime().compareTo(o.getTime());
 	}
 
 }
