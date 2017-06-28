@@ -55,36 +55,13 @@ jQuery(document).ready(function () {
         			$.getScript('scripts/date/date-de-DE.js', function() {
         				if(new Date().between(Date.today().set({hour: 05, minute: 00}), Date.today().set({hour: 14, minute: 00})) && 
         						!Date.today().is().sunday() && !Date.today().is().saturday()){
-        					$.adcounter=2;
+        					$.adcounter=3;
         				}else{
-	            			$.adcounter=3;
+	            			$.adcounter=4;
         				}
         			});					
 				}
-				else if($.adcounter==2){
-					
-					$.getJSON('/json/lunch.html',function(data){
-						$('body > *').remove();
-						$('body').css("color", "#707173").css("background","url('images/lunch/daily-busilunch-monitor-hintergrundoriginal.jpg')").css("height", "1920px").css("width", "1080px");
-						$('body').css("font-family","arial,sans-serif")
-						.append($('<div>').css("width","700px").css("position", "absolute").css("top", "600px").css("left", "180px").css("text-align","center").css("font-weight","bold")
-								.append(
-										$('<div>').css("padding-top", "0px").css("margin-bottom", "55px").css("font-size","30pt").css("color","rgb(131,13,41)").append(data.todaysLunch.date)
-								).append(
-										$('<div>').css("text-align", "center").css("display", "table-cell").css("vertical-align", "middle").css("height", "150px").css("width", "700px").css("font-size","25pt").css("color","rgb(112,111,111)").append(data.todaysLunch.vor)
-								).append(
-										$('<div>').css("clear", "both").css("margin-bottom", "55px")
-								).append(
-										$('<div>').css("text-align", "center").css("display", "table-cell").css("vertical-align", "middle").css("height", "150px").css("width", "700px").css("font-size","25pt").css("color","rgb(112,111,111)").append(data.todaysLunch.haupt)
-								).append(
-										$('<div>').css("clear", "both").css("margin-bottom", "55px")
-								).append(
-										$('<div>').css("text-align", "center").css("display", "table-cell").css("vertical-align", "middle").css("height", "150px").css("width", "700px").css("font-size","25pt").css("color","rgb(112,111,111)").append(data.todaysLunch.nach)
-								)
-						);
-					});
-        			$.adcounter=3;
-				}
+
 				else if($.adcounter==3){
 						$('body').css("color", "#707173").css("background","url('images/theater/2017/1080x1920px-monitor-lobbycristal_theaterpackage-feb2017.jpg')").css("height", "1920px").css("width", "1080px");
 	        			$.getScript('scripts/date/date-de-DE.js', function() {
