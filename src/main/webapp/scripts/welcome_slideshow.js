@@ -3,7 +3,6 @@ jQuery(document).ready(function () {
 	$("head").append($("<link rel='stylesheet' href='styles/welcome_slideshow.css' type='text/css' media='screen' />"));
 
 	$('#slideshow').empty()
-	.append($("<img />",  {"src": "images/theater/2017/1920x925px-monitor-rezeption-quer-theaterpackage2017.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide1.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide2.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide3-1.jpg", "width":"1920", "height":"925"}))

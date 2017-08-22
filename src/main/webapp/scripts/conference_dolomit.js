@@ -120,7 +120,7 @@ jQuery(document).ready(function () {
 			    	            			if(new Date().between(Date.today().set({year: 2017, month: 2, day: 25, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 2, day: 26, hour: 18, minute: 00}))){
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-dolomit-quer-zeitumstellung-2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}
-			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/2017/1920x1080px-monitor-rezeption-quer-theaterpackage2017.jpg", "width":"1920", "height":"1080"})	)
+			    	            			//$('#slideshow').append($("<img />",  {"src": "images/theater/2017/1920x1080px-monitor-rezeption-quer-theaterpackage2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
 		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
 										    $.ajax({

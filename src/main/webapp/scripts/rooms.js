@@ -52,65 +52,15 @@ jQuery(document).ready(function () {
 			            		}			            		
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2017, month: 2, day: 25, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 2, day: 26, hour: 18, minute: 00}))){			            				$.cookie('switchAdToggle', 6);
+			            			if(new Date().between(Date.today().set({year: 2017, month: 2, day: 25, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 2, day: 26, hour: 18, minute: 00}))){			            				
+			            				$.cookie('switchAdToggle', 6);
 			            			}else{
-			            				$.cookie('switchAdToggle', 8);
+			            				$.cookie('switchAdToggle', 0);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 6){
 			            			$('body').css("color", "#707173").css("background","url('images/zu/17/Monitor-Lobby_Cristal-Zeitumstellung-2017.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 7);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 7){
-			            			$('body').css("color", "#707173").css("background","url('images/zu/17/Monitor-Lobby_Cristal-Zeitumstellung-2017.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 8);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 8){
-			            			$('body').css("color", "#707173").css("background","url('images/theater/2017/1080x1920px-monitor-lobbycristal_theaterpackage-feb2017.jpg')").css("height", "1920px").css("width", "1080px");
-			            			
-			            		    $.ajax({
-			            		        url:menufilename,
-			            		        type:'HEAD',
-			            		        success:  function() { 
-			            		        	$.cookie('switchAdToggle', 9);
-			            		        },
-				            		    statusCode: {
-				            		        404: function() {
-						            		    $.ajax({
-						            		        url:menufilename_en,
-						            		        type:'HEAD',
-						            		        success:  function() { 
-						            		        	$.cookie('switchAdToggle', 10);
-						            		        },
-							            		    statusCode: {
-							            		        404: function() {
-							            		        	$.cookie('switchAdToggle', 0);
-							            		        }
-							            		    }
-						            		    })
-				            		        }
-				            		    }
-			            		    })
-			            		}
-			            		else if($.cookie('switchAdToggle') == 9){
-			            			$('body').css("color", "#707173").css("background","url('"+menufilename+"')").css("height", "1920px").css("width", "1080px");
-			            			
-			            		    $.ajax({
-			            		        url:menufilename_en,
-			            		        type:'HEAD',
-			            		        success:  function() { 
-			            		        	$.cookie('switchAdToggle', 10);
-			            		        },
-				            		    statusCode: {
-				            		        404: function() {
-				            		        	$.cookie('switchAdToggle', 0);
-				            		        }
-				            		    }
-			            		    })
-			            		}			            		
-			            		else if($.cookie('switchAdToggle') == 10){
-			            			$('body').css("color", "#707173").css("background","url('"+menufilename_en+"')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 0);
 			            		}
 		            		});
 		            		/*

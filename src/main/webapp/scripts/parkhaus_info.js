@@ -52,15 +52,8 @@ jQuery(document).ready(function () {
 				else if($.adcounter==1){
 					$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
         			$.getScript('scripts/date/date-de-DE.js', function() {
-        				$.adcounter=2;
+        				$.adcounter=0;
         			});					
-				}
-
-				else if($.adcounter==2){
-						$('body').css("color", "#707173").css("background","url('images/theater/2017/1080x1920px-monitor-lobbycristal_theaterpackage-feb2017.jpg')").css("height", "1920px").css("width", "1080px");
-	        			$.getScript('scripts/date/date-de-DE.js', function() {
-	        				$.adcounter=0;
-	        			});		
 				}
 				/*$('#slideshow').cycle({
         			fx:     'none',
