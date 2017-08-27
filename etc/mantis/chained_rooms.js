@@ -8,7 +8,7 @@ function selectRoom(roomIndex, m) {
 	console.log(roomGroup)
 
     // Get a reference to the foods select.
-    var roomSelect = document.getElementById("custom_field_1");
+    var roomSelect = document.getElementById("custom_field_2");
 	// Create a two dimension array containing foods for each group.
 	var rooms = [
 		[
@@ -373,7 +373,7 @@ function selectRoom(roomIndex, m) {
 	}
 }
     
-var theSelect = document.getElementById('custom_field_1');
+var theSelect = document.getElementById('custom_field_2');
 var options = theSelect.getElementsByTagName('OPTION');
 for(var i=0; i<options.length; i++) {
 		theSelect.removeChild(options[i]);
