@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
 		if($.switchToggle ==1){
 			if($.roomName == 'SAPHIR' || $.roomName == 'RUBIN I' || $.roomName == 'RUBIN II'){
 				if ($.adSwitchToggle ==0) {
-					$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-02.jpg')").css("height", "900px").css("width", "1440px")
+					$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung1912-1440x900px.jpg')").css("height", "900px").css("width", "1440px")
 					$.adSwitchToggle =1;				
 				}else{
 					$('body').css("color", "#838486").css("background","url('images/templates/rooms/monitore-raeume-dolomit-werbung-muenchnerstubn-1440x900px.jpg')").css("height", "900px").css("width", "1440px")

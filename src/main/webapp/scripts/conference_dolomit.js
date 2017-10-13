@@ -125,8 +125,8 @@ jQuery(document).ready(function () {
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/umzuege/2017/1080x1920-wiesnumzuege-2017-en.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}
 			    	            			if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2018, month: 3, day: 1, hour: 15, minute: 00}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/1920x1080-weihnachtszauber2017-de.jpg", "width":"1920", "height":"1080"})	)
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/1920x1080-weihnachtszauber2017-en.jpg", "width":"1920", "height":"1080"})	)
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x1080-weihnachtszauber2017-de.jpg", "width":"1920", "height":"1080"})	)
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x1080-weihnachtszauber2017-en.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}				    	            			
 			    	            			//$('#slideshow').append($("<img />",  {"src": "images/theater/2017/1920x1080px-monitor-rezeption-quer-theaterpackage2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			
