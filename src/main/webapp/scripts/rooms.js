@@ -47,11 +47,11 @@ jQuery(document).ready(function () {
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2017/1080x1920-winterzauber-2017-de.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2017/neu/1080x1920-winterzauber-2017-de.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 7);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 7){
-			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2017/1080x1920-winterzauber-2017-en.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2017/neu/1080x1920-winterzauber-2017-en.jpg')").css("height", "1920px").css("width", "1080px");
 			            			if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 8, day: 17, hour: 15, minute: 00}))){
 			            				$.cookie('switchAdToggle', 8);
 			            			}else{
