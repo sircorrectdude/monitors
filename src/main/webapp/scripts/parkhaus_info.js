@@ -46,7 +46,7 @@ jQuery(document).ready(function () {
 			$.getScript("scripts/jquery.cycle.all.js", function(data, textStatus, jqxhr) {
 				$('body > *').remove();
 				if($.adcounter==0 || $.adcounter == undefined){
-					$('body').css("color", "#707173").css("background","url('images/Monitor-carpark-EG_theater-tarif-01.jpg')").css("height", "1920px").css("width", "1080px");
+					$('body').css("color", "#707173").css("background","url('images/theater/1080x1920px-monitor-rezeption-hoch-theaterpackage-okt2017.jpg')").css("height", "1920px").css("width", "1080px");
 					$.adcounter=1;
 				}
 				else if($.adcounter==1){
