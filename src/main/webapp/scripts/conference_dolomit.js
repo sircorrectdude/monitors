@@ -57,7 +57,7 @@ jQuery(document).ready(function () {
 	
 	function fillRoom(element, divNo, left){
 		$('#conference_info_wrapper').append(
-				$('<div>').attr("id", "company_"+divNo).css("position", "absolute").css("left",left).css("top","380px").css("width","365px").text(element.company)
+				$('<div>').attr("id", "company_"+divNo).css("position", "absolute").css("left",left).css("top","380px").css("width","365px").css("height","110px").css("overflow","hidden").text(element.company)
 		);
 		$('#conference_info_wrapper').append(
 				$('<div>').attr("id", "datetime").css("position", "absolute").css("left",left).css("top","550px").css("width","365px")
@@ -72,7 +72,7 @@ jQuery(document).ready(function () {
 				)				        				
 		);
 		$('#conference_info_wrapper').append(
-				$('<div>').attr("id", "datetime_en").css("position", "absolute").css("left",left).css("top","600px").css("width","365px")
+				$('<div>').attr("id", "datetime_en").css("position", "absolute").css("left",left).css("top","600px").css("width","365px").css("height","110px").css("overflow","hidden")
 				.append(
 						$('<span>').attr("id", "date_"+divNo+"_en").text(element.dateStringEn)
 				)

@@ -108,9 +108,9 @@ public class JCalendarAction extends BaseAction {
 
 	private void addEvent(List<Event> events, JCalendar jCalendar) {
 		Event event = new Event();
-		event.setDateString(new SimpleDateFormat("dd. MMMMM yyyy")
+		event.setDateString(new SimpleDateFormat("dd. MMM yyyy")
 				.format(jCalendar.getStartTime()));
-		event.setDateStringEn(new SimpleDateFormat("MMMMM, dd'th' yyyy",
+		event.setDateStringEn(new SimpleDateFormat("MMM, dd'th' yyyy",
 				Locale.ENGLISH).format(jCalendar.getStartTime()));
 		event.setStartString(new SimpleDateFormat("H.mm").format(jCalendar
 				.getStartTime()));

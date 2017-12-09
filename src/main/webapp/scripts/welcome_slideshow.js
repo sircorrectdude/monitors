@@ -5,16 +5,16 @@ jQuery(document).ready(function () {
 	$('#slideshow').empty()
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide1.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide2.jpg", "width":"1920", "height":"925"}))
-	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide4.jpg", "width":"1920", "height":"925"})	)
+	.append($("<img />", 	 {"src": "images/templates/welcome_slideshow/slide4.jpg", "width":"1920", "height":"925"})	)
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide5_fb.png", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Zimmer-011414.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"}))	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"925"}));
-	if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 8, day: 17, hour: 15, minute: 00}))){
-		$('#slideshow').append($("<img />",  {"src": "images/umzuege/2017/925x1920-wiesnumzuege-2017-de.jpg", "width":"1920", "height":"925"})	)
-		$('#slideshow').append($("<img />",  {"src": "images/umzuege/2017/925x1920-wiesnumzuege-2017-en.jpg", "width":"1920", "height":"925"})	)
+	if(new Date().between(Date.today().set({year: 2017, month: 11, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 11, day: 31, hour: 23, minute: 45}))){
+		$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/image001.jpg", "width":"1920", "height":"925"})	)
+		$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/image002.jpg", "width":"1920", "height":"925"})	)
 	}
 	if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2018, month: 3, day: 1, hour: 15, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x925-weihnachtszauber2017-de.jpg", "width":"1920", "height":"925"})	)
@@ -23,48 +23,26 @@ jQuery(document).ready(function () {
 	if(new Date().between(Date.today().set({year: 2017, month: 9, day: 28, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 9, day: 29, hour: 18, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-cristal-quer-zeitumstellung-winter2017.jpg", "width":"1920", "height":"925"})	)
 	}	
-	menufilename_de = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
-	$.ajax({
-        url:menufilename_de,
-        type:'HEAD',
-        success:  function() { 
-        	$('#slideshow').append($("<img />",  {"src": menufilename_de, "width":"1920", "height":"925"})	)
-        }
-    }).complete(function() {
-    	menufilename_en = "images/templates/1912_monatskarte/925x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
-        $.ajax({
-            url:menufilename_en,
-            type:'HEAD',
-            success:  function() { 
-            	$('#slideshow').append($("<img />",  {"src": menufilename_en, "width":"1920", "height":"925"})	)
-            }
-        }).complete(function() {
-        	$('#slideshow').cycle({
-        	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
-        	    timeout: 10000,
-        	    speed:   2000
-        	});
-        });
-    });
-
 	
-	/*
-	var easterAdEndTime = {month: 4, day: 5, hour: 22, minute: 00};
-	var easterAdEnd = Date.today().set(easterAdEndTime);
-
-	if(new Date().compareTo(easterAdEnd) ==1 ){// greater
-		$('#easterAd').remove();
-	}
-	*/
+	$('#slideshow').cycle({
+	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
+	    timeout: 10000,
+	    speed:   2000
+	});
 	
     $("<div/>", {"id": "fb_counter"}).prependTo('#main').css('position','absolute').css('top','619px').css('left','903px').show();
 	//$("#fb_counter").css("padding", "250px 0px 0px 1050px")
     
 	var getLikes = function() {
-		$.get("https://graph.facebook.com/oauth/access_token?client_id=218149108203808&client_secret=de3f3ba795e9395fc4428f6414c1cad7&grant_type=client_credentials", function( data ) {
-			$.getJSON('https://graph.facebook.com/cristalhotel?'+data, function(json) {
+		$.getJSON("https://graph.facebook.com/oauth/access_token?client_id=218149108203808&client_secret=de3f3ba795e9395fc4428f6414c1cad7&grant_type=client_credentials", function( data ) {
+			$.ajaxSetup({
+				  headers : {
+				    'Authorization' : 'Bearer '+data.access_token
+				  }
+			});
+			$.getJSON('https://graph.facebook.com/v2.11/cristalhotel?fields=fan_count', function(json) {
 				
-				  $start_likes =json.likes
+				  $start_likes =json.fan_count
 				  
 				  //$('#likesCountWrapper').attr("value",json.likes);
 				  $("#fb_counter").flipCounter({
