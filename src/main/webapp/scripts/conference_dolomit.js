@@ -120,9 +120,9 @@ jQuery(document).ready(function () {
 			    	            			if(new Date().between(Date.today().set({year: 2017, month: 9, day: 28, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 9, day: 29, hour: 18, minute: 00}))){
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-dolomit-quer-zeitumstellung-winter2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}
-			    	            			if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 8, day: 17, hour: 15, minute: 00}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/umzuege/2017/1080x1920-wiesnumzuege-2017-de.jpg", "width":"1920", "height":"1080"})	)
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/umzuege/2017/1080x1920-wiesnumzuege-2017-en.jpg", "width":"1920", "height":"1080"})	)
+			    	            			if(new Date().between(Date.today().set({year: 2017, month: 11, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 11, day: 31, hour: 23, minute: 45}))){
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/1920x1080-silvester2017-dolomit-DE.jpg", "width":"1920", "height":"1080"})	)
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/1920x1080-silvester2017-dolomit-EN.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}
 			    	            			if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2018, month: 3, day: 1, hour: 15, minute: 00}))){
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x1080-weihnachtszauber2017-de.jpg", "width":"1920", "height":"1080"})	)
