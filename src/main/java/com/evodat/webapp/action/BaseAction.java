@@ -19,11 +19,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.evodat.Constants;
 import com.evodat.model.User;
-import com.evodat.service.CarparkManager;
 import com.evodat.service.CarparkHistoryManager;
+import com.evodat.service.CarparkManager;
 import com.evodat.service.CourseManager;
 import com.evodat.service.FloorManager;
 import com.evodat.service.JCalendarManager;
+import com.evodat.service.LicensePlateManager;
 import com.evodat.service.MailEngine;
 import com.evodat.service.MonitorManager;
 import com.evodat.service.RoleManager;
@@ -94,6 +95,8 @@ public class BaseAction extends ActionSupport {
 	 */
 	protected CarparkManager carparkManager;
 	
+	
+	protected LicensePlateManager licensePlateManager;
 	
 	protected CarparkHistoryManager carparkHistoryManager;
 	
@@ -316,6 +319,10 @@ public class BaseAction extends ActionSupport {
 
 	public void setCarparkHistoryManager(CarparkHistoryManager carparkHistoryManager) {
 		this.carparkHistoryManager = carparkHistoryManager;
+	}
+
+	public void setLicensePlateManager(LicensePlateManager licensePlateManager) {
+		this.licensePlateManager = licensePlateManager;
 	}
 
 }

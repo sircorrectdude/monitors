@@ -19,5 +19,8 @@
     </li>          
     <li>
         <a href="<c:url value='/templates.html'/>"><fmt:message key="menu.templateList"/></a>
-    </li>    
+    </li>
+    <li>
+        <a href="<c:url value='/anprList.html'/>"><fmt:message key="menu.anprList"/></a>
+    </li>         
 </ul>
