@@ -75,5 +75,13 @@
 
     <bean id="lunchAction" class="com.evodat.webapp.action.LunchAction" scope="prototype">
     </bean>
+
+    <bean id="anprAction" class="com.evodat.webapp.action.AnprAction" scope="prototype">
+    	<property name="licensePlateManager" ref="licensePlateManager"/>
+    </bean>
+
+    <bean id="anprAdminAction" class="com.evodat.webapp.action.AnprAdminAction" scope="prototype">
+    	<property name="licensePlateManager" ref="licensePlateManager"/>
+    </bean>
 	
 </beans>

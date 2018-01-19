@@ -14,6 +14,7 @@
 				<Item name="AddTemplate" title="menu.addtemplate" page="/editTemplate.html"/>
 				<Item name="Calendar" title="menu.calendar" page="/calendar.html"/>
 				<Item name="Carpark" title="menu.carpark" page="/floors.html"/>
+				<Item name="Anpr" title="menu.anprList" page="/anprList.html"/>
 				</Menu>
         <Menu name="UserMenu" title="menu.user" description="User Menu" page="/editProfile.html" roles="ROLE_ADMIN,ROLE_USER"/>
         <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="ROLE_ADMIN" width="120" page="/admin/users.html">
