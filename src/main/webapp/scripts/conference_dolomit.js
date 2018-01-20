@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
 	            		$('body > *').remove();
 	            		$.oddeven=0;
 	            		$.welcome=0;
-		        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/openweather/Dolomit-Monitor-Wetter.jpg')").css("height", "1280px");	            	
+		        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg')").css("height", "1280px");	            	
 
 	            		weather();
 	            		$.refreshId = setInterval(weather, 20000);
@@ -117,42 +117,16 @@ jQuery(document).ready(function () {
 			    	            		$.getScript('scripts/date/date-de-DE.js', function() {
 			    	            			$('#slideshow').css("width","1920px").css("height", "1080px")
 			    	            			.append($("<img />",  {"src": "images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg", "width":"1920", "height":"1080"})	)
-			    	            			if(new Date().between(Date.today().set({year: 2017, month: 9, day: 28, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 9, day: 29, hour: 18, minute: 00}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-dolomit-quer-zeitumstellung-winter2017.jpg", "width":"1920", "height":"1080"})	)
-			    	            			}
-			    	            			if(new Date().between(Date.today().set({year: 2017, month: 11, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 11, day: 31, hour: 23, minute: 45}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/1920x1080-silvester2017-dolomit-DE.jpg", "width":"1920", "height":"1080"})	)
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/1920x1080-silvester2017-dolomit-EN.jpg", "width":"1920", "height":"1080"})	)
-			    	            			}
 			    	            			if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2018, month: 3, day: 1, hour: 15, minute: 00}))){
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x1080-weihnachtszauber2017-de.jpg", "width":"1920", "height":"1080"})	)
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x1080-weihnachtszauber2017-en.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}				    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"1080"})	)
-			    	            			
-		    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
-										    $.ajax({
-										        url:menufilename,
-										        type:'HEAD',
-										        success:  function() { 
-										        	$('#slideshow').append($("<img />",  {"src": menufilename, "width":"1920", "height":"1080"})	)
-										        }
-										    }).complete(function() {
-			    	            				menufilename = "images/templates/1912_monatskarte/1080x1920-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
-											    $.ajax({
-											        url:menufilename,
-											        type:'HEAD',
-											        success:  function() { 
-											        	$('#slideshow').append($("<img />",  {"src": menufilename, "width":"1920", "height":"1080"})	)
-											        }
-											    }).complete(function() {
-					    	            			$('#slideshow').cycle({
-					    	            				fx:     'fade',
-					    	            				timeout: 500,
-					    	            				speed:   1500
-					    	            			});
-											    });
-										    });
+			    	            			$('#slideshow').cycle({
+			    	            				fx:     'fade',
+			    	            				timeout: 500,
+			    	            				speed:   1500
+			    	            			});
 			    	            		});
 		        	            	
 	        	            	}
