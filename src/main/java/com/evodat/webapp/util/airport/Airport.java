@@ -44,9 +44,9 @@ public class Airport {
 	}
 
 	public List<TrafficInfo> pull(int results) throws IOException {
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		Date date = new Date();
-		date.setTime(date.getTime()+1000*60*60);
+		date.setTime(date.getTime()+1000*60*45);
 		String dateStr = df.format(date);
 		dateStr = URLEncoder.encode(dateStr, "UTF-8");
 		String url = domain + "/flightsearch/departures?from="+dateStr+"&per_page="+results;
