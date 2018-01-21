@@ -2,6 +2,7 @@ package com.evodat.webapp.util.airport;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import com.evodat.webapp.util.Util;
 
 public class Airport {
 
-	public final String domain = "http://www.munich-airport.de";
+	public final String domain = "https://www.munich-airport.de";
 	private static Logger logger = Logger.getLogger(Airport.class);
 	private List<TrafficInfo> allObjects = new ArrayList<TrafficInfo>();
 	DefaultHttpClient httpclient = new DefaultHttpClient();
@@ -29,7 +30,7 @@ public class Airport {
 	public static void main(String[] args) {
 		Airport airport = new Airport();
 		try {
-			airport.pull();
+			airport.pull(10);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -42,8 +43,14 @@ public class Airport {
 
 	}
 
-	public List<TrafficInfo> pull() throws IOException {
-		String url = domain + "/de/consumer/fluginfo/dep/index.jsp";
+	public List<TrafficInfo> pull(int results) throws IOException {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
+		Date date = new Date();
+		date.setTime(date.getTime()+1000*60*60);
+		String dateStr = df.format(date);
+		dateStr = URLEncoder.encode(dateStr, "UTF-8");
+		String url = domain + "/flightsearch/departures?from="+dateStr+"&per_page="+results;
+		logger.info(url);
 		getPageBody(url);
 		return allObjects;
 
@@ -52,19 +59,26 @@ public class Airport {
 	private void getPageBody(String url) throws ClientProtocolException,
 			IOException {
 
-		InputStream page = Util.getPage(url, httpclient);
+		InputStream page = null;
+		try {
+			page = Util.getPage(url, httpclient);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String body = Util.convertStreamToString(page);
+//		logger.info(body);
 		List<TrafficInfo> pageObjects = pageObjects(body);
 		allObjects.addAll(pageObjects);
 
-		Pattern nextPattern = Pattern.compile("<div class=\"later\">\\s*"
-				+ "<a href=\"([^\"]*)\">Später</a>\\s*" + "</div>");
-		Matcher nextmatcher = nextPattern.matcher(body);
-		if (nextmatcher.find()) {
-			String nextPath = nextmatcher.group(1);
-			// logger.info(nextPath);
-			getPageBody(domain + nextPath);
-		}
+//		Pattern nextPattern = Pattern.compile("<div class=\"later\">\\s*"
+//				+ "<a href=\"([^\"]*)\">Später</a>\\s*" + "</div>");
+//		Matcher nextmatcher = nextPattern.matcher(body);
+//		if (nextmatcher.find()) {
+//			String nextPath = nextmatcher.group(1);
+//			// logger.info(nextPath);
+//			getPageBody(domain + nextPath);
+//		}
 
 		// return pageBody;
 	}
@@ -73,22 +87,22 @@ public class Airport {
 			throws ClientProtocolException, IOException {
 		List<TrafficInfo> allObjects = new ArrayList<TrafficInfo>();
 
-		Pattern pattern = Pattern.compile("knr=([^\"]*)\">([^<]*)</a></td>\\s*"
-				+ "<td align=\"left\">([^<]*)</td>\\s*"
-				+ "<td align=\"left\">([^<]*)</td>\\s*"
-				+ "<td align=\"left\">([^<]*)</td>\\s*"
-				+ "<td align=\"left\">([^<]*)</td>\\s*"
-				+ "<td align=\"left\">([^<]*)</td>");
+		Pattern pattern = Pattern.compile("<td class=\"fp-flight-airport\">\\s*<a href=\".*\">\\s*([^<]*)\\s*</a>\\s*</td>\\s*"
+				+ "<td class=\"fp-flight-number\">\\s*<a href=\".*\">\\s*<span class=\"nobr\">([^<]*)</span>\\s*</a>\\s*</td>\\s*"
+				+ "<td class=\"fp-flight-status\">([^<]*)</td>\\s*"
+				+ "<td class=\"fp-flight-time-muc\">([^<]*)</td>\\s*"
+				+ "<td class=\"fp-flight-time-other\">([^<]*)</td>\\s*"
+				+ "<td class=\"fp-flight-area\"><span class=\"nobr\">([^<]*)</span></td>\\s*");
 		Matcher matcher = pattern.matcher(body);
 		while (matcher.find()) {
 
 			MunichAirport trafficInfo = new MunichAirport();
 
 			String flightNr = matcher.group(2);
-			// logger.info(flightNr);
+//			 logger.info(flightNr);
 			trafficInfo.setTrain(flightNr);
 
-			String target = matcher.group(3);
+			String target =  matcher.group(1);
 			// logger.info(target);
 			trafficInfo.setTarget(target);
 
@@ -116,7 +130,7 @@ public class Airport {
 			// logger.info(terminal);
 			trafficInfo.setPlatform(terminal);
 
-			String status = matcher.group(7);
+			String status = matcher.group(3);
 			// logger.info(status);
 			trafficInfo.setRis(status);
 			allObjects.add(trafficInfo);

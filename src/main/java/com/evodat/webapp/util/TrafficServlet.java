@@ -336,7 +336,7 @@ public class TrafficServlet extends HttpServlet {
 		if (req.getParameter("air") != null) {
 			if (TRAFFIC_CACHE_AIR.get("TRAFFIC_CACHE_AIR") == null) {
 				Airport airport = new Airport();
-				allObjects = airport.pull();
+				allObjects = airport.pull(250);
 
 //				for (Object munichAirport : allObjects) {
 //					logger.info(munichAirport);
@@ -381,7 +381,7 @@ public class TrafficServlet extends HttpServlet {
 						)));
 				// obj.add(trafficInfo);
 				if (req.getParameter("air") != null) {
-					logger.info(trafficInfo.getTimeShift());
+//					logger.info(trafficInfo.getTimeShift());
 					if (Integer.parseInt(trafficInfo.getTimeShift()) < 40) {
 						continue;
 					}
