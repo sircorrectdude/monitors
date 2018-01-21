@@ -7,7 +7,7 @@ import com.picotel.spider.annotation.DateConverter;
 import com.picotel.spider.annotation.Spider;
 import com.picotel.spider.annotation.Xpath;
 
-@Spider(url = "http://reiseauskunft.bahn.de", path = "bin/bhftafel.exe/dn?ld=967&country=DEU&rt=1&", method = HttpMethod.POST)
+@Spider(url = "https://reiseauskunft.bahn.de", path = "bin/bhftafel.exe/dn?ld=967&protocol=https:&rt=1&", method = HttpMethod.POST)
 @Xpath(xPathExpr = "//table[@class='result stboard dep']/tr[not (position()=1) and not(@class='browse') and not(@class='current')]")
 public class DBahn extends TrafficInfo {
 
