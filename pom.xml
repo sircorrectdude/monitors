@@ -251,6 +251,15 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>native2ascii-maven-plugin</artifactId>
+                   <dependencies>
+        <dependency>
+             <groupId>com.sun</groupId>
+             <artifactId>tools</artifactId>
+             <version>1.7.0</version>
+             <scope>system</scope>
+             <systemPath>${java.home}/../lib/tools.jar</systemPath>
+       </dependency>
+   </dependencies>
                 <version>1.0-alpha-1</version>
                 <configuration>
                     <dest>target/classes</dest>
