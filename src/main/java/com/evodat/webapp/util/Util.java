@@ -37,7 +37,7 @@ public class Util {
 	
 	public static HttpClient wrapClient(HttpClient base) {
         try {
-            SSLContext ctx = SSLContext.getInstance("SSL");
+            SSLContext ctx = SSLContext.getInstance("TLSv1.2");
             X509TrustManager tm = new X509TrustManager() {
  
                 public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
