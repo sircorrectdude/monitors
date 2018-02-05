@@ -44,7 +44,6 @@ public class CarparkAction extends BaseAction implements ServletRequestAware,
 			monitorByIpAddress = monitorManager
 					.getMonitorByIpAddress(remoteAddr);
 			setFloorName(monitorByIpAddress.getAlias().toUpperCase());
-			log.debug("floorName: " + floorName);
 		} catch (MonitorNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,11 +58,10 @@ public class CarparkAction extends BaseAction implements ServletRequestAware,
 		// set totalPlacesLeft
 		int placesTotal = 0;
 		for (Floor floor : floors) {
-			log.info(floor);
 			placesTotal = placesTotal + floor.getPlaces();
 		}
 		carparkCristal.setPlacesLeft(placesTotal - getPlacesOccupied());
-		log.info("placesLeftTotal: " + carparkCristal.getPlacesLeft());
+//		log.info("placesLeftTotal: " + carparkCristal.getPlacesLeft());
 
 		return SUCCESS;
 	}
@@ -90,7 +88,7 @@ public class CarparkAction extends BaseAction implements ServletRequestAware,
 				} else {
 					floor.setPlacesLeft(floor.getPlaces());
 				}
-				log.info("free:" + floor.getPlacesLeft());
+//				log.debug("free:" + floor.getPlacesLeft());
 			}
 			placesTemp += floor.getPlaces();
 

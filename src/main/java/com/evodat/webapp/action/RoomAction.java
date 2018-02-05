@@ -25,8 +25,8 @@ public class RoomAction extends BaseAction implements ServletRequestAware,
 
 	public void prepare() throws Exception {
 		remoteAddr = getRequest().getRemoteAddr();
-		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
-				+ getRequest().getMethod());
+//		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
+//				+ getRequest().getMethod());
 
 	}
 
@@ -42,7 +42,7 @@ public class RoomAction extends BaseAction implements ServletRequestAware,
 			monitorByIpAddress = monitorManager
 					.getMonitorByIpAddress(remoteAddr);
 			setRoomName(monitorByIpAddress.getAlias().toUpperCase());
-			log.debug("roomName: " + roomName);
+//			log.debug("roomName: " + roomName);
 		} catch (MonitorNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,7 +83,7 @@ public class RoomAction extends BaseAction implements ServletRequestAware,
 				event.setLogo(jCalendar.getDescription());
 				event.setRoomLocation(jCalendar.getLocation());
 				event.setCompany(jCalendar.getSubject());
-				log.info(event);
+//				log.info(event);
 			}
 		}
 		return event;

@@ -12,7 +12,9 @@ public class AnprAdminAction extends BaseAction{
 	List<LicensePlate> licensePlates;
 	@Override
 	public String execute() throws Exception {
+		log.debug("AnprAdminAction startDate:" + startDate+ "endDate:"+endDate);
 		licensePlates = licensePlateManager.getAllByDates(startDate, endDate);
+		log.debug("got plates:"+licensePlates.size() );
 		return SUCCESS;
 	}
 
