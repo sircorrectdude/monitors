@@ -27,8 +27,6 @@ public class CarparkAction extends BaseAction implements ServletRequestAware,
 
 	public void prepare() throws Exception {
 		remoteAddr = getRequest().getRemoteAddr();
-		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
-				+ getRequest().getMethod());
 		carparkCristal = carparkManager.get(Carpark.Cristal);
 	}
 
@@ -68,7 +66,7 @@ public class CarparkAction extends BaseAction implements ServletRequestAware,
 
 	private void setFloorPlacesLeft(List<Floor> floors) {
 		int placesTemp = 0;
-		log.info("carparkCristal.getPlacesOccupied():" + getPlacesOccupied());
+//		log.info("carparkCristal.getPlacesOccupied():" + getPlacesOccupied());
 		for (Floor floor : floors) {
 			// log.info("floor:" + floor);
 			// log.info("placesTemp:" + placesTemp);
@@ -80,7 +78,7 @@ public class CarparkAction extends BaseAction implements ServletRequestAware,
 			// log.info(placesLeft);
 			if (placesLeft <= 0) {
 				// floor.setPlacesLeft(floor.getPlaces())
-				log.info("occupied:" + floor);
+//				log.info("occupied:" + floor);
 				floor.setPlacesLeft(0);
 			} else {
 				if (placesLeft < floor.getPlaces()) {

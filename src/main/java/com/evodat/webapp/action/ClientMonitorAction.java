@@ -53,7 +53,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 		// log.info(getRequest().getHeader(nextElement.toString()));
 		// }
 		remoteAddr = getRequest().getRemoteAddr();
-		log.info("Request from: " + getRequest().getRemoteAddr() + " Method: "
+		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
 				+ getRequest().getMethod());
 		// Enumeration parameterNames = getRequest().getParameterNames();
 		// if (parameterNames.hasMoreElements()) {
@@ -117,7 +117,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 				screenToSet = screens.get(0);
 				screenToSet.setDuration(DEFAULT_REFRESH);
 				boolean nextScreen = false;
-				log.info(screens.size() + " Screens");
+//				log.info(screens.size() + " Screens");
 				for (Screen screen : screens) {
 					// log.info("iD Screen" + screen.getId());
 					// log.info("Duration Screen" + screen.getDuration());
@@ -130,8 +130,8 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 						break;
 					} else if (String.valueOf(screen.getId()).equals(
 							lastScreenIdCookie.getValue())) {
-						log.info("use next Screen (this:" + screen.getId()
-								+ ")");
+//						log.info("use next Screen (this:" + screen.getId()
+//								+ ")");
 						nextScreen = true;
 					}
 				}
