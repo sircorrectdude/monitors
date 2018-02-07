@@ -15,13 +15,13 @@ jQuery(document).ready(function () {
 	            	 })
 	            	 
 	            	if(data.calendars == null || data.calendars.length === 0 || !dolomitEvents){
+	            		weather();
 	            		$('body > *').remove();
 	            		$.oddeven=0;
 	            		$.welcome=0;
 		        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg')").css("height", "1280px");	            	
 
-	            		weather();
-	            		$.refreshId = setInterval(weather, 20000);
+	            		$.refreshId = setInterval(weather, 15000);
 	            	}else{
 	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-17014.jpg')");	            	
 	            		
