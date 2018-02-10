@@ -43,7 +43,6 @@ public class SignalServlet extends HttpServlet {
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String parameter = req.getParameter("remainTime");
-		System.out.println("remainTime" + parameter);
 		int remainTime = Integer.valueOf(parameter);
 		SignalValue.getInstance().setRemainTime(remainTime);
 		remainTime = SignalValue.getInstance().getRemainTime();
