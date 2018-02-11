@@ -29,7 +29,7 @@ public class LicensePlateDaoHibernate extends GenericDaoHibernate<LicensePlate, 
 	// }
 
 	public List<LicensePlate> getAllByDates(Date startDate, Date endDate) {
-		String queryString = "SELECT DATE_FORMAT( MIN(timestamp), '%d/%m/%Y %H:%i:%s' ) AS tmstamp, plate, COUNT(id) AS cnt FROM LicensePlate where timestamp>=? and timestamp<=? GROUP BY ROUND(UNIX_TIMESTAMP(timestamp) / 60), plate";
+		String queryString = "SELECT DATE_FORMAT( MIN(timestamp), '%d/%m/%Y %H:%i:%s' ) AS tmstamp, plate, MIN(uuid), COUNT(id) AS cnt FROM LicensePlate where timestamp>=? and timestamp<=? GROUP BY ROUND(UNIX_TIMESTAMP(timestamp) / 60), plate";
 		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Query query = session.createQuery(queryString).setParameter(0, startDate).setParameter(1, endDate);
 		List<Object[]> list = (List<Object[]>) query.list();
@@ -48,9 +48,12 @@ public class LicensePlateDaoHibernate extends GenericDaoHibernate<LicensePlate, 
 				String tmstamp = (String) row[0];
 				licensePlate.setTimestamp(format.parse(tmstamp));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			String uuid = (String) row[2];
+			licensePlate.setUuid(uuid);
+			
 			plateList.add(licensePlate);
 		}
 		Collections.sort(plateList);
