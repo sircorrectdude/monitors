@@ -15,49 +15,10 @@ jQuery(document).ready(function () {
 		            		var adEndTime = {year: 2016, month: 8, day: 18, hour: 14, minute: 00};
 		            		var adEnd = Date.today().set(adEndTime);
 		            		if($.cookie('switchAdToggle') == 0){
-		            			$('body').css("color", "#707173").css("background","url('images/templates/rooms7og/monitor-cristal-lobby_werbung1912_02.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 1);
 		            		}else if($.cookie('switchAdToggle') == 1){
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
-		            		    $.ajax({
-		            		        url:menufilename,
-		            		        type:'HEAD',
-		            		        success:  function() { 
-		            		        	$.cookie('switchAdToggle', 2);
-		            		        },
-			            		    statusCode: {
-			            		        404: function() {
-					            		    $.ajax({
-					            		        url:menufilename_en,
-					            		        type:'HEAD',
-					            		        success:  function() { 
-					            		        	$.cookie('switchAdToggle', 3);
-					            		        },
-						            		    statusCode: {
-						            		        404: function() {
-						            		        	$.cookie('switchAdToggle', 0);
-						            		        }
-						            		    }
-					            		    })
-			            		        }
-			            		    }
-		            		    })
-		            		}else if($.cookie('switchAdToggle') == 2){
-		            			$('body').css("color", "#707173").css("background","url('"+menufilename+"')").css("height", "1920px").css("height", "1920px").css("width", "1080px");
-		            		    $.ajax({
-		            		        url:menufilename_en,
-		            		        type:'HEAD',
-		            		        success:  function() { 
-		            		        	$.cookie('switchAdToggle', 3);
-		            		        },
-			            		    statusCode: {
-			            		        404: function() {
-			            		        	$.cookie('switchAdToggle', 0);
-			            		        }
-			            		    }
-		            		    })
-		            		}else if($.cookie('switchAdToggle') == 3){
-		            			$('body').css("color", "#707173").css("background","url('"+menufilename_en+"')").css("height", "1920px").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 0);
 		            		}
 	            		});
