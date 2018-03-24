@@ -12,6 +12,9 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"925"}));
+	if(new Date().between(Date.today().set({year: 2018, month: 2, day: 24, hour: 06, minute: 00}), Date.today().set({year: 2018, month: 2, day: 25, hour: 18, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/zu/18/display-dolomit-quer-zeitumstellung-2018-1920x925px.jpg", "width":"1920", "height":"925"})	)
+	}	
 	if(new Date().between(Date.today().set({year: 2017, month: 11, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2017, month: 11, day: 31, hour: 23, minute: 45}))){
 		$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/925x1080-silvester2017-cristal-DE.jpg", "width":"1920", "height":"925"})	)
 		$('#slideshow').append($("<img />",  {"src": "images/sylvester/2017/925x1080-silvester2017-cristal-EN.jpg", "width":"1920", "height":"925"})	)
@@ -20,9 +23,6 @@ jQuery(document).ready(function () {
 		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x925-weihnachtszauber2017-de.jpg", "width":"1920", "height":"925"})	)
 		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x925-weihnachtszauber2017-en.jpg", "width":"1920", "height":"925"})	)
 	}
-	if(new Date().between(Date.today().set({year: 2017, month: 9, day: 28, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 9, day: 29, hour: 18, minute: 00}))){
-		$('#slideshow').append($("<img />",  {"src": "images/zu/17/display-cristal-quer-zeitumstellung-winter2017.jpg", "width":"1920", "height":"925"})	)
-	}	
 	
 	$('#slideshow').cycle({
 	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
