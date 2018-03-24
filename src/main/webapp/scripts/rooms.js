@@ -60,14 +60,14 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 10){
 			            			$('body').css("color", "#707173").css("background","url('images/theater/1080x1920px-monitor-rezeption-hoch-theaterpackage-okt2017.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2017, month: 9, day: 28, hour: 06, minute: 00}), Date.today().set({year: 2017, month: 9, day: 29, hour: 18, minute: 00}))){
+			            			if(new Date().between(Date.today().set({year: 2018, month: 2, day: 24, hour: 06, minute: 00}), Date.today().set({year: 2018, month: 2, day: 25, hour: 18, minute: 00}))){
 			            				$.cookie('switchAdToggle', 11);
 			            			}else{
 			            				$.cookie('switchAdToggle', 0);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 11){
-			            			$('body').css("color", "#707173").css("background","url('images/zu/17/Monitor-Lobby_Cristal-Zeitumstellung-winter-2017.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/zu/18/Monitor-Lobby_Cristal-Zeitumstellung-2018.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 			            		}			            		
 		            		});
