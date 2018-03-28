@@ -32,7 +32,7 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set(year: 2018, month: 2, day: 29, hour: 20, minute: 00}))){			            				
+			            			if(new Date().between(Date.today().set({year: 2017, month: 8, day: 7, hour: 09, minute: 00}), Date.today().set({year: 2018, month: 2, day: 29, hour: 20, minute: 00}))){			            				
 			            				$.cookie('switchAdToggle', 6);
 			            			}else{
 			            				$.cookie('switchAdToggle', 10);
