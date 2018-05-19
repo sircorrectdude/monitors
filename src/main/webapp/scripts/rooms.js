@@ -16,14 +16,8 @@ jQuery(document).ready(function () {
 	            	);
 	            	
 	            	if(data.calendars == null || data.calendars.length === 0){
-	            		// alert($.cookie('switchToggle'))
-	            		
-	            		
-	            			
 		            		$.getScript('scripts/date/date-de-DE.js', function() {
 		            			var now = new Date();
-		            			menufilename = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-de.jpg";
-		            			menufilename_en = "images/templates/1912_monatskarte/1920x1080-monatskarte-1912-"+(new Date().getMonth()+ 1).toLocaleString(undefined, {minimumIntegerDigits:2}) +"-"+new Date().getFullYear()+"-en.jpg";
 		            			// console.log($.cookie('switchAdToggle'))
 			            		if($.cookie('switchAdToggle') == 0){
 			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
@@ -63,13 +57,21 @@ jQuery(document).ready(function () {
 			            			if(new Date().between(Date.today().set({year: 2018, month: 2, day: 24, hour: 06, minute: 00}), Date.today().set({year: 2018, month: 2, day: 25, hour: 18, minute: 00}))){
 			            				$.cookie('switchAdToggle', 11);
 			            			}else{
-			            				$.cookie('switchAdToggle', 0);
+			            				$.cookie('switchAdToggle', 12);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 11){
 			            			$('body').css("color", "#707173").css("background","url('images/zu/18/Monitor-Lobby_Cristal-Zeitumstellung-2018.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 12);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 12){
+			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehbucher-Vorteile-engl.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$.cookie('switchAdToggle', 13);
+			            		}
+			            		else if($.cookie('switchAdToggle') == 13){
+			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehbucher-Vorteile-dt.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
-			            		}			            		
+			            		}				            		
 		            		});
 		            		/*
 							 * if(new Date().compareTo(easterAdEnd) ==-1 ){//

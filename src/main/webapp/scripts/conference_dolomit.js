@@ -126,6 +126,9 @@ jQuery(document).ready(function () {
 
 			    	            			}				    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"1080"})	)
+			    	            			$('#slideshow').append($("<img />",  {"src": "images/Dolomit-Rezeptions-Display-Fruehbuchervorteile-engl.jpg", "width":"1920", "height":"1080"})	)
+			    	            			$('#slideshow').append($("<img />",  {"src": "images/Dolomit-Rezeptions-Display-Fruehbuchervorteile-dt.jpg", "width":"1920", "height":"1080"})	)
+			    	            			
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
 			    	            				timeout: 500,
