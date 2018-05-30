@@ -121,8 +121,8 @@ jQuery(document).ready(function () {
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x1080-weihnachtszauber2017-de.jpg", "width":"1920", "height":"1080"})	)
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2017/neu/1920x1080-weihnachtszauber2017-en.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}	
-			    	            			if(new Date().between(Date.today().set({year: 2018, month: 2, day: 24, hour: 20, minute: 00}), Date.today().set({year: 2018, month: 2, day: 25, hour: 18, minute: 00}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/zu/18/display-dolomit-quer-zeitumstellung-2018-1920x1080px.jpg", "width":"1920", "height":"1080"})	)
+			    	            			if(new Date().between(Date.today().set({year: 2018, month: 4, day: 31, hour: 10, minute: 00}), Date.today().set({year: 2018, month: 5, day: 3, hour: 22, minute: 00}))){
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/unplugged/MunichUnplugged1920x1080.jpg", "width":"1920", "height":"1080"})	)
 
 			    	            			}				    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"1080"})	)
