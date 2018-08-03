@@ -23,11 +23,11 @@ jQuery(document).ready(function () {
 									floor.placesLeftUpper
 							).css('text-align','center').css('width','400px').css('position','absolute').css('top','500px').css('left','1350px').css('color','#00A752').css('font','bold 180px arial, sans-serif')
 						)
-					.css('background-image','url(images/templates/parkhaus/floor_occupied_sixt.jpg)');
+					.css('background-image','url(images/templates/parkhaus/floor_occupied.jpg)');
 				}else{
 					
 					if(floor.placesLeftUpper<=0){
-						$('body').empty().css('background-image','url(images/templates/parkhaus/floor_upper_occupied_sixt.jpg)');
+						$('body').empty().css('background-image','url(images/templates/parkhaus/floor_upper_occupied.jpg)');
 					}
 					else{
 						$('body').empty().append(
@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
 									floor.placesLeft
 							).css('text-align','center').css('width','400px').css('position','absolute').css('top','200px').css('left','550px').css('color','#00A752').css('font','bold 180px arial, sans-serif')
 						)*/
-						.css('background-image','url(images/templates/parkhaus/floor_frei_sixt.jpg)');
+						.css('background-image','url(images/templates/parkhaus/floor_frei.jpg)');
 					}
 				}
 			}

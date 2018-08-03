@@ -31,7 +31,7 @@ jQuery(document).ready(function () {
             function( data ){
             	console.log(data)
             	if(data > 10){
-					$('body').css("background","url('images/signal/countdown.png')")
+					$('body').css("background","url('images/signal/countdown_sixt.jpg')")
 					$('#defaultCountdown').show();
             		
 				  $(function(){
@@ -44,10 +44,10 @@ jQuery(document).ready(function () {
 				    	onExpiry: liftOff});
 				  });	            	
 	            }else if(data<=10 && data != 0){
-	            	$('body').css("background","url('images/signal/start.png')");
+	            	$('body').css("background","url('images/signal/start_sixt.jpg')");
 	            	liftOff();
 	            }else{
-					$('body').css("background","url('images/signal/drive.png')");
+					$('body').css("background","url('images/signal/drive_sixt.jpg')");
 					liftOff();
             	}
 		});
