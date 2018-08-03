@@ -66,7 +66,7 @@ jQuery(document).ready(function () {
 		
 		
 			
-		$("body").css("background-image","url(images/templates/parkhaus/hintergrund-monitor-carpark-EG_etagen-visu.jpg)").css('height','1508px');
+		$("body").css("background-image","url(images/templates/parkhaus/monitor-etagenvisu.jpg)").css('height','1508px');
 		$('body').append(
 				$('<table>').attr("id", "floorsTable").css('margin-top', "395px").css('width', "auto").css('font','bold 40pt arial, sans-serif')
 		);
@@ -80,7 +80,7 @@ jQuery(document).ready(function () {
 								.append(
 										$('<td>').css('width', "930px").css('background' , 'none repeat scroll 0 0 transparent')
 								).append(
-										$('<td>').css('background' , 'none repeat scroll 0 0 transparent')
+										$('<td>').css('background' , 'none repeat scroll 0 0 transparent').attr('id', "td_"+floor.id)
 										.append($("<img>").attr('src', floor.placesLeft<=0 ? 'images/templates/parkhaus/Parken_besetzt.jpg' : 'images/templates/parkhaus/Parken_frei.jpg'))
 								)
 								/*.append(
@@ -92,6 +92,7 @@ jQuery(document).ready(function () {
 					)
 				//}
 			});
+			$('#td_6').remove()
 			//$('.blink').blink()
 		});
 	}
