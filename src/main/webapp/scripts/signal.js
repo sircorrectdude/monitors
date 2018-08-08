@@ -12,7 +12,7 @@ jQuery(document).ready(function () {
 
 	  	$('head').append('<link rel="stylesheet" href="styles/textaNarrowMedium.css" type="text/css" />');
 		$('body').append(
-				$('<div>').attr("id", "defaultCountdown").css('width', '100%').css('height', '300px').css("background-color","transparent").css('margin-top', '1000px').css('text-align', 'center	')
+				$('<div>').attr("id", "defaultCountdown").css('width', '100%').css('height', '300px').css("background-color","transparent").css('margin-top', '500px').css('margin-left', '200px').css('text-align', 'left	')
 				.css('font-size', '150px').css("font-family","texta_narrowmedium").css("border","0").css("color","#0a6b37").css('z-index', '10'));
 		
 		clearInterval($.intervalId);
