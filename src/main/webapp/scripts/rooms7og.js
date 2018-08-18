@@ -18,7 +18,16 @@ jQuery(document).ready(function () {
 		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 1);
 		            		}else if($.cookie('switchAdToggle') == 1){
-		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_100Jahre-Neu.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 2);
+		            		}else if($.cookie('switchAdToggle') == 2){
+		            			$('body').css("color", "#707173").css("background","url('images/theater/1080x1920px-monitor-rezeption-hoch-theaterpackage-okt2017.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 3);
+		            		}else if($.cookie('switchAdToggle') == 3){
+		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehbucher-Vorteile-engl.jpg')").css("height", "1920px").css("width", "1080px");
+		            			$.cookie('switchAdToggle', 4);
+		            		}else if($.cookie('switchAdToggle') == 4){
+		            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehbucher-Vorteile-dt.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 0);
 		            		}
 	            		});
