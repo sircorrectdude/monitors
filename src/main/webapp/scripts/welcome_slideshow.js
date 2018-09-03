@@ -13,10 +13,15 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/Cristal-Rezeptions-Display-Fruehbuchervorteile-dt.jpg", "width":"1920", "height":"925"}))
-	.append($("<img />",  {"src": "images/Cristal-Rezeptions-Display-Fruehbuchervorteile-engl.jpg", "width":"1920", "height":"925"}));
+	.append($("<img />",  {"src": "images/Cristal-Rezeptions-Display-Fruehbuchervorteile-engl.jpg", "width":"1920", "height":"925"}))
+	;
 	
 	if(new Date().between(Date.today().set({year: 2018, month: 4, day: 31, hour: 10, minute: 00}), Date.today().set({year: 2018, month: 5, day: 3, hour: 22, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/unplugged/MunichUnplugged1920x925px.jpg", "width":"1920", "height":"925"})	)
+	}	
+	if(new Date().between(Date.today().set({year: 2018, month: 8, day: 1, hour: 09, minute: 00}), Date.today().set({year: 2019, month: 2, day: 31, hour: 20, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2018/1920x925-weihnachtszauber2018-DE.jpg", "width":"1920", "height":"925"}));
+		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2018/1920x925-weihnachtszauber2018-EN.jpg", "width":"1920", "height":"925"}));
 	}	
 	
 	$('#slideshow').cycle({
