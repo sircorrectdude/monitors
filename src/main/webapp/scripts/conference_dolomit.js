@@ -1,5 +1,6 @@
 jQuery(document).ready(function () {
-	
+	$(this).stop(true).stopTime('reloadPage');
+	$(document).everyTime('120s', 'reloadDolomitPage', reloadPage, 0, true);
 	function dolomit(){
 	    $.getJSON(
 	            'json/getNextCalendars.html?rooms=4',
@@ -21,7 +22,7 @@ jQuery(document).ready(function () {
 	            		$.welcome=0;
 		        	    $('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/Dolomit_Monitor-Fenster_Willkommen.jpg')").css("height", "1280px");	            	
 
-	            		$.refreshId = setInterval(weather, 15000);
+	            		$.refreshId = setInterval(weather, 50000);
 	            	}else{
 	            		$('body').css("font-family","arial,sans-serif").css("color","#003a7e").css("background","url('images/templates/konferenzraum/Dolomit-Monitor-Tagungen-17014.jpg')");	            	
 	            		
@@ -131,8 +132,8 @@ jQuery(document).ready(function () {
 			    	            			
 			    	            			$('#slideshow').cycle({
 			    	            				fx:     'fade',
-			    	            				timeout: 500,
-			    	            				speed:   1000
+			    	            				timeout: 5000,
+			    	            				speed:   500
 			    	            			});
 			    	            		});
 		        	            	
