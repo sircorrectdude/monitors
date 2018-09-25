@@ -14,6 +14,7 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/Cristal-Rezeptions-Display-Fruehbuchervorteile-dt.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/Cristal-Rezeptions-Display-Fruehbuchervorteile-engl.jpg", "width":"1920", "height":"925"}))
+	.append($("<img />",  {"src": "images/Rezeptions-Display-60Zoll-Cristal-we-and-food-2018.jpg", "width":"1920", "height":"925"}))
 	;
 	
 	if(new Date().between(Date.today().set({year: 2018, month: 8, day: 8, hour: 10, minute: 00}), Date.today().set({year: 2018, month: 8, day: 23, hour: 14, minute: 00}))){
