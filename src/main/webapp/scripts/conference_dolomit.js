@@ -122,9 +122,8 @@ jQuery(document).ready(function () {
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2018/1920x1080-weihnachtszauber2018-DE.jpg", "width":"1920", "height":"1080"})	)
 			    	            				$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2018/1920x1080-weihnachtszauber2018-EN.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}	
-			    	            			if(new Date().between(Date.today().set({year: 2018, month: 8, day: 8, hour: 10, minute: 00}), Date.today().set({year: 2018, month: 8, day: 23, hour: 14, minute: 00}))){
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/umzuege/2018/1080x1920-wiesnumzuege-2018-de.jpg", "width":"1920", "height":"1080"})	)
-			    	            				$('#slideshow').append($("<img />",  {"src": "images/umzuege/2018/1080x1920-wiesnumzuege-2018-en.jpg", "width":"1920", "height":"1080"})	)
+			    	            			if(new Date().between(Date.today().set({year: 2018, month: 9, day: 27, hour: 9, minute: 00}), Date.today().set({year: 2018, month: 9, day: 28, hour: 20, minute: 00}))){
+			    	            				$('#slideshow').append($("<img />",  {"src": "images/zu/18/display-dolomit-quer-zeitumstellung-winter2018.jpg", "width":"1920", "height":"1080"})	)
 			    	            			}				    	            			
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"1080"})	)
 			    	            			$('#slideshow').append($("<img />",  {"src": "images/Dolomit-Rezeptions-Display-Fruehbuchervorteile-engl.jpg", "width":"1920", "height":"1080"})	)
