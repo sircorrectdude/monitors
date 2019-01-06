@@ -65,14 +65,6 @@ jQuery(document).ready(function () {
 			            			$.cookie('switchAdToggle', 12);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 12){
-			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehbucher-Vorteile-engl.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 13);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 13){
-			            			$('body').css("color", "#707173").css("background","url('images/Monitor-Lobby_Cristal-Fruehbucher-Vorteile-dt.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 14);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 14){
 			            			$('body').css("color", "#707173").css("background","url('images/monitor-Lobby_Cristal-we-and-food-2018.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 0);
 			            		}				            		
