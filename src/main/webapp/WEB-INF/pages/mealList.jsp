@@ -70,13 +70,13 @@
 
 
 <c:set var="buttons">
-<p style="float:right;">
+
+</c:set>
+<p>
     <input type="button" style="margin-right: 5px" class="btn btn-primary"
         onclick="location.href='<c:url value="/editMeal.html?method=Add&from=list"/>'"
         value="<fmt:message key="button.addMeal"/>"/>
 </p>
-</c:set>
-
 <c:out value="${buttons}" escapeXml="false" />
 <!--
 <display:table name="meals" cellspacing="0" cellpadding="0" requestURI=""

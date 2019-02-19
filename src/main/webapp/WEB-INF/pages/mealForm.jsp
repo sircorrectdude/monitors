@@ -41,7 +41,7 @@
 					 <s:param name="width">400</s:param>
 					 <s:param name="height">300</s:param>
 				</s:url>
-				<s:a title="Hinzufügen" cssClass="thickbox" href="%{addMealCourseUrl}"><fmt:message key="mealCourse.add"/></s:a><br/>
+				<s:a title="Hinzufügen" cssClass="btn btn-primary thickbox" href="%{addMealCourseUrl}"><fmt:message key="mealCourse.add"/></s:a><br/>
 		 </div>
 
         <div class="single">
