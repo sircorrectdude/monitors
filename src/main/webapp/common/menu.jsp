@@ -7,6 +7,7 @@
     <menu:displayMenu name="MonitorMenu"/>
     <menu:displayMenu name="UserMenu"/>
     <menu:displayMenu name="AdminMenu"/>
+    <menu:displayMenu name="ExtrasMenu"/>
     <li class="divider-vertical"></li>
     <menu:displayMenu name="Logout"/>
 </ul>

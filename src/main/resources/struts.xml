@@ -185,6 +185,25 @@
 			<result name="success">/WEB-INF/pages/anprList.jsp</result>
 		</action>
 
+		<action name="meals" class="mealAction" method="list">
+			<result name="success">/WEB-INF/pages/mealList.jsp</result>
+		</action>
+
+		<action name="editMeal" class="mealAction" method="edit">
+			<result name="success">/WEB-INF/pages/mealForm.jsp</result>
+			<result name="input">/WEB-INF/pages/mealList.jsp</result>
+		</action>
+
+		<action name="saveMeal" class="mealAction" method="save">
+			<result name="cancel" type="redirectAction">meals</result>
+			<result name="input">/WEB-INF/pages/mealForm.jsp</result>
+			<result name="success" type="redirectAction">meals</result>
+		</action>
+
+		<action name="saveMealCourse" class="mealCourseAction" method="save">
+			<result type="redirectAction">../editMeal</result>
+		</action>
+
 		<!-- Add additional actions here -->
 
 	</package>
@@ -208,7 +227,28 @@
 		</action>
 		<action name="anpr" class="anprAction">
 			<result name="success"></result>
-		</action>		
+		</action>
+		<action name="mealEvents" class="mealEventAction">
+			<result type="json" >
+				<param name="noCache">true</param>
+				<param name="root">events</param>
+			</result>
+		</action>
+
+		<action name="deleteEvent" class="mealEventAction" method="deleteEvent">
+			<result type="json" >
+				<param name="noCache">true</param>
+				<param name="root">events</param>
+			</result>
+		</action>
+
+		<action name="saveEvent" class="mealEventAction" method="saveEvent">
+			<result type="json" >
+				<param name="noCache">true</param>
+				<param name="root">events</param>
+			</result>
+		</action>
+
 	</package>
 
 	<package name="ajax" extends="default" namespace="/ajax">
@@ -239,6 +279,10 @@
 		<action name="clientMonitorContent" class="com.evodat.webapp.action.ClientMonitorAction">
 			<result name="success">/WEB-INF/pages/clientMonitorContent.jsp</result>
 			<result name="input">/WEB-INF/pages/clientMonitorNotFound.jsp</result>
+		</action>
+
+		<action name="addMealCourse" class="mealCourseAction">
+			<result>/WEB-INF/ajax/mealCourseForm.jsp</result>
 		</action>
 
 	</package>

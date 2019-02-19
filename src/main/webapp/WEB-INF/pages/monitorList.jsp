@@ -11,10 +11,10 @@
     <input type="button" style="margin-right: 5px" class="btn btn-primary"
         onclick="location.href='<c:url value="/editMonitor.html?method=Add&from=list"/>'"
         value="<fmt:message key="button.add"/>"/>
-    
+
 <!--   <input type="button" onclick="location.href='<c:url value="/mainMenu.html"/>'"
         value="<fmt:message key="button.done"/>"/>
-         -->  
+         -->
 </p>
 </c:set>
 

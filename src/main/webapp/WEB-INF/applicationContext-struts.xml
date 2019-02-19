@@ -83,5 +83,19 @@
     <bean id="anprAdminAction" class="com.evodat.webapp.action.AnprAdminAction" scope="prototype">
     	<property name="licensePlateManager" ref="licensePlateManager"/>
     </bean>
-	
+
+    <bean id="mealAction" class="com.evodat.webapp.action.MealAction" scope="prototype">
+        <property name="mealManager" ref="mealManager"/>
+        <property name="mealCourseManager" ref="mealCourseManager"/>
+    </bean>
+
+    <bean id="mealEventAction" class="com.evodat.webapp.action.MealEventAction" scope="prototype">
+        <property name="mealEventManager" ref="mealEventManager"/>
+        <property name="mealManager" ref="mealManager"/>
+    </bean>
+
+    <bean id="mealCourseAction" class="com.evodat.webapp.action.MealCourseAction" scope="prototype">
+        <property name="mealCourseManager" ref="mealCourseManager"/>
+    </bean>
+
 </beans>

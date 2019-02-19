@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.evodat.service.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
@@ -19,18 +20,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.evodat.Constants;
 import com.evodat.model.User;
-import com.evodat.service.CarparkHistoryManager;
-import com.evodat.service.CarparkManager;
-import com.evodat.service.CourseManager;
-import com.evodat.service.FloorManager;
-import com.evodat.service.JCalendarManager;
-import com.evodat.service.LicensePlateManager;
-import com.evodat.service.MailEngine;
-import com.evodat.service.MonitorManager;
-import com.evodat.service.RoleManager;
-import com.evodat.service.ScreenManager;
-import com.evodat.service.TemplateManager;
-import com.evodat.service.UserManager;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -99,7 +88,12 @@ public class BaseAction extends ActionSupport {
 	protected LicensePlateManager licensePlateManager;
 	
 	protected CarparkHistoryManager carparkHistoryManager;
-	
+
+	protected MealManager mealManager;
+
+    protected MealCourseManager mealCourseManager;
+
+	protected MealEventManager mealEventManager;
 
 	/**
 	 * The FloorManager
@@ -325,4 +319,27 @@ public class BaseAction extends ActionSupport {
 		this.licensePlateManager = licensePlateManager;
 	}
 
+	public MealManager getMealManager() {
+		return mealManager;
+	}
+
+	public void setMealManager(MealManager mealManager) {
+		this.mealManager = mealManager;
+	}
+
+    public MealCourseManager getMealCourseManager() {
+        return mealCourseManager;
+    }
+
+    public void setMealCourseManager(MealCourseManager mealCourseManager) {
+        this.mealCourseManager = mealCourseManager;
+    }
+
+	public MealEventManager getMealEventManager() {
+		return mealEventManager;
+	}
+
+	public void setMealEventManager(MealEventManager mealEventManager) {
+		this.mealEventManager = mealEventManager;
+	}
 }
