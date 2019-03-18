@@ -23,6 +23,7 @@ jQuery(document).ready(function () {
 		            		}else if($.cookie('switchAdToggle') == 2){
 		            			$('body').css("color", "#707173").css("background","url('images/theater/1080x1920px-monitor-rezeption-hoch-theaterpackage-okt2017.jpg')").css("height", "1920px").css("width", "1080px");
 		            			$.cookie('switchAdToggle', 0);
+		            		}
 	            		});
 	            	}else{
 	            		
