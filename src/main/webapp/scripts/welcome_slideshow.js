@@ -15,8 +15,8 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/Rezeptions-Display-60Zoll-Cristal-we-and-food-2018.jpg", "width":"1920", "height":"925"}))
 	;
 	
-	if(new Date().between(Date.today().set({year: 2018, month: 9, day: 27, hour: 9, minute: 00}), Date.today().set({year: 2018, month: 9, day: 28, hour: 20, minute: 00}))){
-		$('#slideshow').append($("<img />",  {"src": "images/zu/18/display-cristal-quer-zeitumstellung-winter2018.png", "width":"1920", "height":"925"})	)
+	if(new Date().between(Date.today().set({year: 2019, month: 2, day: 29, hour: 16, minute: 00}), Date.today().set({year: 2019, month: 3, day: 1, hour: 11, minute: 00}))){
+		$('#slideshow').append($("<img />",  {"src": "images/zu/19/display-cristal-quer-zeitumstellung-2019-1920x925px.jpg", "width":"1920", "height":"925"})	)
 	}		
 	if(new Date().between(Date.today().set({year: 2018, month: 8, day: 1, hour: 09, minute: 00}), Date.today().set({year: 2019, month: 2, day: 31, hour: 20, minute: 00}))){
 		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2018/1920x925-weihnachtszauber2018-DE.jpg", "width":"1920", "height":"925"}));
