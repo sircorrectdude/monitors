@@ -27,4 +27,9 @@ public class MealEventManagerImpl extends GenericManagerImpl<MealEvent, Long> im
     public List<MealEvent> getAllFromDate() {
         return mealEventDao.getAllFromDate();
     }
+
+    @Override
+    public MealEvent getCurrentMealEvent() {
+        return mealEventDao.getCurrentMealEvent();
+    }
 }

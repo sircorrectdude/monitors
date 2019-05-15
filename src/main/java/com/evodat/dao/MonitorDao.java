@@ -13,5 +13,5 @@ public interface MonitorDao extends GenericDao<Monitor, Long> {
 
 	Monitor saveMonitor(Monitor monitor);
 
-	Monitor getMonitorByAlias(String alias) throws MonitorNotFoundException;;
+	Monitor getMonitorByAlias(String alias) throws MonitorNotFoundException;
 }

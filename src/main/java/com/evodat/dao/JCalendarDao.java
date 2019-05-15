@@ -10,7 +10,7 @@ import com.evodat.model.Room;
 public interface JCalendarDao extends GenericDao<JCalendar, Long> {
 
 	@Transactional
-	JCalendar getRunningCalendar(String room);
+	JCalendar getRunningCalendar(Room room);
 
 	@Transactional
 	List<JCalendar> getNextCalendars(int days);

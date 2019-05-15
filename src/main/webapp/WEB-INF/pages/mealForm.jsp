@@ -53,7 +53,7 @@
         </div>
 
        <div class="single">
-               <s:select label="MainCourse" key="maincourse.id" list="maincourses" listKey="id" listValue="title"/>
+               <s:select multiple="true" label="MainCourse" key="maincoursesToAdd.id" list="maincourses" listKey="id" listValue="title"/>
         </div>
 
        <div class="single">

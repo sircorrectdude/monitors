@@ -95,6 +95,10 @@ public class BaseAction extends ActionSupport {
 
 	protected MealEventManager mealEventManager;
 
+	protected MealEventRoomManager mealEventRoomManager;
+
+	protected PortionManager portionManager;
+
 	/**
 	 * The FloorManager
 	 */
@@ -341,5 +345,21 @@ public class BaseAction extends ActionSupport {
 
 	public void setMealEventManager(MealEventManager mealEventManager) {
 		this.mealEventManager = mealEventManager;
+	}
+
+	public MealEventRoomManager getMealEventRoomManager() {
+		return mealEventRoomManager;
+	}
+
+	public void setMealEventRoomManager(MealEventRoomManager mealEventRoomManager) {
+		this.mealEventRoomManager = mealEventRoomManager;
+	}
+
+	public PortionManager getPortionManager() {
+		return portionManager;
+	}
+
+	public void setPortionManager(PortionManager portionManager) {
+		this.portionManager = portionManager;
 	}
 }

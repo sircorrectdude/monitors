@@ -204,6 +204,11 @@
 			<result type="redirectAction">../editMeal</result>
 		</action>
 
+		<action name="mealEventRoom" class="mealEventRoomAction">
+			<result name="success">/WEB-INF/pages/mealEventRoom.jsp</result>
+			<result name="error">/WEB-INF/pages/mealEventRoomNoCalendar.jsp</result>
+		</action>
+
 		<!-- Add additional actions here -->
 
 	</package>
@@ -247,6 +252,14 @@
 				<param name="noCache">true</param>
 				<param name="root">events</param>
 			</result>
+		</action>
+
+		<action name="addMealCourseAction" class="addMealCourseAction">
+			<result type="json" />
+		</action>
+
+		<action name="removePortion" class="addMealCourseAction" method="removePortion">
+			<result type="json" />
 		</action>
 
 	</package>

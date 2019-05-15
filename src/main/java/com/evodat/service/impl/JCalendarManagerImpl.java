@@ -26,7 +26,7 @@ public class JCalendarManagerImpl extends GenericManagerImpl<JCalendar, Long>
 		this.jCalendarDao = jCalendarDao;
 	}
 
-	public JCalendar getRunningCalendar(String room) {
+	public JCalendar getRunningCalendar(Room room) {
 		return jCalendarDao.getRunningCalendar(room);
 	}
 

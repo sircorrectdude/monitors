@@ -98,4 +98,18 @@
         <property name="mealCourseManager" ref="mealCourseManager"/>
     </bean>
 
+    <bean id="mealEventRoomAction" class="com.evodat.webapp.action.MealEventRoomAction" scope="prototype">
+        <property name="mealEventManager" ref="mealEventManager"/>
+        <property name="mealEventRoomManager" ref="mealEventRoomManager"/>
+        <property name="jCalendarManager" ref="jCalendarManager"/>
+    </bean>
+
+    <bean id="addMealCourseAction" class="com.evodat.webapp.action.AddMealCourseAction" scope="prototype">
+        <property name="mealEventManager" ref="mealEventManager"/>
+        <property name="mealEventRoomManager" ref="mealEventRoomManager"/>
+        <property name="mealCourseManager" ref="mealCourseManager"/>
+        <property name="portionManager" ref="portionManager"/>
+        <property name="jCalendarManager" ref="jCalendarManager"/>
+    </bean>
+
 </beans>

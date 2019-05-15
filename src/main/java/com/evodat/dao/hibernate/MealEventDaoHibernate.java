@@ -17,6 +17,15 @@ public class MealEventDaoHibernate extends GenericDaoHibernate<MealEvent, Long>
     @Override
     public List<MealEvent> getAllFromDate() {
         List<MealEvent> mealEvents = getHibernateTemplate().find("from MealEvent m");
-        return  mealEvents;
+        return mealEvents;
+    }
+
+    @Override
+    public MealEvent getCurrentMealEvent() {
+        List<MealEvent> mealEvents = getHibernateTemplate().find("from MealEvent m where m.date = current_date");
+        if(null == mealEvents || mealEvents.isEmpty()){
+            return null;
+        }
+        return mealEvents.get(0);
     }
 }

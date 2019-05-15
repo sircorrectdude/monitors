@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class MealAction extends BaseAction implements Preparable {
+    public class MealAction extends BaseAction implements Preparable {
 
     private List<Meal> meals;
     private Meal meal;
@@ -20,7 +20,7 @@ public class MealAction extends BaseAction implements Preparable {
 
     private Mealcourse starter;
     private Mealcourse dessert;
-    private Mealcourse maincourse;
+    private List<Mealcourse> maincoursesToAdd;
 //    private String name;
 
     public void prepare() throws Exception {
@@ -68,7 +68,7 @@ public class MealAction extends BaseAction implements Preparable {
 //        Meal meal = new Meal();
         Set<Mealcourse> mealcourses = new HashSet<Mealcourse>();
         mealcourses.add(starter);
-        mealcourses.add(maincourse);
+        mealcourses.addAll(maincoursesToAdd);
         mealcourses.add(dessert);
         meal.setMealcourses(mealcourses);
 //        meal.setName(name);
@@ -144,11 +144,11 @@ public class MealAction extends BaseAction implements Preparable {
         this.dessert = dessert;
     }
 
-    public Mealcourse getMaincourse() {
-        return maincourse;
+    public List<Mealcourse> getMaincoursesToAdd() {
+        return maincoursesToAdd;
     }
 
-    public void setMaincourse(Mealcourse maincourse) {
-        this.maincourse = maincourse;
+    public void setMaincoursesToAdd(List<Mealcourse> maincoursesToAdd) {
+        this.maincoursesToAdd = maincoursesToAdd;
     }
 }

@@ -7,6 +7,7 @@
         <pattern>/struts/dojo/*</pattern> 
         <pattern>/resources/*</pattern>
 		<pattern>/clientMonitor*</pattern>
+        <pattern>/mealEventRoom*</pattern>
     </excludes> 
     <decorator name="default" page="default.jsp">
         <pattern>/*</pattern>

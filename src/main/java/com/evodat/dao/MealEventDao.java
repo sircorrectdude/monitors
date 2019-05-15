@@ -9,4 +9,6 @@ public interface MealEventDao extends GenericDao<MealEvent, Long> {
 
     @Transactional
     List<MealEvent> getAllFromDate();
+
+    MealEvent getCurrentMealEvent();
 }

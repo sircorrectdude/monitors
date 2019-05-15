@@ -19,5 +19,7 @@
 		<mapping class="com.evodat.model.Mealcourse"/>
 		<mapping class="com.evodat.model.Meal"/>
 		<mapping class="com.evodat.model.MealEvent"/>
+		<mapping class="com.evodat.model.MealEventRoom"/>
+		<mapping class="com.evodat.model.Portion"/>
     </session-factory>
 </hibernate-configuration>

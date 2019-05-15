@@ -7,7 +7,7 @@ import com.evodat.model.Room;
 
 public interface JCalendarManager {
 
-	JCalendar getRunningCalendar(String room);
+	JCalendar getRunningCalendar(Room room);
 
 	List<JCalendar> getNextCalendars(int days);
 

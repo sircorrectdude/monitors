@@ -9,4 +9,6 @@ import java.util.List;
 public interface MealEventManager extends GenericManager<MealEvent, Long> {
 
     List<MealEvent> getAllFromDate();
+
+    MealEvent getCurrentMealEvent();
 }

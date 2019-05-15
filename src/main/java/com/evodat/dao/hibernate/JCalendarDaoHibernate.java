@@ -16,8 +16,14 @@ public class JCalendarDaoHibernate extends GenericDaoHibernate<JCalendar, Long>
 		super(JCalendar.class);
 	}
 
-	public JCalendar getRunningCalendar(String room) {
-		return null;
+	public JCalendar getRunningCalendar(Room room) {
+
+		List<JCalendar> calendars = getHibernateTemplate().find(
+				"from JCalendar jc where jc.startTime <= current_time and jc.endTime >= current_time and jc.color = ? ", room);
+		if(null == calendars || calendars.isEmpty()){
+			return null;
+		}
+		return calendars.get(0);
 	}
 
 	public List<JCalendar> getNextCalendars(int days) {
