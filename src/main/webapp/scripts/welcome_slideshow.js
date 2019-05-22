@@ -22,7 +22,10 @@ jQuery(document).ready(function () {
 		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2018/1920x925-weihnachtszauber2018-DE.jpg", "width":"1920", "height":"925"}));
 		$('#slideshow').append($("<img />",  {"src": "images/huettenzauber/2018/1920x925-weihnachtszauber2018-EN.jpg", "width":"1920", "height":"925"}));
 	}	
-	
+    if(new Date().between(Date.today().set({year: 2019, month: 4, day: 23, hour: 14, minute: 00}), Date.today().set({year: 2019, month: 4, day: 26, hour: 22, minute: 00}))){
+        $('#slideshow').append($("<img />",  {"src": "images/unplugged/2019/MunichUnplugged1920x925px.jpg", "width":"1920", "height":"925"}));
+    }
+
 	$('#slideshow').cycle({
 	    fx:     'turnDown, fade, growX, growY, turnUp, turnDown,turnLeft,turnRight ',
 	    timeout: 10000,
