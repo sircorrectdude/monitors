@@ -7,6 +7,10 @@
         <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/${appConfig["csstheme"]}/theme.css'/>" />
     </head>
     <body>
-		            Currently NO Event
+		            	<s:if test="hasActionErrors()">
+                       <div class="alert alert-success">
+                          <s:actionerror/>
+                       </div>
+                    </s:if>
 	</body>
 </html>

@@ -112,4 +112,13 @@
         <property name="jCalendarManager" ref="jCalendarManager"/>
     </bean>
 
+    <bean id="kitchenMenuAction" class="com.evodat.webapp.action.KitchenMenuAction" scope="prototype">
+        <property name="jCalendarManager" ref="jCalendarManager"/>
+        <property name="mealEventRoomManager" ref="mealEventRoomManager"/>
+    </bean>
+
+    <bean id="updateMealEventRoomTimeAction" class="com.evodat.webapp.action.UpdateMealEventRoomTimeAction" scope="prototype">
+        <property name="mealEventRoomManager" ref="mealEventRoomManager"/>
+    </bean>
+
 </beans>

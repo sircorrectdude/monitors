@@ -30,7 +30,7 @@ public class MealEventRoom {
         this.id = id;
     }
 
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getTime() {
         return time;
     }

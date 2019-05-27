@@ -262,6 +262,14 @@
 			<result type="json" />
 		</action>
 
+		<action name="kitchenMenu" class="kitchenMenuAction">
+			<result type="json" />
+		</action>
+
+		<action name="updateMealEventRoomTime" class="updateMealEventRoomTimeAction">
+			<result type="json" />
+		</action>
+
 	</package>
 
 	<package name="ajax" extends="default" namespace="/ajax">
@@ -297,6 +305,7 @@
 		<action name="addMealCourse" class="mealCourseAction">
 			<result>/WEB-INF/ajax/mealCourseForm.jsp</result>
 		</action>
+
 
 	</package>
 

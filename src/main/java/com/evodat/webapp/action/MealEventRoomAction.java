@@ -5,6 +5,7 @@ import com.evodat.webapp.model.MealcourseDO;
 import com.opensymphony.xwork2.Preparable;
 
 import javax.sound.sampled.Port;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MealEventRoomAction extends BaseAction  implements Preparable {
@@ -18,6 +19,8 @@ public class MealEventRoomAction extends BaseAction  implements Preparable {
     private MealcourseDO dessert;
     private Map<Long, MealcourseDO> maincourses;
 
+    private String formattedMealEventTime;
+
     public void prepare() throws Exception {
         mealEvent = mealEventManager.getCurrentMealEvent();
         maincourses = new HashMap<Long, MealcourseDO>();
@@ -25,38 +28,52 @@ public class MealEventRoomAction extends BaseAction  implements Preparable {
 
     @Override
     public String execute() {
+        if(null == mealEvent){
+            addActionError("No Meal today");
+            return ERROR;
+        }
         Room room = new Room();
         room.setId(roomId);
 
         runningCalendar = jCalendarManager.getRunningCalendar(room);
         if(null == runningCalendar){
-            //TODO
+            addActionError("No Event today");
             return ERROR;
         }
 
-        mealEventRoom = mealEventRoomManager.getCurrentMealEventRoom(room);
-        if(null == mealEventRoom){
-            MealEventRoom mealEventRoom = new MealEventRoom();
-            mealEventRoom.setEventinfo(runningCalendar);
-            mealEventRoom.setTime(new java.util.Date());
-            mealEventRoomManager.save(mealEventRoom);
-        }
-
+        mealEventRoom = addMealEventRoom(runningCalendar);
+        setFormattedMealEventTime(new SimpleDateFormat("HH:mm").format(mealEventRoom.getTime()));
 
         createPortions();
 
 
         Iterator<Map.Entry<Long, MealcourseDO>> itr = maincourses.entrySet().iterator();
 
-        while(itr.hasNext())
-        {
-            Map.Entry<Long, MealcourseDO> entry = itr.next();
-            System.out.println("Key = " + entry.getKey() +
-                    ", Value = " + entry.getValue());
-        }
-
+//        while(itr.hasNext())
+//        {
+//            Map.Entry<Long, MealcourseDO> entry = itr.next();
+//            System.out.println("Key = " + entry.getKey() +
+//                    ", Value = " + entry.getValue());
+//        }
 
         return SUCCESS;
+
+    }
+
+    private MealEventRoom addMealEventRoom(JCalendar jCalendar) {
+        MealEventRoom mealEventRoom = mealEventRoomManager.getCurrentMealEventRoom(jCalendar.getColor());
+        if(null == mealEventRoom){
+            mealEventRoom = new MealEventRoom();
+            mealEventRoom.setEventinfo(runningCalendar);
+
+            Calendar now = Calendar.getInstance();
+            now.set(Calendar.HOUR, 0);
+            now.set(Calendar.MINUTE,0);
+            now.set(Calendar.AM_PM, Calendar.PM);
+            mealEventRoom.setTime(now.getTime());
+            mealEventRoom = mealEventRoomManager.save(mealEventRoom);
+        }
+        return mealEventRoom;
     }
 
     private void createPortions() {
@@ -78,22 +95,24 @@ public class MealEventRoomAction extends BaseAction  implements Preparable {
 
             }
         }
+        if(null!=mealEventRoom && null!=mealEventRoom.getPortions()) {
 
-        for(Portion portion: mealEventRoom.getPortions()) {
-            if(portion.getMealcourse().getMealcourseType() == MealcourseType.STARTER){
-                starter = new MealcourseDO();
-                starter.setTitle(portion.getMealcourse().getTitle());
-            }
-            if(portion.getMealcourse().getMealcourseType() == MealcourseType.DESSERT){
-                dessert = new MealcourseDO();
-                dessert.setTitle(portion.getMealcourse().getTitle());
-            }
-            if(portion.getMealcourse().getMealcourseType() == MealcourseType.MAINCOURSE){
-                MealcourseDO maincourse = maincourses.get(portion.getMealcourse().getId());
-                maincourse.setCount(maincourse.getCount() + 1);
+            for (Portion portion : mealEventRoom.getPortions()) {
+                if (portion.getMealcourse().getMealcourseType() == MealcourseType.STARTER) {
+                    starter = new MealcourseDO();
+                    starter.setTitle(portion.getMealcourse().getTitle());
+                }
+                if (portion.getMealcourse().getMealcourseType() == MealcourseType.DESSERT) {
+                    dessert = new MealcourseDO();
+                    dessert.setTitle(portion.getMealcourse().getTitle());
+                }
+                if (portion.getMealcourse().getMealcourseType() == MealcourseType.MAINCOURSE) {
+                    MealcourseDO maincourse = maincourses.get(portion.getMealcourse().getId());
+                    maincourse.setCount(maincourse.getCount() + 1);
+
+                }
 
             }
-
         }
     }
 
@@ -153,11 +172,11 @@ public class MealEventRoomAction extends BaseAction  implements Preparable {
         this.maincourses = maincourses;
     }
 
-//    public Map<Mealcourse, Integer> getMealCounts() {
-//        return mealCounts;
-//    }
-//
-//    public void setMealCounts(Map<Mealcourse, Integer> mealCounts) {
-//        this.mealCounts = mealCounts;
-//    }
+    public String getFormattedMealEventTime() {
+        return formattedMealEventTime;
+    }
+
+    public void setFormattedMealEventTime(String formattedMealEventTime) {
+        this.formattedMealEventTime = formattedMealEventTime;
+    }
 }

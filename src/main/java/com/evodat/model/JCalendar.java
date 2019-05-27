@@ -2,6 +2,7 @@ package com.evodat.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +33,7 @@ public class JCalendar extends BaseObject implements Serializable {
 	private Short isAllDayEvent;
 	private Date startTime;
 	private Date endTime;
+	private Integer numberPersons;
 
 	@Id
 	@Column(name = "Id")
@@ -118,30 +120,50 @@ public class JCalendar extends BaseObject implements Serializable {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		ToStringBuilder sb = new ToStringBuilder(this,
-				ToStringStyle.DEFAULT_STYLE).append("subject", this.subject)
-				.append("location", this.location)
-				.append("description", this.description)
-				.append("color", this.color)
-				.append("isAllDayEvent", this.isAllDayEvent)
-				.append("startTime", this.startTime)
-				.append("endTime", this.endTime)
-				.append("recurringRule", this.recurringRule);
-		return sb.toString();
+	@Column(name = "NumberPersons", nullable = false)
+	public Integer getNumberPersons() {
+		return numberPersons;
+	}
+
+	public void setNumberPersons(Integer numberPersons) {
+		this.numberPersons = numberPersons;
 	}
 
 	@Override
 	public boolean equals(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+		if (this == o) return true;
+		if (!(o instanceof JCalendar)) return false;
+		JCalendar jCalendar = (JCalendar) o;
+		return Objects.equals(getId(), jCalendar.getId()) &&
+				Objects.equals(getSubject(), jCalendar.getSubject()) &&
+				Objects.equals(getLocation(), jCalendar.getLocation()) &&
+				Objects.equals(getDescription(), jCalendar.getDescription()) &&
+				Objects.equals(getColor(), jCalendar.getColor()) &&
+				Objects.equals(getRecurringRule(), jCalendar.getRecurringRule()) &&
+				Objects.equals(getIsAllDayEvent(), jCalendar.getIsAllDayEvent()) &&
+				Objects.equals(getStartTime(), jCalendar.getStartTime()) &&
+				Objects.equals(getEndTime(), jCalendar.getEndTime()) &&
+				Objects.equals(getNumberPersons(), jCalendar.getNumberPersons());
 	}
 
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return 0;
+		return Objects.hash(getId(), getSubject(), getLocation(), getDescription(), getColor(), getRecurringRule(), getIsAllDayEvent(), getStartTime(), getEndTime(), getNumberPersons());
 	}
 
+	@Override
+	public String toString() {
+		return "JCalendar{" +
+				"id=" + id +
+				", subject='" + subject + '\'' +
+				", location='" + location + '\'' +
+				", description='" + description + '\'' +
+				", color=" + color +
+				", recurringRule='" + recurringRule + '\'' +
+				", isAllDayEvent=" + isAllDayEvent +
+				", startTime=" + startTime +
+				", endTime=" + endTime +
+				", numberPersons=" + numberPersons +
+				'}';
+	}
 }

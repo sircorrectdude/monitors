@@ -36,8 +36,10 @@ public class AddMealCourseAction extends BaseAction implements Preparable {
         portion.setMealcourse(mealcourse);
         portion.setMealEventRoom(mealEventRoom);
 
-        mealEventRoom.getPortions().add(portion);
-        mealEventRoom = mealEventRoomManager.save(mealEventRoom);
+        if(mealEventRoom.getPortions().size() < mealEventRoom.getEventinfo().getNumberPersons()) {
+            mealEventRoom.getPortions().add(portion);
+            mealEventRoom = mealEventRoomManager.save(mealEventRoom);
+        }
         createPortions();
         return SUCCESS;
     }

@@ -220,7 +220,9 @@ if($_GET["id"]){
             </span>  
             <input MaxLength="200" class="required safe" id="Subject" name="Subject" style="width:200px;" type="text" value="<?php echo isset($event)?$event->Subject:"" ?>" />                     
             <input id="colorvalue" name="colorvalue" type="hidden" value="<?php echo isset($event)?$event->Color:"" ?>" />                
-          </label>                 
+          </label>
+          <label for="Persons">*Number of Persons</label>
+            <input MaxLength="3" class="required safe" id="NumberPersons" name="NumberPersons" style="width:30px;" type="text" value="<?php echo isset($event)?$event->NumberPersons:"" ?>" />
           <label>                    
             <span>*Time:
             </span>                    
