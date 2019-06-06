@@ -29,15 +29,14 @@ public class MealEventRoomAction extends BaseAction  implements Preparable {
     @Override
     public String execute() {
         if(null == mealEvent){
-            addActionError("No Meal today");
+            addActionError("There is no meal scheduled for today, "+ new SimpleDateFormat("dd.MM.yyyy").format(new Date()));
             return ERROR;
         }
         Room room = new Room();
         room.setId(roomId);
-
         runningCalendar = jCalendarManager.getRunningCalendar(room);
         if(null == runningCalendar){
-            addActionError("No Event today");
+            addActionError("There is no event scheduled for today, "+ new SimpleDateFormat("dd.MM.yyyy").format(new Date()));
             return ERROR;
         }
 

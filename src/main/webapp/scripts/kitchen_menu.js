@@ -1,6 +1,10 @@
 
 jQuery(document).ready(function () {
 	 $.getStylesheet = function (href) {
+
+	    $('link[href="'+href+'"]').attr('disabled', 'disabled');
+        $('link[href="'+href+'"]').remove();
+
 	    var $d = $.Deferred();
 	    var $link = $('<link/>', {
 	       rel: 'stylesheet',
@@ -20,7 +24,7 @@ jQuery(document).ready(function () {
 			.then(function () {
 
 
-                $("body").append("<div id='demo'></div>");
+                $("body").append("<div id='timelinecontent'></div>");
                 $("body").css("overflow", "visible")
 
                 /*
@@ -35,7 +39,7 @@ jQuery(document).ready(function () {
                                  $("body").append("<div class='noeventdiv' id='info'><h1>No Events today</h1></div>");
                             }
                             else{
-                                $("#demo").timeline({
+                                $("#timelinecontent").timeline({
                                     data: json.data
                                 });
                             }

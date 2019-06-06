@@ -45,30 +45,6 @@ input[type=text]{
                  border: 1px solid #999;
              }
 
-
-.disablingDiv
-{
-    /* Do not display it on entry */
-    display: none;
-
-    /* Display it on the layer with index 1001.
-       Make sure this is the highest z-index value
-       used by layers on that page */
-    z-index:1001;
-
-    /* make it cover the whole screen */
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-
-    /* make it white but fully transparent */
-    background-color: white;
-    opacity:.00;
-    filter: alpha(opacity=00);
-}
-
         </style>
 
     </head>
@@ -99,6 +75,10 @@ input[type=text]{
                         <script type="text/javascript">
                             jQuery(document).ready(function () {
                                  $.getStylesheet = function (href) {
+
+                                 	    $('link[href="'+href+'"]').attr('disabled', 'disabled');
+                                         $('link[href="'+href+'"]').remove();
+
                                     var $d = $.Deferred();
                                     var $link = $('<link/>', {
                                        rel: 'stylesheet',

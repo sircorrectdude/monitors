@@ -10,3 +10,39 @@
     margin: auto;
     background-color: #fff;
 }
+
+
+.timeline_maincourse_count{
+    float:left;
+    padding-right:10px;
+    font-weight: bold;
+}
+
+.timeline_maincourse_name{
+    overflow:hidden;
+}
+
+.timeline_event_number_persons{
+
+}
+
+.timeline_eventtitle{
+    float:left;
+    padding-right:10px;
+     text-decoration: underline;
+     font-weight: bold;
+}
+
+.timeline_maincourse_no_orders{
+
+}
+
+#timelinecontent{
+
+    font-size: 32px;
+    margin: 15px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    /*background-image: url("../images/kitchen.jpg");*/
+     background-color: #cccccc;
+}

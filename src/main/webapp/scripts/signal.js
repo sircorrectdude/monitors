@@ -1,5 +1,9 @@
 jQuery(document).ready(function () {
 	 $.getStylesheet = function (href) {
+
+        $('link[href="'+href+'"]').attr('disabled', 'disabled');
+        $('link[href="'+href+'"]').remove();
+
 	    var $d = $.Deferred();
 	    var $link = $('<link/>', {
 	       rel: 'stylesheet',

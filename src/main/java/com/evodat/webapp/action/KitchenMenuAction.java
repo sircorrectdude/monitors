@@ -1,11 +1,10 @@
 package com.evodat.webapp.action;
 
 import com.evodat.model.*;
-import com.evodat.webapp.model.MealcourseDO;
 import com.evodat.webapp.util.TimeDO;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
+
 
 public class KitchenMenuAction extends BaseAction{
 
@@ -20,10 +19,15 @@ private List<TimeDO> data;
         for(JCalendar jCalendar: nextCalendars){
             Calendar eventCalendar = Calendar.getInstance();
             eventCalendar.setTime(jCalendar.getStartTime());
+            // show on current day
             if (eventCalendar.get(Calendar.YEAR) == nowCalendar.get(Calendar.YEAR)
                     && eventCalendar.get(Calendar.MONTH) == nowCalendar.get(Calendar.MONTH)
                     && eventCalendar.get(Calendar.DAY_OF_MONTH) == nowCalendar.get(Calendar.DAY_OF_MONTH)){
-                mealEventRooms.add(addMealEventRoom(jCalendar));
+
+                // show only if not yet finished
+                if(!new java.util.Date().after(jCalendar.getEndTime())) {
+                    mealEventRooms.add(addMealEventRoom(jCalendar));
+                }
             }
         }
 
@@ -63,14 +67,13 @@ private List<TimeDO> data;
                 while(itr.hasNext())
                 {
                     Map.Entry<String, Integer> entry = itr.next();
-                    content = content + ("<div class='timeline_maincourse_name'>" + entry.getKey() +"</div>"+
-                            "<div class='timeline_maincourse_count'>" +entry.getValue()+"</div>");
+                    content = content + ("<div class='timeline_maincourse_count'>" + entry.getValue() +"</div>"+
+                            "<div class='timeline_maincourse_name'>" +entry.getKey()+"</div>");
                 }
             }else{
                 content = content + "<div class='timeline_maincourse_no_orders'>KEINE BESTELLUNGEN</div>";
             }
             timeDO.setContent(content);
-            //timeDO.setContent("FDP Event<br/>3 Pizza<br/>2 Burger");
             data.add(timeDO);
             Collections.sort(data);
 //            Collections.reverse(data);
