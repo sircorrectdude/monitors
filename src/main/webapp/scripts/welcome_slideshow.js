@@ -11,7 +11,6 @@ jQuery(document).ready(function () {
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/Cristal-Rezeptions-Display-Bewertung.jpg", "width":"1920", "height":"925"}))	
 	.append($("<img />",  {"src": "images/templates/welcome_slideshow/slide12.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/design_2016/Monitor-quer-Werbung-MuenchnerStubn-Jan16-1920x925px.jpg", "width":"1920", "height":"925"}))
-	.append($("<img />",  {"src": "images/theater/1920x925px-monitor-rezeption-quer-theaterpackage-okt2017.jpg", "width":"1920", "height":"925"}))
 	.append($("<img />",  {"src": "images/Rezeptions-Display-60Zoll-Cristal-we-and-food-2018.jpg", "width":"1920", "height":"925"}))
 	;
 	
