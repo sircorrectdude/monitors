@@ -54,14 +54,14 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 10){
 			            			$('body').css("color", "#707173").css("background","url('images/monitor-Lobby_Cristal-we-and-food-2018.jpg')").css("height", "1920px").css("width", "1080px");
-                                    if(new Date().between(Date.today().set({year: 2019, month: 2, day: 29, hour: 16, minute: 00}), Date.today().set({year: 2019, month: 3, day: 1, hour: 11, minute: 00}))){
+                                    if(new Date().between(Date.today().set({year: 2019, month: 9, day: 26, hour: 9, minute: 00}), Date.today().set({year: 2019, month: 9, day: 27, hour: 18, minute: 00}))){
 			            				$.cookie('switchAdToggle', 11);
 			            			}else{
 			            				$.cookie('switchAdToggle', 12);
 			            			}
 			            		}
 			            		else if($.cookie('switchAdToggle') == 11){
-			            			$('body').css("color", "#707173").css("background","url('images/zu/19/Monitor-Lobby_Cristal-Zeitumstellung-2019.jpg')").css("height", "1920px").css("width", "1080px");
+			            			$('body').css("color", "#707173").css("background","url('images/zu/19/Monitor-Lobby_Cristal-Zeitumstellung-winter-2019.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 12);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 12){
