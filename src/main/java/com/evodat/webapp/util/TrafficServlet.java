@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.evodat.util.TimeoutMap;
@@ -532,7 +533,11 @@ public class TrafficServlet extends HttpServlet {
 	private void setImages(Mvg mvg) {
 		if (mvg.getTrain() != null) {
 			String firstLetter = mvg.getTrain().substring(0, 1);
-			if (mvg.getTrain().equals("58")) {
+			if (mvg.getTrain().equals("68")) {
+				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-68.gif";
+				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+			}
+			else if (mvg.getTrain().equals("58")) {
 				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
 				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
 			}else if (mvg.getTrain().equals("100")) {
@@ -553,10 +558,14 @@ public class TrafficServlet extends HttpServlet {
 						+ mvg.getTrain().substring(1) + ".gif");
 				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/ExpressBus.gif";
 			} else if (firstLetter.equals("U")) {
-				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
-						+ firstLetter
-						+ "-"
-						+ mvg.getTrain().substring(1) + ".gif");
+				if(null == StringUtils.trimToNull((mvg.getTrain().substring(1)))){
+					mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+				}else {
+					mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
+							+ firstLetter
+							+ "-"
+							+ mvg.getTrain().substring(1) + ".gif");
+				}
 				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
 			} else if (firstLetter.equals("S")) {
 				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
