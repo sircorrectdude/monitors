@@ -27,7 +27,7 @@ public class DBahn extends TrafficInfo {
 		this.target = target;
 	}
 
-	@Xpath(xPathExpr = "//td[@class='platform']/strong")
+	@Xpath(xPathExpr = "//td[@class='platform']/strong//text()")
 	public void setPlatform(String platform) {
 		this.platform = platform;
 	}
