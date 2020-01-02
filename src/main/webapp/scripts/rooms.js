@@ -26,30 +26,6 @@ jQuery(document).ready(function () {
 			            		}
 			            		else if($.cookie('switchAdToggle') == 5){
 			            			$('body').css("color", "#707173").css("background","url('images/design_2016/Monitor-hoch_WerbungMuenchnerStubn-Jan16.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2018, month: 8, day: 1, hour: 09, minute: 00}), Date.today().set({year: 2019, month: 2, day: 31, hour: 20, minute: 00}))){			            				
-			            				$.cookie('switchAdToggle', 6);
-			            			}else{
-			            				$.cookie('switchAdToggle', 10);
-			            			}
-			            		}
-			            		else if($.cookie('switchAdToggle') == 6){
-			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2018/1080x1920-winterzauber-2018-DE.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 7);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 7){
-			            			$('body').css("color", "#707173").css("background","url('images/huettenzauber/2018/1080x1920-winterzauber-2018-EN.jpg')").css("height", "1920px").css("width", "1080px");
-			            			if(new Date().between(Date.today().set({year: 2018, month: 8, day: 8, hour: 10, minute: 00}), Date.today().set({year: 2018, month: 8, day: 23, hour: 14, minute: 00}))){
-			            				$.cookie('switchAdToggle', 8);
-			            			}else{
-			            				$.cookie('switchAdToggle', 10);
-			            			}
-			            		}
-			            		else if($.cookie('switchAdToggle') == 8){
-			            			$('body').css("color", "#707173").css("background","url('images/umzuege/2018/Lobby-Monitor-Cristal_Wiesn-Umzuege2018-DE.jpg')").css("height", "1920px").css("width", "1080px");
-			            			$.cookie('switchAdToggle', 9);
-			            		}
-			            		else if($.cookie('switchAdToggle') == 9){
-			            			$('body').css("color", "#707173").css("background","url('images/umzuege/2018/Lobby-Monitor-Cristal_Wiesn-Umzuege2018-EN.jpg')").css("height", "1920px").css("width", "1080px");
 			            			$.cookie('switchAdToggle', 10);
 			            		}
 			            		else if($.cookie('switchAdToggle') == 10){
