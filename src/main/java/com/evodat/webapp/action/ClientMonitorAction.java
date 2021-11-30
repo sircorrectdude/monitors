@@ -64,6 +64,7 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 
 	}
 
+
 	public String execute() {
 
 		if (getRequest().getMethod().equals("HEAD")) {

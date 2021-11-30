@@ -32,7 +32,7 @@ public class GetFreeCarparkPlacesCron {
 	protected CarparkHistoryManager carparkHistoryManager;
 
 	// @Scheduled(cron = "0 */05 * * * ?")
-	@Scheduled(fixedRate = 120000)
+//	@Scheduled(fixedRate = 120000)
 	public void getFreeCarparkPlaces() {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		HttpGet httpget = new HttpGet(serviceUrl);
