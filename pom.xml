@@ -1180,8 +1180,8 @@
         <jdbc.version>5.1.44</jdbc.version>
         <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
         <jdbc.url>jdbc:mysql://localhost/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;useSSL=false</jdbc.url>
-        <jdbc.username>root</jdbc.username>
-        <jdbc.password>chemo</jdbc.password>
+        <jdbc.username>cristal</jdbc.username>
+        <jdbc.password>Che.guev123!</jdbc.password>
     
         <!-- Properties calculated by AppFuse when running full-source plugin -->
         <commons.beanutils.version>1.8.3</commons.beanutils.version>
