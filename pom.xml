@@ -1137,7 +1137,7 @@
         <web.framework>struts</web.framework>
         <amp.genericCore>true</amp.genericCore>
         <amp.fullSource>true</amp.fullSource>
-        <db.name>monitors_cristal</db.name>
+        <db.name>monitors</db.name>
 
         <!-- Framework dependency versions -->
         <appfuse.version>2.1.0-M2-SNAPSHOT</appfuse.version>
