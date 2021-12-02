@@ -1,6 +1,7 @@
 package com.evodat.webapp.action;
 
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -55,12 +56,10 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 		remoteAddr = getRequest().getRemoteAddr();
 		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
 				+ getRequest().getMethod());
-		// Enumeration parameterNames = getRequest().getParameterNames();
-		// if (parameterNames.hasMoreElements()) {
-		// String alias = parameterNames.nextElement().toString();
-		// aliasPath = alias.toString();
-		// log.debug("Alias: " + aliasPath);
-		// }
+		aliasPath = getRequest().getParameter("alias");
+		 if (null != aliasPath) {
+		 	log.debug("Request from: " +"Alias: " + aliasPath);
+		 }
 
 	}
 
