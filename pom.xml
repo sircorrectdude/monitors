@@ -1128,15 +1128,15 @@
         <cargo.container.url>http://dist.codehaus.org/jetty/jetty-6.1.21/jetty-6.1.21.zip</cargo.container.url>
         -->
         
-        <!-- Database settings -->
+    <!-- Database settings -->
         <dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
         <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
         <hibernate.dialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernate.dialect>
         <jdbc.groupId>mysql</jdbc.groupId>
         <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
         <jdbc.version>8.0.11</jdbc.version>
-        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-        <jdbc.url>jdbc:mysql://localhost/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;useSSL=false</jdbc.url>
+        <jdbc.driverClassName>com.mysql.cj.jdbc.Driver</jdbc.driverClassName>
+        <jdbc.url>jdbc:mysql://localhost/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</jdbc.url>
         <jdbc.username>cristal</jdbc.username>
         <jdbc.password>Che.guev123!</jdbc.password>
     
