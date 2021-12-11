@@ -16,6 +16,7 @@ public class TrafficInfo implements Comparable<TrafficInfo> {
 	public String image;
 	public String imageGeneral;
 	public String timeShift;
+	public String station;
 
 	public String getTimeShift() {
 		return timeShift;
@@ -57,8 +58,44 @@ public class TrafficInfo implements Comparable<TrafficInfo> {
 		return timeString;
 	}
 
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public void setTrain(String train) {
+		this.train = train;
+	}
+
+	public void setTarget(String target) {
+		this.target = target;
+	}
+
+	public void setPlatform(String platform) {
+		this.platform = platform;
+	}
+
+	public void setRis(String ris) {
+		this.ris = ris;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public void setTimeShift(String timeShift) {
+		this.timeShift = timeShift;
+	}
+
 	public void setTimeString(String timeString) {
 		this.timeString = timeString;
+	}
+
+	public String getStation() {
+		return station;
+	}
+
+	public void setStation(String station) {
+		this.station = station;
 	}
 
 	@Override
