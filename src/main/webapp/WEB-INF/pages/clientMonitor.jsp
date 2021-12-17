@@ -22,14 +22,13 @@
 		<script type="text/javascript">
 			$.cookie('switchAdToggle', 0);
 			$(document).everyTime('${refresh}s', 'reloadPage', reloadPage, 0, true);
-			//$(document).everyTime('600s', 'allrefresh', function(){window.location = "clientMonitor.html";}, 0, true);
 			function reloadPage() {
 			    $.ajax({
 			        url:'clientMonitor.html',
 			        type:'HEAD',
 			        success:  function() { 
 					    $.ajax({
-					        url:'ajax/clientMonitorContent.html',
+					        url:'ajax/clientMonitorContent.html?alias=${aliasPath}',
 					        type:'GET',
 					        cache: false,
 					        success:  function(data) { 

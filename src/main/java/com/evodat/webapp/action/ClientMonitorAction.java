@@ -245,6 +245,12 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 	public void setRemoveBody(boolean removeBody) {
 		this.removeBody = removeBody;
 	}
-	
-	
+
+	public String getAliasPath() {
+		return aliasPath;
+	}
+
+	public void setAliasPath(String aliasPath) {
+		this.aliasPath = aliasPath;
+	}
 }
