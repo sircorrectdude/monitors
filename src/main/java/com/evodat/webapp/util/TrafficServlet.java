@@ -4,13 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -500,7 +494,9 @@ public class TrafficServlet extends HttpServlet {
 		
 		TrafficInfoDTO trafficInfoDTO = new TrafficInfoDTO();
 		trafficInfoDTO.setAllObjects(subList);
-		trafficInfoDTO.setTime(new SimpleDateFormat("HH:mm", Locale.GERMAN)
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.GERMAN);
+		sdf.setTimeZone(TimeZone.getTimeZone("Europe/Berlin"));
+		trafficInfoDTO.setTime(sdf
 				.format(new Date().getTime()
 				// Somerzeit Bug?
 				// + 1000 * 60 * 60
