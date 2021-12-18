@@ -54,11 +54,11 @@ public class ClientMonitorAction extends BaseAction implements Preparable,
 		// log.info(getRequest().getHeader(nextElement.toString()));
 		// }
 		remoteAddr = getRequest().getRemoteAddr();
-		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
-				+ getRequest().getMethod());
+/*		log.debug("Request from: " + getRequest().getRemoteAddr() + " Method: "
+				+ getRequest().getMethod());*/
 		aliasPath = getRequest().getParameter("alias");
 		 if (null != aliasPath) {
-		 	log.debug("Request from: " +"Alias: " + aliasPath);
+		 	log.debug("Request from: " + getRequest().getRemoteAddr() +" Alias: " + aliasPath);
 		 }
 
 	}

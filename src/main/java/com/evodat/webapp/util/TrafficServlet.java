@@ -347,7 +347,14 @@ public class TrafficServlet extends HttpServlet {
 						if (trafficInfo.getTrain().equals("58")) {
 							trafficInfo.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
 							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
-						} else if (firstLetter.equals("N")) {
+						}
+						else if (trafficInfo.getTrain().equals("68")) {
+							trafficInfo.image = "images/templates/stubn/M-68.gif";
+							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+						}else if (trafficInfo.getTrain().equals("100")) {
+							trafficInfo.image = "images/templates/stubn/M-100.gif";
+							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+						}else if (firstLetter.equals("N")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
 									+ "-"
@@ -389,6 +396,12 @@ public class TrafficServlet extends HttpServlet {
 						String firstLetter = trafficInfo.getTrain().substring(0, 1);
 						if (trafficInfo.getTrain().equals("58")) {
 							trafficInfo.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
+							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+						}else if (trafficInfo.getTrain().equals("68")) {
+							trafficInfo.image = "images/templates/stubn/M-68.gif";
+							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+						}else if (trafficInfo.getTrain().equals("100")) {
+							trafficInfo.image = "images/templates/stubn/M-100.gif";
 							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
 						} else if (firstLetter.equals("N")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
