@@ -111,6 +111,24 @@
         </init-param>
     </filter>
 
+    <filter>
+        <filter-name>basicauth</filter-name>
+        <filter-class>com.evodat.webapp.filter.BasicAuthFilter</filter-class>
+        <init-param>
+            <param-name>realm</param-name>
+            <param-value>Spring Security Application</param-value>
+        </init-param>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+    </filter>
+
+
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -173,7 +191,10 @@
         <filter-name>struts</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
+    <filter-mapping>
+        <filter-name>basicauth</filter-name>
+        <url-pattern>/wiesnmail</url-pattern>
+    </filter-mapping>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -221,6 +242,12 @@
     </servlet>
 
     <servlet>
+        <servlet-name>WiesnEmail</servlet-name>
+        <servlet-class>com.evodat.webapp.util.WiesnEmailServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
         <servlet-name>Traffic</servlet-name>
         <servlet-class>com.evodat.webapp.util.TrafficServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
@@ -262,6 +289,11 @@
         <url-pattern>/signal</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>WiesnEmail</servlet-name>
+        <url-pattern>/wiesnmail</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>10</session-timeout>
     </session-config>
@@ -286,4 +318,5 @@
         <error-code>404</error-code>
         <location>/404.jsp</location>
     </error-page>
+
 </web-app>
