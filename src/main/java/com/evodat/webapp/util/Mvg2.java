@@ -47,8 +47,8 @@ public class Mvg2 extends TrafficInfo {
 		final Client client = ClientBuilder.newBuilder().hostnameVerifier(allHostsValid)
 				.sslContext(sslContext).build();
 
-		WebTarget target = client.target("https://www.mvg.de").path("/api/fahrinfong/departure");
-		Response response = target.queryParam("stationGlobalId", station).queryParam("transportTypes", transportTypes).request().get();
+		WebTarget target = client.target("https://www.mvg.de").path("/api/fib/v3/departure");
+		Response response = target.queryParam("globalId", station).queryParam("transportTypes", transportTypes).request().get();
 		String string = response.readEntity(String.class);
 		Object obj = JSONValue.parse(string);
 		JSONArray jSONArray = (JSONArray) obj;
