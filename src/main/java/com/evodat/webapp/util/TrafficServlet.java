@@ -216,7 +216,7 @@ public class TrafficServlet extends HttpServlet {
 							String firstLetter = trafficInfo.getTrain().substring(0, 1);
 							if (trafficInfo.getTrain().equals("58")) {
 								trafficInfo.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-								trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+								trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 							} else if (firstLetter.equals("N")) {
 								trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ firstLetter
@@ -227,21 +227,21 @@ public class TrafficServlet extends HttpServlet {
 										+ firstLetter
 										+ "-"
 										+ trafficInfo.getTrain().substring(1) + ".gif");
-								trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+								trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot2.svg";
 							} else if (firstLetter.equals("S")) {
 								trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ firstLetter
 										+ trafficInfo.getTrain().substring(1,
 										trafficInfo.getTrain().length()) + ".gif");
-								trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+								trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 							} else if (firstLetter.equals("M")) {
 								trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ "M-" + trafficInfo.getTrain() + ".gif");
-								trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+								trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 							} else {
 								trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 										+ "T-" + trafficInfo.getTrain() + ".gif");
-								trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+								trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot4.svg";
 							}
 						}
 					}
@@ -258,10 +258,7 @@ public class TrafficServlet extends HttpServlet {
 					if (trafficInfo.getTrain() != null) {
 						trafficInfo.setStation("Hauptbahnhof");
 						String firstLetter = trafficInfo.getTrain().substring(0, 1);
-						if (trafficInfo.getTrain().equals("58")) {
-							trafficInfo.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
-						} else if (firstLetter.equals("N")) {
+						if (firstLetter.equals("N")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
 									+ "-"
@@ -271,21 +268,21 @@ public class TrafficServlet extends HttpServlet {
 									+ firstLetter
 									+ "-"
 									+ trafficInfo.getTrain().substring(1) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot2.svg";
 						} else if (firstLetter.equals("S")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
 									+ trafficInfo.getTrain().substring(1,
 									trafficInfo.getTrain().length()) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else if (firstLetter.equals("M")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "M-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "T-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot4.svg";
 						}
 					}
 				}
@@ -302,7 +299,7 @@ public class TrafficServlet extends HttpServlet {
 						String firstLetter = trafficInfo.getTrain().substring(0, 1);
 						if (trafficInfo.getTrain().equals("58")) {
 							trafficInfo.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 						} else if (firstLetter.equals("N")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
@@ -313,21 +310,21 @@ public class TrafficServlet extends HttpServlet {
 									+ firstLetter
 									+ "-"
 									+ trafficInfo.getTrain().substring(1) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot2.svg";
 						} else if (firstLetter.equals("S")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
 									+ trafficInfo.getTrain().substring(1,
 									trafficInfo.getTrain().length()) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else if (firstLetter.equals("M")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "M-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "T-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot4.svg";
 						}
 					}
 				}
@@ -346,14 +343,14 @@ public class TrafficServlet extends HttpServlet {
 						String firstLetter = trafficInfo.getTrain().substring(0, 1);
 						if (trafficInfo.getTrain().equals("58")) {
 							trafficInfo.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 						}
 						else if (trafficInfo.getTrain().equals("68")) {
 							trafficInfo.image = "images/templates/stubn/M-68.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 						}else if (trafficInfo.getTrain().equals("100")) {
 							trafficInfo.image = "images/templates/stubn/M-100.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 						}else if (firstLetter.equals("N")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
@@ -364,21 +361,21 @@ public class TrafficServlet extends HttpServlet {
 									+ firstLetter
 									+ "-"
 									+ trafficInfo.getTrain().substring(1) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot2.svg";
 						} else if (firstLetter.equals("S")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
 									+ trafficInfo.getTrain().substring(1,
 									trafficInfo.getTrain().length()) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else if (firstLetter.equals("M")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "M-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "T-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot4.svg";
 						}
 					}
 				}
@@ -396,13 +393,13 @@ public class TrafficServlet extends HttpServlet {
 						String firstLetter = trafficInfo.getTrain().substring(0, 1);
 						if (trafficInfo.getTrain().equals("58")) {
 							trafficInfo.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 						}else if (trafficInfo.getTrain().equals("68")) {
 							trafficInfo.image = "images/templates/stubn/M-68.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 						}else if (trafficInfo.getTrain().equals("100")) {
 							trafficInfo.image = "images/templates/stubn/M-100.gif";
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 						} else if (firstLetter.equals("N")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
@@ -413,21 +410,21 @@ public class TrafficServlet extends HttpServlet {
 									+ firstLetter
 									+ "-"
 									+ trafficInfo.getTrain().substring(1) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot2.svg";
 						} else if (firstLetter.equals("S")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ firstLetter
 									+ trafficInfo.getTrain().substring(1,
 									trafficInfo.getTrain().length()) + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else if (firstLetter.equals("M")) {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "M-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/S-Bahn.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot1.svg";
 						} else {
 							trafficInfo.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 									+ "T-" + trafficInfo.getTrain() + ".gif");
-							trafficInfo.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+							trafficInfo.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot4.svg";
 						}
 					}
 				}
@@ -536,17 +533,17 @@ public class TrafficServlet extends HttpServlet {
 			String firstLetter = mvg.getTrain().substring(0, 1);
 			if (mvg.getTrain().equals("68")) {
 				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-68.gif";
-				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+				mvg.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 			}
 			else if (mvg.getTrain().equals("58")) {
 				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/M-58.gif";
-				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+				mvg.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 			}else if (mvg.getTrain().equals("100")) {
 				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/S-100.gif";
-				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+				mvg.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 			}else if (mvg.getTrain().equals("150")) {
 				mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/linie/S-150.gif";
-				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+				mvg.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 			} else if (firstLetter.equals("N")) {
 				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 						+ firstLetter
@@ -560,26 +557,26 @@ public class TrafficServlet extends HttpServlet {
 				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/ExpressBus.gif";
 			} else if (firstLetter.equals("U")) {
 				if(null == StringUtils.trimToNull((mvg.getTrain().substring(1)))){
-					mvg.image = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+					mvg.image = "https://efa.mvv-muenchen.de/img2/mots/mot2.svg";
 				}else {
 					mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 							+ firstLetter
 							+ "-"
 							+ mvg.getTrain().substring(1) + ".gif");
 				}
-				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/U-Bahn.gif";
+				mvg.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot2.svg";
 			} else if (firstLetter.equals("S")) {
 				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 						+ firstLetter
 						+ mvg.getTrain().substring(1,
 								mvg.getTrain().length()) + ".gif");
-				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Bus.gif";
+				mvg.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot5.svg";
 			}
 
 			else {
 				mvg.image = ("http://www.mvg-live.de/MvgLive/images/size30/linie/"
 						+ "T-" + mvg.getTrain() + ".gif");
-				mvg.imageGeneral = "http://www.mvg-live.de/MvgLive/images/size30/produkt/Tram.gif";
+				mvg.imageGeneral = "https://efa.mvv-muenchen.de/img2/mots/mot4.svg";
 			}
 		}
 	}
